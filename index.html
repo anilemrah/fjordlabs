@@ -4,39 +4,74 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Fjord Labs</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet">
   <link rel="icon" type="image/png" href="fjordlabsicon.png">
   <style>
     body {
       margin: 0;
-      background: linear-gradient(135deg, #2e003e, #0a192f);
-      color: #fff;
-      height: 100vh;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      font-family: 'Orbitron', sans-serif;
-      text-align: center;
+      background: #f2f4f7;
+      color: #333;
+      font-family: 'Rubik', sans-serif;
     }
-
-    img.logo {
-      width: 120px;
-      height: 120px;
-      margin-bottom: 30px;
-      animation: pulse 2s infinite;
+    header {
+      text-align: center;
+      padding: 40px 20px 20px;
+      position: relative;
+    }
+    header img.logo {
+      width: 100px;
+      height: 100px;
       border-radius: 50%;
       object-fit: cover;
+      margin-bottom: 15px;
+      animation: pulse 2s infinite;
     }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 20px;
-      letter-spacing: 2px;
+    .language-toggle {
+      position: absolute;
+      top: 20px;
+      right: 20px;
     }
-
-    a.etsy-button {
-      display: flex;
+    .language-toggle img {
+      width: 30px;
+      height: auto;
+      cursor: pointer;
+    }
+    header h1 {
+      font-size: 2.5rem;
+      margin: 0;
+    }
+    nav {
+      text-align: center;
+      margin: 20px 0;
+    }
+    nav a {
+      color: #1a1a1a;
+      text-decoration: none;
+      margin: 0 15px;
+      font-weight: 600;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+    nav a:hover {
+      color: #0057b8;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 20px;
+      text-align: center;
+    }
+    section {
+      margin-bottom: 60px;
+    }
+    .product-promo {
+      background: #ffffff;
+      padding: 30px;
+      border-radius: 15px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.08);
+    }
+    .etsy-button {
+      display: inline-flex;
       align-items: center;
       gap: 10px;
       padding: 14px 28px;
@@ -45,35 +80,239 @@
       border: none;
       border-radius: 30px;
       font-weight: bold;
-      font-size: 1.2rem;
+      font-size: 1.1rem;
       text-decoration: none;
       transition: all 0.3s ease;
-      box-shadow: 0 0 10px rgba(243, 111, 33, 0.5);
+      margin-top: 20px;
     }
-
-    a.etsy-button:hover {
-      transform: scale(1.08);
-      box-shadow: 0 0 20px rgba(243, 111, 33, 0.7);
+    .etsy-button:hover {
+      transform: scale(1.05);
+      box-shadow: 0 0 12px rgba(243, 111, 33, 0.5);
     }
-
     .etsy-button img {
       width: 24px;
       height: 24px;
     }
+    .product-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 30px;
+  margin-top: 30px;
+}
 
+.product a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.product {
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.06);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: left;
+}
+
+.product:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
+}
+    .product {
+      background: #ffffff;
+      border-radius: 12px;
+      padding: 15px;
+      box-shadow: 0 0 8px rgba(0,0,0,0.05);
+      cursor: pointer;
+      transition: transform 0.2s;
+    }
+    .product:hover {
+      transform: scale(1.02);
+    }
+    .product img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+    .product h3 {
+      margin: 15px 0 5px;
+      font-size: 1.2rem;
+    }
+    .product p {
+      font-size: 0.95rem;
+      color: #555;
+    }
+    .team {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      flex-wrap: wrap;
+      margin-top: 40px;
+    }
+    .team-member {
+      max-width: 200px;
+    }
+    .team-member img {
+      width: 100px;
+      height: 100px;
+      border-radius: 50%;
+      object-fit: cover;
+    }
+    .team-member h4 {
+      margin: 10px 0 5px;
+    }
+    .team-member p {
+      font-size: 0.9rem;
+      color: #555;
+    }
+    footer {
+      text-align: center;
+      padding: 30px;
+      color: #888;
+      font-size: 0.9rem;
+    }
     @keyframes pulse {
       0% { transform: scale(1); opacity: 1; }
-      50% { transform: scale(1.1); opacity: 0.8; }
+      50% { transform: scale(1.05); opacity: 0.85; }
       100% { transform: scale(1); opacity: 1; }
     }
   </style>
+  <script>
+
+  function toggleLanguage() {
+  const currentLang = document.body.getAttribute('lang');
+  const newLang = currentLang === 'sv' ? 'en' : 'sv';
+  document.body.setAttribute('lang', newLang);
+
+  // Update flag icon
+  const flag = document.getElementById('lang-flag');
+  document.getElementById('lang-flag').src = newLang === 'sv' ? 'uk.png' : 'sweden.png';
+
+    document.querySelectorAll('[data-translate]').forEach(el => {
+      if (!el.dataset.original) {
+        el.dataset.original = el.textContent.trim();
+      }
+      const original = el.dataset.original;
+      const translated = translations[newLang][original];
+      el.textContent = translated || original;
+    });
+  }
+</script>
 </head>
-<body>
-  <img class="logo" src="fjordlabsicon.png" alt="Fjord Labs Logo">
-  <h1>IN PROGRESS</h1>
-  <a class="etsy-button" href="https://www.etsy.com/shop/FjordLabs/" target="_blank">
-    <img src="etsyicon.png" alt="Etsy Icon">
-    Visit Our Etsy Shop
+<body lang="en">
+  <header>
+    <div class="language-toggle" onclick="toggleLanguage()">
+  <img id="lang-flag" src="sweden.png" alt="Switch Language">
+</div>
+    <img class="logo" src="fjordlabsicon.png" alt="Fjord Labs Logo">
+    <h1>Fjord Labs</h1>
+    <nav>
+  <a href="#about" data-translate>About</a></div>
+  <a href="#products" data-translate>Products</a>
+  <a href="#contact" data-translate>Contact</a>
+</nav>
+
+  </header>
+
+  <main>
+    <section id="about">
+      <h2 data-translate>Who We Are</h2>
+      <p data-translate>Fjord Labs is a small creative workshop located near a peaceful Swedish lake, surrounded by forest. We design and 3D print everything ourselves — each item inspired by our surroundings and made with love and curiosity.</p>
+    </section>
+
+    <section id="products">
+      <h2 data-translate>Our Products</h2>
+      <div class="product-list">
+  <a class="product" href="https://www.etsy.com/se-en/listing/1861335439/wingspan-food-token-set-board-game/" target="_blank">
+    <img src="product1.png" alt="Wingspan Food Tokens">
+    <h3 data-translate>Wingspan Food Token Set</h3>
+    <p data-translate>Upgrade your Wingspan sessions with high-quality food tokens that bring texture, color, and delight to your tabletop ecosystem.</p>
   </a>
-</body>
-</html>
+  <a class="product" href="https://www.etsy.com/se-en/listing/1882347801/wyrmspan-resource-token-set-board-game/" target="_blank">
+    <img src="product2.png" alt="Wyrmspan Resource Tokens">
+    <h3 data-translate>Wyrmspan Resource Token Set</h3>
+    <p data-translate>A beautifully crafted token set for the world of Wyrmspan — sturdy, colorful, and dragon-approved.</p>
+  </a>
+  <a class="product" href="https://www.etsy.com/se-en/listing/1881692812/catan-the-longest-road-and-the-biggest/" target="_blank">
+    <img src="product3.png" alt="Catan Trophies">
+    <h3 data-translate>Catan Longest Road & Biggest Army</h3>
+    <p data-translate>Add extra motivation with these stylish trophies for your Catan matches — a proud reward for every strategy master.</p>
+  </a>
+</div>
+      <a class="etsy-button" href="https://www.etsy.com/shop/fjordlabs" target="_blank">
+        <img src="etsyicon.png" alt="Etsy Icon">
+        <span data-translate>Shop on Etsy</span>
+      </a>
+    </section>
+
+    <section id="contact">
+      <h2 data-translate>Meet the Team</h2>
+      <div class="team">
+        <div class="team-member">
+          <img src="anilemrah.jpeg" alt="Anil">
+          <h4 data-translate>Anil</h4>
+          <p data-translate>Dreamer, Designer, and Builder of ideas born on forest walks.</p>
+        </div>
+        <div class="team-member">
+          <img src="pelinanil.jpeg" alt="Pelin">
+          <h4 data-translate>Pelin</h4>
+          <p data-translate>Artist, Perfectionist, the eye behind every beautiful detail.</p>
+        </div>
+        <div class="team-member">
+          <img src="chatgpt.png" alt="AI">
+          <h4 data-translate>ChatGPT</h4>
+          <p data-translate>Your friendly assistant, always here to help — even at 3am.</p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    &copy; 2025 Fjord Labs. Handcrafted in Sweden. Powered by creativity, curiosity, and a little coffee.
+  </footer>
+<script>
+  const translations = {
+    sv: {
+      'Who We Are': 'Vem är vi',
+      'Fjord Labs is a small creative workshop located near a peaceful Swedish lake, surrounded by forest. We design and 3D print everything ourselves — each item inspired by our surroundings and made with love and curiosity.': 'Fjord Labs är en liten kreativ verkstad nära en fridfull svensk sjö, omgiven av skog. Vi designar och 3D-printar allt själva – inspirerade av naturen och skapade med kärlek och nyfikenhet.',
+      'Our Products': 'Våra produkter',
+      'Wingspan Food Token Set': 'Wingspan Matmarkörer',
+      'Upgrade your Wingspan sessions with high-quality food tokens that bring texture, color, and delight to your tabletop ecosystem.': 'Uppgradera dina Wingspan-spel med högkvalitativa matmarkörer som ger struktur, färg och glädje till spelet.',
+      'Wyrmspan Resource Token Set': 'Wyrmspan Resursmarkörer',
+      'A beautifully crafted token set for the world of Wyrmspan — sturdy, colorful, and dragon-approved.': 'Ett vackert set med resursmarkörer för Wyrmspan – robusta, färgstarka och godkända av drakar.',
+      'Catan Longest Road & Biggest Army': 'Catan Längsta Väg & Största Armé',
+      'Add extra motivation with these stylish trophies for your Catan matches — a proud reward for every strategy master.': 'Ge extra motivation med dessa stilrena troféer till dina Catan-spel – en stolt belöning för varje strategimästare.',
+      'Shop on Etsy': 'Besök vår Etsy-butik',
+      'Meet the Team': 'Träffa teamet',
+      'Dreamer, Designer, and Builder of ideas born on forest walks.': 'Drömmare, designer och byggare av idéer födda på skogspromenader.',
+      'Artist, Perfectionist, the eye behind every beautiful detail.': 'Konstnär, perfektionist och ögat bakom varje vacker detalj.',
+      'Web developer and AI assistant supporting the Fjord Labs team with strategy, structure, and maybe a few lucky dice rolls.': '"Webbutvecklare och AI-assistent som stöttar Fjord Labs med strategi, struktur och kanske några tärningskast av tur.',
+      'About': 'Om oss',
+      'Products': 'Produkter',
+      'Contact': 'Kontakt'
+    },
+    en: {}
+  };
+
+  function toggleLanguage() {
+    const currentLang = document.body.getAttribute('lang');
+    const newLang = currentLang === 'sv' ? 'en' : 'sv';
+    document.body.setAttribute('lang', newLang);
+
+    document.querySelectorAll('[data-translate]').forEach(el => {
+  if (!el.dataset.original) {
+    el.dataset.original = el.textContent.trim();
+  }
+  const original = el.dataset.original;
+  const translated = translations[newLang][original];
+  el.textContent = translated || original;
+});
+
+    document.querySelectorAll('nav a').forEach(el => {
+      const original = el.textContent.trim();
+      if (translations[newLang][original]) {
+        el.textContent = translations[newLang][original];
+      }
+    });
+  }
+</script>
