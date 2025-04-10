@@ -184,8 +184,10 @@
   const newLang = currentLang === 'sv' ? 'en' : 'sv';
   document.body.setAttribute('lang', newLang);
 
-  // Update flag icon
   const flag = document.getElementById('lang-flag');
+  if (flag) flag.src = newLang === 'sv' ? 'uk.png' : 'sweden.png';
+
+  // Update flag icon
   document.getElementById('lang-flag').src = newLang === 'sv' ? 'uk.png' : 'sweden.png';
 
     document.querySelectorAll('[data-translate]').forEach(el => {
@@ -261,18 +263,19 @@
         <div class="team-member">
           <img src="chatgpt.png" alt="AI">
           <h4 data-translate>ChatGPT</h4>
-          <p data-translate>Your friendly assistant, always here to help — even at 3am.</p>
+          <p data-translate>AI developer helping Fjord Labs build, organize, and occasionally roll the dice.</p>
         </div>
       </div>
     </section>
   </main>
 
   <footer>
-    &copy; 2025 Fjord Labs. Handcrafted in Sweden. Powered by creativity, curiosity, and a little coffee.
-  </footer>
+  <span data-translate>&copy; 2025 Fjord Labs. Handcrafted in Sweden. Powered by creativity, curiosity, and a little coffee.</span>
+</footer>
 <script>
   const translations = {
     sv: {
+      '&copy; 2025 Fjord Labs. Handcrafted in Sweden. Powered by creativity, curiosity, and a little coffee.': '&copy; 2025 Fjord Labs. Hantverksmässigt skapat i Sverige. Drivs av kreativitet, nyfikenhet och en nypa kaffe.',
       'Who We Are': 'Vem är vi',
       'Fjord Labs is a small creative workshop located near a peaceful Swedish lake, surrounded by forest. We design and 3D print everything ourselves — each item inspired by our surroundings and made with love and curiosity.': 'Fjord Labs är en liten kreativ verkstad nära en fridfull svensk sjö, omgiven av skog. Vi designar och 3D-printar allt själva – inspirerade av naturen och skapade med kärlek och nyfikenhet.',
       'Our Products': 'Våra produkter',
@@ -286,7 +289,7 @@
       'Meet the Team': 'Träffa teamet',
       'Dreamer, Designer, and Builder of ideas born on forest walks.': 'Drömmare, designer och byggare av idéer födda på skogspromenader.',
       'Artist, Perfectionist, the eye behind every beautiful detail.': 'Konstnär, perfektionist och ögat bakom varje vacker detalj.',
-      'Web developer and AI assistant supporting the Fjord Labs team with strategy, structure, and maybe a few lucky dice rolls.': '"Webbutvecklare och AI-assistent som stöttar Fjord Labs med strategi, struktur och kanske några tärningskast av tur.',
+      'Web developer and AI assistant supporting the Fjord Labs team with strategy, structure, and maybe a few lucky dice rolls.': 'AI-utvecklare som hjälper Fjord Labs bygga, strukturera och ibland kasta tärningen.',
       'About': 'Om oss',
       'Products': 'Produkter',
       'Contact': 'Kontakt'
@@ -316,3 +319,4 @@
     });
   }
 </script>
+
