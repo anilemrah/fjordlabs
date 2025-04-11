@@ -1,0 +1,254 @@
+/* Fjord Labs modern style with subtle animations */
+body {
+    margin: 0;
+    background: #f2f4f7;
+    color: #333;
+    font-family: 'Rubik', sans-serif;
+  }
+  
+  header {
+    text-align: center;
+    padding: 60px 20px 30px;
+    position: relative;
+    background: linear-gradient(145deg, #f2f4f7, #e5e9f0);
+    animation: fadeIn 1s ease-in;
+    border-bottom: 1px solid #e0e0e0;
+  }
+  
+  header img.logo {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 15px;
+    transition: transform 0.4s ease;
+  }
+  
+  header img.logo:hover {
+    transform: scale(1.05);
+  }
+  
+  .language-toggle {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  .language-toggle img {
+    width: 30px;
+    height: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+  }
+  
+  .language-toggle img:hover {
+    transform: rotate(10deg) scale(1.1);
+  }
+  
+  header h1 {
+    font-size: 2.7rem;
+    margin: 0;
+  }
+  
+  nav {
+    text-align: center;
+    margin: 20px 0;
+  }
+  
+  nav a {
+    color: #1a1a1a;
+    text-decoration: none;
+    margin: 0 15px;
+    font-weight: 600;
+    font-size: 1rem;
+    transition: color 0.3s;
+  }
+  
+  nav a:hover {
+    color: #0057b8;
+  }
+  
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center;
+    animation: fadeIn 1.2s ease-in;
+  }
+  
+  section {
+    margin-bottom: 60px;
+  }
+  
+  .etsy-intro {
+    font-size: 1rem;
+    color: #444;
+    margin-bottom: 25px;
+  }
+  
+  .etsy-collage {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+    margin-bottom: 25px;
+  }
+  
+  .etsy-collage img {
+    width: 150px;
+    height: auto;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s;
+  }
+  
+  .etsy-collage img:hover {
+    transform: scale(1.05);
+  }
+  
+  .etsy-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(145deg, #f36f21, #e55c00);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 30px;
+    animation: glow 2.5s infinite ease-in-out;
+  }
+  
+  .etsy-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(243, 111, 33, 0.5);
+  }
+  
+  .etsy-button img {
+    width: 24px;
+    height: 24px;
+  }
+
+  .tradera-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: linear-gradient(145deg, #0071b8, #005a95);
+    color: #fff;
+    border: none;
+    border-radius: 30px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    margin-top: 15px;
+    animation: glow 2.5s infinite ease-in-out;
+  }
+  
+  .tradera-button:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 12px rgba(0, 113, 184, 0.5);
+  }
+  
+  .tradera-button img {
+    width: 24px;
+    height: 24px;
+  }
+  
+  .team {
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
+    margin-top: 40px;
+  }
+  
+  .team-member {
+    max-width: 200px;
+    transition: transform 0.3s ease;
+  }
+  
+  .team-member:hover {
+    transform: translateY(-4px);
+  }
+  
+  .team-member img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+  
+  .team-member h4 {
+    margin: 10px 0 5px;
+  }
+  
+  .team-member p {
+    font-size: 0.9rem;
+    color: #555;
+  }
+  
+  footer {
+    text-align: center;
+    padding: 30px;
+    color: #888;
+    font-size: 0.9rem;
+    background: #f0f1f3;
+  }
+  
+  @keyframes pulse {
+    0% { transform: scale(1); opacity: 1; }
+    50% { transform: scale(1.05); opacity: 0.85; }
+    100% { transform: scale(1); opacity: 1; }
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+  
+  @keyframes glow {
+    0% { box-shadow: 0 0 0 rgba(243, 111, 33, 0.0); }
+    50% { box-shadow: 0 0 12px rgba(243, 111, 33, 0.3); }
+    100% { box-shadow: 0 0 0 rgba(243, 111, 33, 0.0); }
+  }
+
+  .product-strip-wrapper {
+    overflow: hidden;
+    margin: 0; /* remove spacing */
+    padding: 0;
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+  }
+  
+  .product-strip {
+    display: flex;
+    gap: 0;
+    animation: scroll-strip 40s linear infinite;
+    width: max-content;
+  }
+  
+  .product-strip img {
+    width: 260px;
+    height: auto;
+    flex-shrink: 0;
+  }
+  
+  @keyframes scroll-strip {
+    0% {
+      transform: translateX(0);
+    }
+    100% {
+      transform: translateX(-50%);
+    }
+  }
+  
