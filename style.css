@@ -241,6 +241,7 @@ body {
     width: 260px;
     height: auto;
     flex-shrink: 0;
+    background-color: #e6e9ed; /* light gray while image loads */
   }
   
   @keyframes scroll-strip {
