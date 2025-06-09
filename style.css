@@ -193,14 +193,6 @@ body {
     color: #555;
   }
   
-  footer {
-    text-align: center;
-    padding: 30px;
-    color: #888;
-    font-size: 0.9rem;
-    background: #f0f1f3;
-  }
-  
   @keyframes pulse {
     0% { transform: scale(1); opacity: 1; }
     50% { transform: scale(1.05); opacity: 0.85; }
@@ -253,3 +245,31 @@ body {
     }
   }
   
+  footer {
+    text-align: center;
+    align-items: center;
+    padding: 1rem;
+    flex-direction: column;
+    gap: 0.5rem;
+    padding: 30px;
+    color: #888;
+    font-size: 0.9rem;
+    background: #f0f1f3;
+    display: flex;
+  }
+
+  .social-icons {
+    display: flex;
+    gap: 1rem;
+    margin-top: 0.5rem;
+  }
+  
+  .social-icons img {
+    width: 24px;
+    height: 24px;
+    transition: transform 0.2s ease;
+  }
+  
+  .social-icons img:hover {
+    transform: scale(1.2);
+  }
