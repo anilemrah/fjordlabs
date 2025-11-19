@@ -1,77 +1,680 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Fjord Labs</title>
-  <link rel="stylesheet" href="style.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;600&display=swap" rel="stylesheet" />
-  <link rel="icon" type="image/png" href="fjordlabsicon.png" />
-  <link rel="preload" as="image" href="product1.jpg">
-  <link rel="preload" as="image" href="product2.jpg">
-  <link rel="preload" as="image" href="product3.jpg">
-  <link rel="preload" as="image" href="product4.jpg">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fjord Labs | Maker & Game Workshop</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&family=Space+Grotesk:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <style>
+        /* Custom Theme Config - Catan & Nature Palette */
+        :root {
+            --forest-dark: #0f1f1c;
+            --catan-clay: #E05A48;  /* Brick */
+            --catan-wood: #2D5A4C;  /* Forest/Wood */
+            --catan-wheat: #F2C94C; /* Wheat */
+            --catan-sheep: #9BC53D; /* Sheep/Pasture */
+            --catan-ore: #566573;   /* Ore/Rock */
+            --mist-gray: #f0f4f8;
+            --accent-gold: #d4a373; 
+        }
+
+        body {
+            font-family: 'Outfit', sans-serif;
+            background-color: var(--forest-dark);
+            color: var(--mist-gray);
+        }
+
+        h1, h2, h3, .font-heading {
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        /* Backgrounds */
+        .bg-stack {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+        }
+
+        .aurora-layer {
+            background: radial-gradient(circle at 50% 0%, var(--catan-wood) 0%, var(--forest-dark) 80%);
+            opacity: 0.6;
+            position: absolute;
+            inset: 0;
+        }
+
+        /* Updated Hex Pattern for Catan Vibe */
+        .hex-layer {
+            background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z' fill='%23F2C94C' fill-opacity='0.05'/%3E%3C/g%3E%3C/svg%3E");
+            position: absolute;
+            inset: 0;
+            z-index: 1;
+        }
+
+        /* Glassmorphism Card */
+        .glass-card {
+            background: rgba(23, 35, 33, 0.6);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card:hover {
+            background: rgba(45, 90, 76, 0.4);
+            border-color: var(--catan-wheat);
+            transform: translateY(-4px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4), 0 0 15px rgba(242, 201, 76, 0.1);
+        }
+
+        /* Stat Bars */
+        .stat-bar {
+            height: 4px;
+            background: rgba(255,255,255,0.1);
+            border-radius: 2px;
+            overflow: hidden;
+        }
+        .stat-fill {
+            height: 100%;
+            background: var(--catan-clay);
+        }
+        
+        /* Game Canvas */
+        #game-canvas {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 10; /* Active game layer */
+            cursor: crosshair;
+        }
+
+        /* Game Overlay (Instructions) */
+        .game-overlay {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 30;
+            text-align: center;
+            pointer-events: none;
+            transition: opacity 0.3s;
+        }
+        
+        .hero-content {
+            position: relative;
+            z-index: 20;
+            pointer-events: none; 
+        }
+        .hero-content a, .hero-content button, .hero-content .interactive {
+            pointer-events: auto; 
+        }
+
+        /* Game UI - Fixed Position below nav */
+        .game-score {
+            position: absolute;
+            top: 100px; /* Moved down to avoid Navbar overlap */
+            right: 20px;
+            background: rgba(0,0,0,0.85);
+            border: 1px solid var(--catan-wheat);
+            color: var(--catan-wheat);
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: bold;
+            z-index: 40; /* Higher than before */
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.5);
+            pointer-events: none;
+        }
+
+        /* Catan Resource Colors for Tags */
+        .tag-clay { color: var(--catan-clay); border-color: var(--catan-clay); background: rgba(224, 90, 72, 0.1); }
+        .tag-wheat { color: var(--catan-wheat); border-color: var(--catan-wheat); background: rgba(242, 201, 76, 0.1); }
+        .tag-ore { color: #bdc3c7; border-color: var(--catan-ore); background: rgba(86, 101, 115, 0.3); }
+        .tag-wood { color: #82e0aa; border-color: var(--catan-wood); background: rgba(45, 90, 76, 0.3); }
+
+    </style>
 </head>
-<body lang="en">
-  <header>
-    <div class="language-toggle" onclick="toggleLanguage()">
-      <img id="lang-flag" src="sweden.png" alt="Switch Language" />
-    </div>
-    <img class="logo" src="fjordlabsicon.png" alt="Fjord Labs Logo" />
-    <h1>Fjord Labs</h1>
-  </header>
+<body class="antialiased min-h-screen flex flex-col">
 
-  <main>
-    <div class="product-strip-wrapper">
-        <div class="product-strip">
-          <img src="product1.png" alt="Product 1" loading="lazy">
-          <img src="product2.png" alt="Product 2" loading="lazy">
-          <img src="product3.png" alt="Product 3" loading="lazy">
-          <img src="product4.png" alt="Product 4" loading="lazy">
-          <img src="product5.png" alt="Product 5" loading="lazy">
-          <img src="product6.png" alt="Product 6" loading="lazy">
-          <img src="product7.png" alt="Product 7" loading="lazy">
-          <img src="product8.png" alt="Product 8" loading="lazy">
-          <img src="product9.png" alt="Product 9" loading="lazy">
-          <img src="product10.png" alt="Product 10" loading="lazy">
-          <img src="product11.png" alt="Product 11" loading="lazy">
-          <img src="product12.png" alt="Product 12" loading="lazy">
-          <img src="product13.png" alt="Product 13" loading="lazy">
-          <img src="product14.png" alt="Product 14" loading="lazy">
+    <!-- Ambient Background Stack -->
+    <div class="bg-stack">
+        <div class="aurora-layer"></div>
+        <div class="hex-layer"></div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 top-0 left-0 transition-all duration-300 border-b border-white/5 bg-[#0f1f1c]/90 backdrop-blur-md h-20">
+        <div class="max-w-7xl mx-auto px-6 h-full flex justify-between items-center">
+            <a href="#" class="text-2xl font-bold font-heading tracking-tighter flex items-center gap-3">
+                <!-- CUSTOM LOGO SECTION -->
+                <!-- Replace the src below with your own logo URL (e.g., /assets/logo.png) -->
+                <img src="https://i.etsystatic.com/56813479/r/isla/0b0066/78347271/isla_200x200.78347271_m03wi9yz.jpg" alt="Fjord Labs Logo" class="w-10 h-10 object-contain rounded-full border border-white/10 bg-white/5">
+                Fjord Labs
+            </a>
+            
+            <div class="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide text-gray-300">
+                <a href="#about" class="hover:text-[#F2C94C] transition-colors flex items-center gap-2"><i data-lucide="book-open" class="w-4 h-4"></i> Rulebook</a>
+                <a href="#showcase" class="hover:text-[#F2C94C] transition-colors flex items-center gap-2"><i data-lucide="home" class="w-4 h-4"></i> Settlements</a>
+                <a href="#shop" class="px-5 py-2 bg-[#E05A48] text-white rounded-md hover:bg-[#c0392b] transition-all font-bold flex items-center gap-2 shadow-lg shadow-red-900/20">
+                    <i data-lucide="arrow-left-right" class="w-4 h-4"></i> Trade
+                </a>
+            </div>
+
+            <button class="md:hidden text-white" onclick="document.getElementById('mobile-menu').classList.toggle('hidden')">
+                <i data-lucide="menu" class="w-6 h-6"></i>
+            </button>
         </div>
-      </div>
-      
-      <a class="etsy-button" href="https://www.etsy.com/shop/fjordlabs" target="_blank">
-        <img src="etsyicon.png" alt="Etsy Icon" />
-        <span data-translate>Shop on Etsy</span>
-      </a>
 
-      <a class="tradera-button" href="https://www.tradera.com/profile/items/6409353/fjordlabs" target="_blank">
-        <img src="traderaicon.png" alt="Tradera Icon" />
-        <span data-translate>Shop on Tradera</span>
-      </a>
+        <div id="mobile-menu" class="hidden md:hidden bg-[#0f1f1c] border-b border-white/10">
+            <div class="px-6 py-4 flex flex-col gap-4 font-heading">
+                <a href="#about" class="text-gray-300 hover:text-white">Rulebook</a>
+                <a href="#showcase" class="text-gray-300 hover:text-white">Settlements</a>
+                <a href="#shop" class="text-[#E05A48] font-bold">Trade Resources</a>
+            </div>
+        </div>
+    </nav>
 
-      <section id="about">
-        <h2 data-translate>Who We Are</h2>
-        <p data-translate>
-          Fjord Labs is a small creative workshop located near a peaceful Swedish lake, surrounded by forest. We design and 3D print everything ourselves — each item inspired by our surroundings and made with love and curiosity.
-        </p>
-      </section>
-  </main>
+    <!-- Hero Section & Game -->
+    <header class="relative h-[800px] md:h-[750px] flex items-center justify-center px-6 overflow-hidden border-b border-white/5 bg-[#0f1f1c]">
+        
+        <!-- The Snake Game Layer -->
+        <canvas id="game-canvas"></canvas>
+        
+        <!-- Game Score -->
+        <div id="game-ui" class="game-score">
+            <span class="text-gray-400 text-xs mr-2 uppercase tracking-widest">Wingspan Snake</span>
+            <span id="score-display" class="text-xl">0</span>
+            <span id="high-score-display" class="text-xs text-gray-500 ml-2 border-l border-gray-700 pl-2">HI: 0</span>
+        </div>
 
-  <footer>
-    <span data-translate>2025 Fjord Labs. Powered by creativity, curiosity, and a little coffee.</span>
-    <div class="social-icons">
-      <a href="https://www.facebook.com/people/Fjord-Labs/61576845879669/" target="_blank">
-        <img src="facebook.png" alt="Facebook" />
-      </a>
-      <a href="https://www.instagram.com/fjord.labs/" target="_blank">
-        <img src="instagram.png" alt="Instagram" />
-      </a>
-    </div>
-  </footer>
+        <!-- Main Hero Content (Initially Visible) -->
+        <div id="hero-content" class="max-w-7xl mx-auto text-center hero-content mt-10 transition-opacity duration-500">
+            
+            <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded border border-[#F2C94C]/30 bg-[#F2C94C]/10 text-[#F2C94C] text-xs font-bold tracking-widest uppercase interactive">
+                <span class="w-2 h-2 rounded-full bg-[#F2C94C] animate-pulse"></span>
+                Level 1 Workshop in Sweden 🇸🇪
+            </div>
+            
+            <h1 class="text-5xl md:text-7xl lg:text-8xl font-bold font-heading mb-8 leading-tight drop-shadow-2xl">
+                Make Your<br>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-[#E05A48] to-[#F2C94C]">Game Night Unique.</span>
+            </h1>
+            <p class="text-xl text-gray-300 max-w-2xl mx-auto mb-8 leading-relaxed font-light drop-shadow-md">
+                Where the Catan forest meets the maker's lab. We craft upgrades for your favorite tabletop adventures, and your nerdy hobbies!
+            </p>
 
-  <script src="translations.js"></script>
-  <script src="script.js"></script>
+            <!-- Game Prompt -->
+            <div class="mb-10 interactive">
+                <button id="start-game-btn" class="px-6 py-2 rounded-full bg-white/5 border border-white/10 hover:bg-white/10 hover:scale-105 transition-all text-sm text-gray-300 flex items-center gap-2 mx-auto">
+                    <i data-lucide="gamepad-2" class="w-4 h-4 text-[#9BC53D]"></i>
+                    Click to Play Wingspan Snake Game & Collect Food Tokens
+                </button>
+            </div>
+            
+            <div class="flex flex-col sm:flex-row gap-4 justify-center items-center interactive">
+                <a href="#shop" class="group relative px-8 py-4 bg-[#E05A48] text-white font-bold rounded flex items-center gap-3 overflow-hidden transition-all hover:scale-105 shadow-[0_0_20px_rgba(224,90,72,0.3)] hover:shadow-[0_0_30px_rgba(224,90,72,0.5)]">
+                    <i data-lucide="shopping-bag" class="w-5 h-5"></i>
+                    <span>Browse Wares</span>
+                </a>
+                <a href="#about" class="px-8 py-4 border border-white/20 rounded hover:bg-white/5 transition-all font-medium flex items-center gap-2 text-[#F2C94C]">
+                    Our Story
+                </a>
+            </div>
+        </div>
+
+        <!-- Game Overlay (Hidden when playing) -->
+        <div id="game-paused-overlay" class="game-overlay hidden">
+            <h3 class="text-4xl font-bold text-white mb-2 font-heading">PAUSED</h3>
+            <p class="text-[#F2C94C]">Press SPACE to Resume</p>
+        </div>
+        
+        <!-- Game Over Overlay -->
+        <div id="game-over-overlay" class="game-overlay hidden z-50">
+            <h3 class="text-4xl font-bold text-red-500 mb-2 font-heading">GAME OVER</h3>
+            <p class="text-white mb-4">You hit the wall!</p>
+            <button onclick="resetGame()" class="px-6 py-2 bg-[#E05A48] text-white rounded font-bold hover:bg-white hover:text-black transition-colors pointer-events-auto">Try Again</button>
+        </div>
+    </header>
+
+    <!-- Shop Links Section (Inventory) -->
+    <section id="shop" class="py-24 px-6 relative">
+        <div class="max-w-7xl mx-auto">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-5xl font-bold font-heading mb-4 flex items-center justify-center gap-3">
+                    <i data-lucide="map" class="w-8 h-8 text-[#E05A48]"></i>
+                    Trading Posts
+                </h2>
+                <p class="text-gray-400">Select a port to trade resources.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+                <!-- Tradera -->
+                <a href="https://www.tradera.com/profile/items/6409353/fjordlabs" target="_blank" class="group glass-card p-1 rounded-xl relative overflow-hidden">
+                    <div class="bg-[#0f1f1c]/80 p-8 rounded-lg h-full flex flex-col items-center text-center relative z-10">
+                        <div class="absolute top-4 right-4 px-2 py-0.5 bg-[#F2C94C]/20 border border-[#F2C94C]/30 text-[#F2C94C] text-xs font-bold uppercase rounded">Rare Drops</div>
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#F2C94C]/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-[#F2C94C]/20">
+                            <i data-lucide="gavel" class="w-10 h-10 text-[#F2C94C]"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-white font-heading">Tradera Auction</h3>
+                        <p class="text-gray-400 mb-8 text-sm">Bid on unique prototypes and limited resources if you are in Sweden.</p>
+                        <span class="w-full py-3 bg-[#F2C94C]/10 border border-[#F2C94C]/50 text-[#F2C94C] font-bold rounded group-hover:bg-[#F2C94C] group-hover:text-black transition-all flex justify-center items-center gap-2">
+                            Place Bid <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </span>
+                    </div>
+                </a>
+
+                <!-- Etsy -->
+                <a href="https://fjordlabs.etsy.com" target="_blank" class="group glass-card p-1 rounded-xl relative overflow-hidden">
+                    <div class="bg-[#0f1f1c]/80 p-8 rounded-lg h-full flex flex-col items-center text-center relative z-10">
+                        <div class="absolute top-4 right-4 px-2 py-0.5 bg-[#E05A48]/20 border border-[#E05A48]/30 text-[#E05A48] text-xs font-bold uppercase rounded">Main Store</div>
+                        <div class="w-20 h-20 bg-gradient-to-br from-[#E05A48]/20 to-transparent rounded-full flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 border border-[#E05A48]/20">
+                            <i data-lucide="shopping-bag" class="w-10 h-10 text-[#E05A48]"></i>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-2 text-white font-heading">Etsy Marketplace</h3>
+                        <p class="text-gray-400 mb-8 text-sm">Full inventory of upgrades and accessories for all over the world!</p>
+                        <span class="w-full py-3 bg-[#E05A48]/10 border border-[#E05A48]/50 text-[#E05A48] font-bold rounded group-hover:bg-[#E05A48] group-hover:text-white transition-all flex justify-center items-center gap-2">
+                            Trade Now <i data-lucide="external-link" class="w-4 h-4"></i>
+                        </span>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Product Showcase (The Armory) -->
+    <section id="showcase" class="py-24 px-6 bg-black/30 border-y border-white/5">
+        <div class="max-w-7xl mx-auto">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-12 gap-6">
+                <div>
+                    <h2 class="text-3xl md:text-4xl font-bold font-heading mb-2 text-white flex items-center gap-2">
+                        <i data-lucide="layout-grid" class="w-8 h-8 text-[#9BC53D]"></i>
+                        Current Developments
+                    </h2>
+                    <p class="text-gray-400">Developments cards purchased this turn.</p>
+                </div>
+                <a href="https://fjordlabs.etsy.com" class="text-sm text-[#E05A48] hover:text-white transition-colors flex items-center gap-1">
+                    View All In Stock <i data-lucide="arrow-right" class="w-4 h-4"></i>
+                </a>
+            </div>
+
+            <!-- DYNAMIC GRID CONTAINER -->
+            <div id="product-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Products will be injected here by JavaScript -->
+            </div>
+
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-24 px-6 relative overflow-hidden">
+        <div class="absolute right-0 top-20 opacity-5 transform translate-x-1/4">
+            <i data-lucide="trees" class="w-96 h-96"></i>
+        </div>
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <div class="inline-block mb-6 p-3 bg-[#2D5A4C]/30 rounded-full border border-[#2D5A4C]/50">
+                <i data-lucide="feather" class="w-8 h-8 text-[#9BC53D]"></i>
+            </div>
+            <h2 class="text-3xl md:text-4xl font-bold font-heading mb-8">Lore: The Forest Lab</h2>
+            <div class="prose prose-invert mx-auto text-lg text-gray-300 leading-relaxed">
+                <p class="mb-6">
+                    Deep in the Swedish woodlands, Fjord Labs began as a simple quest: to blend the precision of modern making with the organic beauty of nature.
+                </p>
+                <p>
+                    Much like settling a new board, we treat every print strategically. Whether you need a custom hex holder or a resource tray, we build it to last through thousands of dice rolls.
+                </p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-white/10 bg-[#0a1513] pt-16 pb-8 px-6">
+        <div class="max-w-7xl mx-auto">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <div class="col-span-1 md:col-span-2">
+                    <div class="text-2xl font-bold font-heading flex items-center gap-2 mb-4 text-white">
+                         <!-- Footer uses simple text or small icon -->
+                         <i data-lucide="hexagon" class="w-6 h-6 text-[#E05A48]"></i>
+                        Fjord Labs
+                    </div>
+                    <p class="text-sm text-gray-500 max-w-xs">
+                        Crafted with <span class="text-[#E05A48]">♥</span> and PLA in Sweden.
+                    </p>
+                </div>
+                
+                <div class="col-span-1">
+                    <h4 class="font-bold text-[#F2C94C] mb-4 font-heading uppercase text-sm tracking-wider">Links</h4>
+                    <ul class="space-y-2 text-sm text-gray-400">
+                        <li><a href="https://fjordlabs.etsy.com" class="hover:text-white transition-colors">Etsy Shop</a></li>
+                        <li><a href="#" class="hover:text-white transition-colors">Tradera</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-white/5 pt-8 text-center text-xs text-gray-600">
+                <p>&copy; 2025 Fjord Labs.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        // 1. Initialize Icons
+        lucide.createIcons();
+
+        // 2. PRODUCT CONFIGURATION
+        const products = [
+            {
+                title: "Catan Resource Tokens",
+                type: "Tokens",
+                class: "tag-clay",
+                image: "https://i.etsystatic.com/56813479/r/il/165071/7193639536/il_1588xN.7193639536_aufj.jpg?auto=format&fit=crop&q=80&w=800", 
+                link: "https://fjordlabs.etsy.com", 
+                stats: { label: "Rolls", value: "Random", bar: 100 }
+            },
+            {
+                title: "Catan Score Tracker",
+                type: "Organization",
+                class: "tag-wheat",
+                image: "https://i.etsystatic.com/56813479/r/il/895472/7325758416/il_1588xN.7325758416_cwha.jpg?auto=format&fit=crop&q=80&w=800",
+                link: "https://fjordlabs.etsy.com",
+                stats: { label: "Capacity", value: "High", bar: 85 }
+            },
+            {
+                title: "Agricola Resource Tokens",
+                type: "Tokens",
+                class: "tag-wood",
+                image: "https://i.etsystatic.com/56813479/r/il/9082d7/7253612177/il_1588xN.7253612177_jl6n.jpg?auto=format&fit=crop&q=80&w=800",
+                link: "https://fjordlabs.etsy.com",
+                stats: { label: "Detail", value: "Ultra", bar: 95 }
+            },
+            {
+                title: "Catan Robber Figure Upgrade",
+                type: "Upgrade",
+                class: "tag-ore",
+                image: "https://i.etsystatic.com/56813479/r/il/97b9b1/7405745101/il_1588xN.7405745101_4z66.jpg?auto=format&fit=crop&q=80&w=800",
+                link: "https://fjordlabs.etsy.com",
+                stats: { label: "Organization", value: "Max", bar: 90 }
+            },
+            {
+                title: "Wyrmspan Resource Token Set",
+                type: "Tokens",
+                class: "tag-clay",
+                image: "https://i.etsystatic.com/56813479/r/il/2e5979/7114725568/il_1588xN.7114725568_ilpy.jpg?auto=format&fit=crop&q=80&w=800",
+                link: "https://fjordlabs.etsy.com",
+                stats: { label: "Pieces", value: "x24", bar: 60 }
+            }
+        ];
+
+        // Render Products
+        const grid = document.getElementById('product-grid');
+        products.forEach(product => {
+            const card = `
+                <div class="glass-card rounded-lg overflow-hidden group flex flex-col">
+                    <a href="${product.link}" target="_blank" class="block relative overflow-hidden border-b border-white/5 aspect-square bg-gray-800">
+                        <img src="${product.image}" alt="${product.title}" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-110 transition-all duration-700">
+                        <div class="absolute top-3 left-3 border text-[10px] font-bold px-2 py-1 rounded uppercase tracking-wider ${product.class}">
+                            ${product.type}
+                        </div>
+                    </a>
+                    <div class="p-5">
+                        <a href="${product.link}" target="_blank">
+                            <h4 class="text-xl font-bold font-heading text-white mb-1 hover:text-[#E05A48] transition-colors">${product.title}</h4>
+                        </a>
+                        <p class="text-xs text-gray-500 mb-4">In Stock</p>
+                        
+                        <div class="space-y-2">
+                            <div class="flex justify-between text-xs text-gray-400">
+                                <span>${product.stats.label}</span>
+                                <span>${product.stats.value}</span>
+                            </div>
+                            <div class="stat-bar"><div class="stat-fill" style="width: ${product.stats.bar}%"></div></div>
+                        </div>
+                    </div>
+                </div>
+            `;
+            grid.innerHTML += card;
+        });
+        lucide.createIcons();
+
+
+        // 3. GAME LOGIC
+        const canvas = document.getElementById('game-canvas');
+        const ctx = canvas.getContext('2d');
+        const scoreEl = document.getElementById('score-display');
+        const hiScoreEl = document.getElementById('high-score-display');
+        const heroContent = document.getElementById('hero-content');
+        const pausedOverlay = document.getElementById('game-paused-overlay');
+        const gameOverOverlay = document.getElementById('game-over-overlay');
+        const startBtn = document.getElementById('start-game-btn');
+
+        let width, height;
+        let animationId;
+        
+        // Game State
+        let isPlaying = false;
+        let isPaused = false;
+        let score = 0;
+        let hiScore = 0;
+        let lastTime = 0;
+        const FPS = 15; // Snake speed
+        const interval = 1000 / FPS;
+        
+        const gridSize = 20;
+        // Top Offset to prevent snake from going under Nav
+        // Nav is approx 80px
+        const topOffsetRows = 4; // 4 * 20 = 80px
+
+        let snake = [];
+        let direction = { x: 1, y: 0 };
+        let nextDirection = { x: 1, y: 0 };
+        let food = {};
+        
+        const foodTypes = ['🍒', '🐟', '🐭', '🌾', '🐛'];
+
+        function resize() {
+            width = canvas.width = canvas.parentElement.offsetWidth;
+            height = canvas.height = canvas.parentElement.offsetHeight;
+        }
+        window.addEventListener('resize', resize);
+        resize();
+
+        function resetGame() {
+            // Reset Logic
+            snake = [
+                { x: 10, y: 10 + topOffsetRows }, 
+                { x: 9, y: 10 + topOffsetRows }, 
+                { x: 8, y: 10 + topOffsetRows }
+            ];
+            direction = { x: 1, y: 0 };
+            nextDirection = { x: 1, y: 0 };
+            score = 0;
+            scoreEl.innerText = score;
+            isPaused = false;
+            gameOverOverlay.classList.add('hidden');
+            
+            // Ensure game is active state if resetting
+            if (!isPlaying) {
+                isPlaying = true;
+                heroContent.style.opacity = '0.1';
+                heroContent.style.pointerEvents = 'none';
+                canvas.focus();
+            }
+            
+            placeFood();
+        }
+
+        function placeFood() {
+            let valid = false;
+            const cols = Math.floor(width / gridSize);
+            const rows = Math.floor(height / gridSize);
+
+            while (!valid) {
+                food = {
+                    x: Math.floor(Math.random() * cols),
+                    y: Math.floor(Math.random() * (rows - topOffsetRows)) + topOffsetRows, // Respect top offset
+                    type: foodTypes[Math.floor(Math.random() * foodTypes.length)]
+                };
+                
+                valid = true;
+                // Avoid edges strictly
+                if (food.x <= 0 || food.x >= cols - 1 || food.y <= topOffsetRows || food.y >= rows - 1) {
+                     valid = false; 
+                     continue;
+                }
+                for(let part of snake) {
+                    if(part.x === food.x && part.y === food.y) valid = false;
+                }
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, width, height);
+
+            // Draw Food
+            ctx.font = '16px Arial';
+            ctx.textAlign = 'center';
+            ctx.textBaseline = 'middle';
+            ctx.fillText(food.type, food.x * gridSize + gridSize/2, food.y * gridSize + gridSize/2 + 2);
+
+            // Draw Snake
+            snake.forEach((part, index) => {
+                ctx.fillStyle = index === 0 ? '#9BC53D' : '#2D5A4C'; 
+                ctx.shadowBlur = index === 0 ? 10 : 0;
+                ctx.shadowColor = '#9BC53D';
+                
+                const x = part.x * gridSize;
+                const y = part.y * gridSize;
+                const s = gridSize - 2;
+                ctx.fillRect(x, y, s, s);
+                ctx.shadowBlur = 0;
+            });
+        }
+
+        function gameOver() {
+            isPlaying = false;
+            heroContent.style.opacity = '0.3'; // Slightly visible
+            gameOverOverlay.classList.remove('hidden');
+            if (score > hiScore) {
+                hiScore = score;
+                hiScoreEl.innerText = `HI: ${hiScore}`;
+            }
+        }
+
+        function update() {
+            if (!isPlaying || isPaused) return;
+
+            direction = nextDirection;
+            const head = { x: snake[0].x + direction.x, y: snake[0].y + direction.y };
+
+            // Wall Collision (GAME OVER)
+            const cols = Math.floor(width / gridSize);
+            const rows = Math.floor(height / gridSize);
+            
+            // Check bounds (Top bound is topOffsetRows)
+            if (head.x < 0 || head.x >= cols || head.y < topOffsetRows || head.y >= rows) {
+                gameOver();
+                return;
+            }
+
+            // Self Collision
+            for (let part of snake) {
+                if (head.x === part.x && head.y === part.y) {
+                    gameOver();
+                    return;
+                }
+            }
+
+            snake.unshift(head);
+
+            // Eat Food
+            if (head.x === food.x && head.y === food.y) {
+                score += 10;
+                scoreEl.innerText = score;
+                
+                scoreEl.parentElement.style.transform = "scale(1.2)";
+                setTimeout(() => scoreEl.parentElement.style.transform = "scale(1)", 100);
+                
+                placeFood();
+            } else {
+                snake.pop();
+            }
+        }
+
+        function gameLoop(currentTime) {
+            animationId = requestAnimationFrame(gameLoop);
+            if (currentTime - lastTime >= interval) {
+                update();
+                draw();
+                lastTime = currentTime;
+            }
+        }
+
+        // Interaction
+        function toggleGame(active) {
+            if (active) {
+                resetGame();
+            } else {
+                isPlaying = false;
+                heroContent.style.opacity = '1';
+                heroContent.style.pointerEvents = 'auto';
+                gameOverOverlay.classList.add('hidden');
+            }
+        }
+
+        startBtn.addEventListener('click', (e) => {
+            e.stopPropagation(); 
+            toggleGame(true);
+        });
+
+        canvas.addEventListener('click', () => {
+            if (!isPlaying && gameOverOverlay.classList.contains('hidden')) toggleGame(true);
+        });
+
+        window.addEventListener('keydown', (e) => {
+            // If playing, prevent default scrolling
+            if (isPlaying) {
+                if(['ArrowUp','ArrowDown','ArrowLeft','ArrowRight',' '].indexOf(e.key) > -1) {
+                    e.preventDefault();
+                }
+            }
+
+            if (!isPlaying) return;
+
+            switch(e.key) {
+                case 'ArrowUp':
+                    if (direction.y === 0) nextDirection = { x: 0, y: -1 };
+                    break;
+                case 'ArrowDown':
+                    if (direction.y === 0) nextDirection = { x: 0, y: 1 };
+                    break;
+                case 'ArrowLeft':
+                    if (direction.x === 0) nextDirection = { x: -1, y: 0 };
+                    break;
+                case 'ArrowRight':
+                    if (direction.x === 0) nextDirection = { x: 1, y: 0 };
+                    break;
+                case ' ':
+                    if (!gameOverOverlay.classList.contains('hidden')) return;
+                    isPaused = !isPaused;
+                    pausedOverlay.classList.toggle('hidden', !isPaused);
+                    break;
+                case 'Escape':
+                    toggleGame(false);
+                    break;
+            }
+        });
+
+        // Init loop
+        gameLoop(0);
+
+    </script>
 </body>
 </html>
