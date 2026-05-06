@@ -1,0 +1,127 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { getProductsByGame } from "../../../data/products";
+import { getGame } from "../../../data/games";
+
+const game = getGame("terraforming-mars")!;
+const tmProducts = getProductsByGame("terraforming-mars");
+
+const articles = {
+  rules: [
+    {
+      title: "How Does Terraforming Rating (TR) Work?",
+      description: "TR is your income AND your score. Here's how it works and why it matters most.",
+      href: "/games/terraforming-mars/how-does-terraforming-rating-work/",
+    },
+  ],
+  strategy: [
+    {
+      title: "Best Beginner Corporations in Terraforming Mars",
+      description: "Which corporations to pick when learning — and which to avoid.",
+      href: "/games/terraforming-mars/best-beginner-corporations/",
+    },
+  ],
+  guides: [
+    {
+      title: "Best Terraforming Mars Expansions Ranked",
+      description: "From Prelude to Turmoil — which expansions are worth your money?",
+      href: "/games/terraforming-mars/best-expansions-ranked/",
+    },
+  ],
+};
+---
+
+<Base
+  title="Terraforming Mars — Rules, Strategy & Accessories | Fjord Labs"
+  description="Terraforming Mars guides: TR explained, beginner corporations, expansion rankings, and premium 3D-printed player boards."
+>
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Terraforming Mars</span>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <img src={game.image} alt={game.title} class="w-32 h-32 rounded-2xl object-cover border border-bark/10 shrink-0" />
+        <div>
+          <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+            Terraforming Mars
+          </h1>
+          <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
+            {game.heroDescription}
+          </p>
+
+          <div class="flex flex-wrap gap-6 text-sm text-bark/40">
+            <div><span class="font-semibold text-bark/60">Players:</span> {game.playerCount}</div>
+            <div><span class="font-semibold text-bark/60">Play Time:</span> {game.playTime}</div>
+            <div><span class="font-semibold text-bark/60">Complexity:</span> {game.complexity}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Rules Clarifications</h2>
+      <p class="text-bark/40 mb-8">The core mechanics that new players need to understand.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.rules.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Rules" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Strategy</h2>
+      <p class="text-bark/40 mb-8">Corporation picks and competitive strategies.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.strategy.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Strategy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Guides & Buying Advice</h2>
+      <p class="text-bark/40 mb-8">Expansion rankings and upgrade recommendations.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.guides.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {tmProducts.length > 0 && (
+    <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Terraforming Mars Accessories</h2>
+        <p class="text-bark/40 mb-8">3D-printed player boards and organizers that fix the game's biggest flaw.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {tmProducts.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Terraforming Mars — Rules, Strategy & Accessories",
+      description: "Terraforming Mars guides, strategy tips, and premium 3D-printed accessories.",
+      url: "https://www.fjord-labs.com/games/terraforming-mars/",
+      publisher: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
+    })}
+  />
+</Base>

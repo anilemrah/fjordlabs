@@ -1,0 +1,112 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Does Wingspan's Pink Power Trigger at Round End?"
+  description="The most confusing power type in Wingspan — when exactly does it activate?"
+  game="wingspan"
+  gameTitle="Wingspan"
+  category="Rules"
+  product="wingspan-food-tokens"
+  publishDate="2025-05-06"
+>
+  <p>
+    You just played a bird with a pink "once between turns" power. The round is
+    ending. Does the pink power trigger now? What about when another player
+    activates your row?
+  </p>
+
+  <KeyTakeaway answer="Pink powers activate once between each of your turns — triggered by OTHER players' actions in the matching habitat. They do NOT trigger at round end." />
+
+  <h2>The Three Power Colors</h2>
+
+  <div class="my-6 grid sm:grid-cols-3 gap-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10 text-center">
+      <div class="w-10 h-10 rounded-full bg-amber-100 flex items-center justify-center mx-auto mb-3">
+        <span class="text-amber-700 font-bold text-sm">W</span>
+      </div>
+      <h4 class="font-heading font-semibold text-sm text-bark mb-1">White — When Played</h4>
+      <p class="text-xs text-bark/50">Triggers once, immediately when the bird enters play.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-bark/10 text-center">
+      <div class="w-10 h-10 rounded-full bg-amber-700/20 flex items-center justify-center mx-auto mb-3">
+        <span class="text-amber-800 font-bold text-sm">B</span>
+      </div>
+      <h4 class="font-heading font-semibold text-sm text-bark mb-1">Brown — When Activated</h4>
+      <p class="text-xs text-bark/50">Triggers every time you use the action in that bird's habitat row.</p>
+    </div>
+    <div class="p-5 bg-pink-50 rounded-xl border border-pink-200 text-center">
+      <div class="w-10 h-10 rounded-full bg-pink-200 flex items-center justify-center mx-auto mb-3">
+        <span class="text-pink-700 font-bold text-sm">P</span>
+      </div>
+      <h4 class="font-heading font-semibold text-sm text-bark mb-1">Pink — Between Turns</h4>
+      <p class="text-xs text-bark/50">Triggers when an opponent performs an action in the matching habitat.</p>
+    </div>
+  </div>
+
+  <h2>When Exactly Do Pink Powers Trigger?</h2>
+
+  <p>Pink powers activate when:</p>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">✅</span>
+      <p class="text-sm text-emerald-800">Another player takes an action in the <strong>same habitat row</strong> as your pink-powered bird</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">✅</span>
+      <p class="text-sm text-emerald-800">It can trigger <strong>once per opponent's turn</strong> (not once per game or per round)</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <p class="text-sm text-red-800">It does <strong>NOT</strong> trigger at end of round</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <p class="text-sm text-red-800">It does <strong>NOT</strong> trigger on your own turns</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="Why Pink Powers Are Sneaky Good">
+    In a 4–5 player game, pink powers trigger many times per round because you have more opponents. A pink power bird in a popular habitat can outperform brown powers in larger games.
+  </InfoBox>
+
+  <h2>Common Pink Power Mistakes</h2>
+
+  <ComparisonTable title="Right vs. Wrong">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Mistake</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Correct Rule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 text-red-600">Triggering pink at end of round</td>
+          <td class="p-3 text-emerald-700">Pink only triggers between turns</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 text-red-600">Triggering pink on your own turn</td>
+          <td class="p-3 text-emerald-700">Pink only triggers on opponents' turns</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 text-red-600">Triggering pink multiple times per opponent turn</td>
+          <td class="p-3 text-emerald-700">Once per opponent's turn maximum</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 text-red-600">Forgetting to trigger pink entirely</td>
+          <td class="p-3 text-emerald-700">Check after every opponent's action in the matching row</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <InfoBox type="info" title="Solo Mode Note">
+    In solo mode, pink powers trigger via the Automa's actions. Check the Automa rules for specifics on which actions count.
+  </InfoBox>
+</Article>

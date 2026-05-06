@@ -1,0 +1,91 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Wingspan Egg Limit Rules: How Many Eggs Can a Bird Hold?"
+  description="The egg capacity rules that trip up beginners and veterans alike."
+  game="wingspan"
+  gameTitle="Wingspan"
+  category="Rules"
+  product="wingspan-food-tokens"
+  publishDate="2025-05-06"
+>
+  <p>
+    You're laying eggs in Wingspan and you notice a bird already has eggs on it
+    equal to its egg limit. Can you stack more? What if you have no room
+    anywhere?
+  </p>
+
+  <KeyTakeaway answer="Each bird has an egg limit printed on its card. You cannot place more eggs on a bird than its limit — but you choose which birds receive eggs." />
+
+  <h2>How Egg Limits Work</h2>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <div class="text-2xl mb-2">🥚</div>
+      <h4 class="font-heading font-semibold text-sm text-bark mb-1">The Egg Limit Number</h4>
+      <p class="text-sm text-bark/60">Printed on the bird card (usually 1–6). This is the maximum eggs that bird can hold at any time.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <div class="text-2xl mb-2">🎯</div>
+      <h4 class="font-heading font-semibold text-bark mb-1 text-sm">You Choose Placement</h4>
+      <p class="text-sm text-bark/60">When you lay eggs, you pick which birds get them. Spread them out or stack on one bird — your call (up to the limit).</p>
+    </div>
+  </div>
+
+  <InfoBox type="rule">
+    When laying eggs, if all your birds are at their egg limit, you simply can't lay more. You don't lose the eggs — you just can't place them.
+  </InfoBox>
+
+  <h2>Why Egg Limits Matter Strategically</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">📊</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">End-of-Round Goals</h4>
+      </div>
+      <p class="text-sm text-bark/60">Several round goals count eggs in specific habitats. High egg-limit birds in the right habitat = easy points.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">🏆</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Each Egg = 1 Point</h4>
+      </div>
+      <p class="text-sm text-bark/60">At game end, every egg on every bird is worth 1 VP. Birds with high egg limits are point multipliers.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">💰</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Eggs as Currency</h4>
+      </div>
+      <p class="text-sm text-bark/60">Playing a bird costs eggs (based on its column position). High egg-limit birds are also your egg bank for future plays.</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The Star-Nest Power">
+    Some birds have a "star nest" that can hold any type of egg. These birds are especially flexible — look for them when drafting.
+  </InfoBox>
+
+  <h2>Egg Limit Edge Cases</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Can I lay eggs if all birds are full?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1">You still take the lay eggs action (it might trigger brown powers), but you can't physically place eggs beyond the limits.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Do eggs carry over between rounds?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1">Yes — eggs stay on birds for the entire game. They're only removed when spent to play new birds.</p>
+      </div>
+    </div>
+  </div>
+</Article>

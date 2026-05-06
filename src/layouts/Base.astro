@@ -1,0 +1,224 @@
+---
+interface Props {
+  title: string;
+  description: string;
+  canonical?: string;
+  ogImage?: string;
+  type?: "website" | "article";
+}
+
+const {
+  title,
+  description,
+  canonical,
+  ogImage,
+  type = "website",
+} = Astro.props;
+
+const siteUrl = "https://www.fjord-labs.com";
+const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{title}</title>
+    <meta name="description" content={description} />
+    <link rel="canonical" href={pageUrl} />
+
+    <!-- Open Graph -->
+    <meta property="og:type" content={type} />
+    <meta property="og:title" content={title} />
+    <meta property="og:description" content={description} />
+    <meta property="og:url" content={pageUrl} />
+    <meta property="og:site_name" content="Fjord Labs" />
+    {ogImage && <meta property="og:image" content={ogImage} />}
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={title} />
+    <meta name="twitter:description" content={description} />
+
+    <link rel="icon" href="/images/fjordlabsicon.png" />
+
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+  <body class="min-h-screen flex flex-col">
+    <nav
+      class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-bark/5"
+    >
+      <div
+        class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center"
+      >
+        <a href="/" class="flex items-center gap-2.5 group">
+          <img
+            src="/images/fjordlabsicon.png"
+            alt="Fjord Labs"
+            class="w-8 h-8 rounded-full"
+          />
+          <span
+            class="text-lg font-heading font-bold text-bark group-hover:text-clay transition-colors"
+            >Fjord Labs</span
+          >
+        </a>
+
+        <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+          <div class="relative group">
+            <button class="text-bark/60 hover:text-bark transition-colors flex items-center gap-1">
+              Games
+              <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </button>
+            <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
+              <div class="bg-white rounded-xl border border-bark/10 shadow-xl p-2 min-w-[200px]">
+                <a href="/games/catan/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🏗️</span><span class="text-bark/70">Catan</span>
+                </a>
+                <a href="/games/wingspan/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🐦</span><span class="text-bark/70">Wingspan</span>
+                </a>
+                <a href="/games/wyrmspan/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🐉</span><span class="text-bark/70">Wyrmspan</span>
+                </a>
+                <a href="/games/scythe/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">⚙️</span><span class="text-bark/70">Scythe</span>
+                </a>
+                <a href="/games/terraforming-mars/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🪐</span><span class="text-bark/70">Terraforming Mars</span>
+                </a>
+                <a href="/games/carcassonne/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🏰</span><span class="text-bark/70">Carcassonne</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <a
+            href="/#products"
+            class="text-bark/60 hover:text-bark transition-colors">Products</a
+          >
+          <a
+            href="/about/"
+            class="text-bark/60 hover:text-bark transition-colors">About</a
+          >
+          <a
+            href="https://fjordlabs.etsy.com"
+            target="_blank"
+            class="px-4 py-2 bg-clay text-white rounded-lg hover:bg-clay-dark transition-colors font-semibold text-sm flex items-center gap-1.5"
+            ><svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 12h8M12 8v8"/></svg> Loot Shop</a
+          >
+        </div>
+
+        <button
+          id="mobile-toggle"
+          class="md:hidden p-2 text-bark/60"
+          aria-label="Menu"
+        >
+          <svg
+            class="w-6 h-6"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <div
+        id="mobile-menu"
+        class="hidden md:hidden border-t border-bark/5 bg-cream"
+      >
+        <div class="px-6 py-4 flex flex-col gap-3">
+          <span class="text-xs font-semibold text-bark/30 uppercase tracking-wider pt-1">Games</span>
+          <a href="/games/catan/" class="text-bark/70 py-1 flex items-center gap-2"><span>🏗️</span> Catan</a>
+          <a href="/games/wingspan/" class="text-bark/70 py-1 flex items-center gap-2"><span>🐦</span> Wingspan</a>
+          <a href="/games/wyrmspan/" class="text-bark/70 py-1 flex items-center gap-2"><span>🐉</span> Wyrmspan</a>
+          <a href="/games/scythe/" class="text-bark/70 py-1 flex items-center gap-2"><span>⚙️</span> Scythe</a>
+          <a href="/games/terraforming-mars/" class="text-bark/70 py-1 flex items-center gap-2"><span>🪐</span> Terraforming Mars</a>
+          <a href="/games/carcassonne/" class="text-bark/70 py-1 flex items-center gap-2"><span>🏰</span> Carcassonne</a>
+          <div class="border-t border-bark/5 mt-1 pt-2"></div>
+          <a href="/#products" class="text-bark/70 py-1">Products</a>
+          <a href="/about/" class="text-bark/70 py-1">About</a>
+          <a
+            href="https://fjordlabs.etsy.com"
+            target="_blank"
+            class="text-clay font-semibold py-1">Loot Shop</a
+          >
+        </div>
+      </div>
+    </nav>
+
+    <main class="flex-1">
+      <slot />
+    </main>
+
+    <footer class="bg-sand border-t border-bark/5 mt-auto">
+      <div class="max-w-6xl mx-auto px-6 py-12">
+        <div class="grid md:grid-cols-3 gap-8 mb-8">
+          <div>
+            <div class="flex items-center gap-2 mb-3">
+              <img
+                src="/images/fjordlabsicon.png"
+                alt=""
+                class="w-6 h-6 rounded-full"
+              />
+              <span class="font-heading font-bold text-bark">Fjord Labs</span>
+            </div>
+            <p class="text-sm text-bark/50">
+              3D-printed board game upgrades, crafted in Sweden.
+            </p>
+          </div>
+          <div>
+            <h4 class="font-heading font-semibold text-sm text-bark mb-3">
+              Games
+            </h4>
+            <ul class="space-y-1.5 text-sm text-bark/50">
+              <li><a href="/games/catan/" class="hover:text-clay transition-colors">Catan</a></li>
+              <li><a href="/games/wingspan/" class="hover:text-clay transition-colors">Wingspan</a></li>
+              <li><a href="/games/wyrmspan/" class="hover:text-clay transition-colors">Wyrmspan</a></li>
+              <li><a href="/games/scythe/" class="hover:text-clay transition-colors">Scythe</a></li>
+              <li><a href="/games/terraforming-mars/" class="hover:text-clay transition-colors">Terraforming Mars</a></li>
+              <li><a href="/games/carcassonne/" class="hover:text-clay transition-colors">Carcassonne</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-heading font-semibold text-sm text-bark mb-3">
+              Shop
+            </h4>
+            <ul class="space-y-1.5 text-sm text-bark/50">
+              <li>
+                <a
+                  href="https://fjordlabs.etsy.com"
+                  target="_blank"
+                  class="hover:text-clay transition-colors">Etsy Store</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="border-t border-bark/5 pt-6 text-center text-xs text-bark/30">
+          <p>&copy; 2025 Fjord Labs. Rolled a nat 20 on craftsmanship in Sweden. 🎲</p>
+        </div>
+      </div>
+    </footer>
+
+    <script>
+      document
+        .getElementById("mobile-toggle")
+        ?.addEventListener("click", () => {
+          document.getElementById("mobile-menu")?.classList.toggle("hidden");
+        });
+    </script>
+  </body>
+</html>

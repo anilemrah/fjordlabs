@@ -1,0 +1,67 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Wingspan Bonus Cards Explained: How End-of-Game Scoring Works"
+  description="Which bonus cards to keep, when to pivot, and how they affect your strategy."
+  game="wingspan"
+  gameTitle="Wingspan"
+  category="Strategy"
+  publishDate="2025-05-06"
+>
+  <p>
+    Bonus cards are dealt at the start of the game and scored at the end. They can
+    swing 5–15 points — enough to decide the winner. Here's how to use them well.
+  </p>
+
+  <KeyTakeaway answer="You keep one bonus card at setup (from two dealt). It scores at game end based on birds in your tableau matching its condition. Don't force a bad bonus — the points from playing good birds usually outweigh chasing a mediocre bonus." />
+
+  <h2>How Bonus Cards Work</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">1️⃣</span>
+      <p class="text-sm text-emerald-800"><strong>During setup:</strong> You're dealt 2 bonus cards. Keep 1, discard the other face down.</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">2️⃣</span>
+      <p class="text-sm text-emerald-800"><strong>During the game:</strong> Your bonus card stays hidden. Play birds that match its condition whenever possible, but don't sacrifice your engine for it.</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">3️⃣</span>
+      <p class="text-sm text-emerald-800"><strong>End of game:</strong> Reveal your bonus card and score points based on qualifying birds in your tableau.</p>
+    </div>
+  </div>
+
+  <h2>Common Bonus Card Types</h2>
+
+  <div class="my-6 space-y-4">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-1">Habitat-Based</h4>
+      <p class="text-sm text-bark/60">Score for birds in a specific habitat (forest, grassland, or wetland). Easy to work toward since you're already placing birds in habitats.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-1">Nest-Type</h4>
+      <p class="text-sm text-bark/60">Score for birds with a specific nest type (bowl, cavity, platform, ground, star). Star nests count as wild for this purpose.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-1">Food-Based</h4>
+      <p class="text-sm text-bark/60">Score for birds that eat a specific food type. These synergize well with your food engine — if you're generating lots of fish, a fish-eater bonus is great.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-1">Geographic / Anatomist</h4>
+      <p class="text-sm text-bark/60">Score based on wingspan size, geographic region, or set collection. These tend to be harder to maximize but can score big if the right birds show up.</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="Choosing Your Bonus Card">
+    Pick the bonus card that aligns with birds you already have in your opening hand. If neither card matches your starting birds, pick the one with the broader condition — it's easier to naturally accumulate matches over 4 rounds.
+  </InfoBox>
+
+  <InfoBox type="warning" title="The Bonus Card Trap">
+    Don't twist your entire strategy around a bonus card. A bonus card might score 7 points, but playing suboptimal birds to match it can cost you 10+ points in lost engine efficiency. The bonus is a tiebreaker, not the strategy.
+  </InfoBox>
+</Article>

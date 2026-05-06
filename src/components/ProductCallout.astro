@@ -1,0 +1,55 @@
+---
+import type { Product } from "../data/products";
+
+interface Props {
+  product: Product;
+}
+
+const { product } = Astro.props;
+---
+
+<aside class="my-12 p-6 bg-sand rounded-2xl border border-bark/5">
+  <div class="flex flex-col sm:flex-row gap-6 items-start">
+    <a href={product.link} target="_blank" class="shrink-0">
+      <img
+        src={product.image}
+        alt={product.title}
+        class="w-32 h-32 object-cover rounded-xl"
+        loading="lazy"
+      />
+    </a>
+    <div class="flex-1">
+      <p class="text-xs font-semibold text-clay uppercase tracking-wide mb-1">
+        Recommended Upgrade
+      </p>
+      <a href={product.link} target="_blank">
+        <h4
+          class="text-lg font-heading font-bold text-bark hover:text-clay transition-colors mb-2"
+        >
+          {product.title}
+        </h4>
+      </a>
+      <p class="text-sm text-bark/60 mb-4">{product.description}</p>
+      <a
+        href={product.link}
+        target="_blank"
+        class="inline-flex items-center gap-2 px-4 py-2 bg-clay text-white text-sm font-semibold rounded-lg hover:bg-clay-dark transition-colors"
+      >
+        View on Etsy
+        <svg
+          class="w-3.5 h-3.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</aside>

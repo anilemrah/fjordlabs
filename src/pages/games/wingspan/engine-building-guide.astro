@@ -1,0 +1,122 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Wingspan Engine Building Guide: How to Chain Bird Powers"
+  description="Build combos that snowball through all four rounds for maximum points."
+  game="wingspan"
+  gameTitle="Wingspan"
+  category="Strategy"
+  product="wingspan-food-tokens"
+  publishDate="2025-05-06"
+>
+  <p>
+    Wingspan is an engine-building game at heart. The birds you play early
+    determine how powerful your turns become later. A well-built engine
+    generates food, cards, and eggs almost automatically.
+  </p>
+
+  <KeyTakeaway answer="Focus rounds 1–2 on building your engine (food + card generation). Rounds 3–4 are for laying eggs and cashing in points." />
+
+  <h2>The Three Habitats = Three Engines</h2>
+
+  <div class="my-6 grid sm:grid-cols-3 gap-4">
+    <div class="p-5 bg-green-50 rounded-xl border border-green-200">
+      <div class="text-2xl mb-2">🌲</div>
+      <h4 class="font-heading font-semibold text-sm text-green-800 mb-1">Forest — Food</h4>
+      <p class="text-xs text-green-700/70">Gain food from the birdfeeder. Brown powers here often generate bonus food or let you cache food on birds.</p>
+    </div>
+    <div class="p-5 bg-sky-50 rounded-xl border border-sky-200">
+      <div class="text-2xl mb-2">🌊</div>
+      <h4 class="font-heading font-semibold text-sm text-sky-800 mb-1">Wetland — Cards</h4>
+      <p class="text-xs text-sky-700/70">Draw bird cards. Brown powers here let you draw extra cards or peek at the deck. Card access = options.</p>
+    </div>
+    <div class="p-5 bg-amber-50 rounded-xl border border-amber-200">
+      <div class="text-2xl mb-2">🌾</div>
+      <h4 class="font-heading font-semibold text-sm text-amber-800 mb-1">Grassland — Eggs</h4>
+      <p class="text-xs text-amber-700/70">Lay eggs on your birds. Brown powers here multiply egg production. This is your point factory.</p>
+    </div>
+  </div>
+
+  <h2>The Engine-Building Timeline</h2>
+
+  <div class="my-8 space-y-4">
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Round 1</span>
+        <h3 class="font-heading font-bold text-bark">Foundation — 8 actions</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Play 2–3 birds that generate food or cards. Prioritize the forest and wetland.
+        Don't lay eggs yet — you need birds on the board first.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Round 2</span>
+        <h3 class="font-heading font-bold text-bark">Expand — 7 actions</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Fill out your engine. Play birds that chain with existing ones. Start thinking about
+        egg production — play at least one bird in the grassland with a high egg limit.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Round 3</span>
+        <h3 class="font-heading font-bold text-bark">Pivot to Points — 6 actions</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Shift toward laying eggs and scoring. Your engine should be self-sustaining now — each
+        action in a habitat triggers multiple brown powers along the row.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Round 4</span>
+        <h3 class="font-heading font-bold text-bark">Cash In — 5 actions</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Maximum egg production. Every action should generate points. If your engine is
+        working, these 5 actions produce more points than your 8 actions in round 1.
+      </p>
+    </div>
+  </div>
+
+  <h2>Power Combos to Look For</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">STRONG</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Food → Card Converter</h4>
+      </div>
+      <p class="text-sm text-bark/60">A forest bird that caches food + a bird that lets you trade cached food for cards. Self-sustaining cycle.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">STRONG</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Egg Multiplier Chain</h4>
+      </div>
+      <p class="text-sm text-bark/60">Multiple birds in the grassland with "lay an extra egg" brown powers. Each lay-eggs action produces 3–5 eggs.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-purple-100 text-purple-700 text-[11px] font-bold rounded-full">ADVANCED</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Tuck + Draw Engine</h4>
+      </div>
+      <p class="text-sm text-bark/60">Birds that tuck cards from the deck = VP + deck thinning. Combine with card-draw powers to always have options.</p>
+    </div>
+  </div>
+
+  <InfoBox type="warning" title="The Trap: Playing Too Many Birds">
+    Each bird you play costs food, eggs, and an action. Playing a bird in round 4 that gives you one activation is almost never worth it. Know when to stop building and start scoring.
+  </InfoBox>
+
+  <InfoBox type="tip" title="Count Your Actions">
+    You have 26 total actions across all 4 rounds (8+7+6+5). Every bird you play burns one of those actions. A bird needs to generate at least 2–3 points worth of value to justify the action cost of playing it.
+  </InfoBox>
+</Article>

@@ -1,0 +1,27 @@
+---
+interface Props {
+  type?: "tip" | "warning" | "rule" | "info";
+  title?: string;
+}
+
+const { type = "info", title } = Astro.props;
+
+const styles = {
+  tip: { bg: "bg-emerald-50", border: "border-emerald-200", icon: "💡", accent: "text-emerald-700", defaultTitle: "Pro Tip" },
+  warning: { bg: "bg-amber-50", border: "border-amber-200", icon: "⚠️", accent: "text-amber-700", defaultTitle: "Watch Out" },
+  rule: { bg: "bg-blue-50", border: "border-blue-200", icon: "📖", accent: "text-blue-700", defaultTitle: "Official Rule" },
+  info: { bg: "bg-slate-50", border: "border-slate-200", icon: "ℹ️", accent: "text-slate-700", defaultTitle: "Good to Know" },
+};
+
+const s = styles[type];
+---
+
+<aside class={`my-8 p-5 rounded-xl ${s.bg} border ${s.border}`}>
+  <div class={`flex items-center gap-2 font-heading font-semibold text-sm ${s.accent} mb-2`}>
+    <span class="text-base">{s.icon}</span>
+    {title || s.defaultTitle}
+  </div>
+  <div class="text-sm text-bark/70 leading-relaxed">
+    <slot />
+  </div>
+</aside>

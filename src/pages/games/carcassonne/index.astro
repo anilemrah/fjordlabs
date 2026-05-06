@@ -1,0 +1,110 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { getGame } from "../../../data/games";
+
+const game = getGame("carcassonne")!;
+
+const articles = {
+  rules: [
+    {
+      title: "Carcassonne Farmer Scoring Explained: The Most Confusing Rule",
+      description: "Farmer scoring trips up everyone. Here's a visual explanation of how it actually works.",
+      href: "/games/carcassonne/farmer-scoring-explained/",
+    },
+    {
+      title: "Can You Share a City in Carcassonne?",
+      description: "Two meeples in the same city — is it legal? How does scoring work?",
+      href: "/games/carcassonne/can-you-share-a-city/",
+    },
+    {
+      title: "Carcassonne Monastery Rules: When Is a Monastery Complete?",
+      description: "The simple rule that causes surprisingly many arguments.",
+      href: "/games/carcassonne/monastery-rules/",
+    },
+  ],
+  strategy: [
+    {
+      title: "Carcassonne Strategy Guide: How to Win Consistently",
+      description: "Tile placement tactics, when to place meeples, and the farmer gambit.",
+      href: "/games/carcassonne/strategy-guide/",
+    },
+  ],
+  guides: [
+    {
+      title: "Best Carcassonne Expansions Ranked",
+      description: "From Inns & Cathedrals to Traders & Builders — which ones are worth it?",
+      href: "/games/carcassonne/best-expansions-ranked/",
+    },
+  ],
+};
+---
+
+<Base
+  title="Carcassonne — Rules, Strategy & Guides | Fjord Labs"
+  description="Everything you need for Carcassonne: farmer scoring explained, city sharing rules, winning strategies, and expansion buying guides."
+>
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Carcassonne</span>
+      </nav>
+
+      <div class="flex items-start gap-6 mb-6">
+        <img src={game.image} alt={game.title} class="w-24 h-24 rounded-2xl object-cover border border-bark/10 shrink-0 hidden sm:block" />
+        <div>
+          <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+            🏰 Carcassonne
+          </h1>
+          <p class="text-lg text-bark/50 max-w-2xl leading-relaxed">
+            {game.heroDescription}
+          </p>
+        </div>
+      </div>
+
+      <div class="flex flex-wrap gap-6 text-sm text-bark/40">
+        <div><span class="font-semibold text-bark/60">Players:</span> {game.playerCount}</div>
+        <div><span class="font-semibold text-bark/60">Play Time:</span> {game.playTime}</div>
+        <div><span class="font-semibold text-bark/60">Complexity:</span> {game.complexity}</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Rules Clarifications</h2>
+      <p class="text-bark/40 mb-8">The rules questions that come up every game night.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.rules.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Rules" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Strategy</h2>
+      <p class="text-bark/40 mb-8">Go from casual to competitive.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.strategy.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Strategy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Guides & Buying Advice</h2>
+      <p class="text-bark/40 mb-8">Expansion rankings and setup tips.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.guides.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

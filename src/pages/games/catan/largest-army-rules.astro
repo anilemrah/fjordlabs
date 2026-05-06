@@ -1,0 +1,83 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Largest Army in Catan: How Does It Work?"
+  description="How to earn Largest Army, when it switches, and how it interacts with Longest Road."
+  game="catan"
+  gameTitle="Catan"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    Largest Army is 2 free victory points sitting in the development card deck.
+    But the rules around earning and losing it trip people up. Here's the full picture.
+  </p>
+
+  <KeyTakeaway answer="Play 3 or more Knight cards to claim Largest Army (2 VP). If another player plays more knights than you, it switches to them. In a tie, the current holder keeps it." />
+
+  <h2>How It Works</h2>
+
+  <div class="my-6 space-y-4">
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Step 1</span>
+        <h3 class="font-heading font-bold text-bark">Play 3 Knight Cards</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        The first player to play their 3rd knight card earns the Largest Army card — worth 2 VP. Place it face up in front of you.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Step 2</span>
+        <h3 class="font-heading font-bold text-bark">It Can Switch</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        If another player plays <em>more</em> knight cards than the current holder, Largest Army immediately transfers to them. A tie does NOT cause a switch — the current holder keeps it.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Step 3</span>
+        <h3 class="font-heading font-bold text-bark">Count Played Knights Only</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Only knights that have been <strong>played face up</strong> count. Knights still in your hand don't count toward your total.
+      </p>
+    </div>
+  </div>
+
+  <h2>Largest Army vs Longest Road</h2>
+
+  <div class="my-6 overflow-hidden rounded-xl border border-bark/10">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70"></th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Largest Army</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Longest Road</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3 font-semibold">Minimum</td><td class="p-3">3 knights</td><td class="p-3">5 connected roads</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3 font-semibold">Points</td><td class="p-3">2 VP</td><td class="p-3">2 VP</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3 font-semibold">On tie</td><td class="p-3">Current holder keeps it</td><td class="p-3">Current holder keeps it</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3 font-semibold">Can be broken?</td><td class="p-3">No — knights can't be removed</td><td class="p-3">Yes — opponent settlement can split your road</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <InfoBox type="tip" title="When to Go for Largest Army">
+    Largest Army is safer than Longest Road because opponents can't break your knight count — it can only be overtaken. If you're buying dev cards anyway, Largest Army often comes naturally. Don't force it if no one else is buying knights — those resources might be better spent on cities.
+  </InfoBox>
+
+  <InfoBox type="warning" title="The Knight Race">
+    If two players are both aggressively buying dev cards, the knight race can drain both players' resources while a third player quietly builds cities. Watch the table — if someone else is close to Largest Army, decide early whether to compete or pivot to a different strategy.
+  </InfoBox>
+</Article>

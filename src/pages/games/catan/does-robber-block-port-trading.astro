@@ -1,0 +1,108 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Does the Robber Block Port Trading in Catan?"
+  description="One of the most debated rules in Catan — here's the definitive answer with official sources."
+  game="catan"
+  gameTitle="Catan"
+  category="Rules"
+  product="catan-robber-upgrade"
+  publishDate="2025-05-01"
+>
+  <p>
+    You're mid-game, someone rolls a 7, and the robber lands on a hex that
+    connects to your port. Now you want to use that port for a 2:1 trade.
+    Can you?
+  </p>
+
+  <KeyTakeaway answer="Yes, you can. The robber does NOT block port trading. It only blocks resource production from the hex it sits on." />
+
+  <h2>What the Robber Actually Does</h2>
+
+  <p>According to the official Catan rules, the robber has exactly two effects:</p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-red-50 rounded-xl border border-red-100">
+      <div class="text-2xl mb-2">🚫</div>
+      <h4 class="font-heading font-semibold text-sm text-red-800 mb-1">Blocks Production</h4>
+      <p class="text-sm text-red-700/70">When the number on the robber's hex is rolled, no one with a settlement or city there gets resources.</p>
+    </div>
+    <div class="p-5 bg-red-50 rounded-xl border border-red-100">
+      <div class="text-2xl mb-2">🤏</div>
+      <h4 class="font-heading font-semibold text-sm text-red-800 mb-1">Steal One Resource</h4>
+      <p class="text-sm text-red-700/70">The player who moved the robber takes one random card from any player adjacent to the robber's new hex.</p>
+    </div>
+  </div>
+
+  <InfoBox type="rule" title="That's the Complete List">
+    The robber has no other effects. Ports, trading, building — everything else works normally regardless of where the robber sits.
+  </InfoBox>
+
+  <h2>Why This Confusion Exists</h2>
+
+  <p>
+    The confusion comes from the physical board layout. Ports sit at the edge
+    of hexes, and when the robber is placed on a hex near a port, it <em>looks</em>
+    like it should block the port.
+  </p>
+
+  <p>
+    But mechanically, ports have no connection to hex tiles. A port is linked to
+    two specific intersection points (where you build settlements), not to any hex.
+  </p>
+
+  <InfoBox type="tip" title="Think of it This Way">
+    The robber intimidates your workers on the land, but your merchant ships at the port don't care about a bandit standing on a nearby hill. Different systems entirely.
+  </InfoBox>
+
+  <h2>What About the Pirate in Seafarers?</h2>
+
+  <p>
+    If you're playing <strong>Catan: Seafarers</strong>, the pirate <em>can</em>
+    interfere with shipping routes — but even the pirate doesn't block port
+    trading. The pirate prevents you from building or moving ships adjacent to
+    its hex. Ports remain unaffected.
+  </p>
+
+  <ComparisonTable title="Robber Effect Quick Reference">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Situation</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Effect</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">Hex number rolled with robber on it</td>
+          <td class="p-3"><span class="text-red-600 font-semibold">❌ No resources</span></td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">Port on a hex with the robber</td>
+          <td class="p-3"><span class="text-emerald-600 font-semibold">✅ Works normally</span></td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">4:1 bank trade</td>
+          <td class="p-3"><span class="text-emerald-600 font-semibold">✅ Always available</span></td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">2:1 or 3:1 port trade</td>
+          <td class="p-3"><span class="text-emerald-600 font-semibold">✅ Always available</span></td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">Player-to-player trade</td>
+          <td class="p-3"><span class="text-emerald-600 font-semibold">✅ Always available</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <InfoBox type="warning" title="Common House Rule Alert">
+    Some groups play that the robber blocks ports — this is NOT in the official rules. If your table has been playing this way, you've been making ports weaker than intended. Time for a rules reset!
+  </InfoBox>
+</Article>

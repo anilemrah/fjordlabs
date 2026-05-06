@@ -1,0 +1,107 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="What Happens When You Roll a 7 in Catan?"
+  description="The complete guide to the most dreaded dice roll in Catan — discarding, robber movement, and stealing."
+  game="catan"
+  gameTitle="Catan"
+  category="Rules"
+  product="catan-robber-upgrade"
+  publishDate="2025-05-06"
+>
+  <p>
+    You roll the dice and it's a 7. The table groans. But what exactly happens,
+    and in what order? The "7 roll" is the most rule-intensive moment in Catan,
+    and groups get the sequence wrong all the time.
+  </p>
+
+  <KeyTakeaway answer="Three things happen in order: (1) anyone with 8+ cards discards half, (2) the roller moves the robber, (3) the roller steals one card from an adjacent player." />
+
+  <StepList title="The Three Steps (In Order)">
+    <Step number={1} title="Discard Phase">
+      <strong>Every player</strong> with 8 or more resource cards must discard half (rounded down).
+      This happens to all affected players simultaneously — not just the roller. If you have 9 cards, you discard 4.
+      <div class="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-100">
+        <p class="text-xs text-amber-800"><strong>Common mistake:</strong> Only making the roller discard. Everyone with 8+ cards must discard, regardless of who rolled.</p>
+      </div>
+    </Step>
+
+    <Step number={2} title="Move the Robber">
+      The player who rolled moves the robber to any hex <strong>other than where it currently sits</strong>.
+      The robber blocks resource production from that hex until it's moved again.
+      <div class="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-100">
+        <p class="text-xs text-amber-800"><strong>Common mistake:</strong> Leaving the robber in place. You must move it to a different hex.</p>
+      </div>
+    </Step>
+
+    <Step number={3} title="Steal One Card">
+      The roller takes <strong>one random</strong> resource card from any player who has a
+      settlement or city adjacent to the robber's new hex. The stolen card is random — no peeking.
+      <div class="mt-3 p-3 bg-amber-50 rounded-lg border border-amber-100">
+        <p class="text-xs text-amber-800"><strong>Common mistake:</strong> Letting the roller choose which card to steal. It must be random.</p>
+      </div>
+    </Step>
+  </StepList>
+
+  <h2>Discard Count Quick Reference</h2>
+
+  <div class="my-6 overflow-hidden rounded-xl border border-bark/10">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Cards in Hand</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Must Discard</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Keep</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">7 or fewer</td><td class="p-3 text-emerald-600 font-semibold">0 (safe!)</td><td class="p-3">All</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">8</td><td class="p-3 text-red-600 font-semibold">4</td><td class="p-3">4</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">9</td><td class="p-3 text-red-600 font-semibold">4</td><td class="p-3">5</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">10</td><td class="p-3 text-red-600 font-semibold">5</td><td class="p-3">5</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">11</td><td class="p-3 text-red-600 font-semibold">5</td><td class="p-3">6</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">12</td><td class="p-3 text-red-600 font-semibold">6</td><td class="p-3">6</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <InfoBox type="tip" title="The 7-Card Rule of Thumb">
+    Keep your hand at 7 cards or fewer whenever possible. If it's not your turn and you're sitting on 8+ cards, you're gambling that no one rolls a 7. Build or trade before your turn ends to stay under the limit.
+  </InfoBox>
+
+  <h2>Strategic Tips for the 7</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">🎯</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Target the Leader</h4>
+      </div>
+      <p class="text-sm text-bark/60">Place the robber on a hex that hurts the player in first place. Block their best number and steal from them.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">🛡️</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Knight Cards Are Insurance</h4>
+      </div>
+      <p class="text-sm text-bark/60">If the robber is hurting you, play a knight to move it. This also counts toward Largest Army (2 VP).</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">🤝</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Negotiate Robber Placement</h4>
+      </div>
+      <p class="text-sm text-bark/60">"Put it on Alex and I'll trade you the ore you need." The 7 is a bargaining chip — use it diplomatically.</p>
+    </div>
+  </div>
+
+  <InfoBox type="info" title="Fun Fact">
+    7 is the most likely dice roll in Catan (probability: 16.67%). On average, a 7 is rolled once every 6 turns. In a 4-player game, that's roughly every 1.5 rounds.
+  </InfoBox>
+</Article>

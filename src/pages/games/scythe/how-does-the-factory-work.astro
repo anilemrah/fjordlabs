@@ -1,0 +1,88 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="How Does the Factory Work in Scythe?"
+  description="The Factory is the most contested territory on the board. Here's how Factory cards work and why it matters."
+  game="scythe"
+  gameTitle="Scythe"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    The Factory sits at the center of the Scythe board and is one of the most
+    important strategic elements in the game. Getting there first — and picking
+    the right card — can define your entire game.
+  </p>
+
+  <KeyTakeaway answer="When your character reaches the Factory for the first time, pick one of the available Factory cards. It becomes a 5th action on your player mat. The Factory territory also counts as 3 territories for end-game scoring." />
+
+  <h2>How Factory Cards Work</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">1️⃣</span>
+      <p class="text-sm text-emerald-800"><strong>Move your character to the Factory.</strong> It's in the center of the board. You need mechs deployed to cross rivers to get there (unless you're Nordic).</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">2️⃣</span>
+      <p class="text-sm text-emerald-800"><strong>Pick one Factory card</strong> from those available. There are always one more card than the number of players. First player there gets the best selection.</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">3️⃣</span>
+      <p class="text-sm text-emerald-800"><strong>Add it to your player mat</strong> as a 5th action column. You can now use this action on any turn instead of your other 4 actions.</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <span class="text-lg shrink-0">⚠️</span>
+      <p class="text-sm text-amber-800"><strong>One card per player.</strong> You only pick a Factory card the first time your character visits. Returning later doesn't give you another card.</p>
+    </div>
+  </div>
+
+  <h2>Why the Factory Matters for Scoring</h2>
+
+  <div class="my-6 p-6 bg-white rounded-2xl border border-bark/10">
+    <div class="grid sm:grid-cols-2 gap-4">
+      <div class="p-4 bg-emerald-50 rounded-xl">
+        <h4 class="font-heading font-semibold text-sm text-emerald-800 mb-2">Territory Scoring</h4>
+        <p class="text-sm text-emerald-700/70">The Factory counts as <strong>3 territories</strong> at game end. At the highest popularity tier, that's 15 coins — more than any other single territory.</p>
+      </div>
+      <div class="p-4 bg-blue-50 rounded-xl">
+        <h4 class="font-heading font-semibold text-sm text-blue-800 mb-2">Action Economy</h4>
+        <p class="text-sm text-blue-700/70">A 5th action gives you more flexibility every turn. Some Factory cards offer powerful move+produce combinations that are better than anything on your player mat.</p>
+      </div>
+    </div>
+  </div>
+
+  <h2>Common Questions</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Can I use my Factory card on the same turn I pick it up?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> You moved to the Factory this turn (using your Move action), so you can't take another top-row action. You can use it starting next turn.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Does my character have to stay at the Factory?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> Once you pick up the card, it's yours permanently. Your character can move freely.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"What if I lose a combat at the Factory?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1">Your character retreats home, but <strong>you keep your Factory card.</strong> The card is never lost. However, you lose control of the Factory territory (and its 3-territory bonus).</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="Factory Rush Strategy">
+    Getting to the Factory first gives you the best card selection and early access to a powerful 5th action. Factions starting closer to the center (Rusviet, Crimea) have a natural advantage. If you're farther away (Nordic, Saxony), sometimes it's better to focus on your home territory engine and let others fight over the Factory.
+  </InfoBox>
+</Article>

@@ -1,0 +1,63 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Can You Share a City in Carcassonne?"
+  description="Two meeples in the same city — is it legal? How does scoring work?"
+  game="carcassonne"
+  gameTitle="Carcassonne"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    You notice two separate city segments are about to merge with the next tile
+    placement. Both have meeples on them. Is this allowed? Who gets the points?
+  </p>
+
+  <KeyTakeaway answer="You cannot place a meeple directly into an occupied city. But you CAN merge two separate cities that each have a meeple — resulting in a shared city. The player with the most meeples scores; in a tie, both get full points." />
+
+  <h2>The Two Rules That Matter</h2>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-red-50 rounded-xl border border-red-200">
+      <div class="text-2xl mb-2">🚫</div>
+      <h4 class="font-heading font-semibold text-sm text-red-800 mb-1">Rule 1: No Direct Placement</h4>
+      <p class="text-xs text-red-700/70">You cannot place a meeple on a city (or road, or field) that already has a meeple on it — yours or anyone else's.</p>
+    </div>
+    <div class="p-5 bg-emerald-50 rounded-xl border border-emerald-200">
+      <div class="text-2xl mb-2">✅</div>
+      <h4 class="font-heading font-semibold text-sm text-emerald-800 mb-1">Rule 2: Merging Is Legal</h4>
+      <p class="text-xs text-emerald-700/70">If you place a tile that connects two separate features, they merge. Any meeples already on them stay — even if this creates a shared feature.</p>
+    </div>
+  </div>
+
+  <h2>How Scoring Works in a Shared City</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">👤</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">One Player Has More Meeples</h4>
+      </div>
+      <p class="text-sm text-bark/60">Only that player scores. The other player(s) get nothing. All meeples are returned.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">👥</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Tied for Most Meeples</h4>
+      </div>
+      <p class="text-sm text-bark/60"><strong>Both players score the full points.</strong> Points are not split. A 10-point city with one meeple each gives both players 10 points.</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The Strategic Merge">
+    Deliberately merging into an opponent's city is an advanced tactic. If they're building a big city, place your meeple on a nearby city segment, then connect them with a tile. Suddenly you're sharing their 15-point city. If you can get 2 meeples in (by merging from two directions), you steal it entirely.
+  </InfoBox>
+
+  <InfoBox type="rule">
+    This same majority-scoring rule applies to roads and fields too, not just cities. Any shared feature uses majority scoring with full points on ties.
+  </InfoBox>
+</Article>

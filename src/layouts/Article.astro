@@ -1,0 +1,113 @@
+---
+import Base from "./Base.astro";
+import ProductCallout from "../components/ProductCallout.astro";
+import { getProduct } from "../data/products";
+
+interface Props {
+  title: string;
+  description: string;
+  game: string;
+  gameTitle: string;
+  category: string;
+  product?: string;
+  publishDate?: string;
+}
+
+const { title, description, game, gameTitle, category, product, publishDate } =
+  Astro.props;
+
+const relatedProduct = product ? getProduct(product) : undefined;
+---
+
+<Base title={`${title} | Fjord Labs`} description={description} type="article">
+  <article class="max-w-3xl mx-auto px-6 py-12">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-bark/40 mb-8">
+      <a href="/" class="hover:text-clay transition-colors">Home</a>
+      <span>/</span>
+      <a href={`/games/${game}/`} class="hover:text-clay transition-colors"
+        >{gameTitle}</a
+      >
+      <span>/</span>
+      <span class="text-bark/60">{category}</span>
+    </nav>
+
+    <!-- Article Header -->
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span
+          class="px-3 py-1 bg-clay/10 text-clay text-xs font-semibold rounded-full uppercase tracking-wide"
+        >
+          {category}
+        </span>
+        <span
+          class="px-3 py-1 bg-forest/10 text-forest text-xs font-semibold rounded-full"
+        >
+          {gameTitle}
+        </span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-4 leading-tight">
+        {title}
+      </h1>
+      <p class="text-lg text-bark/50">
+        {description}
+      </p>
+      {
+        publishDate && (
+          <time class="text-sm text-bark/30 mt-3 block">{publishDate}</time>
+        )
+      }
+    </header>
+
+    <!-- Article Body -->
+    <div class="prose-article">
+      <slot />
+    </div>
+
+    <!-- Product Callout (injected from frontmatter) -->
+    {relatedProduct && <ProductCallout product={relatedProduct} />}
+
+    <!-- Back to game hub -->
+    <div class="mt-16 pt-8 border-t border-bark/10">
+      <a
+        href={`/games/${game}/`}
+        class="inline-flex items-center gap-2 text-clay hover:text-clay-dark transition-colors font-medium"
+      >
+        <svg
+          class="w-4 h-4"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"></path>
+        </svg>
+         More {gameTitle} articles
+      </a>
+    </div>
+  </article>
+
+  <!-- JSON-LD Structured Data -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description: description,
+      author: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+      },
+      ...(publishDate && { datePublished: publishDate }),
+    })}
+  />
+</Base>

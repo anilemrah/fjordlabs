@@ -1,0 +1,105 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import QuickFact from "../../../components/QuickFact.astro";
+---
+
+<Article
+  title="How to Set Up Catan in Under 5 Minutes"
+  description="A step-by-step guide to fast setup, including a resource organization trick that cuts time in half."
+  game="catan"
+  gameTitle="Catan"
+  category="Guide"
+  product="catan-resource-tokens"
+  publishDate="2025-05-01"
+>
+  <p>
+    Catan setup is the tax you pay before the fun starts. Sorting resource cards,
+    shuffling number tokens, arranging hex tiles — it eats 10–15 minutes if you're
+    not careful.
+  </p>
+
+  <KeyTakeaway answer="The secret to fast setup isn't speed — it's how you stored the game last time. Good teardown = instant setup." />
+
+  <div class="flex flex-wrap gap-3 my-6">
+    <QuickFact label="Typical setup" value="10–15 min" icon="🐌" />
+    <QuickFact label="With this guide" value="Under 5 min" icon="⚡" />
+    <QuickFact label="With proper storage" value="Under 3 min" icon="🚀" />
+  </div>
+
+  <h2>The Biggest Time Sink</h2>
+
+  <p>
+    The single thing that slows setup down the most is separating five types of
+    resource cards from whatever jumbled state they were left in.
+  </p>
+
+  <InfoBox type="tip" title="The Golden Rule">
+    Never mix resource types when packing up. Sort them back immediately after each game — it takes 30 seconds post-game but saves 5+ minutes pre-game. If you use 3D-printed resource tokens instead of cards, the sorting problem disappears entirely.
+  </InfoBox>
+
+  <h2>The 5-Step Speedrun</h2>
+
+  <StepList>
+    <Step number={1} title="Frame First" time="30 sec">
+      Lay out the six ocean frame pieces. They only fit one way. If you store them pre-assembled (which they're designed for), this is instant.
+    </Step>
+
+    <Step number={2} title="Tiles — Randomize as You Place" time="60 sec">
+      Shuffle the 19 terrain hexes face-down and place them into the frame one by one, flipping as you go. Random placement is the default and fastest approach.
+    </Step>
+
+    <Step number={3} title="Number Tokens — The Alphabet Trick" time="60 sec">
+      The number tokens have small letters (a through r) on their backs. Place them in alphabetical order starting from a corner, spiraling inward. Skip the desert. This guarantees proper number distribution.
+    </Step>
+
+    <Step number={4} title="Cards & Bank" time="45 sec">
+      If your resources are pre-sorted, just set out the five piles. Shuffle the development card deck. Place longest road and largest army cards to the side.
+    </Step>
+
+    <Step number={5} title="Player Setup" time="60 sec">
+      Each player takes their color tray (5 settlements, 4 cities, 15 roads) and two building cost reference cards. Initial settlement placement happens during play.
+    </Step>
+  </StepList>
+
+  <InfoBox type="info" title="The Alphabet Trick Explained">
+    Store your number tokens pre-sorted in alphabetical order in a small bag. When you pull them out, you just go in order — no hunting for the right token. This single habit saves the most time.
+  </InfoBox>
+
+  <h2>Advanced: The Preset Map</h2>
+
+  <p>
+    For the absolute fastest setup, use a recommended beginner layout from the
+    rulebook. These have fixed hex positions and fixed number placements. You can
+    even photograph your favorite layout and recreate it from the photo in under
+    2 minutes.
+  </p>
+
+  <h2>Storage Habits That Pay Off Every Game</h2>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <div class="text-lg mb-1">🧩</div>
+      <p class="text-sm text-emerald-800">Ocean frame pieces stored assembled or rubber-banded together</p>
+    </div>
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <div class="text-lg mb-1">🔤</div>
+      <p class="text-sm text-emerald-800">Number tokens in alphabetical order in a small bag</p>
+    </div>
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <div class="text-lg mb-1">📦</div>
+      <p class="text-sm text-emerald-800">Resources separated by type using dividers or a token system</p>
+    </div>
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <div class="text-lg mb-1">🎨</div>
+      <p class="text-sm text-emerald-800">Each player's pieces in their own bag with a reference card</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The Real Insight">
+    Most "setup time" in Catan is actually "recovery from bad teardown" time. Invest 2 minutes at the end of each game, and you'll never dread setup again.
+  </InfoBox>
+</Article>

@@ -1,0 +1,92 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="Scythe Combat Rules Explained: How Fighting Actually Works"
+  description="Combat in Scythe isn't like other games. Here's the full system — power dials, combat cards, and consequences."
+  game="scythe"
+  gameTitle="Scythe"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    Combat in Scythe is rare, decisive, and punishing for the loser. It's not a
+    wargame — most games have only 2–4 combats total. Understanding the system is
+    key to knowing when to fight and when to retreat.
+  </p>
+
+  <KeyTakeaway answer="When two players' units occupy the same territory, combat happens. Each player secretly selects power (from their power track) and up to one combat card per unit. Highest total wins. The loser retreats home and loses popularity." />
+
+  <h2>How Combat Works</h2>
+
+  <StepList>
+    <Step number={1} title="Trigger: Two Players Share a Territory">
+      Combat only happens when a player moves their character or mech into a territory containing an opponent's character or mech. Workers alone don't trigger combat.
+    </Step>
+
+    <Step number={2} title="Select Power on the Dial">
+      Each player secretly sets their power dial to any amount from 0 up to their current power. This power is spent regardless of the outcome.
+    </Step>
+
+    <Step number={3} title="Add Combat Cards">
+      Each player may add up to 1 combat card per unit they have in the combat. Combat cards show values of 2, 3, 4, or 5. Cards are discarded after use.
+    </Step>
+
+    <Step number={4} title="Reveal and Compare">
+      Both players reveal simultaneously. Total = power dial + combat card values. Highest total wins. On a tie, the attacker wins.
+    </Step>
+
+    <Step number={5} title="Consequences">
+      The <strong>winner</strong> stays in the territory. The <strong>loser</strong> retreats all units back to their home base and loses 1 popularity for each worker displaced (not their own workers — the loser's workers that were in the territory).
+    </Step>
+  </StepList>
+
+  <h2>Key Details People Miss</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <span class="text-lg shrink-0">⚡</span>
+      <p class="text-sm text-amber-800"><strong>Power is spent win or lose.</strong> Both players lose the power they bid. Even the winner's power drops. This makes combat expensive for everyone.</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">💔</span>
+      <p class="text-sm text-red-800"><strong>Popularity loss hurts badly.</strong> If the loser had workers in the territory, the winner loses 1 popularity per displaced worker. Popularity determines your end-game scoring multiplier — losing it can cost more than the territory was worth.</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">🤖</span>
+      <p class="text-sm text-blue-800"><strong>Workers don't fight.</strong> Workers can't attack or be attacked — only characters and mechs engage in combat. Workers in a contested territory are displaced but don't participate.</p>
+    </div>
+  </div>
+
+  <h2>Combat Cards Distribution</h2>
+
+  <div class="my-6 overflow-hidden rounded-xl border border-bark/10">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Card Value</th>
+          <th class="text-center p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Count in Deck</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">2</td><td class="p-3 text-center">16 cards</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">3</td><td class="p-3 text-center">12 cards</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">4</td><td class="p-3 text-center">8 cards</td></tr>
+        <tr class="border-t border-bark/5 bg-amber-50/50"><td class="p-3 font-semibold">5</td><td class="p-3 text-center font-bold">6 cards</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <InfoBox type="tip" title="Combat Strategy">
+    The best combat in Scythe is the one you win cheaply. Bid just enough to beat what you think your opponent will commit. If they have low power and few combat cards, bid 1–2 power. Save your resources for the combats that matter — like taking a Factory card or completing a star.
+  </InfoBox>
+
+  <InfoBox type="warning" title="Don't Fight Over Workers">
+    Attacking a territory full of workers costs you popularity — and popularity multiplies ALL your end-game scoring. A territory worth 3 coins isn't worth losing 2 popularity tiers. Pick your battles.
+  </InfoBox>
+</Article>

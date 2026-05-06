@@ -1,0 +1,24 @@
+---
+interface Props {
+  number: number;
+  title: string;
+  time?: string;
+}
+
+const { number, title, time } = Astro.props;
+---
+
+<div class="flex gap-4 relative pl-1">
+  <div class="shrink-0 w-9 h-9 rounded-full bg-clay text-white flex items-center justify-center font-heading font-bold text-sm z-10">
+    {number}
+  </div>
+  <div class="pb-6 pt-1 flex-1">
+    <div class="flex items-center gap-3 mb-1">
+      <h4 class="font-heading font-semibold text-bark">{title}</h4>
+      {time && <span class="text-xs text-bark/30 bg-bark/5 px-2 py-0.5 rounded-full">{time}</span>}
+    </div>
+    <div class="text-sm text-bark/60 leading-relaxed">
+      <slot />
+    </div>
+  </div>
+</div>

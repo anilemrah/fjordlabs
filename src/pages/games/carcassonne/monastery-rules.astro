@@ -1,0 +1,79 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Carcassonne Monastery Rules: When Is a Monastery Complete?"
+  description="The simple rule that causes surprisingly many arguments at game night."
+  game="carcassonne"
+  gameTitle="Carcassonne"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    Monasteries (also called cloisters in older editions) are one of the simplest
+    features in Carcassonne — but the completion condition still trips people up.
+  </p>
+
+  <KeyTakeaway answer="A monastery is complete when all 8 surrounding tiles are placed. A completed monastery scores 9 points (the monastery tile + 8 surrounding tiles). Incomplete monasteries score 1 point per tile at game end." />
+
+  <h2>How Monasteries Work</h2>
+
+  <div class="my-6 p-6 bg-white rounded-2xl border border-bark/10">
+    <div class="grid grid-cols-3 gap-2 max-w-[200px] mx-auto mb-4">
+      <div class="aspect-square bg-sand rounded flex items-center justify-center text-xs text-bark/30">tile</div>
+      <div class="aspect-square bg-sand rounded flex items-center justify-center text-xs text-bark/30">tile</div>
+      <div class="aspect-square bg-sand rounded flex items-center justify-center text-xs text-bark/30">tile</div>
+      <div class="aspect-square bg-sand rounded flex items-center justify-center text-xs text-bark/30">tile</div>
+      <div class="aspect-square bg-clay/20 rounded flex items-center justify-center text-lg">⛪</div>
+      <div class="aspect-square bg-sand rounded flex items-center justify-center text-xs text-bark/30">tile</div>
+      <div class="aspect-square bg-sand rounded flex items-center justify-center text-xs text-bark/30">tile</div>
+      <div class="aspect-square bg-sand rounded flex items-center justify-center text-xs text-bark/30">tile</div>
+      <div class="aspect-square bg-sand rounded flex items-center justify-center text-xs text-bark/30">tile</div>
+    </div>
+    <p class="text-sm text-bark/60 text-center">A monastery surrounded by all 8 tiles = <strong>9 points</strong> (1 per tile including itself)</p>
+  </div>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">✅</span>
+      <p class="text-sm text-emerald-800"><strong>Completed monastery:</strong> All 8 surrounding tiles are placed → score 9 points → return your meeple</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <span class="text-lg shrink-0">⏳</span>
+      <p class="text-sm text-amber-800"><strong>Incomplete at game end:</strong> Score 1 point for the monastery tile + 1 per surrounding tile that was placed. (e.g., 5 surrounding tiles = 6 points)</p>
+    </div>
+  </div>
+
+  <h2>Common Questions</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Do diagonal tiles count?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>Yes.</strong> All 8 surrounding positions count — including the 4 diagonal ones. This is what makes monasteries score up to 9.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Does it matter what's on the surrounding tiles?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> Any tile in any orientation counts. The surrounding tiles can have cities, roads, fields — it doesn't matter. Just fill the 8 spaces.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Can I place a meeple on a monastery on a later turn?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> You can only place a meeple on the tile you just placed, on the turn you placed it. If you place a monastery tile without a meeple, it's unoccupied forever.</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="Monastery Strategy">
+    Monasteries are most valuable in the center of the board where tiles naturally fill around them. An edge monastery may never complete because tiles rarely stack up along the board's perimeter. Place monastery tiles centrally whenever possible.
+  </InfoBox>
+</Article>

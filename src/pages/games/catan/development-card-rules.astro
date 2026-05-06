@@ -1,0 +1,101 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Catan Development Card Rules: When Can You Play Them?"
+  description="Knight, Road Building, Year of Plenty, Monopoly, Victory Point — every dev card rule explained."
+  game="catan"
+  gameTitle="Catan"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    Development cards are Catan's wild cards — powerful, unpredictable, and
+    surrounded by timing rules that cause arguments. Here's the complete breakdown.
+  </p>
+
+  <KeyTakeaway answer="You can play one development card per turn, and you cannot play a card on the same turn you bought it. Exception: Victory Point cards are revealed only when winning — they're never 'played' during the game." />
+
+  <h2>All Development Cards</h2>
+
+  <div class="my-8 space-y-4">
+    <div class="p-5 bg-white rounded-xl border-l-4 border-red-400">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-red-50 text-red-700 text-xs font-bold rounded-full">14 in deck</span>
+        <h3 class="font-heading font-bold text-bark">Knight</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Move the robber to any hex, steal one resource from an adjacent player. Playing 3+ knights
+        (and having the most) earns you Largest Army (2 VP).
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-blue-400">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-blue-50 text-blue-700 text-xs font-bold rounded-full">2 in deck</span>
+        <h3 class="font-heading font-bold text-bark">Road Building</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Place 2 roads for free immediately. Great for racing toward Longest Road or reaching a
+        settlement spot before opponents.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-emerald-400">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-emerald-50 text-emerald-700 text-xs font-bold rounded-full">2 in deck</span>
+        <h3 class="font-heading font-bold text-bark">Year of Plenty</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Take any 2 resources from the bank. Can be the same or different types. Use them immediately
+        for building if you want.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-purple-400">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-purple-50 text-purple-700 text-xs font-bold rounded-full">2 in deck</span>
+        <h3 class="font-heading font-bold text-bark">Monopoly</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Name one resource type. Every other player must give you all of that resource from their hand.
+        Devastating when timed right — especially after a productive dice roll.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-amber-400">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-amber-50 text-amber-700 text-xs font-bold rounded-full">5 in deck</span>
+        <h3 class="font-heading font-bold text-bark">Victory Point</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Worth 1 VP each. Keep them secret and face down until you have enough to win. They are never
+        "played" — just revealed when declaring victory.
+      </p>
+    </div>
+  </div>
+
+  <h2>Timing Rules</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <span class="text-lg shrink-0">✅</span>
+      <p class="text-sm text-emerald-800"><strong>One card per turn.</strong> You may play one development card on your turn — either before or after rolling the dice.</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">🚫</span>
+      <p class="text-sm text-red-800"><strong>Not on the turn you bought it.</strong> A dev card cannot be played on the same turn it was purchased. You must wait until at least your next turn.</p>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <span class="text-lg shrink-0">🃏</span>
+      <p class="text-sm text-amber-800"><strong>VP cards are special.</strong> They don't count against your one-card-per-turn limit because they're never "played." They're revealed only when you declare victory.</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="Dev Card Strategy">
+    Buying development cards is often better than building roads. Each card has a chance of being a VP (20% of the deck), and knights both score toward Largest Army and let you control the robber. A development card strategy is one of the most underrated paths to victory.
+  </InfoBox>
+</Article>

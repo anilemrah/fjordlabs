@@ -1,0 +1,85 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="How Many Victory Points Do You Need to Win Catan?"
+  description="The winning condition, how to count points, and hidden VP cards explained."
+  game="catan"
+  gameTitle="Catan"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    The answer is simple — but knowing <em>how</em> to count them and when to
+    reveal hidden points is where it gets interesting.
+  </p>
+
+  <KeyTakeaway answer="You need 10 victory points to win Catan. Points come from settlements (1), cities (2), Longest Road (2), Largest Army (2), and Victory Point development cards (1 each). You must reach 10 on YOUR turn." />
+
+  <h2>All Sources of Victory Points</h2>
+
+  <div class="my-6 overflow-hidden rounded-xl border border-bark/10">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Source</th>
+          <th class="text-center p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Points</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">Settlement</td><td class="p-3 text-center font-bold">1</td><td class="p-3 text-bark/50">Max 5 per player</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">City</td><td class="p-3 text-center font-bold">2</td><td class="p-3 text-bark/50">Replaces a settlement (max 4)</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Longest Road</td><td class="p-3 text-center font-bold">2</td><td class="p-3 text-bark/50">5+ connected roads, must be longest</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Largest Army</td><td class="p-3 text-center font-bold">2</td><td class="p-3 text-bark/50">3+ knights played, must be largest</td></tr>
+        <tr class="border-t border-bark/5 bg-amber-50/50"><td class="p-3 font-semibold">VP Dev Card</td><td class="p-3 text-center font-bold">1</td><td class="p-3 text-bark/50">5 in the deck — kept hidden until you win</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>The Hidden VP Card Rule</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <span class="text-lg shrink-0">🃏</span>
+      <p class="text-sm text-amber-800">
+        Victory Point development cards stay <strong>face down</strong> until you reach 10 points total.
+        You reveal them only when declaring victory. This means opponents can't see how close you are
+        if you're holding VP cards — making them one of the most powerful cards in the game.
+      </p>
+    </div>
+  </div>
+
+  <h2>Common Questions</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Can I win on another player's turn?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> You can only win during your own turn. Even if you reach 10 points because someone lost Longest Road to you on their turn, you must wait until your turn to declare victory.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Can I go over 10 points?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>Yes.</strong> If you reveal 2 hidden VP cards to jump from 8 to 12, that's a valid win. You just need at least 10.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"What if two players reach 10 at the same time?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>Can't happen.</strong> Only the active player (whose turn it is) can win. If multiple players technically have 10+ points, the one whose turn it is wins.</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The Sneak Win">
+    The most satisfying Catan win: sit at 7 visible points, hold 2 hidden VP cards, then build one settlement to jump from "7" to 10. Opponents never saw it coming. This is why tracking development card purchases matters.
+  </InfoBox>
+</Article>

@@ -1,0 +1,200 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Catan Settlement Placement Strategy: Where to Build First"
+  description="Your first two settlements decide the game. Here's how to evaluate spots like a competitive player."
+  game="catan"
+  gameTitle="Catan"
+  category="Strategy"
+  product="catan-score-tracker"
+  publishDate="2025-05-01"
+>
+  <p>
+    In Catan, your first two settlements are the most consequential decisions
+    you'll make. They determine your resources, your numbers, and your viable
+    strategies. Most games are won or lost before the first dice roll.
+  </p>
+
+  <KeyTakeaway answer="Aim for 10+ total pips across at least 4 different resource types between your two starting settlements." />
+
+  <h2>The Pip Count System</h2>
+
+  <p>
+    Every number token has dots (pips) showing how likely it is to be rolled.
+    When evaluating a spot, add up the pips of all adjacent hexes:
+  </p>
+
+  <ComparisonTable title="Probability by Number">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Number</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Pips</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Probability</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Rating</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">2 or 12</td><td class="p-3">1</td><td class="p-3">2.78%</td>
+          <td class="p-3"><span class="text-red-500">⭐</span></td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">3 or 11</td><td class="p-3">2</td><td class="p-3">5.56%</td>
+          <td class="p-3"><span class="text-orange-500">⭐⭐</span></td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">4 or 10</td><td class="p-3">3</td><td class="p-3">8.33%</td>
+          <td class="p-3"><span class="text-yellow-500">⭐⭐⭐</span></td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3">5 or 9</td><td class="p-3">4</td><td class="p-3">11.11%</td>
+          <td class="p-3"><span class="text-emerald-500">⭐⭐⭐⭐</span></td>
+        </tr>
+        <tr class="border-t border-bark/5 bg-emerald-50/50">
+          <td class="p-3 font-semibold">6 or 8</td><td class="p-3 font-semibold">5</td><td class="p-3 font-semibold">13.89%</td>
+          <td class="p-3"><span class="text-emerald-600">⭐⭐⭐⭐⭐</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <InfoBox type="tip">
+    A good spot has <strong>10+ total pips</strong>. A great spot has 12–13. But pip count alone isn't enough — you need resource diversity too.
+  </InfoBox>
+
+  <h2>Resource Diversity > Raw Numbers</h2>
+
+  <p>
+    A 13-pip spot with three wheat is worse than an 11-pip spot with wheat, ore,
+    and brick. Catan requires <em>combinations</em> of resources:
+  </p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <h4 class="font-heading font-semibold text-sm text-amber-800 mb-2">🛤️ Road</h4>
+      <div class="flex gap-2">
+        <span class="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded">Brick</span>
+        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">Wood</span>
+      </div>
+    </div>
+    <div class="p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <h4 class="font-heading font-semibold text-sm text-amber-800 mb-2">🏠 Settlement</h4>
+      <div class="flex flex-wrap gap-2">
+        <span class="px-2 py-1 bg-red-100 text-red-700 text-xs font-bold rounded">Brick</span>
+        <span class="px-2 py-1 bg-green-100 text-green-700 text-xs font-bold rounded">Wood</span>
+        <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded">Wheat</span>
+        <span class="px-2 py-1 bg-lime-100 text-lime-700 text-xs font-bold rounded">Sheep</span>
+      </div>
+    </div>
+    <div class="p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <h4 class="font-heading font-semibold text-sm text-amber-800 mb-2">🏰 City</h4>
+      <div class="flex gap-2">
+        <span class="px-2 py-1 bg-slate-200 text-slate-700 text-xs font-bold rounded">Ore x3</span>
+        <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded">Wheat x2</span>
+      </div>
+    </div>
+    <div class="p-4 bg-amber-50 rounded-xl border border-amber-100">
+      <h4 class="font-heading font-semibold text-sm text-amber-800 mb-2">🃏 Dev Card</h4>
+      <div class="flex gap-2">
+        <span class="px-2 py-1 bg-slate-200 text-slate-700 text-xs font-bold rounded">Ore</span>
+        <span class="px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-bold rounded">Wheat</span>
+        <span class="px-2 py-1 bg-lime-100 text-lime-700 text-xs font-bold rounded">Sheep</span>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="rule">
+    Your two starting settlements combined should touch at least 4 of the 5 resource types. The one you miss can be acquired through trading.
+  </InfoBox>
+
+  <h2>The Four Core Strategies</h2>
+
+  <div class="my-6 space-y-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10 hover:border-clay/20 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xl">🏰</span>
+        <h3 class="font-heading font-bold text-bark">Ore + Wheat (City Rush)</h3>
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">META</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        Get ore and wheat on strong numbers. Build cities fast — each city = 2 VP and doubles resource income, creating a compounding advantage. <strong>The strongest strategy in competitive play.</strong>
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border border-bark/10 hover:border-clay/20 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xl">🛤️</span>
+        <h3 class="font-heading font-bold text-bark">Brick + Wood (Road Rush)</h3>
+        <span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[11px] font-bold rounded-full">HIGH RISK</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        Build roads fast, aim for Longest Road (2 VP), and cut off opponents. Peaks early — you'll struggle to build cities later. Works when ore/wheat are scarce on the board.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border border-bark/10 hover:border-clay/20 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xl">⚓</span>
+        <h3 class="font-heading font-bold text-bark">Port Strategy</h3>
+        <span class="px-2 py-0.5 bg-blue-100 text-blue-700 text-[11px] font-bold rounded-full">SPECIALIST</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        Place on a 2:1 port for a resource you produce heavily. A 2:1 wheat port + two high-number wheat hexes = trading powerhouse. First settlement on port, second on the matching resource.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border border-bark/10 hover:border-clay/20 transition-colors">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xl">🃏</span>
+        <h3 class="font-heading font-bold text-bark">Dev Card Engine</h3>
+        <span class="px-2 py-0.5 bg-purple-100 text-purple-700 text-[11px] font-bold rounded-full">STEALTH</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        Focus on ore, wheat, and sheep. Buy dev cards consistently — aim for Largest Army (2 VP) plus hidden victory point cards. Opponents can't see your progress until the reveal.
+      </p>
+    </div>
+  </div>
+
+  <h2>Common Mistakes</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Chasing one amazing spot</h4>
+        <p class="text-sm text-red-700/70 mt-1">A great first placement doesn't help if your second settlement is terrible. Plan both together.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Ignoring wheat</h4>
+        <p class="text-sm text-red-700/70 mt-1">Wheat is needed for settlements, cities, AND dev cards. Having no wheat access is a losing position.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Same numbers on both settlements</h4>
+        <p class="text-sm text-red-700/70 mt-1">Two settlements on 6 and 9 = feast or famine. Spread your numbers for consistent income.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Not planning for expansion</h4>
+        <p class="text-sm text-red-700/70 mt-1">Your initial settlements should have open spaces nearby for a third settlement. Getting boxed in early is catastrophic.</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="info" title="Turn Order Advantage">
+    In a 4-player game, 3rd and 4th positions are generally strongest. The first player gets the best single spot, but the last player places two settlements back-to-back, letting them plan a perfect complementary pair.
+  </InfoBox>
+</Article>

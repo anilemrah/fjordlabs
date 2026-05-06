@@ -1,0 +1,103 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="How Does Terraforming Rating (TR) Work in Terraforming Mars?"
+  description="TR is your income AND your score. Here's how it works and why it's the most important number in the game."
+  game="terraforming-mars"
+  gameTitle="Terraforming Mars"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    Terraforming Rating is the single most important number in Terraforming Mars.
+    It's your income, it's part of your final score, and it's how you win. Yet
+    many new players underestimate it.
+  </p>
+
+  <KeyTakeaway answer="Your Terraforming Rating (TR) starts at 20. It goes up when you raise a global parameter (temperature, oxygen, or oceans). TR serves double duty: it's your M€ income each generation AND it counts as victory points at game end." />
+
+  <h2>How TR Works</h2>
+
+  <div class="my-6 space-y-4">
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Income</span>
+        <h3 class="font-heading font-bold text-bark">TR = M€ Per Generation</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        During the production phase, you receive M€ equal to your TR plus your M€ production.
+        A TR of 25 with M€ production of 10 means you get 35 M€ each generation.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">Scoring</span>
+        <h3 class="font-heading font-bold text-bark">TR = Victory Points</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        At game end, your TR counts directly as VP. If you end the game at TR 35,
+        that's 35 victory points just from TR — before adding greenery tiles, city tiles,
+        awards, milestones, and card VP.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">How to Raise</span>
+        <h3 class="font-heading font-bold text-bark">Terraform to Earn TR</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Every time you raise temperature (1 step), oxygen (1%), or place an ocean tile,
+        your TR goes up by 1. Some cards also directly increase TR.
+      </p>
+    </div>
+  </div>
+
+  <h2>TR Earning Actions</h2>
+
+  <div class="my-6 overflow-hidden rounded-xl border border-bark/10">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Action</th>
+          <th class="text-center p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">TR Gained</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Cost</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">Raise temperature 1 step</td><td class="p-3 text-center">+1</td><td class="p-3 text-bark/50">8 heat</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Raise oxygen 1%</td><td class="p-3 text-center">+1</td><td class="p-3 text-bark/50">Place a greenery tile (8 plants)</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Place ocean tile</td><td class="p-3 text-center">+1</td><td class="p-3 text-bark/50">Various (standard project: 18 M€)</td></tr>
+        <tr class="border-t border-bark/5 bg-amber-50/50"><td class="p-3 font-semibold">Some project cards</td><td class="p-3 text-center font-bold">+1 to +3</td><td class="p-3 text-bark/50">Varies by card</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Common Questions</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Can TR go down?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>Rarely.</strong> A few cards and the Turmoil expansion can lower TR. In the base game, TR almost always only goes up.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Should I prioritize TR over card VP?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>Usually yes, early on.</strong> TR gains compound — each TR point earns you M€ every remaining generation. Early TR is like compound interest. Late-game, card VP might be more efficient.</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The TR Mindset">
+    Think of every TR point as a permanent raise. If you gain 1 TR in generation 3 and the game lasts 10 generations, that 1 TR earned you 7 extra M€ over the game PLUS 1 VP at the end. Early terraforming is almost always correct.
+  </InfoBox>
+</Article>

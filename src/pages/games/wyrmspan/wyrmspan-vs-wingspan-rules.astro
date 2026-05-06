@@ -1,0 +1,118 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Wyrmspan vs Wingspan: Key Rule Differences Explained"
+  description="Coming from Wingspan? Here's everything that works differently in Wyrmspan."
+  game="wyrmspan"
+  gameTitle="Wyrmspan"
+  category="Rules"
+  product="wyrmspan-resource-tokens"
+  publishDate="2025-05-06"
+>
+  <p>
+    Wyrmspan looks like Wingspan with a dragon skin, but the mechanical differences
+    run deeper than the theme. If you're coming from Wingspan, several assumptions
+    will trip you up.
+  </p>
+
+  <KeyTakeaway answer="Wyrmspan shares Wingspan's engine-building DNA but changes resource management, turn structure, and scoring enough that you need to re-learn your instincts." />
+
+  <h2>The Big Differences</h2>
+
+  <ComparisonTable title="Side-by-Side Comparison">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Feature</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Wingspan</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Wyrmspan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 font-semibold">Theme</td><td class="p-3">Birds + habitats</td><td class="p-3">Dragons + caves</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 font-semibold">Resources</td><td class="p-3">5 food types from dice</td><td class="p-3">Gold, meat, crystals + coins</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 font-semibold">Turns per round</td><td class="p-3">Decreasing (8→5)</td><td class="p-3">Fixed number per round</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 font-semibold">Card cost</td><td class="p-3">Food + eggs by column</td><td class="p-3">Resources based on dragon</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 font-semibold">Randomness</td><td class="p-3">Dice-based food</td><td class="p-3">Less random, more planning</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 font-semibold">Exploration</td><td class="p-3">None</td><td class="p-3">Cave exploration mechanic</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <h2>Key Mechanical Changes</h2>
+
+  <div class="my-6 space-y-4">
+    <div class="p-5 bg-white rounded-xl border-l-4 border-purple-400">
+      <h3 class="font-heading font-bold text-bark mb-2">🪙 Resource System</h3>
+      <p class="text-sm text-bark/60">
+        No more dice-based food. Wyrmspan uses gold, meat, and crystals that you collect
+        through actions and dragon powers. Coins act as a flexible wildcard currency.
+        Resource management feels tighter and more deliberate.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border-l-4 border-purple-400">
+      <h3 class="font-heading font-bold text-bark mb-2">🕳️ Cave Exploration</h3>
+      <p class="text-sm text-bark/60">
+        Instead of three simple habitat rows, Wyrmspan has a cave system you progressively
+        explore. Deeper caves unlock new powers and scoring opportunities, but require
+        investment to reach. This is the biggest strategic addition over Wingspan.
+      </p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border-l-4 border-purple-400">
+      <h3 class="font-heading font-bold text-bark mb-2">🐉 Dragon Powers</h3>
+      <p class="text-sm text-bark/60">
+        Dragon abilities are generally more powerful than bird abilities, but cost more.
+        The power-to-cost ratio is designed so that engine building is viable but
+        single powerful dragons can also be a valid strategy.
+      </p>
+    </div>
+  </div>
+
+  <InfoBox type="warning" title="Wingspan Habits That Hurt in Wyrmspan">
+    Don't hoard resources like you might in Wingspan. Wyrmspan rewards spending efficiently — sitting on a pile of gold while opponents build their caves is a losing strategy.
+  </InfoBox>
+
+  <h2>Which Is Better?</h2>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-bark mb-2">Choose Wingspan if...</h4>
+      <ul class="text-sm text-bark/60 space-y-1">
+        <li>• You prefer lighter, more accessible games</li>
+        <li>• You enjoy beautiful bird art and educational value</li>
+        <li>• Your group includes newer board gamers</li>
+        <li>• You want a large expansion ecosystem</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-bark mb-2">Choose Wyrmspan if...</h4>
+      <ul class="text-sm text-bark/60 space-y-1">
+        <li>• You want more strategic depth</li>
+        <li>• You love the Wingspan system but want tighter gameplay</li>
+        <li>• The dragon theme appeals to your group</li>
+        <li>• You enjoy exploration mechanics</li>
+      </ul>
+    </div>
+  </div>
+
+  <InfoBox type="tip">
+    You don't have to choose — they're completely standalone games. Many groups own both and alternate based on mood and player experience level.
+  </InfoBox>
+</Article>

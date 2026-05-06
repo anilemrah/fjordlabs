@@ -1,0 +1,116 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Carcassonne Strategy Guide: How to Win Consistently"
+  description="Tile placement tactics, when to place meeples, and the farmer gambit."
+  game="carcassonne"
+  gameTitle="Carcassonne"
+  category="Strategy"
+  publishDate="2025-05-06"
+>
+  <p>
+    Carcassonne looks like a casual tile game, but consistent winners use specific
+    tactics. Here's what separates casual play from competitive play.
+  </p>
+
+  <KeyTakeaway answer="Control your meeple supply, finish small cities fast for 4-point bursts, and time one farmer placement on a central field mid-game." />
+
+  <h2>The Five Core Tactics</h2>
+
+  <div class="my-6 space-y-4">
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">#1</span>
+        <h3 class="font-heading font-bold text-bark">Small Cities > Big Cities</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        A 2-tile city scores 4 points and returns your meeple instantly. A 6-tile city
+        might score 12 but locks a meeple for many turns — and might never complete.
+        Prioritize small, quick cities early to keep your meeple supply flowing.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">#2</span>
+        <h3 class="font-heading font-bold text-bark">Meeple Management Is Everything</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        You only have 7 meeples. Every time you place one, ask: "Will I get this back
+        soon?" If you have 3+ meeples stuck on incomplete features, you're losing tempo.
+        Having meeples available = having options.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">#3</span>
+        <h3 class="font-heading font-bold text-bark">One Big Farmer Play</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Place exactly one farmer mid-game on the largest central field. Don't farmer
+        too early (you need the meeple) or too late (less time for cities to complete
+        near the field). One well-timed farmer can score 12–18 points.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">#4</span>
+        <h3 class="font-heading font-bold text-bark">Block Opponents' Big Features</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        If an opponent is building a massive city, place tiles that make it harder
+        to complete — create awkward shapes that require rare tiles to close. You
+        don't need to score from this; denying them 16+ points is worth a tile.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border-l-4 border-clay">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="px-2.5 py-0.5 bg-clay/10 text-clay text-xs font-bold rounded-full">#5</span>
+        <h3 class="font-heading font-bold text-bark">Merge Into Opponent Cities</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Start a small city near an opponent's big one, then connect them with a tile.
+        Suddenly you're sharing their work. Two meeples in? You steal it entirely.
+        This is the highest-skill play in Carcassonne.
+      </p>
+    </div>
+  </div>
+
+  <InfoBox type="warning" title="The Beginner Trap">
+    New players try to build one huge city every game. This almost always loses. Big cities are hard to complete, lock up multiple meeples, and opponents will actively sabotage them. The winner is usually the player who completed the most small features efficiently.
+  </InfoBox>
+
+  <h2>Point Value Cheat Sheet</h2>
+
+  <div class="my-6 overflow-hidden rounded-xl border border-bark/10">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Feature</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">During Game</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">End of Game</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">City (completed)</td><td class="p-3">2 per tile + 2 per pennant</td><td class="p-3">—</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">City (incomplete)</td><td class="p-3">—</td><td class="p-3">1 per tile + 1 per pennant</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Road (completed)</td><td class="p-3">1 per tile</td><td class="p-3">—</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Road (incomplete)</td><td class="p-3">—</td><td class="p-3">1 per tile</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Monastery (completed)</td><td class="p-3">9 points</td><td class="p-3">—</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Monastery (incomplete)</td><td class="p-3">—</td><td class="p-3">1 + surrounding tiles</td></tr>
+        <tr class="border-t border-bark/5 bg-emerald-50/50"><td class="p-3 font-semibold">Farmer</td><td class="p-3">—</td><td class="p-3 font-semibold">3 per completed city</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <InfoBox type="tip">
+    Completed cities score <strong>double</strong> what incomplete ones score. This is why finishing small cities quickly is so much better than building big incomplete ones.
+  </InfoBox>
+</Article>

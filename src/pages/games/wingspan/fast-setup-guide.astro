@@ -1,0 +1,76 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="How to Set Up Wingspan in Under 5 Minutes"
+  description="Organize your bird cards, food tokens, and player mats for lightning-fast setup."
+  game="wingspan"
+  gameTitle="Wingspan"
+  category="Guide"
+  product="wingspan-food-tokens"
+  publishDate="2025-05-06"
+>
+  <p>
+    Wingspan has a lot of components — bird cards, food tokens, eggs, player mats,
+    a dice tower birdfeeder, bonus cards, round goals. Setup can drag if you're not
+    organized.
+  </p>
+
+  <KeyTakeaway answer="Pre-sorting bird cards and using separate bags for each component type cuts setup from 10+ minutes to under 5." />
+
+  <StepList title="The 6-Step Setup Speedrun">
+    <Step number={1} title="Player Mats + Action Cubes" time="30 sec">
+      Each player takes a mat and 8 action cubes. If using Oceania mats (recommended), use the teal side for the standard game.
+    </Step>
+
+    <Step number={2} title="Birdfeeder + Food Dice" time="15 sec">
+      Place the dice tower in the center. Roll all 5 food dice into it. Done — the birdfeeder is ready.
+    </Step>
+
+    <Step number={3} title="Bird Card Tray" time="45 sec">
+      Shuffle the bird deck. Place it face-down. Flip 3 cards face-up into the tray. If you store the deck pre-shuffled (do this at teardown), this is 15 seconds.
+    </Step>
+
+    <Step number={4} title="Eggs + Food Tokens" time="30 sec">
+      Place the egg supply in a central bowl. Set out food tokens by type. Using 3D-printed food tokens instead of the cardboard dice makes this instant — they're pre-sorted by shape.
+    </Step>
+
+    <Step number={5} title="Round Goals + Bonus Cards" time="45 sec">
+      Place the 4 round goal tiles on the goal board (random or predetermined). Deal 2 bonus cards to each player — they'll keep one.
+    </Step>
+
+    <Step number={6} title="Starting Hand" time="60 sec">
+      Deal 5 bird cards to each player. Each player also gets 5 food tokens (1 of each type). Players simultaneously choose which birds and food to keep — total birds + food must equal 5.
+    </Step>
+  </StepList>
+
+  <InfoBox type="tip" title="The #1 Time Saver">
+    At the end of each game, shuffle the bird card deck and bag it. That single habit saves 2+ minutes at next setup because the Wingspan deck is 170+ cards and takes forever to shuffle cold.
+  </InfoBox>
+
+  <h2>Storage Tips for Instant Setup</h2>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <div class="text-lg mb-1">🎲</div>
+      <p class="text-sm text-emerald-800">Keep the 5 food dice in the birdfeeder tower between games — just roll on setup</p>
+    </div>
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <div class="text-lg mb-1">🥚</div>
+      <p class="text-sm text-emerald-800">Store eggs in a single ziplock — they're all identical, no sorting needed</p>
+    </div>
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <div class="text-lg mb-1">🃏</div>
+      <p class="text-sm text-emerald-800">Shuffle the bird deck at teardown, not at setup (less annoying when you're eager to play)</p>
+    </div>
+    <div class="p-4 bg-emerald-50 rounded-xl border border-emerald-100">
+      <div class="text-lg mb-1">📦</div>
+      <p class="text-sm text-emerald-800">Use the original insert or an organizer — Wingspan's box is well-designed for component separation</p>
+    </div>
+  </div>
+</Article>

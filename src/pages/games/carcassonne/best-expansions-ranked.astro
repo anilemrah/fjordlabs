@@ -1,0 +1,103 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Best Carcassonne Expansions Ranked"
+  description="From Inns & Cathedrals to Traders & Builders — which expansions are worth it?"
+  game="carcassonne"
+  gameTitle="Carcassonne"
+  category="Buying Guide"
+  publishDate="2025-05-06"
+>
+  <p>
+    Carcassonne has over a dozen expansions spanning two decades. Some are
+    essential, some are niche, and some are skippable. Here's the ranking.
+  </p>
+
+  <KeyTakeaway answer="Inns & Cathedrals is the must-have first expansion. Traders & Builders is a strong second. Everything else is optional." />
+
+  <div class="my-8 space-y-6">
+    <div class="p-6 bg-white rounded-2xl border border-bark/10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 px-4 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-bl-xl">#1 ESSENTIAL</div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-3xl">🏨</span>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-bark">Inns & Cathedrals</h3>
+          <span class="text-xs text-bark/40">Expansion 1</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="px-2 py-0.5 bg-blue-50 text-blue-700 text-[11px] font-semibold rounded-full">6th Player</span>
+        <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-[11px] font-semibold rounded-full">Big Meeple</span>
+        <span class="px-2 py-0.5 bg-purple-50 text-purple-700 text-[11px] font-semibold rounded-full">High-Risk Tiles</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        Adds the large meeple (counts as 2 for majority), inn tiles (roads score double if completed, zero if not),
+        and cathedral tiles (cities score triple if completed, zero if not). The risk/reward mechanic transforms
+        the game. Also adds a 6th player color.
+      </p>
+    </div>
+
+    <div class="p-6 bg-white rounded-2xl border border-bark/10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 px-4 py-1.5 bg-blue-500 text-white text-xs font-bold rounded-bl-xl">#2 HIGHLY RECOMMENDED</div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-3xl">🏗️</span>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-bark">Traders & Builders</h3>
+          <span class="text-xs text-bark/40">Expansion 2</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="px-2 py-0.5 bg-amber-50 text-amber-700 text-[11px] font-semibold rounded-full">Trade Goods</span>
+        <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-[11px] font-semibold rounded-full">Builder (Extra Turns)</span>
+        <span class="px-2 py-0.5 bg-purple-50 text-purple-700 text-[11px] font-semibold rounded-full">Pig (Farmer Boost)</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        The builder lets you take double turns when extending a feature — speeds up the game and
+        makes building feel rewarding. Trade goods add a set-collection element. The pig boosts
+        farmer scoring. All three mechanics fit seamlessly.
+      </p>
+    </div>
+
+    <div class="p-6 bg-white rounded-2xl border border-bark/10">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-3xl">🐑</span>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-bark">Hills & Sheep</h3>
+          <span class="text-xs text-bark/40">Expansion 9</span>
+        </div>
+      </div>
+      <p class="text-sm text-bark/60">
+        Adds a push-your-luck sheep-herding mechanic and hills that resolve tie-breaks.
+        Light and fun — a good "third expansion" that doesn't add much complexity.
+      </p>
+    </div>
+
+    <div class="p-6 bg-white rounded-2xl border border-bark/10">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-3xl">👸</span>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-bark">The Princess & The Dragon</h3>
+          <span class="text-xs text-bark/40">Expansion 3</span>
+        </div>
+      </div>
+      <p class="text-sm text-bark/60">
+        Adds a dragon that eats meeples and a fairy that protects them. Much more aggressive
+        and chaotic than base Carcassonne. Some love it, some hate it — it fundamentally
+        changes the feel of the game.
+      </p>
+      <div class="mt-3">
+        <InfoBox type="warning">
+          This expansion is polarizing. If your group prefers peaceful tile-laying, skip it. If you want more interaction and chaos, it's great.
+        </InfoBox>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The Golden Combo">
+    <strong>Base game + Inns & Cathedrals + Traders & Builders</strong> is widely considered the best Carcassonne experience. These two expansions add meaningful decisions without bloating the game. Most tournament players use this combination.
+  </InfoBox>
+</Article>

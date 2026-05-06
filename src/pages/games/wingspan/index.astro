@@ -1,0 +1,140 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { getProductsByGame } from "../../../data/products";
+import { getGame } from "../../../data/games";
+
+const game = getGame("wingspan")!;
+const wingspanProducts = getProductsByGame("wingspan");
+
+const articles = {
+  rules: [
+    {
+      title: "Does Wingspan's Pink Power Trigger at Round End?",
+      description: "The most confusing power type in Wingspan — when exactly does it activate?",
+      href: "/games/wingspan/pink-power-round-end/",
+    },
+    {
+      title: "Wingspan Egg Limit Rules: How Many Eggs Can a Bird Hold?",
+      description: "The egg capacity rules that trip up beginners and veterans alike.",
+      href: "/games/wingspan/egg-limit-rules/",
+    },
+    {
+      title: "How Does the Birdfeeder Work in Wingspan?",
+      description: "The dice tower, rerolling, and food selection — birdfeeder rules explained.",
+      href: "/games/wingspan/how-does-birdfeeder-work/",
+    },
+    {
+      title: "How Many Birds Can You Play Per Habitat?",
+      description: "The 5-bird limit, egg costs, and why you shouldn't fill every row.",
+      href: "/games/wingspan/how-many-birds-per-habitat/",
+    },
+  ],
+  strategy: [
+    {
+      title: "Wingspan Engine Building Guide: How to Chain Bird Powers",
+      description: "Build combos that snowball through all four rounds.",
+      href: "/games/wingspan/engine-building-guide/",
+    },
+    {
+      title: "Wingspan Bonus Cards Explained: End-of-Game Scoring",
+      description: "Which bonus cards to keep, when to pivot, and the bonus card trap.",
+      href: "/games/wingspan/bonus-cards-explained/",
+    },
+  ],
+  guides: [
+    {
+      title: "Best Wingspan Expansions: European, Oceania, or Asia?",
+      description: "Each expansion changes the game differently. Here's which to grab first.",
+      href: "/games/wingspan/best-expansions/",
+    },
+    {
+      title: "How to Set Up Wingspan in Under 5 Minutes",
+      description: "Organize your bird cards, food tokens, and player mats for lightning setup.",
+      href: "/games/wingspan/fast-setup-guide/",
+    },
+  ],
+};
+---
+
+<Base
+  title="Wingspan — Rules, Strategy & Accessories | Fjord Labs"
+  description="Everything you need for Wingspan: rules clarifications, engine-building strategies, expansion guides, and premium 3D-printed food tokens."
+>
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Wingspan</span>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <img src={game.image} alt={game.title} class="w-32 h-32 rounded-2xl object-cover border border-bark/10 shrink-0" />
+        <div>
+          <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+            Wingspan
+          </h1>
+          <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
+            {game.heroDescription}
+          </p>
+
+          <div class="flex flex-wrap gap-6 text-sm text-bark/40">
+            <div><span class="font-semibold text-bark/60">Players:</span> {game.playerCount}</div>
+            <div><span class="font-semibold text-bark/60">Play Time:</span> {game.playTime}</div>
+            <div><span class="font-semibold text-bark/60">Complexity:</span> {game.complexity}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Rules Clarifications</h2>
+      <p class="text-bark/40 mb-8">Quick answers to mid-game debates.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.rules.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Rules" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Strategy</h2>
+      <p class="text-bark/40 mb-8">Level up your bird game.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.strategy.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Strategy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Guides & Buying Advice</h2>
+      <p class="text-bark/40 mb-8">Setup tips, expansion comparisons, and upgrade picks.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.guides.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {wingspanProducts.length > 0 && (
+    <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Wingspan Accessories</h2>
+        <p class="text-bark/40 mb-8">Premium 3D-printed upgrades for your Wingspan games.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {wingspanProducts.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>

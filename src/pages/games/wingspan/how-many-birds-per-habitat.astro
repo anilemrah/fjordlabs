@@ -1,0 +1,94 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="How Many Birds Can You Play Per Habitat in Wingspan?"
+  description="The 5-bird limit per row, what it means for your strategy, and how expansions change it."
+  game="wingspan"
+  gameTitle="Wingspan"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    Each row on your player mat represents a habitat — and each has space for
+    exactly 5 birds. But the real question isn't how many you <em>can</em> play,
+    it's how many you <em>should</em>.
+  </p>
+
+  <KeyTakeaway answer="Each habitat (forest, grassland, wetland) holds a maximum of 5 birds. Each bird you play in a row unlocks more powerful versions of that row's action. You don't need to fill every row — focus on the habitats that matter to your engine." />
+
+  <h2>The Three Habitats</h2>
+
+  <div class="my-6 space-y-4">
+    <div class="p-5 bg-emerald-50 rounded-xl border border-emerald-200">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-2xl">🌲</span>
+        <div>
+          <h3 class="font-heading font-bold text-bark">Forest (Gain Food)</h3>
+          <p class="text-xs text-emerald-700">5 bird slots → actions get stronger as you add birds</p>
+        </div>
+      </div>
+      <p class="text-sm text-bark/60">
+        More birds = more food per action. At 5 birds, you gain 1 food + activate up to 5 brown "when activated" powers.
+      </p>
+    </div>
+
+    <div class="p-5 bg-amber-50 rounded-xl border border-amber-200">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-2xl">🌾</span>
+        <div>
+          <h3 class="font-heading font-bold text-bark">Grassland (Lay Eggs)</h3>
+          <p class="text-xs text-amber-700">5 bird slots → more eggs per action</p>
+        </div>
+      </div>
+      <p class="text-sm text-bark/60">
+        More birds = more eggs laid per action. Eggs are currency for playing new birds and score 1 VP each at game end.
+      </p>
+    </div>
+
+    <div class="p-5 bg-blue-50 rounded-xl border border-blue-200">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-2xl">💧</span>
+        <div>
+          <h3 class="font-heading font-bold text-bark">Wetland (Draw Cards)</h3>
+          <p class="text-xs text-blue-700">5 bird slots → more card draw per action</p>
+        </div>
+      </div>
+      <p class="text-sm text-bark/60">
+        More birds = more cards drawn per action. Cards give you options — but drawing without playing is wasted actions.
+      </p>
+    </div>
+  </div>
+
+  <h2>How the Cost Scales</h2>
+
+  <div class="my-6 overflow-hidden rounded-xl border border-bark/10">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Bird Slot</th>
+          <th class="text-center p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Egg Cost to Play</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Why It Matters</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">1st bird</td><td class="p-3 text-center">0 eggs</td><td class="p-3 text-bark/50">Free — always play here first</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">2nd bird</td><td class="p-3 text-center">1 egg</td><td class="p-3 text-bark/50">Cheap — usually worth it</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">3rd bird</td><td class="p-3 text-center">2 eggs</td><td class="p-3 text-bark/50">Consider whether the bird is strong enough</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">4th bird</td><td class="p-3 text-center">2 eggs</td><td class="p-3 text-bark/50">Only for high-value birds</td></tr>
+        <tr class="border-t border-bark/5 bg-amber-50/50"><td class="p-3 font-semibold">5th bird</td><td class="p-3 text-center font-bold">2 eggs</td><td class="p-3 text-bark/50">Rarely worth it unless it completes a combo</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="text-sm text-bark/50">
+    Note: the egg cost shown is <em>in addition to</em> the bird's own food cost. A 3-food bird in the 5th slot costs 3 food + 2 eggs.
+  </p>
+
+  <InfoBox type="tip" title="Don't Fill Every Row">
+    New players try to fill all 3 habitats evenly. Experienced players focus on 1–2 rows and build deep engines there. A forest with 4 strong "when activated" birds generates far more value than 3 habitats with 2 mediocre birds each.
+  </InfoBox>
+</Article>

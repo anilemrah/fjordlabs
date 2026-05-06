@@ -1,0 +1,114 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Can You Trade on Your First Turn in Catan? Rules Explained"
+  description="A common question that trips up new and experienced players alike. Here's what the rulebook actually says."
+  game="catan"
+  gameTitle="Catan"
+  category="Rules"
+  product="catan-resource-tokens"
+  publishDate="2025-05-01"
+>
+  <p>
+    First real turn of the game. You've placed settlements, collected starting
+    resources, and you see a trade that would let you build a road. But can you
+    actually trade yet?
+  </p>
+
+  <KeyTakeaway answer="Yes — you can trade on your first turn. But NOT during the initial settlement placement phase (before the first dice roll)." />
+
+  <h2>The Two Phases People Confuse</h2>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-red-50 rounded-xl border border-red-200">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-xl">🚫</span>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Setup Phase</h4>
+      </div>
+      <p class="text-sm text-red-700/70 mb-3">Each player places 2 settlements and 2 roads. After the second settlement, collect one resource per adjacent hex.</p>
+      <span class="px-3 py-1 bg-red-100 text-red-700 text-xs font-bold rounded-full">No trading allowed</span>
+    </div>
+    <div class="p-5 bg-emerald-50 rounded-xl border border-emerald-200">
+      <div class="flex items-center gap-2 mb-2">
+        <span class="text-xl">✅</span>
+        <h4 class="font-heading font-semibold text-sm text-emerald-800">First Turn</h4>
+      </div>
+      <p class="text-sm text-emerald-700/70 mb-3">First player rolls dice and takes a normal turn. From here, all normal rules apply.</p>
+      <span class="px-3 py-1 bg-emerald-100 text-emerald-700 text-xs font-bold rounded-full">All trading available</span>
+    </div>
+  </div>
+
+  <h2>What Counts as a Valid Trade?</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">🤝</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Domestic Trade</h4>
+      </div>
+      <p class="text-sm text-bark/60">Offer any resources to another player in exchange for theirs. Both must agree. <strong>No limit per turn.</strong></p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">🏦</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Maritime Trade (Bank)</h4>
+      </div>
+      <p class="text-sm text-bark/60">Trade 4 of the same resource to the bank for 1 of anything. No player agreement needed.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="text-lg">⚓</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Port Trade</h4>
+      </div>
+      <p class="text-sm text-bark/60">3:1 general port or 2:1 specialty port — if you have a settlement there, you can use it immediately.</p>
+    </div>
+  </div>
+
+  <InfoBox type="rule" title="Important: Only the Active Player Trades">
+    Two other players cannot trade with each other during your turn. Only the player whose turn it is can initiate and participate in trades. This gives the active player monopoly power over the trading window.
+  </InfoBox>
+
+  <h2>Can You Trade AND Build in the Same Turn?</h2>
+
+  <p>
+    <strong>Yes.</strong> The typical turn: roll dice → collect resources → trade
+    to get what you need → build. You can trade and build in any order, and do
+    multiple of each per turn.
+  </p>
+
+  <h2>House Rules That Aren't Real Rules</h2>
+
+  <ComparisonTable title="Myth vs. Reality">
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Common House Rule</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Official Rule</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 text-red-600">"No trading until everyone has had one turn"</td>
+          <td class="p-3 text-emerald-700">Trading starts on the very first normal turn</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 text-red-600">"Only one trade per turn"</td>
+          <td class="p-3 text-emerald-700">Unlimited trades per turn</td>
+        </tr>
+        <tr class="border-t border-bark/5">
+          <td class="p-3 text-red-600">"You can trade during other people's turns"</td>
+          <td class="p-3 text-emerald-700">Only the active player trades</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <InfoBox type="warning">
+    House rules are fine if everyone agrees! But if you're resolving a dispute mid-game, the official rules are clear: <strong>trade freely on any normal turn, including the first one.</strong>
+  </InfoBox>
+</Article>

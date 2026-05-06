@@ -1,0 +1,249 @@
+---
+import Base from "../layouts/Base.astro";
+import ProductCard from "../components/ProductCard.astro";
+import ArticleCard from "../components/ArticleCard.astro";
+import { products } from "../data/products";
+import { games } from "../data/games";
+
+const latestArticles = [
+  {
+    title: "Carcassonne Farmer Scoring Explained",
+    description: "The most confusing rule in Carcassonne — how fields, farmers, and cities interact.",
+    href: "/games/carcassonne/farmer-scoring-explained/",
+    category: "Rules",
+    game: "Carcassonne",
+  },
+  {
+    title: "Scythe Combat Rules: How Fighting Actually Works",
+    description: "Power dials, combat cards, and why every fight is a mind game.",
+    href: "/games/scythe/combat-rules-explained/",
+    category: "Rules",
+    game: "Scythe",
+  },
+  {
+    title: "How Does Terraforming Rating Work?",
+    description: "TR is your income AND your score — the most important number in the game.",
+    href: "/games/terraforming-mars/how-does-terraforming-rating-work/",
+    category: "Rules",
+    game: "Terraforming Mars",
+  },
+  {
+    title: "Catan Development Card Rules Explained",
+    description: "Knight, Monopoly, Road Building — every dev card rule and timing detail.",
+    href: "/games/catan/development-card-rules/",
+    category: "Rules",
+    game: "Catan",
+  },
+  {
+    title: "How Does the Birdfeeder Work in Wingspan?",
+    description: "The dice tower, rerolling, and food selection rules explained clearly.",
+    href: "/games/wingspan/how-does-birdfeeder-work/",
+    category: "Rules",
+    game: "Wingspan",
+  },
+  {
+    title: "Best Terraforming Mars Expansions Ranked",
+    description: "Prelude, Colonies, Venus Next — which to buy and in what order.",
+    href: "/games/terraforming-mars/best-expansions-ranked/",
+    category: "Buying Guide",
+    game: "Terraforming Mars",
+  },
+  {
+    title: "Scythe Faction Tier List: Which Faction Is Best?",
+    description: "Ranking all 5 base factions by strength, ease, and optimal strategy.",
+    href: "/games/scythe/faction-tier-list/",
+    category: "Strategy",
+    game: "Scythe",
+  },
+  {
+    title: "Carcassonne Strategy Guide: How to Win Consistently",
+    description: "Tile placement tactics, meeple management, and the farmer gambit.",
+    href: "/games/carcassonne/strategy-guide/",
+    category: "Strategy",
+    game: "Carcassonne",
+  },
+  {
+    title: "Wingspan Bonus Cards Explained",
+    description: "Which bonus cards to keep, when to pivot, and the bonus card trap.",
+    href: "/games/wingspan/bonus-cards-explained/",
+    category: "Strategy",
+    game: "Wingspan",
+  },
+];
+---
+
+<Base
+  title="Fjord Labs — Board Game Upgrades & Guides"
+  description="Premium 3D-printed board game accessories and in-depth guides for Catan, Wingspan, Agricola, and more. Crafted in Sweden."
+>
+  <!-- Hero -->
+  <section class="relative py-20 md:py-28 px-6 overflow-hidden">
+    <!-- Subtle hex grid background -->
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231a1a1a' fill-opacity='1'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
+
+    <div class="max-w-4xl mx-auto text-center relative">
+      <div
+        class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-forest/5 text-forest text-xs font-semibold tracking-wide"
+      >
+        🎲 +5 Craftsmanship &middot; Made in Sweden
+      </div>
+
+      <h1
+        class="text-4xl md:text-6xl font-heading font-bold text-bark mb-6 leading-tight"
+      >
+        Level Up Your<br />
+        <span class="text-clay">Game Night.</span>
+      </h1>
+
+      <p class="text-xl text-bark/50 max-w-2xl mx-auto mb-10 leading-relaxed">
+        3D-printed board game upgrades that make cardboard feel like a crime.
+        Plus deep-dive guides, rules clarifications, and strategies for the games you're obsessed with.
+      </p>
+
+      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+        <a
+          href="https://fjordlabs.etsy.com"
+          target="_blank"
+          class="px-8 py-3.5 bg-clay text-white font-semibold rounded-xl hover:bg-clay-dark transition-colors shadow-lg shadow-clay/20 flex items-center justify-center gap-2"
+        >
+          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+          Open Loot Shop
+        </a>
+        <a
+          href="#quest-log"
+          class="px-8 py-3.5 bg-bark/5 text-bark font-semibold rounded-xl hover:bg-bark/10 transition-colors flex items-center justify-center gap-2"
+        >
+          📖 Browse All Guides
+        </a>
+      </div>
+
+      <!-- Mini stat badges -->
+      <div class="flex flex-wrap justify-center gap-6 mt-14 text-sm text-bark/40">
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🏗️</span>
+          <span><strong class="text-bark/70">5+</strong> Products</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-lg">📜</span>
+          <span><strong class="text-bark/70">35+</strong> Guides & Articles</span>
+        </div>
+        <div class="flex items-center gap-2">
+          <span class="text-lg">🎯</span>
+          <span><strong class="text-bark/70">100%</strong> Nerd-Approved</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Game Hubs -->
+  <section class="py-12 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+        {games.map((game) => (
+          <a href={`/games/${game.slug}/`} class="group bg-white rounded-2xl border border-bark/5 hover:border-clay/20 hover:shadow-lg transition-all overflow-hidden">
+            <div class="aspect-square overflow-hidden bg-sand">
+              <img src={game.image} alt={game.title} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" loading="lazy" />
+            </div>
+            <div class="p-3 text-center">
+              <h3 class="font-heading font-bold text-bark group-hover:text-clay transition-colors text-sm">{game.title}</h3>
+              <p class="text-[11px] text-bark/40 mt-0.5">{game.playerCount} · {game.complexity}</p>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Latest Articles -->
+  <section id="quest-log" class="py-16 px-6 bg-sand/50">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
+            📚 Quest Log
+          </h2>
+          <p class="text-bark/40 mt-2">
+            Rules clarifications, winning strats, and setup speedruns.
+          </p>
+        </div>
+      </div>
+
+      <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+        {
+          latestArticles.map((article) => (
+            <ArticleCard
+              title={article.title}
+              description={article.description}
+              href={article.href}
+              category={article.category}
+              game={article.game}
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
+            🛡️ Inventory
+          </h2>
+          <p class="text-bark/40 mt-2">
+            3D-printed upgrades that make stock components jealous.
+          </p>
+        </div>
+        <a
+          href="https://fjordlabs.etsy.com"
+          target="_blank"
+          class="hidden md:inline-flex items-center gap-1 text-sm text-clay font-medium hover:text-clay-dark transition-colors"
+        >
+          Full inventory on Etsy
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            ></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {products.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-6 bg-sand/50">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="text-4xl mb-4">⚔️</div>
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-4">
+        Ready to Upgrade Your Setup?
+      </h2>
+      <p class="text-bark/50 mb-8">
+        Every piece is designed, printed, and quality-checked by actual board game
+        nerds. No mass production, no generic molds — just obsessive attention to
+        the games we play every week.
+      </p>
+      <a
+        href="https://fjordlabs.etsy.com"
+        target="_blank"
+        class="inline-flex items-center gap-2 px-8 py-3.5 bg-clay text-white font-semibold rounded-xl hover:bg-clay-dark transition-colors shadow-lg shadow-clay/20"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+        Browse the Loot Shop
+      </a>
+    </div>
+  </section>
+</Base>

@@ -1,0 +1,113 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { getProductsByGame } from "../../../data/products";
+import { getGame } from "../../../data/games";
+
+const game = getGame("scythe")!;
+const scytheProducts = getProductsByGame("scythe");
+
+const articles = {
+  rules: [
+    {
+      title: "Scythe Combat Rules Explained: How Fighting Actually Works",
+      description: "Combat in Scythe is rare, decisive, and punishing. Here's the full system.",
+      href: "/games/scythe/combat-rules-explained/",
+    },
+    {
+      title: "How Does the Factory Work in Scythe?",
+      description: "Factory cards, the 5th action, and why the center of the board matters so much.",
+      href: "/games/scythe/how-does-the-factory-work/",
+    },
+  ],
+  strategy: [
+    {
+      title: "Scythe Faction Tier List: Which Faction Is Best?",
+      description: "Ranking all 5 base game factions by strength, ease of play, and strategy.",
+      href: "/games/scythe/faction-tier-list/",
+    },
+  ],
+};
+---
+
+<Base
+  title="Scythe — Rules, Strategy & Accessories | Fjord Labs"
+  description="Everything you need for Scythe: combat rules, faction rankings, Factory guide, and premium 3D-printed resource tokens."
+>
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Scythe</span>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <img src={game.image} alt={game.title} class="w-32 h-32 rounded-2xl object-cover border border-bark/10 shrink-0" />
+        <div>
+          <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+            Scythe
+          </h1>
+          <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
+            {game.heroDescription}
+          </p>
+
+          <div class="flex flex-wrap gap-6 text-sm text-bark/40">
+            <div><span class="font-semibold text-bark/60">Players:</span> {game.playerCount}</div>
+            <div><span class="font-semibold text-bark/60">Play Time:</span> {game.playTime}</div>
+            <div><span class="font-semibold text-bark/60">Complexity:</span> {game.complexity}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Rules Clarifications</h2>
+      <p class="text-bark/40 mb-8">Combat, the Factory, and the rules that trip people up.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.rules.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Rules" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Strategy</h2>
+      <p class="text-bark/40 mb-8">Faction rankings and competitive strategies.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.strategy.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Strategy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {scytheProducts.length > 0 && (
+    <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Scythe Accessories</h2>
+        <p class="text-bark/40 mb-8">Premium 3D-printed upgrades for Scythe.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {scytheProducts.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Scythe — Rules, Strategy & Accessories",
+      description: "Everything you need for Scythe: combat rules, faction rankings, and premium 3D-printed accessories.",
+      url: "https://www.fjord-labs.com/games/scythe/",
+      publisher: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
+    })}
+  />
+</Base>

@@ -1,0 +1,102 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="How Does the Birdfeeder Work in Wingspan?"
+  description="The dice tower, rerolling, and when you can take food — the birdfeeder rules explained clearly."
+  game="wingspan"
+  gameTitle="Wingspan"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    The birdfeeder is Wingspan's most unique component — a dice tower that controls
+    which food is available. Here's exactly how it works and when it resets.
+  </p>
+
+  <KeyTakeaway answer="Roll 5 food dice into the birdfeeder at game start. When you take the 'gain food' action, choose dice from the feeder. If all remaining dice show the same face, reroll all of them before choosing." />
+
+  <h2>How the Birdfeeder Works</h2>
+
+  <StepList>
+    <Step number={1} title="Setup: Roll All 5 Dice">
+      At the start of the game, roll all 5 food dice into the birdfeeder (dice tower). The faces showing are the available food.
+    </Step>
+
+    <Step number={2} title="Gain Food Action">
+      When you take the "gain food" action (forest row), you pick one die from the birdfeeder per food you gain. Take the matching food token from the supply.
+    </Step>
+
+    <Step number={3} title="The Reroll Rule">
+      If at any point all remaining dice in the birdfeeder show the same face, you may (but don't have to) reroll all dice before taking food. This prevents one food type from dominating.
+    </Step>
+
+    <Step number={4} title="Empty Feeder">
+      If the birdfeeder is completely empty when you need to take food, reroll all 5 dice back into it.
+    </Step>
+  </StepList>
+
+  <h2>The Dice Faces</h2>
+
+  <div class="my-6 grid grid-cols-2 sm:grid-cols-5 gap-3">
+    <div class="p-3 bg-red-50 rounded-xl border border-red-100 text-center">
+      <span class="text-2xl">🍎</span>
+      <p class="text-xs font-semibold text-red-800 mt-1">Berry</p>
+    </div>
+    <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 text-center">
+      <span class="text-2xl">🌾</span>
+      <p class="text-xs font-semibold text-amber-800 mt-1">Wheat</p>
+    </div>
+    <div class="p-3 bg-pink-50 rounded-xl border border-pink-100 text-center">
+      <span class="text-2xl">🐛</span>
+      <p class="text-xs font-semibold text-pink-800 mt-1">Invertebrate</p>
+    </div>
+    <div class="p-3 bg-gray-50 rounded-xl border border-gray-200 text-center">
+      <span class="text-2xl">🐟</span>
+      <p class="text-xs font-semibold text-gray-700 mt-1">Fish</p>
+    </div>
+    <div class="p-3 bg-orange-50 rounded-xl border border-orange-100 text-center">
+      <span class="text-2xl">🐀</span>
+      <p class="text-xs font-semibold text-orange-800 mt-1">Rodent</p>
+    </div>
+  </div>
+
+  <p class="text-sm text-bark/50 text-center -mt-2 mb-6">
+    One face shows a wild symbol (🌾/🐛) — you choose which of the two foods to take.
+  </p>
+
+  <h2>Common Questions</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"When exactly does the reroll trigger?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1">Any time you're about to gain food and all remaining dice show the same face. Check <strong>before</strong> taking your first die. It also triggers between taking dice if a bird power gives you extra food.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Is the reroll mandatory?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> The reroll is optional. If all dice show the food you want, you can skip the reroll and just take from what's there.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Can I save dice between turns?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> The birdfeeder is shared. Dice stay in the feeder until someone takes them or they're rerolled.</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="Birdfeeder Strategy">
+    Don't just take food you need now — consider what you leave for opponents. Taking the last unique die triggers a reroll, potentially giving the next player better options. Sometimes it's worth taking a food you don't need to deny a reroll.
+  </InfoBox>
+</Article>

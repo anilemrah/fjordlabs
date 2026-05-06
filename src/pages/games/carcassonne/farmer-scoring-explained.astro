@@ -1,0 +1,100 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="Carcassonne Farmer Scoring Explained: The Most Confusing Rule"
+  description="Farmer scoring trips up everyone. Here's a clear explanation of how it actually works."
+  game="carcassonne"
+  gameTitle="Carcassonne"
+  category="Rules"
+  publishDate="2025-05-06"
+>
+  <p>
+    If there's one rule in Carcassonne that causes arguments, it's farmer scoring.
+    How do fields work? When do they score? What counts as a "completed city"
+    adjacent to a field? Let's clear it all up.
+  </p>
+
+  <KeyTakeaway answer="Farmers score only at game end. Each farmer scores 3 points per completed city that touches their field. The player with the most farmers in a field scores — ties mean both score." />
+
+  <h2>The Key Concepts</h2>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-emerald-50 rounded-xl border border-emerald-200">
+      <div class="text-2xl mb-2">🌾</div>
+      <h4 class="font-heading font-semibold text-sm text-emerald-800 mb-1">Fields</h4>
+      <p class="text-xs text-emerald-700/70">The green areas on tiles. Fields are separated by roads, cities, and tile edges. A field can span many tiles.</p>
+    </div>
+    <div class="p-5 bg-blue-50 rounded-xl border border-blue-200">
+      <div class="text-2xl mb-2">🧑‍🌾</div>
+      <h4 class="font-heading font-semibold text-sm text-blue-800 mb-1">Farmers</h4>
+      <p class="text-xs text-blue-700/70">A meeple placed lying down on a field. Once placed, farmers stay for the entire game — they're never returned to your supply.</p>
+    </div>
+  </div>
+
+  <InfoBox type="warning" title="The #1 Mistake">
+    Farmers are placed <strong>lying down</strong>, not standing up. A standing meeple on a field is not a farmer — it's a mistake. This distinction matters because farmers never come back to your hand.
+  </InfoBox>
+
+  <h2>How Farmer Scoring Works</h2>
+
+  <StepList>
+    <Step number={1} title="Wait Until Game End">
+      Farmers only score during final scoring. They never score during the game, unlike cities, roads, and monasteries.
+    </Step>
+
+    <Step number={2} title="Determine Field Boundaries">
+      A field is defined by roads, cities, and tile edges. Trace the green area your farmer is in — it may span many tiles. Everything connected without a road or city wall breaking it is one field.
+    </Step>
+
+    <Step number={3} title="Count Completed Cities Touching the Field">
+      Look at every completed city that borders the field (shares at least one edge with it). Each completed city = 3 points.
+    </Step>
+
+    <Step number={4} title="Majority Rules">
+      If multiple players have farmers in the same field, the player with the most farmers scores all the points. In a tie, both players score the full amount.
+    </Step>
+  </StepList>
+
+  <h2>Common Confusions</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Do incomplete cities count?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> Only completed (fully enclosed) cities count for farmer scoring.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Can I take my farmer back during the game?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> Farmers stay on the board until the end. This is why committing a farmer early is a big strategic decision.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"Do roads separate fields?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>Yes.</strong> Roads act as field boundaries. A farmer on one side of a road cannot access the field on the other side.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-blue-50 rounded-xl border border-blue-100">
+      <span class="text-lg shrink-0">❓</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-blue-800">"A city touches my field on two sides — does it count twice?"</h4>
+        <p class="text-sm text-blue-700/70 mt-1"><strong>No.</strong> Each completed city counts once regardless of how many edges it shares with the field.</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="When to Place a Farmer">
+    Early farmers on large central fields can score 9–15+ points. But you're locking up a meeple for the rest of the game. Don't place a farmer if you're already short on meeples (you only have 7). Late-game farmers on contested fields to steal majority can be devastating.
+  </InfoBox>
+</Article>

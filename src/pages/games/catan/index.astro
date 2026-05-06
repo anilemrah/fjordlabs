@@ -1,0 +1,225 @@
+---
+import Base from "../../../layouts/Base.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { getProductsByGame } from "../../../data/products";
+import { getGame } from "../../../data/games";
+
+const game = getGame("catan")!;
+const catanProducts = getProductsByGame("catan");
+
+const articles = {
+  rules: [
+    {
+      title: "Does the Robber Block Port Trading in Catan?",
+      description:
+        "One of the most debated rules in Catan — here's the definitive answer.",
+      href: "/games/catan/does-robber-block-port-trading/",
+    },
+    {
+      title: "Can You Trade on Your First Turn in Catan?",
+      description:
+        "A common question that trips up new and experienced players alike.",
+      href: "/games/catan/can-you-trade-first-turn/",
+    },
+    {
+      title: "What Happens When You Roll a 7 in Catan?",
+      description:
+        "The complete guide to discarding, robber movement, and stealing.",
+      href: "/games/catan/what-happens-when-you-roll-7/",
+    },
+    {
+      title: "Longest Road Rules: When Does It Switch?",
+      description:
+        "How to earn it, lose it, and the edge cases that cause arguments.",
+      href: "/games/catan/longest-road-rules/",
+    },
+    {
+      title: "How Many Victory Points Do You Need to Win Catan?",
+      description:
+        "The winning condition, how to count points, and hidden VP cards explained.",
+      href: "/games/catan/how-many-points-to-win/",
+    },
+    {
+      title: "Catan Development Card Rules: When Can You Play Them?",
+      description:
+        "Knight, Road Building, Monopoly, Year of Plenty, VP — every dev card rule.",
+      href: "/games/catan/development-card-rules/",
+    },
+    {
+      title: "Largest Army in Catan: How Does It Work?",
+      description:
+        "How to earn Largest Army, when it switches, and how it compares to Longest Road.",
+      href: "/games/catan/largest-army-rules/",
+    },
+  ],
+  strategy: [
+    {
+      title: "Settlement Placement Strategy: Where to Build First",
+      description:
+        "Your first two settlements decide the game. Here's how to evaluate spots.",
+      href: "/games/catan/settlement-placement-strategy/",
+    },
+  ],
+  guides: [
+    {
+      title: "How to Set Up Catan in Under 5 Minutes",
+      description:
+        "A step-by-step guide to fast setup with a resource organization trick.",
+      href: "/games/catan/fast-setup-guide/",
+    },
+    {
+      title: "Best Catan Expansions Ranked",
+      description:
+        "Every major expansion broken down by what it adds and whether it's worth it.",
+      href: "/games/catan/best-expansions-ranked/",
+    },
+  ],
+};
+---
+
+<Base
+  title="Catan — Rules, Strategy & Accessories | Fjord Labs"
+  description="Everything you need for Catan: rules clarifications, winning strategies, setup guides, and premium 3D-printed accessories."
+>
+  <!-- Hero -->
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Catan</span>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <img src={game.image} alt={game.title} class="w-32 h-32 rounded-2xl object-cover border border-bark/10 shrink-0" />
+        <div>
+          <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+            Catan
+          </h1>
+          <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
+            {game.heroDescription}
+          </p>
+
+          <div class="flex flex-wrap gap-6 text-sm text-bark/40">
+        <div>
+          <span class="font-semibold text-bark/60">Players:</span>
+          {game.playerCount}
+        </div>
+        <div>
+          <span class="font-semibold text-bark/60">Play Time:</span>
+          {game.playTime}
+        </div>
+        <div>
+          <span class="font-semibold text-bark/60">Complexity:</span>
+          {game.complexity}
+        </div>
+      </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Rules Clarifications -->
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">
+        Rules Clarifications
+      </h2>
+      <p class="text-bark/40 mb-8">
+        Quick answers to the questions that come up mid-game.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {
+          articles.rules.map((a) => (
+            <ArticleCard
+              title={a.title}
+              description={a.description}
+              href={a.href}
+              category="Rules"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Strategy -->
+  <section class="py-14 px-6 bg-sand/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Strategy</h2>
+      <p class="text-bark/40 mb-8">
+        Improve your game with tested strategies.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {
+          articles.strategy.map((a) => (
+            <ArticleCard
+              title={a.title}
+              description={a.description}
+              href={a.href}
+              category="Strategy"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides -->
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">
+        Guides & Buying Advice
+      </h2>
+      <p class="text-bark/40 mb-8">
+        Setup tips, expansion guides, and upgrade recommendations.
+      </p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {
+          articles.guides.map((a) => (
+            <ArticleCard
+              title={a.title}
+              description={a.description}
+              href={a.href}
+              category="Guide"
+            />
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Catan Products -->
+  <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">
+        Catan Accessories
+      </h2>
+      <p class="text-bark/40 mb-8">
+        Premium 3D-printed upgrades for your Catan games.
+      </p>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {catanProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+    </div>
+  </section>
+
+  <!-- JSON-LD -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Catan — Rules, Strategy & Accessories",
+      description:
+        "Everything you need for Catan: rules clarifications, winning strategies, setup guides, and premium 3D-printed accessories.",
+      url: "https://www.fjord-labs.com/games/catan/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
+</Base>

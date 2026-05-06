@@ -1,0 +1,117 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Wyrmspan Cave Strategy: How to Build an Efficient Dragon Engine"
+  description="Maximize your cave layout and chain dragon abilities for big combos."
+  game="wyrmspan"
+  gameTitle="Wyrmspan"
+  category="Strategy"
+  product="wyrmspan-resource-tokens"
+  publishDate="2025-05-06"
+>
+  <p>
+    Wyrmspan's cave system is where the game's strategic depth lives. Unlike
+    Wingspan's three simple habitat rows, your cave is a multi-layered space
+    that you progressively explore and fill with dragons.
+  </p>
+
+  <KeyTakeaway answer="Explore deep early to unlock high-value spots, then fill caves with dragons that chain together. Don't spread too thin across all three cave types." />
+
+  <h2>The Three Cave Types</h2>
+
+  <div class="my-6 grid sm:grid-cols-3 gap-4">
+    <div class="p-5 bg-red-50 rounded-xl border border-red-200">
+      <div class="text-2xl mb-2">🔥</div>
+      <h4 class="font-heading font-semibold text-sm text-red-800 mb-1">Crimson Cavern</h4>
+      <p class="text-xs text-red-700/70">Resource generation. Dragons here produce gold, meat, or crystals when activated. Your economic engine.</p>
+    </div>
+    <div class="p-5 bg-amber-50 rounded-xl border border-amber-200">
+      <div class="text-2xl mb-2">💎</div>
+      <h4 class="font-heading font-semibold text-sm text-amber-800 mb-1">Golden Grotto</h4>
+      <p class="text-xs text-amber-700/70">Card advantage. Draw dragon cards, peek at the deck, or tuck cards for points. Your information engine.</p>
+    </div>
+    <div class="p-5 bg-purple-50 rounded-xl border border-purple-200">
+      <div class="text-2xl mb-2">🌙</div>
+      <h4 class="font-heading font-semibold text-sm text-purple-800 mb-1">Amethyst Abyss</h4>
+      <p class="text-xs text-purple-700/70">Egg-laying and scoring. Dragons here multiply your egg production and end-game points. Your score engine.</p>
+    </div>
+  </div>
+
+  <h2>Core Strategic Principles</h2>
+
+  <div class="my-6 space-y-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xl">🎯</span>
+        <h3 class="font-heading font-bold text-bark">Specialize, Don't Generalize</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Having 2 strong caves beats having 3 mediocre ones. Each dragon you play in a cave
+        makes every future activation of that cave stronger (you trigger all dragons in the row).
+        Depth beats breadth.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xl">⛏️</span>
+        <h3 class="font-heading font-bold text-bark">Explore Early, Score Late</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        The deeper cave slots have stronger bonuses and more space. Spend your early turns
+        exploring to unlock the best positions, then fill them with your highest-value
+        dragons in later rounds.
+      </p>
+    </div>
+
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-3 mb-2">
+        <span class="text-xl">🔗</span>
+        <h3 class="font-heading font-bold text-bark">Chain Dragon Powers</h3>
+      </div>
+      <p class="text-sm text-bark/60">
+        Look for dragons whose abilities feed into each other. A dragon that generates gold +
+        a dragon that converts gold into points in the same cave = compounding value every time
+        you activate that cave row.
+      </p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The Coin Economy">
+    Coins are the most flexible resource — they can substitute for almost anything. Early-game dragons that generate coins give you options that pure resource generators don't. Prioritize coin-generating dragons in your first 2–3 plays.
+  </InfoBox>
+
+  <h2>Common Mistakes</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Playing expensive dragons too early</h4>
+        <p class="text-sm text-red-700/70 mt-1">Big dragons are tempting but cost resources you need for exploration. Cheap dragons early, expensive dragons late.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Ignoring exploration bonuses</h4>
+        <p class="text-sm text-red-700/70 mt-1">The bonuses you get from exploring are free resources and points. Skipping exploration to play dragons is usually wrong in the first half of the game.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">❌</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Hoarding resources</h4>
+        <p class="text-sm text-red-700/70 mt-1">Unlike Wingspan where you can sit on food, Wyrmspan rewards spending. Unspent resources at game end are worth very little.</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="info">
+    If you're coming from Wingspan, expect your first game of Wyrmspan to feel slower. By game 3, the systems click and it flows faster than Wingspan for most players.
+  </InfoBox>
+</Article>

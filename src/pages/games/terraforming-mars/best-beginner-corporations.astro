@@ -1,0 +1,120 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+---
+
+<Article
+  title="Best Beginner Corporations in Terraforming Mars"
+  description="Which corporations to pick when you're learning the game — and which to avoid."
+  game="terraforming-mars"
+  gameTitle="Terraforming Mars"
+  category="Strategy"
+  publishDate="2025-05-06"
+>
+  <p>
+    Your corporation defines your starting resources, income, and strategy for the
+    entire game. Some corporations are intuitive. Others require deep card knowledge
+    to use well. Here's what to pick when you're starting out.
+  </p>
+
+  <KeyTakeaway answer="Start with Beginner Corporation (the rules suggest it for a reason), then graduate to Helion, Ecoline, or Thorgate. Avoid Inventrix and Phobolog until you know the card deck." />
+
+  <h2>Best Corporations for New Players</h2>
+
+  <div class="my-8 space-y-6">
+    <div class="p-6 bg-white rounded-2xl border border-bark/10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 px-4 py-1.5 bg-emerald-500 text-white text-xs font-bold rounded-bl-xl">START HERE</div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-3xl">🏭</span>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-bark">Beginner Corporation</h3>
+          <span class="text-xs text-bark/40">42 M€ + 10 free project cards</span>
+        </div>
+      </div>
+      <p class="text-sm text-bark/60">
+        The rulebook recommends this for your first game — and it's right. You get 10 free project cards
+        (normally you'd pay 3 M€ each to keep them), which means more options without having to make
+        painful discard decisions. No special ability to track.
+      </p>
+    </div>
+
+    <div class="p-6 bg-white rounded-2xl border border-bark/10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 px-4 py-1.5 bg-blue-500 text-white text-xs font-bold rounded-bl-xl">GREAT 2ND GAME</div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-3xl">☀️</span>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-bark">Helion</h3>
+          <span class="text-xs text-bark/40">42 M€ · 3 Heat production</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="px-2 py-0.5 bg-orange-50 text-orange-700 text-[11px] font-semibold rounded-full">Heat = Money</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        Can spend heat as M€. This is incredibly forgiving — you always have extra resources.
+        The 3 heat production also lets you raise temperature without spending cards, giving
+        you TR income for free. Hard to play badly.
+      </p>
+    </div>
+
+    <div class="p-6 bg-white rounded-2xl border border-bark/10 relative overflow-hidden">
+      <div class="absolute top-0 right-0 px-4 py-1.5 bg-blue-500 text-white text-xs font-bold rounded-bl-xl">GREAT 2ND GAME</div>
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-3xl">🌿</span>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-bark">Ecoline</h3>
+          <span class="text-xs text-bark/40">36 M€ · 2 Plant production · +1 starting plant</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="px-2 py-0.5 bg-emerald-50 text-emerald-700 text-[11px] font-semibold rounded-full">Cheap Greenery</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        Greenery tiles cost 7 plants instead of 8. Combined with starting plant production,
+        you'll be placing greeneries faster than anyone. Simple, visual strategy: make plants,
+        place tiles, raise oxygen, score VPs.
+      </p>
+    </div>
+
+    <div class="p-6 bg-white rounded-2xl border border-bark/10">
+      <div class="flex items-center gap-3 mb-3">
+        <span class="text-3xl">⚡</span>
+        <div>
+          <h3 class="font-heading font-bold text-xl text-bark">Thorgate</h3>
+          <span class="text-xs text-bark/40">48 M€ · 1 Energy production</span>
+        </div>
+      </div>
+      <div class="flex flex-wrap gap-2 mb-3">
+        <span class="px-2 py-0.5 bg-yellow-50 text-yellow-700 text-[11px] font-semibold rounded-full">Cheap Power Cards</span>
+      </div>
+      <p class="text-sm text-bark/60">
+        Power-tagged cards cost 3 M€ less. Energy production cards are common in the deck,
+        so this discount triggers frequently. Good for learning how energy and heat interact.
+      </p>
+    </div>
+  </div>
+
+  <h2>Corporations to Avoid Early On</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">⚠️</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Inventrix</h4>
+        <p class="text-sm text-red-700/70 mt-1">Lets you ignore global requirements. Powerful in expert hands but confusing for beginners who don't yet know which cards have requirements worth bypassing.</p>
+      </div>
+    </div>
+    <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
+      <span class="text-lg shrink-0">⚠️</span>
+      <div>
+        <h4 class="font-heading font-semibold text-sm text-red-800">Phobolog</h4>
+        <p class="text-sm text-red-700/70 mt-1">Titanium is worth 4 M€ instead of 3. Great if you know which space-tagged cards are in the deck. Underwhelming if you don't draw space cards.</p>
+      </div>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The Real Tip">
+    In your first 2–3 games, don't stress about corporations. Focus on understanding the three global parameters (temperature, oxygen, oceans), how production works, and which cards generate VP. Corporation mastery comes later.
+  </InfoBox>
+</Article>
