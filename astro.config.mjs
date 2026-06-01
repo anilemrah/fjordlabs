@@ -4,6 +4,11 @@ import tailwind from "@astrojs/tailwind";
 
 export default defineConfig({
   site: "https://www.fjord-labs.com",
-  integrations: [sitemap(), tailwind()],
+  integrations: [
+    sitemap({
+      filter: (page) => !page.includes("/fjord-apps-privacy"),
+    }),
+    tailwind(),
+  ],
   output: "static",
 });

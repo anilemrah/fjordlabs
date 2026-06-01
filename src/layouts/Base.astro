@@ -5,6 +5,7 @@ interface Props {
   canonical?: string;
   ogImage?: string;
   type?: "website" | "article";
+  noindex?: boolean;
 }
 
 const {
@@ -13,6 +14,7 @@ const {
   canonical,
   ogImage,
   type = "website",
+  noindex = false,
 } = Astro.props;
 
 const siteUrl = "https://www.fjord-labs.com";
@@ -26,6 +28,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
     <meta name="description" content={description} />
+    {noindex && <meta name="robots" content="noindex, nofollow" />}
     <link rel="canonical" href={pageUrl} />
 
     <!-- Open Graph -->
