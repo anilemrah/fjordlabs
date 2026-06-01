@@ -1,0 +1,75 @@
+---
+import Base from "../layouts/Base.astro";
+
+const apps = [
+  {
+    name: "Brewio",
+    tagline: "Track and perfect your coffee brews.",
+    emoji: "☕",
+  },
+  {
+    name: "Just Pomodoro",
+    tagline: "A clean, focused Pomodoro timer.",
+    emoji: "🍅",
+  },
+  {
+    name: "Gissa",
+    tagline: "A fun guessing game with friends.",
+    emoji: "🎯",
+  },
+];
+---
+
+<Base
+  title="Fjord Apps"
+  description="Mobile apps by Fjord Apps — Brewio, Just Pomodoro, and Gissa."
+  noindex={true}
+>
+  <section class="py-20 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <img
+        src="/images/fjordlabsicon.png"
+        alt="Fjord Apps"
+        class="w-20 h-20 rounded-2xl mx-auto mb-6"
+      />
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-bark mb-3">
+        Fjord Apps
+      </h1>
+      <p class="text-lg text-bark/60 mb-12">
+        Small, focused mobile apps — crafted in Sweden.
+      </p>
+
+      <div class="grid gap-4 text-left mb-12">
+        {
+          apps.map((app) => (
+            <div class="flex items-center gap-4 bg-white rounded-2xl border border-bark/10 p-5">
+              <span class="text-3xl">{app.emoji}</span>
+              <div>
+                <h2 class="font-heading font-bold text-bark text-lg">
+                  {app.name}
+                </h2>
+                <p class="text-sm text-bark/50">{app.tagline}</p>
+              </div>
+            </div>
+          ))
+        }
+      </div>
+
+      <div class="border-t border-bark/10 pt-8 text-sm text-bark/50">
+        <p>
+          <a
+            href="/fjord-apps-privacy/"
+            class="text-clay hover:text-clay-dark font-medium transition-colors"
+            >Privacy Policy</a
+          >
+          &middot;
+          <a
+            href="mailto:emrah.anl@gmail.com"
+            class="text-clay hover:text-clay-dark font-medium transition-colors"
+            >Contact</a
+          >
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
