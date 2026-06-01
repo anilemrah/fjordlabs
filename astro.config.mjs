@@ -7,7 +7,9 @@ export default defineConfig({
   integrations: [
     sitemap({
       filter: (page) =>
-        !page.includes("/fjord-apps-privacy") && !page.includes("/apps"),
+        !page.includes("/fjord-apps-privacy") &&
+        !page.includes("/apps") &&
+        !page.includes("/gissa/privacy"),
     }),
     tailwind(),
   ],
