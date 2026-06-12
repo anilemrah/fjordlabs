@@ -5,28 +5,112 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="robots" content="noindex, nofollow" />
   <title>Skål — Support</title>
+  <style>
+    :root {
+      --bg: #0d0e12;
+      --bg-soft: #15171d;
+      --border: #262a33;
+      --text: #f4f5f7;
+      --muted: #9aa0ac;
+      --accent: #ff6b8a;
+    }
+    * { box-sizing: border-box; }
+    html, body { height: 100%; }
+    body {
+      margin: 0;
+      background: radial-gradient(1200px 600px at 50% -10%, #1b1e27 0%, var(--bg) 60%);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+      line-height: 1.6;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 48px 20px;
+    }
+    .card {
+      width: 100%;
+      max-width: 440px;
+      text-align: center;
+    }
+    .icon {
+      width: 104px;
+      height: 104px;
+      border-radius: 24px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.5);
+      margin-bottom: 24px;
+    }
+    h1 {
+      font-size: 1.7rem;
+      margin: 0 0 10px;
+      letter-spacing: -0.01em;
+    }
+    .lede {
+      color: var(--muted);
+      margin: 0 0 32px;
+    }
+    .panel {
+      background: var(--bg-soft);
+      border: 1px solid var(--border);
+      border-radius: 18px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+    .panel h2 {
+      font-size: 0.78rem;
+      text-transform: uppercase;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin: 0 0 12px;
+      font-weight: 600;
+    }
+    .btn {
+      display: inline-block;
+      background: var(--accent);
+      color: #0b0c10;
+      font-weight: 600;
+      text-decoration: none;
+      padding: 12px 22px;
+      border-radius: 12px;
+      transition: opacity 0.15s ease;
+    }
+    .btn:hover { opacity: 0.88; }
+    .hint {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 16px 0 0;
+    }
+    .privacy {
+      color: var(--muted);
+      font-size: 0.85rem;
+      margin: 0;
+    }
+    .privacy a { color: var(--accent); text-decoration: none; }
+    .privacy a:hover { text-decoration: underline; }
+  </style>
 </head>
 <body>
-  <img src="/skal/icon.png" alt="Skål" width="96" height="96" />
+  <main class="card">
+    <img class="icon" src="/skal/icon.png" alt="Skål" width="104" height="104" />
+    <h1>Skål — Support</h1>
+    <p class="lede">
+      Need help, found a bug, or have a question or suggestion? We'd love to hear from you.
+    </p>
 
-  <h1>Skål — Support</h1>
+    <div class="panel">
+      <h2>Contact us</h2>
+      <a class="btn" href="mailto:fjordlabs.app@gmail.com">fjordlabs.app@gmail.com</a>
+      <p class="hint">
+        To help us respond faster, please include your device model, your iOS version,
+        and a short description of the problem.
+      </p>
+    </div>
 
-  <p>
-    Need help with Skål, found a bug, or have a question or suggestion?
-    We'd love to hear from you.
-  </p>
-
-  <h2>Contact us</h2>
-  <p>
-    Email <a href="mailto:fjordlabs.app@gmail.com">fjordlabs.app@gmail.com</a> and we'll
-    get back to you as soon as we can. To help us respond faster, please include
-    your device model, your iOS version, and a short description of the problem.
-  </p>
-
-  <h2>Privacy</h2>
-  <p>
-    You can read our privacy policy at
-    <a href="/skal/privacy/">/skal/privacy/</a>.
-  </p>
+    <div class="panel">
+      <h2>Privacy</h2>
+      <p class="privacy">
+        Read our <a href="/skal/privacy/">privacy policy</a>.
+      </p>
+    </div>
+  </main>
 </body>
 </html>
