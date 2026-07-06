@@ -1,0 +1,135 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const lastUpdated = "July 6, 2026";
+---
+
+<Base
+  title="Privacy Policy | Lone Meeple"
+  description="Privacy policy for the Lone Meeple mobile application."
+  noindex={true}
+>
+  <section class="py-16 md:py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center gap-3 mb-8">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark">
+            Privacy Policy
+          </h1>
+          <p class="text-sm text-bark/50">Lone Meeple</p>
+        </div>
+      </div>
+
+      <p class="text-sm text-bark/40 mb-8">Last updated: {lastUpdated}</p>
+
+      <div class="prose-article">
+        <p>
+          This privacy policy applies to <strong>Lone Meeple</strong>, the solo
+          board-gaming companion published by Fjord Labs (the “App”). We are
+          committed to keeping your data private: we do not sell, rent, or
+          share your personal information with advertisers or third-party
+          marketers, and we collect only what the App needs to work.
+        </p>
+
+        <h2>What We Collect</h2>
+
+        <ul>
+          <li>
+            <strong>Account information.</strong> When you sign in, we store
+            the account identifier provided by your chosen sign-in method
+            (email address, Apple Sign In, or Google). Authentication is
+            handled securely through Supabase.
+          </li>
+          <li>
+            <strong>Your solo journal.</strong> The games you add, the plays
+            you log (scores, results, difficulty, duration, dates, notes), and
+            your campaign progress are stored with your account so your
+            journal is backed up and follows you across devices.
+          </li>
+        </ul>
+
+        <p>
+          We do <strong>not</strong> collect data for advertising, tracking,
+          or profiling, and the App contains no analytics SDKs.
+        </p>
+
+        <h2>Shared Account Across Fjord Apps</h2>
+
+        <p>
+          Lone Meeple uses the shared Fjord Apps authentication system, so one
+          account signs you in to any of our apps. Your account identity is
+          shared across the apps, but your Lone Meeple journal is used only to
+          operate Lone Meeple for you.
+        </p>
+
+        <h2>Purchases</h2>
+
+        <p>
+          Lone Meeple offers a one-time Pro unlock. Payments are processed
+          entirely by Apple; we never see your payment details. We use
+          RevenueCat to associate your purchase with your account so it can be
+          restored on any device.
+        </p>
+
+        <h2>AI Recap (optional)</h2>
+
+        <p>
+          Pro users can generate a short written recap of their stats. When
+          you use this feature, the relevant statistics — play counts, win
+          rates, streaks, and the titles of your most-played games — are sent
+          to Anthropic solely to generate the text of the recap. Nothing else
+          from your journal is shared, and this happens only when you tap the
+          recap button.
+        </p>
+
+        <h2>Board Game Catalog</h2>
+
+        <p>
+          Game names and cover images in the search catalog are provided by
+          BoardGameGeek and loaded from their servers. Lone Meeple is an
+          unofficial companion: it stores only your own data, and all game
+          names and trademarks belong to their respective owners.
+        </p>
+
+        <h2>Data Storage and Security</h2>
+
+        <p>
+          Your data is stored using Supabase, which provides secure,
+          industry-standard infrastructure for authentication and database
+          storage. Access controls ensure only your account can read and
+          write your data.
+        </p>
+
+        <h2>Data Retention and Deletion</h2>
+
+        <p>
+          We keep your data for as long as you maintain an account. You can
+          delete your account and your entire journal at any time from within
+          the App (Settings → Delete account &amp; my data). Once deleted,
+          your data is removed from our systems.
+        </p>
+
+        <h2>Children's Privacy</h2>
+
+        <p>
+          The App is not directed at children under the age of 13, and we do
+          not knowingly collect personal information from children.
+        </p>
+
+        <h2>Changes to This Policy</h2>
+
+        <p>
+          We may update this privacy policy from time to time. When we do, we
+          will revise the “Last updated” date at the top of this page.
+        </p>
+
+        <h2>Contact</h2>
+
+        <p>
+          Questions about this policy? Email
+          <a href="mailto:fjordlabs.app@gmail.com">fjordlabs.app@gmail.com</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

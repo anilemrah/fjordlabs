@@ -6,8 +6,7 @@ export default defineConfig({
   site: "https://www.fjord-labs.com",
   integrations: [
     sitemap({
-      filter: (page) =>
-        !page.includes("/fjord-apps-privacy") && !page.includes("/apps"),
+      filter: (page) => !page.includes("privacy") && !page.includes("/apps"),
     }),
     tailwind(),
   ],
