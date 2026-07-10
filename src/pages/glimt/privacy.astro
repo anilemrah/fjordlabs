@@ -1,0 +1,138 @@
+---
+import Base from "../../layouts/Base.astro";
+
+const lastUpdated = "July 10, 2026";
+---
+
+<Base
+  title="Privacy Policy | Glimt"
+  description="Privacy policy for the Glimt mobile application."
+  noindex={true}
+>
+  <section class="py-16 md:py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <div class="flex items-center gap-3 mb-8">
+        <div>
+          <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark">
+            Privacy Policy
+          </h1>
+          <p class="text-sm text-bark/50">Glimt</p>
+        </div>
+      </div>
+
+      <p class="text-sm text-bark/40 mb-8">Last updated: {lastUpdated}</p>
+
+      <div class="prose-article">
+        <p>
+          This privacy policy applies to <strong>Glimt</strong>, the couples
+          conversation app published by Fjord Labs (the “App”). Glimt is built
+          to be private by design: your conversations happen between you and
+          your partner, off the screen. We do not sell, rent, or share your
+          personal information with advertisers or third-party marketers, and
+          we collect only what the App needs to work.
+        </p>
+
+        <h2>Works Without an Account</h2>
+
+        <p>
+          You can use all of Glimt without creating an account. In that case
+          your favorites, deck progress, streak, and settings are stored only
+          on your device and never leave it. The question decks themselves are
+          bundled inside the App, so it works fully offline.
+        </p>
+
+        <h2>What We Collect (only if you sign in)</h2>
+
+        <ul>
+          <li>
+            <strong>Account information.</strong> When you sign in, we store
+            the account identifier provided by your chosen sign-in method
+            (email address, Apple Sign In, or Google). Authentication is
+            handled securely through Supabase.
+          </li>
+          <li>
+            <strong>Your backup.</strong> Signing in backs up your favorites,
+            deck progress, and streak so you can restore them on a new device.
+            We never store your answers or conversations — the App doesn't
+            record them at all.
+          </li>
+        </ul>
+
+        <p>
+          We do <strong>not</strong> collect data for advertising, tracking,
+          or profiling, and the App contains no analytics SDKs.
+        </p>
+
+        <h2>Shared Account Across Fjord Apps</h2>
+
+        <p>
+          Glimt uses the shared Fjord Apps authentication system, so one
+          account signs you in to any of our apps. Your account identity is
+          shared across the apps, but your Glimt data is used only to operate
+          Glimt for you.
+        </p>
+
+        <h2>Purchases</h2>
+
+        <p>
+          Glimt Premium is a monthly or annual subscription. Payments are
+          processed entirely by Apple; we never see your payment details. We
+          use RevenueCat to associate your subscription with your account so
+          it can be restored on any device.
+        </p>
+
+        <h2>Notifications</h2>
+
+        <p>
+          The optional daily reminder is a local notification scheduled on
+          your device. It requires your permission, never leaves your phone,
+          and can be turned off anytime in Settings.
+        </p>
+
+        <h2>Data Storage and Security</h2>
+
+        <p>
+          Backup data is stored using Supabase, which provides secure,
+          industry-standard infrastructure for authentication and database
+          storage. Access controls ensure only your account can read and
+          write your data.
+        </p>
+
+        <h2>Data Retention and Deletion</h2>
+
+        <p>
+          We keep your backup for as long as you maintain an account. You can
+          delete all of your Glimt data at any time from within the App
+          (Settings → Delete account &amp; data) — this permanently removes
+          your favorites, progress, and streak from our servers. Because one
+          Fjord account works across all our apps, the shared sign-in identity
+          itself is kept so your other Fjord apps keep working; if you would
+          like the shared account erased entirely, email us and we will remove
+          it.
+        </p>
+
+        <h2>Children's Privacy</h2>
+
+        <p>
+          The App is intended for people in a relationship and is rated 12+.
+          It is not directed at children under the age of 13, and we do not
+          knowingly collect personal information from children.
+        </p>
+
+        <h2>Changes to This Policy</h2>
+
+        <p>
+          We may update this privacy policy from time to time. When we do, we
+          will revise the “Last updated” date at the top of this page.
+        </p>
+
+        <h2>Contact</h2>
+
+        <p>
+          Questions about this policy? Email
+          <a href="mailto:fjordlabs.app@gmail.com">fjordlabs.app@gmail.com</a>.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
