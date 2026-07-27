@@ -11,10 +11,19 @@ interface Props {
   category: string;
   product?: string;
   publishDate?: string;
+  updatedDate?: string;
 }
 
-const { title, description, game, gameTitle, category, product, publishDate } =
-  Astro.props;
+const {
+  title,
+  description,
+  game,
+  gameTitle,
+  category,
+  product,
+  publishDate,
+  updatedDate,
+} = Astro.props;
 
 const relatedProduct = product ? getProduct(product) : undefined;
 ---
@@ -54,7 +63,9 @@ const relatedProduct = product ? getProduct(product) : undefined;
       </p>
       {
         publishDate && (
-          <time class="text-sm text-bark/30 mt-3 block">{publishDate}</time>
+          <time class="text-sm text-bark/30 mt-3 block">
+            {publishDate}{updatedDate && ` · Updated ${updatedDate}`}
+          </time>
         )
       }
     </header>
@@ -108,6 +119,7 @@ const relatedProduct = product ? getProduct(product) : undefined;
         name: "Fjord Labs",
       },
       ...(publishDate && { datePublished: publishDate }),
+      ...(updatedDate && { dateModified: updatedDate }),
     })}
   />
 </Base>

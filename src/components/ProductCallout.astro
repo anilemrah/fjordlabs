@@ -10,7 +10,7 @@ const { product } = Astro.props;
 
 <aside class="my-12 p-6 bg-sand rounded-2xl border border-bark/5">
   <div class="flex flex-col sm:flex-row gap-6 items-start">
-    <a href={product.link} target="_blank" class="shrink-0">
+    <a href={`/products/${product.slug}/`} class="shrink-0">
       <img
         src={product.image}
         alt={product.title}
@@ -22,7 +22,7 @@ const { product } = Astro.props;
       <p class="text-xs font-semibold text-clay uppercase tracking-wide mb-1">
         Recommended Upgrade
       </p>
-      <a href={product.link} target="_blank">
+      <a href={`/products/${product.slug}/`}>
         <h4
           class="text-lg font-heading font-bold text-bark hover:text-clay transition-colors mb-2"
         >
@@ -31,11 +31,10 @@ const { product } = Astro.props;
       </a>
       <p class="text-sm text-bark/60 mb-4">{product.description}</p>
       <a
-        href={product.link}
-        target="_blank"
+        href={`/products/${product.slug}/`}
         class="inline-flex items-center gap-2 px-4 py-2 bg-clay text-white text-sm font-semibold rounded-lg hover:bg-clay-dark transition-colors"
       >
-        View on Etsy
+        See Photos & Details
         <svg
           class="w-3.5 h-3.5"
           fill="none"
@@ -46,7 +45,7 @@ const { product } = Astro.props;
             stroke-linecap="round"
             stroke-linejoin="round"
             stroke-width="2"
-            d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            d="M9 5l7 7-7 7"
           ></path>
         </svg>
       </a>

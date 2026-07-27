@@ -5,6 +5,18 @@ import ArticleCard from "../components/ArticleCard.astro";
 import { products } from "../data/products";
 import { games } from "../data/games";
 
+const featuredProducts = products.filter((p) => p.featured);
+const digitalProducts = products.filter((p) => p.digital);
+const heroSlugs = [
+  "wingspan-pocket-insert",
+  "catan-resource-tokens",
+  "terraforming-mars-player-board",
+  "catan-robber-upgrade",
+];
+const heroProducts = heroSlugs.flatMap((slug) =>
+  products.filter((p) => p.slug === slug)
+);
+
 const latestArticles = [
   {
     title: "Carcassonne Farmer Scoring Explained",
@@ -49,8 +61,8 @@ const latestArticles = [
     game: "Terraforming Mars",
   },
   {
-    title: "Scythe Faction Tier List: Which Faction Is Best?",
-    description: "Ranking all 5 base factions by strength, ease, and optimal strategy.",
+    title: "Scythe Faction Tier List: Which Faction Is Best? (2026 Update)",
+    description: "All 5 base factions ranked — plus new Duel of Meloch faction Constantinople.",
     href: "/games/scythe/faction-tier-list/",
     category: "Strategy",
     game: "Scythe",
@@ -63,74 +75,228 @@ const latestArticles = [
     game: "Carcassonne",
   },
   {
-    title: "Wingspan Bonus Cards Explained",
-    description: "Which bonus cards to keep, when to pivot, and the bonus card trap.",
-    href: "/games/wingspan/bonus-cards-explained/",
-    category: "Strategy",
-    game: "Wingspan",
+    title: "Wingspan Pocket vs Wingspan: Every Difference Explained",
+    description: "No birdfeeder, no habitats, no rounds — how the new 2026 pocket edition plays.",
+    href: "/games/wingspan-pocket/wingspan-pocket-vs-wingspan/",
+    category: "Rules",
+    game: "Wingspan Pocket",
   },
 ];
 ---
 
 <Base
   title="Fjord Labs — Board Game Upgrades & Guides"
-  description="Premium 3D-printed board game accessories and in-depth guides for Catan, Wingspan, Agricola, and more. Crafted in Sweden."
+  description="Premium 3D-printed board game accessories, printable STL files, and in-depth guides for Catan, Wingspan, Terraforming Mars, and more. Crafted in Sweden."
 >
   <!-- Hero -->
   <section class="relative py-20 md:py-28 px-6 overflow-hidden">
     <!-- Subtle hex grid background -->
     <div class="absolute inset-0 opacity-[0.03]" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231a1a1a' fill-opacity='1'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
 
-    <div class="max-w-4xl mx-auto text-center relative">
-      <div
-        class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-forest/5 text-forest text-xs font-semibold tracking-wide"
-      >
-        🎲 +5 Craftsmanship &middot; Made in Sweden
+    <div class="max-w-6xl mx-auto relative grid lg:grid-cols-2 gap-14 lg:gap-16 items-center">
+      <!-- Left: message -->
+      <div class="text-center lg:text-left">
+        <div
+          class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-forest/5 text-forest text-xs font-semibold tracking-wide"
+        >
+          🎲 +5 Craftsmanship &middot; Made in Sweden
+        </div>
+
+        <h1
+          class="text-4xl md:text-5xl font-heading font-bold text-bark mb-6 leading-tight"
+        >
+          Level Up Your<br />
+          <span class="text-clay">Game Night.</span>
+        </h1>
+
+        <p class="text-lg md:text-xl text-bark/50 mb-8 leading-relaxed">
+          3D-printed upgrades for Catan, Wingspan, Scythe, and more — shipped
+          from Sweden, or as STL files you print at home. Backed by deep-dive
+          guides for the games you're obsessed with.
+        </p>
+
+        <div class="flex flex-col sm:flex-row gap-4 justify-center lg:justify-start">
+          <a
+            href="/products/"
+            class="px-8 py-3.5 bg-clay text-white font-semibold rounded-xl hover:bg-clay-dark transition-colors shadow-lg shadow-clay/20 flex items-center justify-center gap-2"
+          >
+            <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+            Browse the Inventory
+          </a>
+          <a
+            href="#quest-log"
+            class="px-8 py-3.5 bg-bark/5 text-bark font-semibold rounded-xl hover:bg-bark/10 transition-colors flex items-center justify-center gap-2"
+          >
+            📖 Browse All Guides
+          </a>
+        </div>
+
+        <!-- Mini stat badges -->
+        <div class="flex flex-wrap justify-center lg:justify-start gap-x-6 gap-y-2 mt-10 text-sm text-bark/40">
+          <div class="flex items-center gap-2">
+            <span class="text-lg">🏗️</span>
+            <span><strong class="text-bark/70">50+</strong> Products</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg">📥</span>
+            <span><strong class="text-bark/70">STL Files</strong> to Print at Home</span>
+          </div>
+          <div class="flex items-center gap-2">
+            <span class="text-lg">📜</span>
+            <span><strong class="text-bark/70">35+</strong> Guides & Articles</span>
+          </div>
+        </div>
       </div>
 
-      <h1
-        class="text-4xl md:text-6xl font-heading font-bold text-bark mb-6 leading-tight"
-      >
-        Level Up Your<br />
-        <span class="text-clay">Game Night.</span>
-      </h1>
-
-      <p class="text-xl text-bark/50 max-w-2xl mx-auto mb-10 leading-relaxed">
-        3D-printed board game upgrades that make cardboard feel like a crime.
-        Plus deep-dive guides, rules clarifications, and strategies for the games you're obsessed with.
-      </p>
-
-      <div class="flex flex-col sm:flex-row gap-4 justify-center">
+      <!-- Right: product showcase -->
+      <div class="relative pb-6">
+        <div class="grid grid-cols-2 gap-4 md:gap-5">
+          {
+            heroProducts.map((product, i) => (
+              <a
+                href={`/products/${product.slug}/`}
+                class={`group block bg-white rounded-2xl overflow-hidden border border-bark/5 shadow-lg hover:shadow-xl hover:border-clay/30 transition-all duration-300 ${i % 2 === 0 ? "rotate-[-1.5deg]" : "rotate-[1.5deg]"} hover:rotate-0`}
+              >
+                <div class="aspect-square overflow-hidden bg-sand relative">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  />
+                  {product.isNew && (
+                    <span class="absolute top-3 right-3 px-2.5 py-1 bg-clay text-white text-[11px] font-bold rounded-full shadow-sm">
+                      ✨ NEW
+                    </span>
+                  )}
+                </div>
+                <div class="px-4 py-3 flex items-center justify-between gap-2">
+                  <span class="text-sm font-heading font-semibold text-bark truncate group-hover:text-clay transition-colors">
+                    {product.title}
+                  </span>
+                  <svg
+                    class="w-4 h-4 text-clay shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    ></path>
+                  </svg>
+                </div>
+              </a>
+            ))
+          }
+        </div>
         <a
-          href="https://fjordlabs.etsy.com"
-          target="_blank"
-          class="px-8 py-3.5 bg-clay text-white font-semibold rounded-xl hover:bg-clay-dark transition-colors shadow-lg shadow-clay/20 flex items-center justify-center gap-2"
+          href="/products/"
+          class="absolute -bottom-1 left-1/2 -translate-x-1/2 px-5 py-2.5 bg-bark text-cream text-sm font-semibold rounded-full shadow-xl hover:bg-bark/80 transition-colors whitespace-nowrap"
         >
-          <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
-          Open Loot Shop
+          🛍️ Browse all {products.length} products
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products" class="py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
+            🛡️ Inventory
+          </h2>
+          <p class="text-bark/40 mt-2">
+            3D-printed upgrades that make stock components jealous.
+          </p>
+        </div>
         <a
-          href="#quest-log"
-          class="px-8 py-3.5 bg-bark/5 text-bark font-semibold rounded-xl hover:bg-bark/10 transition-colors flex items-center justify-center gap-2"
+          href="/products/"
+          class="hidden md:inline-flex items-center gap-1 text-sm text-clay font-medium hover:text-clay-dark transition-colors"
         >
-          📖 Browse All Guides
+          View the full inventory
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
         </a>
       </div>
 
-      <!-- Mini stat badges -->
-      <div class="flex flex-wrap justify-center gap-6 mt-14 text-sm text-bark/40">
-        <div class="flex items-center gap-2">
-          <span class="text-lg">🏗️</span>
-          <span><strong class="text-bark/70">5+</strong> Products</span>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {featuredProducts.map((product) => <ProductCard product={product} />)}
+      </div>
+
+      <div class="text-center mt-10">
+        <a
+          href="/products/"
+          class="inline-flex items-center gap-2 px-8 py-3.5 bg-bark/5 text-bark font-semibold rounded-xl hover:bg-bark/10 transition-colors"
+        >
+          View All {products.length} Products
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Digital STL Files -->
+  <section id="stl-files" class="py-16 px-6 bg-forest/[0.04]">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
+            📥 Print-It-Yourself STLs
+          </h2>
+          <p class="text-bark/40 mt-2">
+            Got a 3D printer? Download the file, skip the shipping, print tonight.
+          </p>
         </div>
-        <div class="flex items-center gap-2">
-          <span class="text-lg">📜</span>
-          <span><strong class="text-bark/70">35+</strong> Guides & Articles</span>
-        </div>
-        <div class="flex items-center gap-2">
-          <span class="text-lg">🎯</span>
-          <span><strong class="text-bark/70">100%</strong> Nerd-Approved</span>
-        </div>
+        <a
+          href="/products/#stl-files"
+          class="hidden md:inline-flex items-center gap-1 text-sm text-clay font-medium hover:text-clay-dark transition-colors"
+        >
+          All STL files
+          <svg
+            class="w-4 h-4"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M9 5l7 7-7 7"
+            ></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        {digitalProducts.map((product) => <ProductCard product={product} />)}
       </div>
     </div>
   </section>
@@ -138,7 +304,7 @@ const latestArticles = [
   <!-- Game Hubs -->
   <section class="py-12 px-6">
     <div class="max-w-6xl mx-auto">
-      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+      <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4">
         {games.map((game) => (
           <a href={`/games/${game.slug}/`} class="group bg-white rounded-2xl border border-bark/5 hover:border-clay/20 hover:shadow-lg transition-all overflow-hidden">
             <div class="aspect-square overflow-hidden bg-sand">
@@ -180,46 +346,6 @@ const latestArticles = [
             />
           ))
         }
-      </div>
-    </div>
-  </section>
-
-  <!-- Products -->
-  <section id="products" class="py-16 px-6">
-    <div class="max-w-6xl mx-auto">
-      <div class="flex justify-between items-end mb-10">
-        <div>
-          <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
-            🛡️ Inventory
-          </h2>
-          <p class="text-bark/40 mt-2">
-            3D-printed upgrades that make stock components jealous.
-          </p>
-        </div>
-        <a
-          href="https://fjordlabs.etsy.com"
-          target="_blank"
-          class="hidden md:inline-flex items-center gap-1 text-sm text-clay font-medium hover:text-clay-dark transition-colors"
-        >
-          Full inventory on Etsy
-          <svg
-            class="w-4 h-4"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              stroke-width="2"
-              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
-            ></path>
-          </svg>
-        </a>
-      </div>
-
-      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        {products.map((product) => <ProductCard product={product} />)}
       </div>
     </div>
   </section>

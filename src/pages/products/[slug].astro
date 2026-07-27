@@ -1,0 +1,245 @@
+---
+import Base from "../../layouts/Base.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import { products } from "../../data/products";
+
+export function getStaticPaths() {
+  return products.map((product) => ({
+    params: { slug: product.slug },
+    props: { product },
+  }));
+}
+
+const { product } = Astro.props;
+
+const related = products
+  .filter((p) => p.category === product.category && p.slug !== product.slug)
+  .slice(0, 3);
+
+const bullets = product.digital
+  ? [
+      "Instant download after purchase — no shipping, no waiting",
+      "Print unlimited copies for your own table",
+      "Works with any standard FDM 3D printer",
+      "Purchase and download securely through Etsy",
+    ]
+  : [
+      "Designed and 3D-printed in Sweden by board game nerds",
+      "Quality-checked before every shipment",
+      "Ships worldwide from our studio",
+      "Purchase happens securely through Etsy",
+    ];
+---
+
+<Base
+  title={`${product.title} | Fjord Labs`}
+  description={product.description}
+  type="article"
+>
+  <div class="max-w-6xl mx-auto px-6 py-12">
+    <!-- Breadcrumb -->
+    <nav class="flex items-center gap-2 text-sm text-bark/40 mb-8">
+      <a href="/" class="hover:text-clay transition-colors">Home</a>
+      <span>/</span>
+      <a href="/products/" class="hover:text-clay transition-colors">Products</a>
+      <span>/</span>
+      <span class="text-bark/60">{product.title}</span>
+    </nav>
+
+    <div class="grid md:grid-cols-2 gap-10 lg:gap-14">
+      <!-- Gallery -->
+      <div>
+        <div class="aspect-square rounded-2xl overflow-hidden bg-sand border border-bark/5 relative">
+          <img
+            id="main-image"
+            src={product.image}
+            alt={product.title}
+            class="w-full h-full object-cover"
+          />
+          {
+            product.digital && (
+              <span class="absolute top-4 left-4 px-3 py-1.5 bg-forest text-white text-xs font-bold rounded-full shadow-sm">
+                ⬇ Instant Download
+              </span>
+            )
+          }
+          {
+            product.isNew && (
+              <span class="absolute top-4 right-4 px-3 py-1.5 bg-clay text-white text-xs font-bold rounded-full shadow-sm">
+                ✨ NEW
+              </span>
+            )
+          }
+        </div>
+        {
+          product.images.length > 1 && (
+            <div class="grid grid-cols-6 gap-2 mt-3">
+              {product.images.map((image, i) => (
+                <button
+                  type="button"
+                  class={`thumb aspect-square rounded-lg overflow-hidden border-2 transition-colors ${i === 0 ? "border-clay" : "border-transparent hover:border-clay/40"}`}
+                  data-src={image}
+                >
+                  <img
+                    src={image}
+                    alt={`${product.title} — photo ${i + 1}`}
+                    class="w-full h-full object-cover"
+                    loading="lazy"
+                  />
+                </button>
+              ))}
+            </div>
+          )
+        }
+      </div>
+
+      <!-- Details -->
+      <div>
+        <div class="flex items-center gap-3 mb-4">
+          <span class="px-3 py-1 bg-clay/10 text-clay text-xs font-semibold rounded-full uppercase tracking-wide">
+            {product.type}
+          </span>
+          <span class="px-3 py-1 bg-forest/10 text-forest text-xs font-semibold rounded-full">
+            {product.category}
+          </span>
+        </div>
+
+        <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-4 leading-tight">
+          {product.title}
+        </h1>
+
+        <div class="space-y-4 mb-8">
+          {
+            (product.longDescription ?? product.description)
+              .split("\n\n")
+              .map((paragraph, i) => (
+                <p
+                  class={
+                    i === 0
+                      ? "text-lg text-bark/60 leading-relaxed"
+                      : "text-base text-bark/60 leading-relaxed"
+                  }
+                >
+                  {paragraph}
+                </p>
+              ))
+          }
+        </div>
+
+        <ul class="space-y-3 mb-10">
+          {
+            bullets.map((bullet) => (
+              <li class="flex items-start gap-3 text-sm text-bark/70">
+                <svg
+                  class="w-5 h-5 text-forest shrink-0 mt-0.5"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    stroke-width="2"
+                    d="M5 13l4 4L19 7"
+                  />
+                </svg>
+                {bullet}
+              </li>
+            ))
+          }
+        </ul>
+
+        <a
+          href={product.link}
+          target="_blank"
+          rel="noopener"
+          class="inline-flex items-center justify-center gap-2 w-full sm:w-auto px-10 py-4 bg-clay text-white font-semibold text-lg rounded-xl hover:bg-clay-dark transition-colors shadow-lg shadow-clay/20"
+        >
+          {product.digital ? "Download on Etsy" : "Buy on Etsy"}
+          <svg
+            class="w-5 h-5"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"
+            ></path>
+          </svg>
+        </a>
+        <p class="text-xs text-bark/40 mt-3">
+          Checkout, payment, and {product.digital ? "download" : "delivery"} are
+          handled securely by Etsy — see current price and options there.
+        </p>
+      </div>
+    </div>
+
+    <!-- Related products -->
+    {
+      related.length > 0 && (
+        <section class="mt-20 pt-12 border-t border-bark/10">
+          <h2 class="text-2xl font-heading font-bold text-bark mb-8">
+            More from {product.category}
+          </h2>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {related.map((p) => (
+              <ProductCard product={p} />
+            ))}
+          </div>
+        </section>
+      )
+    }
+
+    <div class="mt-16 pt-8 border-t border-bark/10">
+      <a
+        href="/products/"
+        class="inline-flex items-center gap-2 text-clay hover:text-clay-dark transition-colors font-medium"
+      >
+        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M15 19l-7-7 7-7"></path>
+        </svg>
+         Browse the full inventory
+      </a>
+    </div>
+  </div>
+
+  <script>
+    const main = document.getElementById("main-image") as HTMLImageElement | null;
+    document.querySelectorAll<HTMLButtonElement>(".thumb").forEach((thumb) => {
+      thumb.addEventListener("click", () => {
+        if (!main || !thumb.dataset.src) return;
+        main.src = thumb.dataset.src;
+        document.querySelectorAll(".thumb").forEach((t) => {
+          t.classList.remove("border-clay");
+          t.classList.add("border-transparent");
+        });
+        thumb.classList.remove("border-transparent");
+        thumb.classList.add("border-clay");
+      });
+    });
+  </script>
+
+  <!-- JSON-LD Structured Data -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Product",
+      name: product.title,
+      description: product.longDescription ?? product.description,
+      image: product.images,
+      brand: {
+        "@type": "Brand",
+        name: "Fjord Labs",
+      },
+      url: `https://www.fjord-labs.com/products/${product.slug}/`,
+    })}
+  />
+</Base>

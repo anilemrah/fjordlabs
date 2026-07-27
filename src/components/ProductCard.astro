@@ -9,17 +9,30 @@ const { product } = Astro.props;
 ---
 
 <a
-  href={product.link}
-  target="_blank"
+  href={`/products/${product.slug}/`}
   class="group block bg-white rounded-2xl overflow-hidden border border-bark/5 hover:border-clay/20 hover:shadow-lg hover:shadow-clay/5 transition-all duration-300"
 >
-  <div class="aspect-square overflow-hidden bg-sand">
+  <div class="aspect-square overflow-hidden bg-sand relative">
     <img
       src={product.image}
       alt={product.title}
       class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
       loading="lazy"
     />
+    {
+      product.digital && (
+        <span class="absolute top-3 left-3 px-2.5 py-1 bg-forest text-white text-[11px] font-bold rounded-full shadow-sm">
+          ⬇ Instant Download
+        </span>
+      )
+    }
+    {
+      product.isNew && (
+        <span class="absolute top-3 right-3 px-2.5 py-1 bg-clay text-white text-[11px] font-bold rounded-full shadow-sm">
+          ✨ NEW
+        </span>
+      )
+    }
   </div>
   <div class="p-5">
     <span

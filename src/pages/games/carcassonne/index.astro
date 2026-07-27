@@ -1,9 +1,12 @@
 ---
 import Base from "../../../layouts/Base.astro";
 import ArticleCard from "../../../components/ArticleCard.astro";
+import ProductCard from "../../../components/ProductCard.astro";
 import { getGame } from "../../../data/games";
+import { getProductsByGame } from "../../../data/products";
 
 const game = getGame("carcassonne")!;
+const carcassonneProducts = getProductsByGame("carcassonne");
 
 const articles = {
   rules: [
@@ -107,4 +110,16 @@ const articles = {
       </div>
     </div>
   </section>
+
+  {carcassonneProducts.length > 0 && (
+    <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Carcassonne Accessories</h2>
+        <p class="text-bark/40 mb-8">Premium 3D-printed upgrades for Carcassonne.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {carcassonneProducts.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+  )}
 </Base>

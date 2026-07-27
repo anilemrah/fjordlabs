@@ -1,0 +1,112 @@
+---
+import Base from "../../layouts/Base.astro";
+import ProductCard from "../../components/ProductCard.astro";
+import { products, categories, getProductsByCategory } from "../../data/products";
+
+const slugify = (name: string) =>
+  name.toLowerCase().replace(/&/g, "").replace(/\s+/g, "-").replace(/-+/g, "-");
+
+const sections = categories
+  .map((category) => ({
+    category,
+    anchor: slugify(category),
+    items: getProductsByCategory(category),
+  }))
+  .filter((s) => s.items.length > 0);
+---
+
+<Base
+  title="The Full Inventory — Board Game Upgrades & STL Files | Fjord Labs"
+  description="Every Fjord Labs product: 3D-printed board game upgrades for Catan, Wingspan, Terraforming Mars, Everdell, and more — plus printable STL files. All available on Etsy."
+>
+  <section class="py-16 px-6 border-b border-bark/5">
+    <div class="max-w-6xl mx-auto text-center">
+      <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4">
+        🛡️ The Full Inventory
+      </h1>
+      <p class="text-lg text-bark/50 max-w-2xl mx-auto mb-8">
+        Every upgrade we make — {products.length} items, designed and 3D-printed
+        in Sweden. Click any product for photos and details, then buy it on our
+        Etsy shop.
+      </p>
+      <div class="flex flex-wrap justify-center gap-2">
+        {
+          sections.map((s) => (
+            <a
+              href={`#${s.anchor}`}
+              class="px-4 py-1.5 bg-bark/5 hover:bg-clay/10 hover:text-clay text-bark/70 text-sm font-medium rounded-full transition-colors"
+            >
+              {s.category === "STL Files" ? "📥 " : ""}{s.category}
+              <span class="text-bark/30 ml-1">{s.items.length}</span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  {
+    sections.map((s, i) => (
+      <section
+        id={s.anchor}
+        class={`py-14 px-6 scroll-mt-24 ${i % 2 === 1 ? "bg-sand/50" : ""}`}
+      >
+        <div class="max-w-6xl mx-auto">
+          <h2 class="text-2xl font-heading font-bold text-bark mb-2">
+            {s.category === "STL Files" ? "📥 STL Files — Print at Home" : s.category}
+          </h2>
+          <p class="text-bark/40 mb-8">
+            {s.category === "STL Files"
+              ? "Instant digital downloads. Got a printer? Skip the shipping."
+              : `${s.items.length} ${s.items.length === 1 ? "upgrade" : "upgrades"} for your table.`}
+          </p>
+          <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            {s.items.map((product) => (
+              <ProductCard product={product} />
+            ))}
+          </div>
+        </div>
+      </section>
+    ))
+  }
+
+  <section class="py-20 px-6 bg-sand/50 border-t border-bark/5">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="text-4xl mb-4">⚔️</div>
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-4">
+        Prefer to Browse on Etsy?
+      </h2>
+      <p class="text-bark/50 mb-8">
+        The whole inventory lives on our Etsy shop with current prices, reviews,
+        and shipping options for your country.
+      </p>
+      <a
+        href="https://fjordlabs.etsy.com"
+        target="_blank"
+        class="inline-flex items-center gap-2 px-8 py-3.5 bg-clay text-white font-semibold rounded-xl hover:bg-clay-dark transition-colors shadow-lg shadow-clay/20"
+      >
+        <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="3"/><path d="M8 12h8M12 8v8"/></svg>
+        Open the Loot Shop
+      </a>
+    </div>
+  </section>
+
+  <!-- JSON-LD Structured Data -->
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Fjord Labs Product Inventory",
+      description:
+        "3D-printed board game upgrades and printable STL files by Fjord Labs.",
+      url: "https://www.fjord-labs.com/products/",
+      hasPart: products.map((p) => ({
+        "@type": "Product",
+        name: p.title,
+        image: p.image,
+        url: `https://www.fjord-labs.com/products/${p.slug}/`,
+      })),
+    })}
+  />
+</Base>

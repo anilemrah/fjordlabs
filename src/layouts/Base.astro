@@ -87,6 +87,9 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
                 <a href="/games/wingspan/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
                   <span class="text-base">🐦</span><span class="text-bark/70">Wingspan</span>
                 </a>
+                <a href="/games/wingspan-pocket/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🐤</span><span class="text-bark/70">Wingspan Pocket</span><span class="ml-auto px-1.5 py-0.5 bg-clay/10 text-clay text-[10px] font-bold rounded">NEW</span>
+                </a>
                 <a href="/games/wyrmspan/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
                   <span class="text-base">🐉</span><span class="text-bark/70">Wyrmspan</span>
                 </a>
@@ -103,7 +106,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
             </div>
           </div>
           <a
-            href="/#products"
+            href="/products/"
             class="text-bark/60 hover:text-bark transition-colors">Products</a
           >
           <a
@@ -146,12 +149,13 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
           <span class="text-xs font-semibold text-bark/30 uppercase tracking-wider pt-1">Games</span>
           <a href="/games/catan/" class="text-bark/70 py-1 flex items-center gap-2"><span>🏗️</span> Catan</a>
           <a href="/games/wingspan/" class="text-bark/70 py-1 flex items-center gap-2"><span>🐦</span> Wingspan</a>
+          <a href="/games/wingspan-pocket/" class="text-bark/70 py-1 flex items-center gap-2"><span>🐤</span> Wingspan Pocket</a>
           <a href="/games/wyrmspan/" class="text-bark/70 py-1 flex items-center gap-2"><span>🐉</span> Wyrmspan</a>
           <a href="/games/scythe/" class="text-bark/70 py-1 flex items-center gap-2"><span>⚙️</span> Scythe</a>
           <a href="/games/terraforming-mars/" class="text-bark/70 py-1 flex items-center gap-2"><span>🪐</span> Terraforming Mars</a>
           <a href="/games/carcassonne/" class="text-bark/70 py-1 flex items-center gap-2"><span>🏰</span> Carcassonne</a>
           <div class="border-t border-bark/5 mt-1 pt-2"></div>
-          <a href="/#products" class="text-bark/70 py-1">Products</a>
+          <a href="/products/" class="text-bark/70 py-1">Products</a>
           <a href="/about/" class="text-bark/70 py-1">About</a>
           <a
             href="https://fjordlabs.etsy.com"

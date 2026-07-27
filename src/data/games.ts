@@ -34,6 +34,18 @@ export const games: Game[] = [
     complexity: "Medium",
   },
   {
+    slug: "wingspan-pocket",
+    title: "Wingspan Pocket",
+    image: "/images/games/wingspan-pocket.svg",
+    description:
+      "The compact, travel-sized Wingspan — 25 minutes, one small box.",
+    heroDescription:
+      "Wingspan Pocket is the brand-new compact edition of Wingspan, designed by Elizabeth Hargrave and released by Stonemaier Games in July 2026. It distills the beloved bird engine-builder into a small box that plays in 25–35 minutes: 106 double-sided bird/food cards, a shared market, icon-based powers, and no birdfeeder or habitat mats. A standalone game — not an expansion — with birds from around the world and a full solo Automa mode.",
+    playerCount: "1–5",
+    playTime: "25–35 minutes",
+    complexity: "Light",
+  },
+  {
     slug: "wyrmspan",
     title: "Wyrmspan",
     image: "/images/games/wyrmspan.svg",
