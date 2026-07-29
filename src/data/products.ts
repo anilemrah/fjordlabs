@@ -9,6 +9,7 @@ export interface Product {
   link: string;
   description: string;
   longDescription?: string;
+  price?: string; // USD (converted from Etsy SEK price, incl. active discount) — final price always shown at checkout
   digital?: boolean;
   featured?: boolean;
   isNew?: boolean;
@@ -26,6 +27,7 @@ const raw: RawProduct[] = [
   // ── Catan ──────────────────────────────────────────────
   {
     slug: "catan-resource-tokens",
+    price: "25.13",
     longDescription:
       "This 3D-printed resource token set compatible with Settlers of Catan replaces flat cardboard with miniature wood logs, brick, sheep, wheat bundles, and ore you can actually feel in your hand. Each resource is sculpted to be recognized at a glance, so trades happen faster and the table looks like the island it represents.\n\nWhy own it? Because Catan is a game about resources, and holding a tiny log beats tapping a card every single time. The tokens survive thousands of trades without wearing out the way sleeves and cards do, they make the game noticeably easier for kids and new players to follow, and they turn an ordinary game night into the deluxe edition your group thinks you paid far more for.",
     title: "Catan Resource Tokens",
@@ -47,6 +49,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "catan-score-tracker",
+    price: "12.56",
     longDescription:
       "A 3D-printed victory point tracker board for Catan that works for both 4-player and 6-player games. Every settlement, city, and special card gets recorded the moment it scores, visible to the whole table.\n\nAnyone who has played Catan knows the endgame ritual: everyone recounting points, someone discovering a hidden victory, arguments about who was actually winning. This tracker ends all of it. Scores stay public and current, the tension builds honestly toward 10 points, and nobody flips the table over a surprise Largest Army. It's the cheapest way to remove the single most common source of Catan table drama — and it makes teaching the game easier, because new players can finally see how the score builds.",
     title: "Catan Score Tracker",
@@ -68,6 +71,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "catan-player-tray",
+    price: "5.58",
     longDescription:
       "A 3D-printed player tray compatible with Settlers of Catan with dedicated slots for resource cards, development cards, and your building pieces. Each player gets a tidy personal dashboard instead of a sprawl of cards and roads.\n\nThe reason to own it is simple: Catan chaos is real. Roads hide under resource cards, dev cards get shuffled into hands, and someone always knocks their settlements across the table. With a tray per player, setup takes a minute, turns run faster because everything has a place, and packing up is half the work. If your group plays weekly, this pays for itself in saved time and found game pieces within a month.",
     title: "Catan Player Tray",
@@ -88,6 +92,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "catan-robber-upgrade",
+    price: "14.89",
     longDescription:
       "A detailed 3D-printed Catan robber figure — a cloaked thief clutching a stolen sheep and a bundle of wood — that replaces the anonymous grey pawn. It's ready to play straight out of the package, no painting required.\n\nThe robber is Catan's most dramatic moment, yet the standard piece is the most boring component in the box. This figure fixes the mismatch: when a 7 hits and the thief lands on your best hex, everyone at the table feels it. It's also the perfect small gift for the Catan obsessive who already owns every expansion — a piece they don't have, for the moment they care about most.",
     title: "Catan Robber Figure Upgrade",
@@ -109,6 +114,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "catan-blanket",
+    price: "77.56",
     longDescription:
       "A handmade crochet blanket inspired by the island of Catan, assembled from hexagon 'tiles' in the resource colors — a full island you can wrap yourself in. This is a finished, ready-to-ship item, not a pattern.\n\nBoard game merch is usually mugs and t-shirts; this is an heirloom. It takes hours of skilled yarn work, no two come out identical, and it reads instantly to any gamer who walks into the room while staying a genuinely beautiful throw to everyone else. For the Catan fan who has everything, this is the gift that actually surprises them — cozy on the couch between games and conversation-starting decor the rest of the time.",
     title: "Settlers of Catan Blanket",
@@ -128,6 +134,7 @@ const raw: RawProduct[] = [
 
   {
     slug: "catan-trophy",
+    price: "28.85",
     longDescription:
       "The Ruler of Catan trophy: a 3D-printed award that lives with whoever won your group's last game. One trophy, one champion, until the next game night changes everything.\n\nA standing trophy transforms casual Catan into a rivalry. The winner displays it on their shelf all week; everyone else plots. It gives your group a running tradition that outlasts any single game — and gives the group chat something to fight about between sessions. If your Catan nights are already competitive, this makes them legendary; if they've gone stale, this reignites them.",
     title: "The Ruler of Catan Trophy",
@@ -145,6 +152,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "catan-trophies",
+    price: "9.31",
     longDescription:
       "Physical 3D-printed trophies for Catan's most contested achievements: Longest Road, Largest Army — and the Snail Award for the slowest builder at the table. The awards physically change hands mid-game as the titles are stolen.\n\nLongest Road and Largest Army are two of Catan's biggest point swings, but on the standard cards they're easy to overlook. Turning them into trophies makes every steal a ceremony — the table sees the road get cut, the trophy slides across, and someone starts plotting revenge. The Snail Award adds a consolation laugh for whoever needs it. It's a small set that adds real theater to every single game.",
     title: "Catan Trophies — Longest Road & Largest Army",
@@ -167,6 +175,7 @@ const raw: RawProduct[] = [
   // ── Wingspan ───────────────────────────────────────────
   {
     slug: "wingspan-food-tokens",
+    price: "14.89",
     longDescription:
       "3D-printed food token upgrades for Wingspan: sculpted worms, fish, berries, rodents, and grain that replace the cardboard chits next to your birdfeeder. Sized for the player mats and instantly tellable apart, even across the table.\n\nWingspan is one of the most beautiful games ever printed — then hands you grey cardboard circles for food. These tokens close that gap. Feeding your birds becomes as satisfying as playing them, the food types stop getting mixed up (no more squinting at a chit to see if it's a rodent), and the whole table upgrade costs less than a single expansion. If you love Wingspan enough to play it weekly, this is the component fix the game deserved from day one.",
     title: "Wingspan Food Resource Tokens",
@@ -188,6 +197,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-first-player-token",
+    price: "7.45",
     longDescription:
       "A 3D-printed holder that gives Wingspan's first player token a proper home beside the board — small footprint, clean lines, always visible.\n\nIt sounds minor until you notice how often your group asks 'wait, who started this round?' Turn order matters in Wingspan — the birdfeeder and card tray reward whoever acts first — and a clearly displayed first player marker keeps the round structure honest. This is a tiny, inexpensive quality-of-life upgrade that removes a recurring annoyance, and it makes a great add-on to any Wingspan gift order.",
     title: "Wingspan First Player Token Holder",
@@ -208,6 +218,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-puffin-token",
+    price: "7.45",
     longDescription:
       "A 3D-printed puffin figure that takes over first player duty in Wingspan. The little bird stands beside whoever leads the round — thematic, visible, and impossible not to smile at.\n\nWingspan is a game about loving birds, so marking the first player with a generic token always felt off. The puffin fixes it with charm: it's the piece guests pick up and ask about, the one that makes the game feel personal rather than stock. For Wingspan fans who already have the deluxe everything, this is the small, delightful piece their collection is missing.",
     title: "Wingspan First Player Token — Puffin",
@@ -228,6 +239,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-goal-tracker",
+    price: "10.24",
     longDescription:
       "A 3D-printed round-end goal tracker upgrade for Wingspan that raises the flat goal board into a structured display. Goal tiles sit in dedicated slots and scoring cubes stay exactly where they're placed.\n\nRound-end goals steer the whole game — they're worth up to 28 points — yet the stock board is where cubes go to get bumped. With this tracker, the current goals and standings are readable from every seat, cubes survive an elbow, and players actually plan around goals instead of forgetting them until scoring. It's a strategy aid disguised as an organizer, and it makes Wingspan's most overlooked mechanic impossible to overlook.",
     title: "Wingspan Round End Goal Tracker",
@@ -248,6 +260,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-pocket-insert",
+    price: "30.90",
     longDescription:
       "A 3D-printed insert designed specifically for Wingspan Pocket (2026) — Stonemaier's new compact edition, which ships with everything loose in the box. It adds an egg token tray and card holder shaped precisely to the pocket box dimensions.\n\nWingspan Pocket's whole promise is 'grab it and play anywhere' — but after one backpack trip, the stock box becomes a shaken snow globe of eggs and cards. This insert keeps the promise: components stay sorted in transit, setup drops to seconds, and the box still closes flush. It's designed for this box from scratch, not cut down from a big-box organizer. If you bought Pocket to travel with it, this is the missing half of the product.",
     title: "Wingspan Pocket Insert & Organizer",
@@ -270,6 +283,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-nectar-tokens",
+    price: "17.68",
     longDescription:
       "Sixty-nine 3D-printed nectar tokens for Wingspan's Oceania expansion, printed in two colors so the flower petals pop against every other food type on the table.\n\nNectar is Oceania's defining resource — it flows through every habitat and scores at game end — which means it's constantly being spent, cached, and counted. Having it as distinct, beautiful flowers instead of yet another cardboard chit makes the expansion's economy dramatically easier to track, and the 69-piece count means even the greediest nectar engine won't run short. If Oceania is in your rotation, this is the upgrade that makes its best mechanic shine.",
     title: "Nectar Tokens for Wingspan Oceania",
@@ -287,6 +301,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-bird-nest-bowls",
+    price: "6.05",
     longDescription:
       "3D-printed bird nest bowls that hold Wingspan's eggs and food tokens in sculpted nests instead of loose piles. Practical sorting that doubles as table decoration.\n\nEvery Wingspan player knows the egg avalanche — one nudge and miniature eggs roll in every direction. Nest bowls solve the practical problem while amplifying the game's theme: your eggs sit in an actual nest, your food supply looks foraged rather than filed. Guests comment on them every time, and setup becomes 'place the nests' instead of 'chase the components.' A charming upgrade that earns its table space at every session.",
     title: "Wingspan Bird Nest Token Bowls",
@@ -307,6 +322,7 @@ const raw: RawProduct[] = [
 
   {
     slug: "wingspan-player-tray",
+    price: "4.19",
     longDescription:
       "A 3D-printed player tray for Wingspan that keeps each player's food tokens, eggs, and cached resources in separate wells beside their mat.\n\nWingspan turns are full of small transactions — food in, eggs out, resources cached on cards — and without organization, every transaction is a fumble. A personal tray makes your supplies visible at a glance, which genuinely speeds up decisions: you can see whether you can afford that bird without counting a pile. Multiply that across four players and 26 turns, and the tray is easily worth a whole extra game per evening.",
     title: "Wingspan Player Tray",
@@ -325,6 +341,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-deluxe-token-set",
+    price: "13.96",
     longDescription:
       "The complete Wingspan resource upgrade in one purchase: every food type plus nectar, 3D-printed and covering the base game, European, and Oceania expansions.\n\nIf you already know you want Wingspan's cardboard gone, buying the full set at once is the smart path — matched aesthetics across every food type, nectar included for when you add Oceania, and a lower total price than assembling the upgrades piecemeal. It's the set for the Wingspan household where the game hits the table weekly and the collection keeps growing. One box, and every component your birds touch is upgraded for good.",
     title: "Wingspan Deluxe Resource Token Set",
@@ -347,6 +364,7 @@ const raw: RawProduct[] = [
   // ── Wyrmspan ───────────────────────────────────────────
   {
     slug: "wyrmspan-resource-tokens",
+    price: "15.82",
     longDescription:
       "3D-printed resource tokens for Wyrmspan: gold coins, meat, and crystals sized for the cave boards and printed in bold, instantly readable colors.\n\nWyrmspan's economy is tighter than Wingspan's — every coin and crystal decision matters — and upgraded tokens make that economy tangible. Feeding a dragon actual meat and paying in actual gold lands differently than pushing cardboard, especially for the dragon-loving players the game was made for. The set also solves a real usability issue: Wyrmspan's resource chits are easy to confuse mid-game, while these sculpted pieces never are. A must for anyone whose group picked Wyrmspan as their engine builder of choice.",
     title: "Wyrmspan Resource Token Set",
@@ -369,6 +387,7 @@ const raw: RawProduct[] = [
   // ── Scythe ─────────────────────────────────────────────
   {
     slug: "scythe-resource-tokens",
+    price: "14.89",
     longDescription:
       "A 3D-printed upgrade set compatible with Scythe: sculpted wood, grain, metal, and oil that replace the standard wooden blocks on your territories.\n\nScythe is a game about production and control, and its resources sit on the map for everyone to see — which is exactly why generic blocks undersell it. Sculpted resources make the board state readable at a distance (crucial in a game where you're constantly assessing opponents' economies) and give the alt-history 1920s world the industrial texture the art promises. For Scythe owners who've already invested in the game's famous production values, this completes the picture.",
     title: "Scythe Resource Tokens",
@@ -389,6 +408,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "scythe-encounter-tokens",
+    price: "6.51",
     longDescription:
       "3D-printed encounter tokens for Scythe that replace the flat encounter markers with dimensional landmarks on the map.\n\nEncounters are Scythe's moments of story — the choices that define your faction's character — but the stock tokens make them easy to ignore among the hexes. Raised, sculpted markers make every encounter spot visible from across the table, which subtly changes how players move: encounters get contested more, stories happen more often, and the map feels alive. A small set that shifts how the game actually plays, not just how it looks.",
     title: "Scythe Encounter Tokens",
@@ -410,6 +430,7 @@ const raw: RawProduct[] = [
   // ── Terraforming Mars ──────────────────────────────────
   {
     slug: "terraforming-mars-player-board",
+    price: "12.10",
     longDescription:
       "A dual-layer 3D-printed player board for Terraforming Mars with recessed tracks that physically hold your resource and production cubes in place.\n\nAsk any Terraforming Mars player about their worst gaming memory and you'll hear the same story: two hours of engine building erased by one bumped table. The stock thin boards make cube-slide inevitable; this dual-layer board makes it impossible. Production stays set between generations, resources survive an excited gesture, and the game's biggest practical flaw disappears. This is the most-requested upgrade in the hobby for a reason — for TM's long sessions, it's not a luxury, it's insurance.",
     title: "Terraforming Mars Player Board",
@@ -433,6 +454,7 @@ const raw: RawProduct[] = [
   // ── Carcassonne ────────────────────────────────────────
   {
     slug: "carcassonne-resource-tokens",
+    price: "7.45",
     longDescription:
       "3D-printed wheat, cloth, and wine barrel tokens for Carcassonne's Traders & Builders expansion, replacing the flat cardboard goods chits.\n\nTraders & Builders is widely considered Carcassonne's best expansion, and trade goods are its cleverest scoring race — but cardboard squares make the race forgettable. Sculpted goods change the psychology: players see the wine barrels stacking up in front of an opponent and start fighting for cities they'd otherwise ignore. If Traders & Builders is in your Carcassonne box, these tokens make its best mechanic visible, competitive, and satisfying to collect.",
     title: "Carcassonne Resource Tokens",
@@ -452,6 +474,7 @@ const raw: RawProduct[] = [
   // ── Cascadia ───────────────────────────────────────────
   {
     slug: "cascadia-game-tray",
+    price: "5.58",
     longDescription:
       "A 3D-printed organizer tray for Cascadia that holds habitat tiles, wildlife tokens, and nature tokens through setup, play, and the constant market refills between turns.\n\nCascadia's flow is its greatest strength — draw, place, refill, repeat — and every fumbled refill interrupts it. With the tray, the market restocks itself in one motion and the wildlife bag, tiles, and tokens all have fixed homes. The game's serene rhythm stays serene. It also cuts setup and teardown to a fraction, which matters for a game this easy to play 'just one more' of.",
     title: "Cascadia Game Tray",
@@ -470,6 +493,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "cascadia-pinecone-tokens",
+    price: "6.51",
     longDescription:
       "3D-printed pinecone tokens for Cascadia that replace the cardboard nature token discs with sculpted Pacific Northwest flair.\n\nNature tokens are Cascadia's most precious currency — spend one and you bend the rules of the draft — but a plain disc doesn't feel precious. A tiny pinecone does. It's the kind of upgrade Cascadia's audience appreciates most: gentle, thematic, and true to the game's love of its landscape. Inexpensive enough to be a stocking stuffer, distinctive enough that your copy of Cascadia becomes 'the nice one' in your group.",
     title: "Cascadia Pinecone Tokens",
@@ -489,6 +513,7 @@ const raw: RawProduct[] = [
   // ── Everdell ───────────────────────────────────────────
   {
     slug: "everdell-open-signs",
+    price: "9.77",
     longDescription:
       "Six 3D-printed open signs compatible with Everdell that mark which of your city's constructions are open for visiting workers.\n\nEverdell's open/occupied states cause more mid-game confusion than any of its actual rules — players constantly forget which buildings still have room. Physical signs make your city's status readable at a glance for the whole table, which speeds up everyone's planning, not just yours. And in a game as gorgeous as Everdell, tiny storefront signs don't just solve a problem; they make your woodland city feel inhabited.",
     title: "Everdell Open Signs (Set of 6)",
@@ -506,6 +531,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "everdell-forest-kit",
+    price: "6.98",
     longDescription:
       "The deluxe 3D-printed upgrade kit for Everdell: resource trays for twigs, resin, pebbles, and berries, plus open signs and forest-themed organizers in a single bundle.\n\nEverdell is one of the most beautiful productions in board gaming, undermined nightly by resource piles drifting across the table. This kit gives every resource a sculpted home, makes the supply readable from every seat, and adds to the game's forest aesthetic instead of fighting it. Buying the bundle beats collecting pieces separately — matched design, one shipment, and your Ever-tree finally presides over a city worthy of it.",
     title: "Everdell Deluxe Forest Upgrade Kit",
@@ -528,6 +554,7 @@ const raw: RawProduct[] = [
   // ── Agricola & Farming ─────────────────────────────────
   {
     slug: "agricola-resource-tokens",
+    price: "33.51",
     longDescription:
       "A complete 3D-printed resource bundle for Agricola: sculpted wood, clay, reed, stone, grain, and pumpkin replacing the classic wooden cubes and discs.\n\nAgricola's farms live or die on resource planning, and sculpted pieces make the planning half the fun — your supply looks like a farmyard, not an abacus. The upgrade especially shines during harvest, when feeding your family with real-looking grain makes the game's central tension land harder. For veterans of the classic, this modernizes a beloved game's table presence in one box; for newcomers, it makes one of the hobby's deepest farming games dramatically more approachable.",
     title: "Agricola Resource Token Bundle",
@@ -548,6 +575,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "rice-reed-tokens",
+    price: "2.79",
     longDescription:
       "Ten 3D-printed white sheaves that work as rice or reed in Agricola and any other farming game, sized to standard resource dimensions.\n\nReed is Agricola's chronically underestimated resource — always needed for rooms and renovations, always forgotten in planning. Distinct sculpted sheaves keep it visible in your supply, and because the pieces are deliberately neutral, they moonlight in every other farming game you own. A small, versatile upgrade that quietly improves a whole shelf of games.",
     title: "Rice & Reed Tokens (Set of 10)",
@@ -565,6 +593,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "pumpkin-tokens",
+    price: "3.26",
     longDescription:
       "Ten miniature 3D-printed pumpkins for harvest-themed board games — Agricola fields, autumn games, or your own designs.\n\nSome upgrades are strategic; this one is joy. A tiny pumpkin patch growing in your farm as the game progresses makes every vegetable action feel like actual gardening, and the bright orange reads perfectly across the table. They're inexpensive, universally compatible with games that use vegetable resources, and the component most likely to make someone at the table say 'okay, those are adorable.'",
     title: "Mini Pumpkin Tokens (10-Pack)",
@@ -584,6 +613,7 @@ const raw: RawProduct[] = [
   // ── Resource Tokens ────────────────────────────────────
   {
     slug: "wood-tokens",
+    price: "2.79",
     longDescription:
       "Ten detailed 3D-printed log tokens for wood, timber, or lumber in any board game — from Catan and Agricola to Everdell and your own prototypes.\n\nWood is the most common resource in board gaming, which makes it the highest-value single upgrade you can make: one set of good logs improves half your shelf. These are sculpted for instant recognition, durable enough for every-week play, and neutral enough to fit any game's art style. If you're starting a universal upgrade collection, start here.",
     title: "Wood Tokens (Set of 10)",
@@ -601,6 +631,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wheat-tokens",
+    price: "2.79",
     longDescription:
       "Ten golden 3D-printed wheat bundles for grain, crop, or harvest resources across your whole collection.\n\nGrain flows through more games than almost any resource — Catan, Agricola, Viticulture, countless farming games — and a sculpted sheaf reads faster than any cube or chit. The warm gold color pops against every board, harvest phases feel like harvests, and the set moves between games as easily as your dice bag. A staple upgrade for anyone building a nicer table.",
     title: "Wheat Tokens (Set of 10)",
@@ -618,6 +649,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "sheep-tokens",
+    price: "3.72",
     longDescription:
       "Ten adorable 3D-printed sheep tokens, available in white or black-and-white flocks, ready for any game with livestock.\n\nSheep are board gaming's most beloved resource — the punchline of every Catan trade — and these little flocks lean into it. They upgrade Catan, Agricola, and every pasture game you own, they're sturdy enough to survive being constantly picked up (they will be), and they're the single most gift-able item in our whole catalog. Fair warning: players have been known to refuse trades just to keep the sheep.",
     title: "Sheep Tokens (Set of 10)",
@@ -638,6 +670,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "rock-tokens",
+    price: "2.79",
     longDescription:
       "Ten grey 3D-printed stone tokens with a sculpted boulder look for ore, rock, or stone resources.\n\nStone anchors the economy of every building game, and these pieces give it appropriate weight — visually distinct in the supply, satisfying in the hand, and readable from across the table. They serve Catan's ore trade, Agricola's renovations, and any mining or construction game on your shelf. Simple, universal, durable: the workhorse of a nicely upgraded collection.",
     title: "Rock Tokens (Set of 10)",
@@ -656,6 +689,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "milk-tokens",
+    price: "2.79",
     longDescription:
       "Ten miniature 3D-printed milk bottles for dairy resources in farming and homestead board games.\n\nMost resource upgrades aim for impressive; these aim for delightful, and hit it. A row of tiny milk bottles in your farm supply makes every dairy action charming, kids adore them, and they're a perfect fit for cozy farming games where atmosphere is the point. An inexpensive splash of whimsy that guests remember long after they've forgotten who won.",
     title: "Milk Bottle Tokens (Set of 10)",
@@ -674,6 +708,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "gold-bar-tokens",
+    price: "3.26",
     longDescription:
       "Ten shiny 3D-printed gold bar tokens for gold, wealth, or treasure in economic and adventure games.\n\nMoney is the least tactile part of most board games — paper bills tear, cardboard coins underwhelm. A stack of gleaming gold bars fixes the feeling instantly: hoarding feels like hoarding, paying feels like a loss, and the endgame count becomes a ceremony. They fit pirate games, economic engines, dungeon crawls, and every prototype that needs treasure worth fighting over.",
     title: "Gold Bar Tokens (Set of 10)",
@@ -692,6 +727,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "silver-bar-tokens",
+    price: "3.26",
     longDescription:
       "Ten gleaming 3D-printed silver bars for metal, coin, or second-tier treasure resources.\n\nSilver completes the precious-metal economy: pair with our gold bars for a two-tier currency that makes denominations instantly readable — no more squinting at coin values. The bars stack neatly, survive heavy handling, and give trading and economic games a vault-like table presence. For groups who play money-driven games weekly, the gold-and-silver pairing is the upgrade that makes every transaction feel consequential.",
     title: "Silver Bar Tokens (Set of 10)",
@@ -710,6 +746,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "brick-tokens",
+    price: "2.79",
     longDescription:
       "Ten terracotta 3D-printed brick tokens with realistic texture for clay and construction resources.\n\nEvery building game asks you to imagine construction; a pile of textured bricks means you don't have to. They upgrade Catan's brick trade, city builders, and any game where players race to construct — and the warm terracotta color stands out cleanly in any supply. Durable, stackable (yes, players will build tiny walls during other people's turns), and universally compatible.",
     title: "Terracotta Brick Tokens (Set of 10)",
@@ -728,6 +765,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "oil-barrel-tokens",
+    price: "2.79",
     longDescription:
       "Ten industrial 3D-printed oil barrel tokens for fuel and energy resources in engine-building and economic games.\n\nOil and energy power some of the hobby's best games — Scythe, power-grid style games, industrial engine builders — and a proper barrel communicates 'fuel' the way no black cube can. The industrial look matches heavier games' aesthetics, the pieces are chunky enough to handle constant spending and refilling, and they give any combustion-powered economy the gritty texture it deserves.",
     title: "Oil Barrel Tokens (Set of 10)",
@@ -745,6 +783,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "fish-tokens",
+    price: "2.79",
     longDescription:
       "Ten colorful 3D-printed fish tokens for fishing mechanics, market games, or feeding hungry animals in any board game.\n\nFish appear in more games than you'd expect — nature games, market builders, animal feeding, and every fishing-themed design — and these bright, sculpted fish make each catch legible and fun. They're a natural companion to games like Cascadia's salmon runs, instantly understood by kids, and cheap enough to toss into any order as the upgrade you didn't know your collection needed.",
     title: "Fish Tokens (Set of 10)",
@@ -758,6 +797,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "hexagon-token-trays",
+    price: "2.51",
     longDescription:
       "Stackable hexagonal 3D-printed trays that keep tokens sorted during play and nest into a compact stack for storage.\n\nToken sprawl is the universal board game problem, and hexagons are the elegant answer: trays tile together on the table like a game board, stack into a tower for the shelf, and scale to any collection — buy exactly as many as your games need. They work with every title you own, from party games to heavy euros, which makes them one of the most practical purchases in our whole catalog. Once you sort one game with them, you'll want a stack for every box.",
     title: "Hexagon Token Trays",
@@ -780,6 +820,7 @@ const raw: RawProduct[] = [
   // ── Organizers & Card Holders ──────────────────────────
   {
     slug: "card-holder",
+    price: "4.19",
     longDescription:
       "A 3D-printed card stand with three or four tiered rows that keeps every card upright, visible, and organized.\n\nCard holders sound like an accessibility item — and they're brilliant for kids and anyone whose hands tire — but they're also simply better play: no fanning fifteen cards, no cards flashed to your neighbor, no forgetting what's in the back of your hand. The tiered rows work for hand cards, tableau displays, or a dungeon's card rows. One of those rare upgrades that improves literally every card game you own.",
     title: "Board Game Card Holder (3–4 Rows)",
@@ -800,6 +841,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "universal-player-tray",
+    price: "6.05",
     longDescription:
       "A universal 3D-printed player tray combining resource wells and a card rail in one station that works across your entire shelf.\n\nGame-specific organizers are wonderful — for one game. This tray is the generalist: every player gets the same tidy setup whether tonight is a heavy euro, a family gateway game, or something brand new. Resources in the wells, cards on the rail, table chaos gone. For groups that rotate games weekly, one tray per player upgrades every single game night without buying an insert for every box.",
     title: "Universal Player Tray & Card Holder",
@@ -820,6 +862,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "flip-7-organizer",
+    price: "18.15",
     longDescription:
       "An organizer insert for Flip 7 with a removable card holder — the hit push-your-luck card game, ready to deal in seconds.\n\nFlip 7 earns its spot on the table by being fast; digging cards out of a loose box isn't. This insert makes the game as quick to start as it is to play: lift the holder out, deal, and go. The insert fits the retail box exactly, keeps everything sorted in a bag or on a shelf, and turns the game into the perfect grab-and-go opener for any game night. Small upgrade, every-session payoff.",
     title: "Flip 7 Organizer Insert",
@@ -841,6 +884,7 @@ const raw: RawProduct[] = [
 
   {
     slug: "stackable-resource-tray",
+    price: "2.79",
     longDescription:
       "Hexagonal 3D-printed resource trays that stack into a tower for storage and spread flat during play — a modular system that grows with your collection.\n\nThe genius is the modularity: one tray per resource type, arranged however tonight's game demands, then stacked into a neat column when you're done. Setup becomes pouring tokens into trays; teardown becomes stacking them. For token-heavy games the time savings are real, and because the system is game-agnostic, it's an investment that keeps paying off with every new box you add to the shelf.",
     title: "Stackable Hexagon Resource Tray",
@@ -861,6 +905,7 @@ const raw: RawProduct[] = [
   // ── Handmade & Crochet ─────────────────────────────────
   {
     slug: "dragon-egg-dice-bag",
+    price: "12.02",
     longDescription:
       "A handcrafted dragon egg dice bag with sculpted, scaled texture — a fantasy pouch that guards your dice hoard between sessions.\n\nEvery tabletop player eventually accumulates a dice hoard; very few have a worthy vault. Drawing your dice from a dragon's egg makes the pre-game ritual feel like part of the campaign, the textured craftsmanship stands out instantly at any table, and it's an unbeatable gift for the D&D player in your life — the kind of present that gets shown off at the next session. Handmade, sturdy, and roomy enough for the whole collection.",
     title: "Dragon Egg Dice Bag",
@@ -881,6 +926,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "crocheted-token-trays",
+    price: "4.27",
     longDescription:
       "Soft handmade crocheted yarn bowls that hold board game tokens without scratches, clatter, or sliding.\n\nHard plastic trays do the job loudly; these do it gently. The soft yarn protects premium components (metal coins love them), silences the token noise that fills a game night, and flattens for storage between sessions. They bring a warm, handmade texture to the table that plastic never will — the board game equivalent of a knitted sweater — and they're made by hand in small batches, so no two sets are quite alike.",
     title: "Crocheted Token Trays",
@@ -901,6 +947,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "crocheted-token-bag",
+    price: "13.96",
     longDescription:
       "A handmade crocheted drawstring bag with sheep and wheat motifs, sized for board game tokens and blind draws.\n\nEvery game group needs a good draw bag — for Catan robber duty, random setup, or token draws — and this one has charm the velvet pouches can't match. The farmhouse motifs make it a natural companion to Catan and Agricola nights, the sturdy yarn work stands up to constant rummaging, and it doubles as the cutest possible way to store loose components. Handmade, practical, and the kind of small piece that gives your game collection personality.",
     title: "Crocheted Token Bag — Sheep & Wheat",
@@ -923,6 +970,7 @@ const raw: RawProduct[] = [
   // ── Wargaming & Terrain ────────────────────────────────
   {
     slug: "gothic-ruin-terrain",
+    price: "10.24",
     longDescription:
       "3D-printed gothic ruin scatter terrain for 28mm wargames, Warhammer 40k, Age of Sigmar, and D&D encounters — crumbling arches and battle-worn detail, ready for priming or straight-to-table play.\n\nTerrain is what turns a flat table into a battlefield: it creates cover, line-of-sight decisions, and cinematic moments no bare board can. These ruins are printed at proper 28mm scale so cover rules feel right, the sculpted damage looks natural from every angle, and the pieces take primer and paint beautifully for hobbyists — while looking convincingly grim unpainted for everyone else. An easy way to make every skirmish look like the battle reports you scroll past.",
     title: "Gothic Ruin Terrain (28mm)",
@@ -943,6 +991,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "round-bases",
+    price: "2.61",
     longDescription:
       "3D-printed round miniature bases from 25mm to 50mm with sculpted asphalt urban texture, for Warhammer 40k, Age of Sigmar, and D&D miniatures.\n\nBasing is the fastest way to make a miniature collection look coherent and intentional — and sculpted bases skip the messiest part of the hobby. No gluing sand, no texture paste drying overnight: prime, drybrush, done, with crisp street detail that unifies a whole army in a weekend. The size range covers infantry through monsters, so your entire force can stand on the same city streets.",
     title: "Round Miniature Bases (25–50mm)",
@@ -965,6 +1014,7 @@ const raw: RawProduct[] = [
   // ── Home & Workshop ────────────────────────────────────
   {
     slug: "tamper-holder",
+    price: "13.96",
     longDescription:
       "A 3D-printed tamper holder designed for the Lelit Anita espresso machine — a docking point that keeps your tamper in position and your coffee station organized.\n\nEspresso is a workflow, and a tamper rolling loose on the counter breaks it every morning. This holder gives the tamper a fixed home at exactly the point in your routine where you reach for it, keeps the base clean, and fits the Lelit Anita's dimensions precisely. Designed and printed by espresso nerds who also happen to make board game gear — the same obsession with workflow, applied to your morning shot.",
     title: "Lelit Anita Tamper Holder",
@@ -986,6 +1036,7 @@ const raw: RawProduct[] = [
   // ── STL Files (digital) ────────────────────────────────
   {
     slug: "catan-player-tray-stl",
+    price: "6.86",
     longDescription:
       "The STL file for our Catan player tray with card holder — an instant digital download you print at home on any standard FDM printer.\n\nThe economics are the reason to buy: one download, unlimited prints. Outfit all six players for the cost of a single shipped tray, reprint in each player's favorite filament color, and print replacements forever if a piece ever breaks. There's no shipping cost, no waiting, and printing board game upgrades is one of the most satisfying beginner-friendly projects a 3D printer can do. If you own both Catan and a printer, this file is the obvious move.",
     title: "Catan Player Tray STL File",
@@ -1007,6 +1058,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "catan-score-tracker-stl",
+    price: "9.19",
     longDescription:
       "A printable STL file for our Catan victory point tracker, supporting 4-player and 6-player games — instant download after purchase.\n\nWhy the file instead of the finished print? Freedom: print one tracker per game group, match your filament to your Catan box, scale it if you like, and never pay shipping. The tracker itself ends Catan's endgame arguments by keeping every player's score public and current. For printer owners, this is the cheapest possible way to solve Catan's most common table dispute — and a fun afternoon print besides.",
     title: "Catan Score Tracker STL File",
@@ -1028,6 +1080,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-goal-tracker-stl",
+    price: "9.19",
     longDescription:
       "Print-it-yourself STL files for our Wingspan round-end goal tracker upgrade — instant download, print-ready for standard FDM printers.\n\nYou get the same table-presence upgrade as our printed version: raised goal display, secure cube placement, round-end goals impossible to ignore. Printing it yourself means choosing colors that match your Wingspan collection, printing spares for the expansion boxes, and paying digital-file prices with no shipping. A perfect first functional print for bird lovers who just got a 3D printer — and a smart buy for anyone who already prints.",
     title: "Wingspan Goal Tracker STL File",
@@ -1049,6 +1102,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "terraforming-mars-player-board-stl",
+    price: "10.35",
     longDescription:
       "The print-ready STL for our dual-layer Terraforming Mars player board with recessed resource tracks — download once, print for every player at your table.\n\nThe shipped version of this board is our most-praised product; the STL makes it affordable at table scale. Five players need five boards, and printing them yourself costs a fraction of shipping that much plastic across Europe. The dual-layer design pins every cube in place, ending Terraforming Mars' infamous bumped-table tragedies. Print one per player, mix filament colors for player identity, and your group's three-hour sessions are finally elbow-proof.",
     title: "Terraforming Mars Player Board STL File",
@@ -1074,6 +1128,10 @@ export const products: Product[] = raw.map((p) => ({
   ...p,
   image: p.images[0],
 }));
+
+// Active shop-wide Etsy promotion. Set to 0 when the sale ends —
+// strikethrough prices disappear site-wide automatically.
+export const DISCOUNT_PERCENT = 10;
 
 export const categories = [
   "Catan",

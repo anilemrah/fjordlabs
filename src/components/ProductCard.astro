@@ -1,11 +1,16 @@
 ---
 import type { Product } from "../data/products";
+import { DISCOUNT_PERCENT } from "../data/products";
 
 interface Props {
   product: Product;
 }
 
 const { product } = Astro.props;
+
+const originalPrice = product.price
+  ? (parseFloat(product.price) / (1 - DISCOUNT_PERCENT / 100)).toFixed(2)
+  : undefined;
 ---
 
 <a
@@ -46,5 +51,24 @@ const { product } = Astro.props;
       {product.title}
     </h3>
     <p class="text-sm text-bark/50 mt-2 line-clamp-2">{product.description}</p>
+    {
+      product.price && (
+        <p class="flex items-baseline gap-2 mt-3">
+          <span class="text-lg font-heading font-bold text-bark">
+            ${product.price}
+          </span>
+          {DISCOUNT_PERCENT > 0 && (
+            <>
+              <span class="text-sm text-bark/30 line-through">
+                ${originalPrice}
+              </span>
+              <span class="text-[11px] font-bold text-forest">
+                {DISCOUNT_PERCENT}% OFF
+              </span>
+            </>
+          )}
+        </p>
+      )
+    }
   </div>
 </a>

@@ -101,12 +101,15 @@ const sections = categories
       description:
         "3D-printed board game upgrades and printable STL files by Fjord Labs.",
       url: "https://www.fjord-labs.com/products/",
-      hasPart: products.map((p) => ({
-        "@type": "Product",
-        name: p.title,
-        image: p.image,
-        url: `https://www.fjord-labs.com/products/${p.slug}/`,
-      })),
+      mainEntity: {
+        "@type": "ItemList",
+        numberOfItems: products.length,
+        itemListElement: products.map((p, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          url: `https://www.fjord-labs.com/products/${p.slug}/`,
+        })),
+      },
     })}
   />
 </Base>

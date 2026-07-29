@@ -1,7 +1,7 @@
 ---
 import Base from "../../layouts/Base.astro";
 import ProductCard from "../../components/ProductCard.astro";
-import { products } from "../../data/products";
+import { products, DISCOUNT_PERCENT } from "../../data/products";
 
 export function getStaticPaths() {
   return products.map((product) => ({
@@ -15,6 +15,10 @@ const { product } = Astro.props;
 const related = products
   .filter((p) => p.category === product.category && p.slug !== product.slug)
   .slice(0, 3);
+
+const originalPrice = product.price
+  ? (parseFloat(product.price) / (1 - DISCOUNT_PERCENT / 100)).toFixed(2)
+  : undefined;
 
 const bullets = product.digital
   ? [
@@ -149,6 +153,30 @@ const bullets = product.digital
           }
         </ul>
 
+        {
+          product.price && (
+            <div class="mb-4">
+              <p class="flex items-baseline gap-3 flex-wrap">
+                <span class="text-3xl font-heading font-bold text-bark">
+                  ${product.price}
+                </span>
+                {DISCOUNT_PERCENT > 0 && (
+                  <>
+                    <span class="text-lg text-bark/30 line-through">
+                      ${originalPrice}
+                    </span>
+                    <span class="px-2 py-0.5 bg-forest text-white text-xs font-bold rounded-full">
+                      {DISCOUNT_PERCENT}% OFF
+                    </span>
+                  </>
+                )}
+              </p>
+              <p class="text-xs text-bark/40 mt-1">
+                Final price &amp; local currency shown at checkout on Etsy.
+              </p>
+            </div>
+          )
+        }
         <a
           href={product.link}
           target="_blank"
@@ -240,6 +268,20 @@ const bullets = product.digital
         name: "Fjord Labs",
       },
       url: `https://www.fjord-labs.com/products/${product.slug}/`,
+      ...(product.price && {
+        offers: {
+          "@type": "Offer",
+          price: product.price,
+          priceCurrency: "USD",
+          availability: "https://schema.org/InStock",
+          url: product.link,
+          priceValidUntil: "2026-12-31",
+          seller: {
+            "@type": "Organization",
+            name: "Fjord Labs",
+          },
+        },
+      }),
     })}
   />
 </Base>
