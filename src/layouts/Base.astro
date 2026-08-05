@@ -110,6 +110,11 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
             class="text-bark/60 hover:text-bark transition-colors">Products</a
           >
           <a
+            href="/products/#new-releases"
+            class="text-clay hover:text-clay-dark transition-colors font-semibold flex items-center gap-1"
+            >✨ New</a
+          >
+          <a
             href="/about/"
             class="text-bark/60 hover:text-bark transition-colors">About</a
           >
@@ -156,6 +161,9 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
           <a href="/games/carcassonne/" class="text-bark/70 py-1 flex items-center gap-2"><span>🏰</span> Carcassonne</a>
           <div class="border-t border-bark/5 mt-1 pt-2"></div>
           <a href="/products/" class="text-bark/70 py-1">Products</a>
+          <a href="/products/#new-releases" class="text-clay font-semibold py-1"
+            >✨ New Releases</a
+          >
           <a href="/about/" class="text-bark/70 py-1">About</a>
           <a
             href="https://fjordlabs.etsy.com"

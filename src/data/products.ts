@@ -13,6 +13,10 @@ export interface Product {
   digital?: boolean;
   featured?: boolean;
   isNew?: boolean;
+  /** Shown in the New Releases announcement band */
+  newTagline?: string;
+  newLinkHref?: string;
+  newLinkLabel?: string;
 }
 
 const img = (hash: string, id: string, sfx: string) =>
@@ -264,6 +268,9 @@ const raw: RawProduct[] = [
     longDescription:
       "A 3D-printed insert designed specifically for Wingspan Pocket (2026) — Stonemaier's new compact edition, which ships with everything loose in the box. It adds an egg token tray and card holder shaped precisely to the pocket box dimensions.\n\nWingspan Pocket's whole promise is 'grab it and play anywhere' — but after one backpack trip, the stock box becomes a shaken snow globe of eggs and cards. This insert keeps the promise: components stay sorted in transit, setup drops to seconds, and the box still closes flush. It's designed for this box from scratch, not cut down from a big-box organizer. If you bought Pocket to travel with it, this is the missing half of the product.",
     title: "Wingspan Pocket Insert & Organizer",
+    newTagline: "For Stonemaier's compact Wingspan — released July 2026",
+    newLinkHref: "/games/wingspan-pocket/",
+    newLinkLabel: "What is Wingspan Pocket?",
     game: "wingspan-pocket",
     type: "Organizer",
     category: "Wingspan",
@@ -425,6 +432,32 @@ const raw: RawProduct[] = [
     link: listing("4354083270", "scythe-encounter-tokens-3d-printed-board"),
     description:
       "3D-printed encounter tokens that make exploring Scythe's map feel like the event it is. A small swap with big table presence.",
+  },
+  {
+    slug: "scythe-duel-of-meloch-insert",
+    price: "53.98",
+    longDescription:
+      "A 3D-printed insert built for Scythe: Duel of Meloch (2026) — lidded, stackable trays printed in the game's own blue-gray, brown, and rust palette. Every tray is covered, so resources and components stay exactly where you put them even if the box is carried sideways, and the trays lock together so the whole game lifts out in one tidy stack.\n\nDuel of Meloch is a 45-minute duel — which means setup and teardown are a much bigger share of your evening than in a three-hour epic. This insert makes both nearly instant: lift the stack out, play, drop it back. The lids are the part owners rave about, because a compact box in a backpack is exactly the situation loose tokens ruin. If you bought Meloch to play it often and play it anywhere, this is the upgrade that makes that realistic.",
+    title: "Scythe: Duel of Meloch Insert",
+    game: "scythe",
+    type: "Organizer",
+    category: "Scythe",
+    isNew: true,
+    featured: true,
+    newTagline: "For Stonemaier's Scythe vs. Expeditions duel — released July 2026",
+    newLinkHref: "/games/scythe/faction-tier-list/",
+    newLinkLabel: "What is Duel of Meloch?",
+    images: [
+      img("f820ce", "8347610374", "3brr"),
+      img("bf7b05", "8395495861", "t3pn"),
+      img("fb17b9", "8395495893", "3o1r"),
+      img("45b3b5", "8347609538", "joi8"),
+      img("91c80a", "8347609548", "7uvp"),
+      img("da3a41", "8347609564", "2e7e"),
+    ],
+    link: listing("4551054956", "insert-compatible-with-scythe-duel-of"),
+    description:
+      "3D-printed organizer for Scythe: Duel of Meloch with lidded, stackable trays in the game's own colors. Nothing spills, nothing mixes, setup takes seconds.",
   },
 
   // ── Terraforming Mars ──────────────────────────────────

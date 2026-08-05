@@ -2,6 +2,7 @@
 import Base from "../layouts/Base.astro";
 import ProductCard from "../components/ProductCard.astro";
 import ArticleCard from "../components/ArticleCard.astro";
+import NewReleases from "../components/NewReleases.astro";
 import { products } from "../data/products";
 import { games } from "../data/games";
 
@@ -200,6 +201,9 @@ const latestArticles = [
       </div>
     </div>
   </section>
+
+  <!-- New Releases announcement -->
+  <NewReleases />
 
   <!-- Products -->
   <section id="products" class="py-16 px-6">
