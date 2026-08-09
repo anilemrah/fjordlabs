@@ -82,7 +82,8 @@ export const games: Game[] = [
   {
     slug: "duel-of-meloch",
     title: "Duel of Meloch",
-    image: "/images/games/duel-of-meloch.svg",
+    image: "/images/games/duel-of-meloch.jpg",
+    imageCredit: "Photo © Fjord Labs · Duel of Meloch © Stonemaier Games",
     description:
       "Stonemaier's 45-minute two-player duel — Scythe against Expeditions.",
     heroDescription:
