@@ -46,7 +46,8 @@ export const games: Game[] = [
   {
     slug: "wingspan-pocket",
     title: "Wingspan Pocket",
-    image: "/images/games/wingspan-pocket.svg",
+    image: "/images/games/wingspan-pocket.jpg",
+    imageCredit: "Photo © Fjord Labs · Wingspan Pocket © Stonemaier Games",
     description:
       "The compact, travel-sized Wingspan — 25 minutes, one small box.",
     heroDescription:
