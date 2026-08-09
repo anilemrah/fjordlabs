@@ -1,0 +1,121 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+
+const faqs = [
+  {
+    q: "What actually counts as a duplicate?",
+    a: "Only a number card that matches a number card already in front of you. Modifiers and action cards are never duplicates, no matter how many of them you collect.",
+  },
+  {
+    q: "Do modifier cards count toward Flip 7?",
+    a: "No. Only number cards count toward the seven you need. A player with nine cards in front of them might only be four numbers deep.",
+  },
+  {
+    q: "Can I give an action card to myself?",
+    a: "Yes. You are always a legal target for Freeze, Flip Three and Second Chance, and taking a Freeze yourself to bank a strong row is a genuine tactic.",
+  },
+  {
+    q: "What if I'm dealt a second Second Chance?",
+    a: "You can never hold two. Give the new one to another player still in the round who doesn't have one. If every remaining player already has one, discard it.",
+  },
+  {
+    q: "Does ×2 double my + modifiers too?",
+    a: "No. The ×2 card doubles the total of your number cards only. Your + modifiers are added afterwards at face value.",
+  },
+  {
+    q: "Is the 15-point Flip 7 bonus doubled by ×2?",
+    a: "No. The bonus is added last and is never multiplied. With a ×2 and a Flip 7, double your numbers, add your modifiers, then add 15.",
+  },
+  {
+    q: "What happens when the deck runs out mid-round?",
+    a: "Shuffle the discard pile to form a new deck and carry on. Cards sitting in front of players still in the round stay where they are — they're not part of the discard pile yet.",
+  },
+  {
+    q: "If someone hits Flip 7, does everyone else score zero?",
+    a: "No. The round ends immediately, but every player who hasn't busted scores their row exactly as normal. Only the player who hit Flip 7 gets the extra 15.",
+  },
+  {
+    q: "Do I bust if I'm dealt two Freeze cards in a round?",
+    a: "No. Action cards can never bust you. Each one resolves on its own when it's dealt.",
+  },
+  {
+    q: "What if a Flip Three deals me another Flip Three?",
+    a: "The new one resolves as normal, then the remaining flips from the first one continue. It stacks, and it's usually fatal.",
+  },
+  {
+    q: "Can I stay before taking any cards?",
+    a: "Staying is available on your turn, but it banks only what's already in front of you — so staying on an empty or nearly empty row scores you almost nothing. There's rarely a reason to do it.",
+  },
+  {
+    q: "Does the game stop the second someone reaches 200?",
+    a: "No. Finish the round you're in. Once the round is scored, the highest cumulative total wins — and if two players are both over 200, the bigger number takes it.",
+  },
+];
+---
+
+<Article
+  title="Flip 7 Rules Questions: 12 Answers for Common Disputes"
+  description="The duplicate-card questions, the two Second Chances problem, and what happens when the deck runs out."
+  game="flip-7"
+  gameTitle="Flip 7"
+  category="Rules"
+  product="flip-7-organizer"
+  publishDate="2026-08-09"
+>
+  <p>
+    Flip 7 has a two-minute rules explanation and a surprisingly long tail of
+    edge cases. These are the twelve that come up most often, answered plainly.
+  </p>
+
+  <KeyTakeaway answer="Only duplicate number cards bust you, only number cards count toward the seven, and ×2 doubles nothing except your number cards. Most disputes are one of those three." />
+
+  <div class="my-8 space-y-4">
+    {faqs.map((f, i) => (
+      <div class="p-5 bg-white rounded-xl border border-bark/10">
+        <div class="flex items-start gap-3">
+          <span class="shrink-0 w-7 h-7 rounded-full bg-clay/10 text-clay flex items-center justify-center font-heading font-bold text-xs">
+            {i + 1}
+          </span>
+          <div>
+            <h3 class="font-heading font-semibold text-base text-bark mt-0 mb-2">{f.q}</h3>
+            <p class="text-base text-bark/60 mb-0">{f.a}</p>
+          </div>
+        </div>
+      </div>
+    ))}
+  </div>
+
+  <InfoBox type="tip" title="The house rule worth adopting">
+    Fan your number cards so the values are visible but overlapping, and keep
+    modifiers and action cards in a separate row below them. Counting "how close
+    is she to Flip 7?" across the table becomes instant, and about half of these
+    disputes stop happening.
+  </InfoBox>
+
+  <h2>Still Stuck?</h2>
+
+  <p>
+    The full rules walkthrough is in
+    <a href="/games/flip-7/how-to-play-flip-7/">how to play Flip 7</a>, the
+    arithmetic is in
+    <a href="/games/flip-7/flip-7-scoring-explained/">scoring explained</a>, and
+    the targeting rules are covered in depth in
+    <a href="/games/flip-7/flip-7-action-cards-explained/">the action card guide</a>.
+  </p>
+
+  <script
+    type="application/ld+json"
+    is:inline
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faqs.map((f) => ({
+        "@type": "Question",
+        name: f.q,
+        acceptedAnswer: { "@type": "Answer", text: f.a },
+      })),
+    })}
+  />
+</Article>

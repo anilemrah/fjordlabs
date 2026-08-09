@@ -1,0 +1,137 @@
+---
+import Base from "../../../layouts/Base.astro";
+import GameBoxImage from "../../../components/GameBoxImage.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { getProduct } from "../../../data/products";
+import { getGame } from "../../../data/games";
+
+const game = getGame("gloomhaven")!;
+
+const universalUpgrades = ["card-holder", "hexagon-token-trays", "universal-player-tray"]
+  .map((slug) => getProduct(slug))
+  .filter((p) => p !== undefined);
+
+const articles = {
+  start: [
+    {
+      title: "Gloomhaven vs Jaws of the Lion: Which Should You Buy First?",
+      description: "The two boxes play the same game at completely different sizes. Here's how to pick.",
+      href: "/games/gloomhaven/gloomhaven-vs-jaws-of-the-lion/",
+    },
+    {
+      title: "Is Gloomhaven Worth It? An Honest Look Before You Commit",
+      description: "A heavy box, a long campaign and a real time commitment. Who is it actually for?",
+      href: "/games/gloomhaven/is-gloomhaven-worth-it/",
+    },
+  ],
+  rules: [
+    {
+      title: "How Gloomhaven Works: A Beginner's Guide to the Core Loop",
+      description: "Two cards a turn, no dice, and a hand that runs out. The system explained without the rulebook.",
+      href: "/games/gloomhaven/how-gloomhaven-works/",
+    },
+    {
+      title: "How Long Does Gloomhaven Actually Take?",
+      description: "Setup, a scenario, teardown and the full campaign — honest numbers, not box-back numbers.",
+      href: "/games/gloomhaven/how-long-does-gloomhaven-take/",
+    },
+  ],
+  guides: [
+    {
+      title: "Gloomhaven Solo and Two-Player: Does It Work?",
+      description: "The campaign scales to any count, but the experience changes a lot. What to expect at each.",
+      href: "/games/gloomhaven/gloomhaven-solo-and-two-player/",
+    },
+    {
+      title: "Gloomhaven Setup and Organisation: Taming the Box",
+      description: "Setup time is the number one reason campaigns stall. Here's how to cut it down.",
+      href: "/games/gloomhaven/gloomhaven-setup-and-organisation/",
+    },
+  ],
+};
+---
+
+<Base
+  title="Gloomhaven — Where to Start, Rules & Setup Guides | Fjord Labs"
+  description="Beginner guides for the Gloomhaven family: Gloomhaven vs Jaws of the Lion, how the card system works, how long scenarios really take, solo play, and taming the box."
+>
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Gloomhaven</span>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <GameBoxImage game={game} />
+        <div>
+          <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+            Gloomhaven
+          </h1>
+          <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
+            {game.heroDescription}
+          </p>
+
+          <div class="flex flex-wrap gap-6 text-sm text-bark/40">
+            <div><span class="font-semibold text-bark/60">Players:</span> {game.playerCount}</div>
+            <div><span class="font-semibold text-bark/60">Play Time:</span> {game.playTime}</div>
+            <div><span class="font-semibold text-bark/60">Complexity:</span> {game.complexity}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Start Here</h2>
+      <p class="text-bark/40 mb-8">Three boxes, one system, and one decision that shapes everything after it.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.start.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Understanding the Game</h2>
+      <p class="text-bark/40 mb-8">What you're actually signing up for, before you open the box.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.rules.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Rules" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Playing It Well</h2>
+      <p class="text-bark/40 mb-8">Player counts, setup time, and keeping a long campaign alive.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.guides.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {universalUpgrades.length > 0 && (
+    <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Upgrades That Help</h2>
+        <p class="text-bark/40 mb-8">
+          We don't make Gloomhaven-specific inserts yet — but a campaign lives or dies on table
+          organisation, and these are the universal pieces that cut setup time.
+        </p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {universalUpgrades.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+  )}
+</Base>

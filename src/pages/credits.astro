@@ -1,0 +1,106 @@
+---
+import Base from "../layouts/Base.astro";
+import { games } from "../data/games";
+
+const credited = games.filter((g) => g.imageCredit);
+const placeholder = games.filter((g) => !g.imageCredit);
+---
+
+<Base
+  title="Image Credits | Fjord Labs"
+  description="Attribution for the game images used on fjord-labs.com. Box art is the copyright of its respective publisher and artist."
+>
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Image Credits</span>
+      </nav>
+      <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+        Image Credits
+      </h1>
+      <p class="text-lg text-bark/50 max-w-2xl leading-relaxed">
+        Fjord Labs makes 3D-printed accessories. We are not affiliated with, endorsed by, or
+        sponsored by any game publisher. Game names and box art are the property of their
+        respective publishers and artists, credited below.
+      </p>
+    </div>
+  </section>
+
+  {credited.length > 0 && (
+    <section class="py-14 px-6">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-8">Game Images</h2>
+        <div class="space-y-4">
+          {credited.map((g) => (
+            <div class="flex items-center gap-5 p-4 bg-white rounded-xl border border-bark/10">
+              <img src={g.image} alt={`${g.title} box art`} class="w-16 h-16 rounded-lg object-cover border border-bark/10 shrink-0" />
+              <div class="min-w-0">
+                <a href={`/games/${g.slug}/`} class="font-heading font-semibold text-bark hover:text-clay transition-colors">
+                  {g.title}
+                </a>
+                <p class="text-sm text-bark/50 mt-0.5">
+                  {g.imageCreditUrl ? (
+                    <a href={g.imageCreditUrl} rel="nofollow noopener" target="_blank" class="hover:text-clay transition-colors underline decoration-bark/20">
+                      {g.imageCredit}
+                    </a>
+                  ) : (
+                    g.imageCredit
+                  )}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  {placeholder.length > 0 && (
+    <section class="py-14 px-6 bg-sand/30 border-t border-bark/5">
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Awaiting Artwork</h2>
+        <p class="text-bark/40 mb-8">
+          These pages currently use our own placeholder graphics — no third-party artwork is in use.
+        </p>
+        <div class="flex flex-wrap gap-2">
+          {placeholder.map((g) => (
+            <a
+              href={`/games/${g.slug}/`}
+              class="px-3 py-1.5 bg-white rounded-lg border border-bark/10 text-sm text-bark/60 hover:border-clay/20 hover:text-clay transition-colors"
+            >
+              {g.title}
+            </a>
+          ))}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <section class="py-14 px-6 border-t border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-4">Our Sourcing Policy</h2>
+      <div class="text-bark/60 space-y-4 leading-relaxed">
+        <p>
+          Box art is the copyright of the publisher and the artist who made it. We use a game image
+          only where one of the following is true:
+        </p>
+        <ul class="list-disc pl-6 space-y-2">
+          <li>It is our own photograph of a copy we own.</li>
+          <li>We have written permission from the publisher.</li>
+          <li>The publisher provides the asset for this kind of use under stated terms.</li>
+        </ul>
+        <p>
+          Everything else stays a placeholder until one of those is true. We do not source artwork
+          from BoardGameGeek: it hosts user-uploaded images and does not hold the rights to the
+          artwork, so crediting BGG would credit the wrong party.
+        </p>
+        <p class="text-sm text-bark/40">
+          Spotted an image you hold the rights to and want removed or credited differently?
+          Email us and we'll fix it straight away.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>

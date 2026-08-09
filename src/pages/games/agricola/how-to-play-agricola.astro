@@ -1,0 +1,187 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import QuickFact from "../../../components/QuickFact.astro";
+---
+
+<Article
+  title="How to Play Agricola: Complete Rules for New Players"
+  description="Fourteen rounds, six harvests, and one question that never goes away — can you feed everyone?"
+  game="agricola"
+  gameTitle="Agricola"
+  category="Rules"
+  product="agricola-resource-tokens"
+  publishDate="2026-08-09"
+>
+  <p>
+    Agricola is the game that made worker placement a genre. It's also famous for
+    being cruel: you start with two family members, a two-room wooden hut, and a
+    farm that produces nothing. Everything you need has to be taken from a board
+    that everyone else is grabbing from too.
+  </p>
+
+  <KeyTakeaway answer="Place your family members on action spaces to gather resources, build your farm and grow your family. Every few rounds a harvest arrives and demands two food per adult. Score by having a bit of everything at the end." />
+
+  <div class="my-8 flex flex-wrap gap-3">
+    <QuickFact label="Players" value="1–4" icon="👥" />
+    <QuickFact label="Rounds" value="14" icon="🔁" />
+    <QuickFact label="Harvests" value="6" icon="🌾" />
+    <QuickFact label="Weight" value="Heavy" icon="🧠" />
+  </div>
+
+  <h2>The Core Loop</h2>
+
+  <p>
+    Each of the fourteen rounds follows the same rhythm, and it is worth learning
+    this shape before anything else.
+  </p>
+
+  <StepList title="A round of Agricola">
+    <Step number={1} title="Reveal a new action space">
+      A new card is turned face up, adding a new action to the board. The board
+      literally grows as the game goes on — early rounds have very few options.
+    </Step>
+    <Step number={2} title="Replenish the accumulation spaces">
+      Certain spaces gather resources over time. If nobody took the wood last
+      round, there's now more wood sitting there.
+    </Step>
+    <Step number={3} title="Place family members, one at a time">
+      In turn order, each player puts one family member on an empty action space
+      and takes that action immediately. Continue until everyone has placed all
+      their people.
+    </Step>
+    <Step number={4} title="Return home">
+      All family members come back. If this round ends with a harvest, resolve it
+      now.
+    </Step>
+  </StepList>
+
+  <InfoBox type="rule" title="One worker per space, always">
+    Every action space holds exactly one family member for the round. If someone
+    takes the space you needed, it is gone until next round. This is the entire
+    source of tension in Agricola.
+  </InfoBox>
+
+  <h2>What You Can Do</h2>
+
+  <p>
+    The available actions grow through the game, but they fall into a few
+    recognisable groups:
+  </p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-3">🪵 Gathering</h4>
+      <ul class="text-sm text-bark/60 space-y-1">
+        <li>• Wood, clay, reed and stone</li>
+        <li>• Grain and vegetable seeds</li>
+        <li>• Food, directly (usually inefficiently)</li>
+        <li>• Sheep, wild boar and cattle</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-3">🏠 Developing</h4>
+      <ul class="text-sm text-bark/60 space-y-1">
+        <li>• Plough a field</li>
+        <li>• Sow grain or vegetables</li>
+        <li>• Build rooms, fences and stables</li>
+        <li>• Grow your family</li>
+        <li>• Renovate your house</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>The Harvest</h2>
+
+  <p>
+    Six times across the game, a harvest interrupts everything. It has three
+    phases, in order:
+  </p>
+
+  <StepList title="Resolving a harvest">
+    <Step number={1} title="Field phase">
+      Take one grain or vegetable from each sown field. Fields don't produce
+      forever — each planted crop yields for a limited number of harvests.
+    </Step>
+    <Step number={2} title="Feeding phase">
+      Pay <strong>2 food</strong> for every adult family member and
+      <strong>1 food</strong> for anyone born since the last harvest. If you can't
+      pay, you take a <strong>begging card</strong> for each missing food — each
+      worth <strong>−3 points</strong> at the end.
+    </Step>
+    <Step number={3} title="Breeding phase">
+      If you have at least two of an animal type, you gain one more — provided you
+      have somewhere to put it.
+    </Step>
+  </StepList>
+
+  <InfoBox type="warning" title="Grain is not food">
+    Raw grain, vegetables and animals do not feed anyone. You need a Fireplace,
+    Cooking Hearth or similar improvement to convert them, and if you never build
+    one you will be scraping food off the board by hand all game. This is the
+    single most common beginner disaster — see
+    <a href="/games/agricola/agricola-feeding-your-family/">the feeding guide</a>.
+  </InfoBox>
+
+  <h2>Growing Your Family</h2>
+
+  <p>
+    You begin with two family members, which means two actions per round. Growing
+    your family gives you a third, then a fourth, then a fifth — more actions than
+    anyone else, every single round for the rest of the game.
+  </p>
+
+  <p>
+    The catch is that each new person needs a <strong>room to live in</strong>
+    before they can be born, and each one raises your food bill by 2 every
+    harvest. Family growth is simultaneously the strongest move in the game and
+    the fastest route to a pile of begging cards.
+  </p>
+
+  <h2>Scoring</h2>
+
+  <p>
+    Agricola scores you on breadth, not depth. You get points for each category
+    based on how much you have — and crucially, you get <strong>negative
+    points</strong> for having none of something.
+  </p>
+
+  <ul>
+    <li><strong>Fields, pastures and fenced stables</strong> — more is better</li>
+    <li><strong>Grain and vegetables</strong> — counted at game end</li>
+    <li><strong>Sheep, wild boar and cattle</strong> — each type scored separately</li>
+    <li><strong>Rooms and house type</strong> — clay and stone rooms score more than wood</li>
+    <li><strong>Family members</strong> — a solid 3 points each</li>
+    <li><strong>Unused farmyard spaces</strong> — <strong>−1 each</strong></li>
+    <li><strong>Begging cards</strong> — <strong>−3 each</strong></li>
+  </ul>
+
+  <InfoBox type="tip" title="Zero in a category is a real penalty">
+    Having no sheep at all is worse than having one sheep, because empty
+    categories score negative. A single animal of each type, a couple of
+    vegetables and a ploughed field will quietly out-score a beautiful farm that
+    specialised in one thing.
+  </InfoBox>
+
+  <h2>Which Edition Are You Playing?</h2>
+
+  <p>
+    The full game includes Occupation and Minor Improvement cards dealt to each
+    player, which add enormous variety and complexity. Most editions also include
+    a <strong>family game</strong> variant that removes them entirely.
+  </p>
+
+  <p>
+    Play the family variant first. The core farm-building puzzle is hard enough on
+    its own, and adding fourteen unfamiliar cards to your first game turns a tough
+    teach into an unpleasant one.
+  </p>
+
+  <p>
+    Where to spend those precious early actions is covered in
+    <a href="/games/agricola/agricola-beginner-strategy/">your first five rounds</a>.
+  </p>
+</Article>

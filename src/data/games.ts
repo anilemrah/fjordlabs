@@ -7,6 +7,16 @@ export interface Game {
   playerCount: string;
   playTime: string;
   complexity: string;
+  /**
+   * Attribution shown under the hub image and on /credits/.
+   * Leave unset while `image` is still a placeholder SVG. Box art is the
+   * publisher's copyright — set this only once the source is one we're
+   * permitted to use (own photography, or written permission from the
+   * publisher). BoardGameGeek is not a valid credit: it hosts user uploads
+   * and does not own the artwork.
+   */
+  imageCredit?: string;
+  imageCreditUrl?: string;
 }
 
 export const games: Game[] = [
@@ -70,6 +80,18 @@ export const games: Game[] = [
     complexity: "Heavy",
   },
   {
+    slug: "duel-of-meloch",
+    title: "Duel of Meloch",
+    image: "/images/games/duel-of-meloch.svg",
+    description:
+      "Stonemaier's 45-minute two-player duel — Scythe against Expeditions.",
+    heroDescription:
+      "Scythe: Duel of Meloch is a standalone two-player game released by Stonemaier Games in July 2026, in which one player commands a Scythe faction and the other leads an Expeditions crew. It plays in about 45 minutes on a compact double-sided map of ten locations and two lakes, with both sides racing to place four stars on a shared Triumph Track. Every star you place lets your opponent draw a Meloch card and choose a reward, keeping finishes tight. It also introduces Constantinople — the first new Scythe faction in years — and the eighth player mat, Adventurous.",
+    playerCount: "2",
+    playTime: "~45 minutes",
+    complexity: "Medium",
+  },
+  {
     slug: "terraforming-mars",
     title: "Terraforming Mars",
     image: "/images/games/terraforming-mars.svg",
@@ -92,6 +114,66 @@ export const games: Game[] = [
     playerCount: "2–5",
     playTime: "30–45 minutes",
     complexity: "Light-Medium",
+  },
+  {
+    slug: "flip-7",
+    title: "Flip 7",
+    image: "/images/games/flip-7.svg",
+    description:
+      "The push-your-luck card game that plays with up to 18 people.",
+    heroDescription:
+      "Flip 7 is a push-your-luck card game where you keep taking number cards until you either bank your points or flip a duplicate and lose the lot. Collect seven different numbers and you score a 15-point bonus. Its deck is deliberately lopsided — every number appears as many times as its value — so the highest-scoring cards are also the most dangerous ones. A 94-card box that teaches in two minutes, seats up to 18 players, and won a Mensa Select award.",
+    playerCount: "3–18",
+    playTime: "20 minutes",
+    complexity: "Light",
+  },
+  {
+    slug: "cascadia",
+    title: "Cascadia",
+    image: "/images/games/cascadia.svg",
+    description:
+      "Tile-laying and wildlife-drafting in the Pacific Northwest.",
+    heroDescription:
+      "Cascadia is a tile-laying and token-drafting game designed by Randy Flynn, in which players build a Pacific Northwest landscape of mountains, forests, prairies, wetlands and rivers, then populate it with bears, elk, salmon, hawks and foxes. Each animal scores by a different pattern drawn at random each game, so no two sessions reward the same shapes. It won the Spiel des Jahres in 2022 and has become one of the most recommended modern gateway games.",
+    playerCount: "1–4",
+    playTime: "30–45 minutes",
+    complexity: "Light-Medium",
+  },
+  {
+    slug: "everdell",
+    title: "Everdell",
+    image: "/images/games/everdell.svg",
+    description:
+      "Worker placement and city building with woodland critters.",
+    heroDescription:
+      "Everdell is a worker placement and tableau-building game set in the woodland valley of Everdell, where players send critters to gather twigs, resin, pebbles and berries and build a city of up to fifteen cards. The game runs through four seasons, each granting more workers, and is famous for its production — including the three-dimensional Ever Tree that dominates the table. Designed by James A. Wilson and Clarissa Wong.",
+    playerCount: "1–4",
+    playTime: "40–80 minutes",
+    complexity: "Medium",
+  },
+  {
+    slug: "agricola",
+    title: "Agricola",
+    image: "/images/games/agricola.svg",
+    description:
+      "The classic farming game where feeding your family is the hard part.",
+    heroDescription:
+      "Agricola is Uwe Rosenberg's landmark worker placement game about running a 17th-century farm. Over fourteen rounds you plough fields, fence pastures, raise sheep, boar and cattle, extend your house and grow your family — while the harvest arrives at intervals and demands food you probably don't have. Released in 2007, it defined an entire genre and remains one of the most respected strategy games ever published.",
+    playerCount: "1–4 (up to 5 in some editions)",
+    playTime: "90–150 minutes",
+    complexity: "Heavy",
+  },
+  {
+    slug: "gloomhaven",
+    title: "Gloomhaven",
+    image: "/images/games/gloomhaven.svg",
+    description:
+      "The campaign dungeon crawler that redefined the genre — and where to start.",
+    heroDescription:
+      "Gloomhaven is a cooperative campaign game of tactical combat, designed by Isaac Childres, in which a party of mercenaries fights through a branching story of dozens of scenarios. There are no dice: every turn you commit two ability cards in secret, and combat is resolved with a modifier deck you improve over the campaign. The family now spans Jaws of the Lion, the original Gloomhaven, and Frosthaven — and choosing the right entry point matters more than almost any other buying decision in board gaming.",
+    playerCount: "1–4",
+    playTime: "60–120 minutes per scenario",
+    complexity: "Heavy",
   },
 ];
 

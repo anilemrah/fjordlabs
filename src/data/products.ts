@@ -439,13 +439,13 @@ const raw: RawProduct[] = [
     longDescription:
       "A 3D-printed insert built for Scythe: Duel of Meloch (2026) — lidded, stackable trays printed in the game's own blue-gray, brown, and rust palette. Every tray is covered, so resources and components stay exactly where you put them even if the box is carried sideways, and the trays lock together so the whole game lifts out in one tidy stack.\n\nDuel of Meloch is a 45-minute duel — which means setup and teardown are a much bigger share of your evening than in a three-hour epic. This insert makes both nearly instant: lift the stack out, play, drop it back. The lids are the part owners rave about, because a compact box in a backpack is exactly the situation loose tokens ruin. If you bought Meloch to play it often and play it anywhere, this is the upgrade that makes that realistic.",
     title: "Scythe: Duel of Meloch Insert",
-    game: "scythe",
+    game: "duel-of-meloch",
     type: "Organizer",
     category: "Scythe",
     isNew: true,
     featured: true,
     newTagline: "For Stonemaier's Scythe vs. Expeditions duel — released July 2026",
-    newLinkHref: "/games/scythe/faction-tier-list/",
+    newLinkHref: "/games/duel-of-meloch/what-is-duel-of-meloch/",
     newLinkLabel: "What is Duel of Meloch?",
     images: [
       img("f820ce", "8347610374", "3brr"),
@@ -899,7 +899,7 @@ const raw: RawProduct[] = [
     longDescription:
       "An organizer insert for Flip 7 with a removable card holder — the hit push-your-luck card game, ready to deal in seconds.\n\nFlip 7 earns its spot on the table by being fast; digging cards out of a loose box isn't. This insert makes the game as quick to start as it is to play: lift the holder out, deal, and go. The insert fits the retail box exactly, keeps everything sorted in a bag or on a shelf, and turns the game into the perfect grab-and-go opener for any game night. Small upgrade, every-session payoff.",
     title: "Flip 7 Organizer Insert",
-    game: "other",
+    game: "flip-7",
     type: "Organizer",
     category: "Organizers & Card Holders",
     images: [

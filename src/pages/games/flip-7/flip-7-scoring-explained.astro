@@ -1,0 +1,137 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Flip 7 Scoring Explained: The +15 Bonus, Modifiers and ×2"
+  description="How round scores are calculated, and the mistake almost every new group makes with the ×2 card."
+  game="flip-7"
+  gameTitle="Flip 7"
+  category="Rules"
+  publishDate="2026-08-09"
+>
+  <p>
+    Flip 7 scoring looks trivial until the ×2 card shows up alongside a +10 and a
+    Flip 7 bonus, and suddenly the table has three different opinions about the
+    right answer. There is a fixed order of operations. Here it is.
+  </p>
+
+  <KeyTakeaway answer="Add your number cards, double that total if you have ×2, then add your + modifiers, then add 15 if you hit Flip 7. The ×2 only ever doubles number cards." />
+
+  <h2>The Order of Operations</h2>
+
+  <StepList title="Score a round in this exact order">
+    <Step number={1} title="Add up your number cards">
+      Face value, straight addition. A 12, a 7 and a 3 is 22. The 0 card
+      contributes nothing to your score — but it still counts as one of your
+      seven unique numbers.
+    </Step>
+    <Step number={2} title="Apply ×2, if you have it">
+      Double the number-card total from step 1. Nothing else is doubled.
+    </Step>
+    <Step number={3} title="Add your + modifiers">
+      +2, +4, +6, +8 and +10 are added after the doubling, at face value.
+    </Step>
+    <Step number={4} title="Add 15 if you hit Flip 7">
+      The bonus is added last and is never doubled.
+    </Step>
+  </StepList>
+
+  <InfoBox type="warning" title="The single most common scoring error">
+    Doubling everything. If you hold a 12, a +10 and a ×2, your score is
+    (12 × 2) + 10 = <strong>34</strong> — not (12 + 10) × 2 = 44. The ×2 card
+    multiplies your number cards and stops there.
+  </InfoBox>
+
+  <h2>Worked Examples</h2>
+
+  <ComparisonTable title="Four hands, scored">
+    <table>
+      <thead>
+        <tr>
+          <th>Cards in front of you</th>
+          <th>Working</th>
+          <th>Score</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>12, 9, 4</td>
+          <td>12 + 9 + 4</td>
+          <td><strong>25</strong></td>
+        </tr>
+        <tr>
+          <td>12, 9, 4, +8</td>
+          <td>25 + 8</td>
+          <td><strong>33</strong></td>
+        </tr>
+        <tr>
+          <td>12, 9, 4, +8, ×2</td>
+          <td>(25 × 2) + 8</td>
+          <td><strong>58</strong></td>
+        </tr>
+        <tr>
+          <td>12, 9, 8, 6, 4, 2, 0 <em>(Flip 7)</em></td>
+          <td>41 + 15</td>
+          <td><strong>56</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <h2>The Zero Card Is Better Than It Looks</h2>
+
+  <p>
+    There is exactly one 0 in the deck. It scores nothing, so new players groan
+    when they get it — but it is a free step toward Flip 7 that can never be
+    duplicated, because no second 0 exists. If you're chasing the bonus, the 0 is
+    one of the best cards you can be dealt.
+  </p>
+
+  <InfoBox type="rule" title="What counts toward the seven">
+    Only number cards. Modifiers and action cards sit in your row and score (or
+    act) normally, but they never bring you closer to Flip 7. A player showing
+    nine cards might only have five numbers.
+  </InfoBox>
+
+  <h2>Busting</h2>
+
+  <p>
+    A bust wipes the round. Not your running total — just the cards in front of
+    you. You score <strong>0</strong> for that round and everything you'd
+    collected, modifiers included, goes to the discard pile. The +10 you were
+    sitting on doesn't survive the bust.
+  </p>
+
+  <p>
+    This is why a Second Chance is worth more than any modifier: it protects the
+    entire round, not a fixed number of points.
+  </p>
+
+  <h2>Winning the Game</h2>
+
+  <p>
+    Play continues until someone hits <strong>200 points</strong> or more. You
+    always finish the current round — there's no stopping the instant a player
+    crosses the line — and then the highest cumulative total wins. If two players
+    tie on 200 or more, the higher score takes it.
+  </p>
+
+  <InfoBox type="tip" title="Score every round out loud">
+    Because a bust means zero, running scores swing violently and it's easy to
+    lose track of who's actually threatening 200. Read the totals aloud at the
+    end of each round — it also tells the table who needs to gamble, which makes
+    the next round far more interesting.
+  </InfoBox>
+
+  <p>
+    Once the arithmetic is settled, the real question is when to stop taking
+    cards. That's covered in
+    <a href="/games/flip-7/flip-7-strategy-when-to-stay/">when to hit and when to stay</a>.
+  </p>
+</Article>

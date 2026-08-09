@@ -1,0 +1,144 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="Everdell Strategy for Beginners: Building a City That Scores"
+  description="Fifteen slots, and most new players waste six of them. Here's how to spend them well."
+  game="everdell"
+  gameTitle="Everdell"
+  category="Strategy"
+  product="everdell-forest-kit"
+  publishDate="2026-08-09"
+>
+  <p>
+    Your city holds fifteen cards. That's the entire game in one sentence — every
+    decision in Everdell is really a decision about which fifteen cards get a
+    slot, and in what order they arrive.
+  </p>
+
+  <KeyTakeaway answer="Build green production early, take free Critters wherever you can, and save purple scoring cards for Autumn. A slot spent on a card that does nothing is the most expensive mistake in the game." />
+
+  <h2>Think in Slots, Not Cards</h2>
+
+  <p>
+    A new player asks "can I afford this card?" An experienced player asks
+    "is this card worth one-fifteenth of my city?"
+  </p>
+
+  <p>
+    Those are very different questions. A cheap card you can afford right now is
+    often a worse buy than saving for something that either produces every season
+    or scores heavily at the end. Cheapness is not value when the real currency is
+    space.
+  </p>
+
+  <InfoBox type="rule" title="Fifteen is a hard ceiling">
+    You cannot exceed it, and you cannot remove cards to make room except through
+    specific card effects. Filling slots four through eight with weak Travelers is
+    how good openings turn into 45-point finishes.
+  </InfoBox>
+
+  <h2>The Shape of a Strong Game</h2>
+
+  <StepList title="Roughly how a good city gets built">
+    <Step number={1} title="Winter — build production" time="Slots 1–4">
+      Green Production cards, and any blue Governance card that discounts what
+      you're going to do a lot of. These cards look unimpressive and score little.
+      Build them anyway — they pay out every remaining season.
+    </Step>
+    <Step number={2} title="Spring — extend the engine" time="Slots 5–8">
+      More green, plus red Destinations to buy yourself extra actions. Start
+      looking for Construction–Critter pairs so you're getting two cards for one
+      cost.
+    </Step>
+    <Step number={3} title="Summer — convert to position" time="Slots 9–12">
+      Now the engine is running. Claim events, grab the expensive cards you
+      couldn't previously afford, and make sure you still have card draw available
+      for Autumn.
+    </Step>
+    <Step number={4} title="Autumn — buy points" time="Slots 13–15">
+      Purple Prosperity cards, the Journey, and any high-value card you can pay
+      for. Nothing you build here needs to produce anything — the game is ending.
+    </Step>
+  </StepList>
+
+  <h2>Free Critters Are the Whole Game</h2>
+
+  <p>
+    Many Constructions let you play a specific Critter for free. That is a genuine
+    two-for-one, and in a game defined by resource scarcity it's the most reliable
+    edge available.
+  </p>
+
+  <ul>
+    <li><strong>Scan the Meadow for pairs.</strong> If a Construction and its Critter are both available, that's usually your play.</li>
+    <li><strong>Build the Construction first.</strong> Obvious, but under pressure people play the Critter for full cost and only notice afterwards.</li>
+    <li><strong>Hold the Critter if you must.</strong> A Critter in hand waiting for its Construction is fine. A Critter you paid full price for while its Construction sat in the Meadow is a wasted turn.</li>
+  </ul>
+
+  <h2>Five Habits That Fix a Beginner's Score</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">HABIT</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Count your card draw</h4>
+      </div>
+      <p class="text-sm text-bark/60">Resources are useless without cards to spend them on. Beginners consistently arrive in Autumn rich and empty-handed. Treat card draw as a resource you must actively plan for.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">HABIT</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Pick your events early</h4>
+      </div>
+      <p class="text-sm text-bark/60">Events reward specific city compositions and only one player can claim each. Decide in Spring which one you're going for, then build toward it deliberately rather than hoping you qualify by accident.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">HABIT</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Don't play purple early</h4>
+      </div>
+      <p class="text-sm text-bark/60">A Prosperity card played in Spring does nothing for three seasons and occupies a slot your engine needed. It scores exactly the same if you play it on your final turn.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">HABIT</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Use other players' Destinations</h4>
+      </div>
+      <p class="text-sm text-bark/60">Open red cards in opponents' cities are real actions available to you, and beginners never look at them. Scan the whole table before deciding your worker has nowhere good to go.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">HABIT</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Advance when your workers stop earning</h4>
+      </div>
+      <p class="text-sm text-bark/60">Not when you feel behind. If your remaining worker placements are all mediocre, the season change is worth more — see <a href="/games/everdell/everdell-seasons-explained/">seasons and workers</a>.</p>
+    </div>
+  </div>
+
+  <InfoBox type="warning" title="The classic losing pattern">
+    Spend Winter and Spring taking resources from the forest, play a lot of
+    medium-value tan cards because they're affordable, arrive in Autumn with a
+    full city of unremarkable cards and no purple. It feels productive the whole
+    way through, and it scores badly. Production first.
+  </InfoBox>
+
+  <h2>What "Good" Looks Like</h2>
+
+  <p>
+    A strong Everdell city usually has a spine of four to six green production
+    cards built before Summer, one or two blue cards that quietly discount
+    everything, a couple of red Destinations bought as extra actions, at least one
+    claimed event, and two or three purple cards played at the very end.
+  </p>
+
+  <p>
+    If you build that, you're playing well — regardless of what the final number
+    says.
+  </p>
+</Article>

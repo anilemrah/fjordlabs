@@ -1,0 +1,190 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import QuickFact from "../../../components/QuickFact.astro";
+---
+
+<Article
+  title="How to Play Cascadia: Complete Rules for New Players"
+  description="Tile and token drafting, placement rules, and the two ways a turn can go wrong."
+  game="cascadia"
+  gameTitle="Cascadia"
+  category="Rules"
+  product="cascadia-pinecone-tokens"
+  publishDate="2026-08-09"
+>
+  <p>
+    Cascadia has one of the shortest rulebooks of any Spiel des Jahres winner.
+    You take a tile, you take an animal, you place both. That's the game. The
+    depth is entirely in <em>where</em>, and this guide covers everything you need
+    before your first play.
+  </p>
+
+  <KeyTakeaway answer="On your turn take one of four tile-and-token pairs, add the tile to your landscape, and place the animal on a matching slot. Score wildlife patterns, habitat corridors and leftover nature tokens at the end." />
+
+  <div class="my-8 flex flex-wrap gap-3">
+    <QuickFact label="Players" value="1–4" icon="👥" />
+    <QuickFact label="Time" value="30–45 min" icon="⏱️" />
+    <QuickFact label="Turns each" value="20" icon="🔁" />
+    <QuickFact label="Award" value="Spiel des Jahres 2022" icon="🏆" />
+  </div>
+
+  <h2>The Two Halves of the Game</h2>
+
+  <p>
+    Everything in Cascadia is either a <strong>habitat</strong> or a
+    <strong>wildlife</strong>. Keeping them straight in your head makes the rest
+    of the rules obvious.
+  </p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-3">🏔️ Five habitats (on tiles)</h4>
+      <ul class="text-sm text-bark/60 space-y-1">
+        <li>• Mountains</li>
+        <li>• Forests</li>
+        <li>• Prairies</li>
+        <li>• Wetlands</li>
+        <li>• Rivers</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-3">🐻 Five wildlife (tokens)</h4>
+      <ul class="text-sm text-bark/60 space-y-1">
+        <li>• Bear</li>
+        <li>• Elk</li>
+        <li>• Salmon</li>
+        <li>• Hawk</li>
+        <li>• Fox</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Setup</h2>
+
+  <StepList title="Getting to the first turn">
+    <Step number={1} title="Give everyone a starter">
+      Each player takes a three-tile starter arrangement and places it in front of
+      them. This is the seed of your landscape.
+    </Step>
+    <Step number={2} title="Draw one scoring card per animal">
+      There are several scoring card variants for each of the five animals. Draw
+      one for each — this combination defines how wildlife scores <em>this game</em>,
+      and it changes every session.
+    </Step>
+    <Step number={3} title="Build the display">
+      Lay out four habitat tiles in a row and draw four wildlife tokens from the
+      bag, pairing one token with each tile.
+    </Step>
+    <Step number={4} title="Nature tokens to one side">
+      Keep the pinecone-shaped nature tokens in a shared supply. You'll earn them
+      during play.
+    </Step>
+  </StepList>
+
+  <h2>Taking a Turn</h2>
+
+  <p>
+    Turns are fast and always the same shape.
+  </p>
+
+  <StepList title="Your turn, every turn">
+    <Step number={1} title="Choose a pair">
+      Take one of the four tile-and-token pairs from the display. You take
+      <strong>both</strong> — the tile and the animal paired with it.
+    </Step>
+    <Step number={2} title="Place the tile">
+      Add it to your landscape so it touches at least one tile you already have.
+      There is no grid to fill and no shape to respect — your landscape grows
+      organically.
+    </Step>
+    <Step number={3} title="Place the animal">
+      Every tile shows one to three wildlife symbols. Put your token on any empty
+      tile in your landscape whose symbols include that animal. It doesn't have to
+      be the tile you just placed.
+    </Step>
+    <Step number={4} title="Refill the display">
+      Draw a new tile and a new token to bring the display back to four pairs.
+    </Step>
+  </StepList>
+
+  <InfoBox type="rule" title="One token per tile, forever">
+    A tile can hold at most one wildlife token, and once placed a token never
+    moves. Every placement is permanent, which is why Cascadia rewards thinking
+    two turns ahead rather than five.
+  </InfoBox>
+
+  <InfoBox type="warning" title="If you can't place the animal, discard it">
+    Sometimes no tile in your landscape accepts the animal you drafted. That's
+    legal — you simply discard the token and keep the tile. It hurts, and avoiding
+    that situation is most of what good Cascadia play consists of.
+  </InfoBox>
+
+  <h2>Nature Tokens</h2>
+
+  <p>
+    Some tiles are <strong>keystone tiles</strong> — they show a single wildlife
+    symbol. Place the matching animal on one and you immediately earn a nature
+    token.
+  </p>
+
+  <p>Spend a nature token at any point on your turn to do one of two things:</p>
+
+  <ul>
+    <li><strong>Break the pairing.</strong> Take any tile from the display with any token from the display, in whatever combination you like.</li>
+    <li><strong>Cull the wildlife.</strong> Discard any number of tokens from the display and draw replacements.</li>
+  </ul>
+
+  <p>
+    Each unspent nature token is worth one point at the end, so every spend is a
+    real trade-off. <a href="/games/cascadia/cascadia-nature-tokens-guide/">When to spend them</a>
+    is one of the genuine skills of the game.
+  </p>
+
+  <InfoBox type="rule" title="Overpopulation">
+    If all four tokens in the display show the same animal, return them to the bag
+    and draw four new ones — nobody chooses, it just happens. If exactly three
+    match, any player may cull those three for free at the start of their turn
+    before drafting.
+  </InfoBox>
+
+  <h2>Ending the Game and Scoring</h2>
+
+  <p>
+    The game ends after each player has taken 20 turns. Then you score three
+    things:
+  </p>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[11px] font-bold rounded-full">WILDLIFE</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Score each animal by its card</h4>
+      </div>
+      <p class="text-sm text-bark/60">Every animal scores by the pattern on the card drawn during setup — pairs, lines, groups, or positions relative to other animals. This is usually the bigger half of your score. <a href="/games/cascadia/cascadia-scoring-cards-explained/">All five explained here</a>.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">HABITAT</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Largest corridor of each habitat</h4>
+      </div>
+      <p class="text-sm text-bark/60">For each of the five habitat types, count your biggest connected group of that terrain. You score points for its size, plus a bonus if yours is the largest at the table.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-sky-100 text-sky-700 text-[11px] font-bold rounded-full">NATURE</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">One point per unspent token</h4>
+      </div>
+      <p class="text-sm text-bark/60">Straightforward, and frequently the margin in a close game.</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The mistake every first-time player makes">
+    Chasing animals and ignoring terrain. Habitat corridors are quiet points that
+    accumulate without you noticing, and the largest-corridor bonuses swing games.
+    Place tiles for terrain continuity first, then find a home for the animal.
+  </InfoBox>
+</Article>

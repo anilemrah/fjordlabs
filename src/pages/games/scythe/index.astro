@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import GameBoxImage from "../../../components/GameBoxImage.astro";
 import ProductCard from "../../../components/ProductCard.astro";
 import ArticleCard from "../../../components/ArticleCard.astro";
 import { getProductsByGame } from "../../../data/products";
@@ -44,7 +45,7 @@ const articles = {
       </nav>
 
       <div class="flex flex-col sm:flex-row gap-6 items-start">
-        <img src={game.image} alt={game.title} class="w-32 h-32 rounded-2xl object-cover border border-bark/10 shrink-0" />
+        <GameBoxImage game={game} />
         <div>
           <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
             Scythe
@@ -84,6 +85,26 @@ const articles = {
           <ArticleCard title={a.title} description={a.description} href={a.href} category="Strategy" />
         ))}
       </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30 border-t border-bark/5">
+    <div class="max-w-4xl mx-auto text-center">
+      <span class="inline-block px-3 py-1 bg-clay/10 text-clay text-xs font-bold rounded-full uppercase tracking-wide mb-4">
+        New — July 2026
+      </span>
+      <h2 class="text-2xl font-heading font-bold text-bark mb-3">Scythe: Duel of Meloch</h2>
+      <p class="text-bark/50 mb-6 max-w-2xl mx-auto">
+        Stonemaier's 45-minute two-player duel — Scythe against Expeditions. It also contains
+        Constantinople, the first new Scythe faction in years, and Adventurous, the eighth player
+        mat. Both drop straight into your normal games.
+      </p>
+      <a
+        href="/games/duel-of-meloch/"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-clay text-white rounded-lg hover:bg-clay-dark transition-colors font-semibold text-sm"
+      >
+        <span>🗡️</span><span>Duel of Meloch guides &amp; insert</span>
+      </a>
     </div>
   </section>
 

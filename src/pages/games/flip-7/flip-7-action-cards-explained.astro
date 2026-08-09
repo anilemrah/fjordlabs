@@ -1,0 +1,160 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Flip 7 Action Cards: Freeze, Flip Three and Second Chance"
+  description="What each action card does, who you can target, and the edge cases that cause arguments."
+  game="flip-7"
+  gameTitle="Flip 7"
+  category="Rules"
+  publishDate="2026-08-09"
+>
+  <p>
+    Nine of the 94 cards in Flip 7 are action cards, and they're responsible for
+    roughly 100% of the rules arguments. The cards themselves are simple. The
+    targeting is where groups go wrong.
+  </p>
+
+  <KeyTakeaway answer="Action cards resolve immediately when dealt, must be given to a player still in the round, and can be aimed at yourself. They never count toward your seven numbers and never bust you." />
+
+  <h2>The Universal Rules</h2>
+
+  <p>
+    Three rules apply to all three action cards, and knowing them resolves most
+    disputes before they start:
+  </p>
+
+  <ul>
+    <li><strong>They resolve the moment they're dealt.</strong> You don't hold an action card to play later — it takes effect immediately.</li>
+    <li><strong>The target must still be in the round.</strong> You can't Freeze someone who already stayed or busted.</li>
+    <li><strong>You are a legal target.</strong> Nothing stops you giving a card to yourself, and sometimes that's the correct play.</li>
+  </ul>
+
+  <InfoBox type="rule" title="Action cards can't bust you">
+    Only a duplicate number card busts you. Being dealt a second Freeze in the
+    same round is fine — it's not a duplicate in the sense that matters.
+  </InfoBox>
+
+  <h2>Freeze</h2>
+
+  <p>
+    Give Freeze to any player still in the round. That player immediately
+    <strong>stays</strong>: they stop taking cards and bank whatever is in front
+    of them right now.
+  </p>
+
+  <p>
+    The tactical read is not "who is winning" — it's who is about to get greedy.
+    Freezing a player on 40 points is only good if they were about to push to 60.
+    Freezing the player sitting on six unique numbers, one card away from a
+    Flip 7, is the strongest use of the card in the game.
+  </p>
+
+  <InfoBox type="tip" title="Freezing yourself is not a joke play">
+    If you've built a strong row and you know the deck is thick with your
+    numbers, taking the Freeze yourself banks it safely. You were going to have
+    to stay eventually — this lets you do it and deny nothing to nobody.
+  </InfoBox>
+
+  <h2>Flip Three</h2>
+
+  <p>
+    The target immediately flips <strong>three cards, one at a time</strong>. They
+    have no choice in the matter and no decision to make between cards.
+  </p>
+
+  <ul>
+    <li>If they <strong>bust</strong> on the first or second card, it stops there. The remaining flips don't happen.</li>
+    <li>If they hit <strong>Flip 7</strong> partway through, the round ends immediately.</li>
+    <li>If an action card comes up during the three, it resolves as normal — then the remaining flips continue.</li>
+  </ul>
+
+  <p>
+    Flip Three is the aggressive card. Against a player with five or six unique
+    high numbers, three forced cards is close to a death sentence. Against a
+    player who just started their row, you may be handing them a Flip 7.
+  </p>
+
+  <InfoBox type="warning" title="Don't Flip Three the player with an empty row">
+    Early in a round, forcing three cards on someone is a gift, not an attack —
+    they can barely bust and you've fast-tracked them toward the bonus. Save it
+    for a player who is already deep.
+  </InfoBox>
+
+  <h2>Second Chance</h2>
+
+  <p>
+    Second Chance sits in front of you as insurance. The first time you would
+    bust, you discard the duplicate card <em>and</em> the Second Chance, and your
+    turn continues as if nothing happened.
+  </p>
+
+  <p>
+    The rule that catches people out: <strong>you can never hold two</strong>. If
+    you're dealt a Second Chance while you already have one, you must give the new
+    one to another player still in the round who doesn't have one. If every
+    remaining player already has one, discard it.
+  </p>
+
+  <ComparisonTable title="Second Chance edge cases">
+    <table>
+      <thead>
+        <tr>
+          <th>Situation</th>
+          <th>What happens</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>You're dealt one and have none</td>
+          <td>Keep it in front of you</td>
+        </tr>
+        <tr>
+          <td>You're dealt one and already have one</td>
+          <td>Give it to an active player without one</td>
+        </tr>
+        <tr>
+          <td>Everyone active already has one</td>
+          <td>Discard the new card</td>
+        </tr>
+        <tr>
+          <td>You stay while holding an unused one</td>
+          <td>It's discarded — it's worth no points</td>
+        </tr>
+        <tr>
+          <td>You bust while holding one</td>
+          <td>You don't bust; discard the duplicate and the Second Chance</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <h2>What If There's Nobody to Target?</h2>
+
+  <p>
+    If you're dealt an action card and you're the last player left in the round,
+    you have to take it yourself. There's no option to discard it because the
+    targeting is inconvenient — the card must resolve, and you're the only legal
+    target.
+  </p>
+
+  <p>
+    This produces the game's cruellest moment: you're alone with a beautiful row
+    of six numbers, you'd love to stay, and the dealer hands you a Flip Three.
+  </p>
+
+  <InfoBox type="rule" title="Action cards and the seven">
+    Worth repeating because it decides real games: <strong>action cards and
+    modifiers do not count toward Flip 7</strong>. Only number cards do. Count
+    numbers, not cards, when you're working out how close someone is.
+  </InfoBox>
+
+  <p>
+    More disputed cases are answered in
+    <a href="/games/flip-7/flip-7-rules-questions/">the Flip 7 rules FAQ</a>.
+  </p>
+</Article>

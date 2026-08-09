@@ -1,0 +1,163 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Everdell Seasons and Workers: How the Game Actually Progresses"
+  description="Why preparing for the next season is the most important decision you make each round."
+  game="everdell"
+  gameTitle="Everdell"
+  category="Rules"
+  publishDate="2026-08-09"
+>
+  <p>
+    Everdell has no rounds. Nobody says "end of turn three". Each player moves
+    through the four seasons at their own pace, and choosing <em>when</em> to move
+    is the decision that separates a good Everdell player from a new one.
+  </p>
+
+  <KeyTakeaway answer="Preparing for a season retrieves all your workers, gives you more of them, and triggers season benefits. You choose when — and going too early wastes actions while going too late wastes the season." />
+
+  <h2>How Progression Works</h2>
+
+  <p>
+    You begin in Winter with a small crew of workers. Whenever you like, you may
+    spend your turn to <strong>prepare for the next season</strong>. That single
+    action does three things at once:
+  </p>
+
+  <ul>
+    <li>Every worker you have placed comes back to you</li>
+    <li>You gain additional workers</li>
+    <li>You take the incoming season's benefit</li>
+  </ul>
+
+  <p>
+    Because preparing is itself a turn, timing it is a genuine cost. And because
+    players advance independently, you can be deep into Summer while an opponent
+    is still in Spring.
+  </p>
+
+  <ComparisonTable title="What each season gives you">
+    <table>
+      <thead>
+        <tr>
+          <th>Season</th>
+          <th>Workers</th>
+          <th>Benefit on arrival</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>❄️ Winter</td>
+          <td>Fewest — you start here</td>
+          <td>None; this is the starting state</td>
+        </tr>
+        <tr>
+          <td>🌱 Spring</td>
+          <td>+1</td>
+          <td>All Production (green) cards in your city activate</td>
+        </tr>
+        <tr>
+          <td>☀️ Summer</td>
+          <td>+1</td>
+          <td>Draw cards from the Meadow into your hand</td>
+        </tr>
+        <tr>
+          <td>🍂 Autumn</td>
+          <td>+2</td>
+          <td>All Production cards activate again</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <InfoBox type="rule" title="Production fires on arrival, not on departure">
+    Green cards activate when you <em>enter</em> Spring and Autumn. A green card
+    played after you've already arrived in Autumn will never produce again — it
+    scores its printed points and nothing more.
+  </InfoBox>
+
+  <h2>The Timing Problem</h2>
+
+  <p>
+    Winter is deliberately uncomfortable. You have few workers, few resources and
+    a hand of cards you mostly can't afford. The temptation is to escape it
+    immediately.
+  </p>
+
+  <p>
+    Resist that, but not for too long. The tension is exact:
+  </p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-amber-50 rounded-xl border border-amber-200">
+      <h4 class="font-heading font-semibold text-sm text-amber-800 mb-3">⏩ Advancing too early</h4>
+      <ul class="text-sm text-amber-700/70 space-y-2">
+        <li>• Your green cards aren't built yet, so the Spring payout is tiny</li>
+        <li>• You waste the season benefit you just paid a turn for</li>
+        <li>• You arrive in the next season with nothing to spend</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-red-50 rounded-xl border border-red-200">
+      <h4 class="font-heading font-semibold text-sm text-red-800 mb-3">⏪ Advancing too late</h4>
+      <ul class="text-sm text-red-700/70 space-y-2">
+        <li>• You're grinding out turns with too few workers</li>
+        <li>• Opponents with more workers claim the events and best locations</li>
+        <li>• You run out of game before your city is full</li>
+      </ul>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The practical rule">
+    Advance when your placed workers have stopped producing anything exciting
+    <em>and</em> you have at least a couple of green Production cards down. Sitting
+    in Winter with no green cards built is the worst of both worlds.
+  </InfoBox>
+
+  <h2>Why Autumn Is Different</h2>
+
+  <p>
+    Autumn is the last season. There's nothing after it, so when your workers run
+    out and you choose to stop, you are finished — permanently — while other
+    players may still be taking turns.
+  </p>
+
+  <p>
+    That changes how you play it. In Winter through Summer you're building an
+    engine; in Autumn you're spending it. Autumn is where purple Prosperity cards
+    belong, where the Journey becomes available, and where you should be
+    converting resources into points rather than into more production.
+  </p>
+
+  <InfoBox type="warning" title="Don't get stranded in Autumn">
+    Arriving in Autumn with a huge pile of resources and only two cards left in
+    hand is a common and painful way to lose. Card draw is the resource people
+    forget to plan for — make sure you can still <em>find</em> cards to play with
+    everything you've saved up.
+  </InfoBox>
+
+  <h2>Racing vs Building</h2>
+
+  <p>
+    Because players advance independently, two viable approaches exist:
+  </p>
+
+  <ul>
+    <li><strong>Rush.</strong> Advance quickly, get more workers than anyone else early, and use raw action count to grab events and locations before they're gone. Effective, but your production stays weak.</li>
+    <li><strong>Build.</strong> Linger in each season, maximise green production, and arrive in Autumn with enough resources to buy an expensive, high-scoring finish. Stronger ceiling, but you'll watch opponents take things you wanted.</li>
+  </ul>
+
+  <p>
+    Neither is strictly better. What loses is doing half of each — lingering
+    without building production, or rushing without a plan for the extra actions.
+  </p>
+
+  <p>
+    For what to fill those fifteen city slots with, see
+    <a href="/games/everdell/everdell-card-types-explained/">the five card types explained</a>.
+  </p>
+</Article>

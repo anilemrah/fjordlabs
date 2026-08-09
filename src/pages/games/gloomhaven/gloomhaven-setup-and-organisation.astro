@@ -1,0 +1,149 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="Gloomhaven Setup and Organisation: Taming the Box"
+  description="Setup time is the number one reason campaigns stall. Here's how to cut it down."
+  game="gloomhaven"
+  gameTitle="Gloomhaven"
+  category="Guide"
+  product="card-holder"
+  publishDate="2026-08-09"
+>
+  <p>
+    More Gloomhaven campaigns die of setup friction than of anything else. Nobody
+    decides to stop playing — they just quietly stop suggesting it, because
+    getting the game to the table is a chore. Fixing that is the highest-value
+    hour you will ever spend on this box.
+  </p>
+
+  <KeyTakeaway answer="Sort the box once, properly, by what you reach for during setup — monsters, tiles, tokens, character decks. A well-organised box turns a 25-minute setup into 10, every session for the rest of the campaign." />
+
+  <h2>Why the Stock Box Fights You</h2>
+
+  <p>
+    Gloomhaven ships with an enormous quantity of cardboard and a tray that was
+    designed for shipping rather than for playing. Out of the box you get:
+  </p>
+
+  <ul>
+    <li>Hundreds of map tiles that need to be found by code, mid-setup</li>
+    <li>Dozens of monster types, each with standees, stat cards and an ability deck</li>
+    <li>Piles of small tokens — doors, traps, treasure, obstacles, coins</li>
+    <li>A separate ability card deck for every character class, most still sealed</li>
+    <li>Attack modifier decks, item cards, personal quests, battle goals</li>
+  </ul>
+
+  <p>
+    None of it is difficult. It's just a lot, and every unsorted category is a
+    small search problem you solve again every single session.
+  </p>
+
+  <InfoBox type="warning" title="The trap of sorting by type">
+    The instinct is to sort everything into tidy categories — all tokens together,
+    all cards together. Don't. Sort by <strong>what you grab at the same
+    moment</strong>. Everything for one monster type should live together, because
+    that's how setup actually works.
+  </InfoBox>
+
+  <h2>The Organisation That Actually Helps</h2>
+
+  <StepList title="One evening, done forever">
+    <Step number={1} title="One container per monster type" time="Biggest win">
+      Standees, bases, stat card and ability deck for each monster, together. When
+      the scenario says "Bandit Archers and Living Bones", you pick up two
+      containers and you're done.
+    </Step>
+    <Step number={2} title="Map tiles sorted by their printed code" time="Second biggest">
+      They're labelled for a reason. Sorted alphabetically by code, finding tiles
+      stops being a search and becomes a lookup.
+    </Step>
+    <Step number={3} title="Small tokens in shallow trays" time="Quality of life">
+      Doors, traps, treasure, obstacles and coins each need to be visible at a
+      glance. Deep containers are actively worse than shallow ones here — you want
+      to see everything without digging.
+    </Step>
+    <Step number={4} title="Character decks stay with their character" time="Essential">
+      Ability cards, attack modifier deck, personal quest and character sheet in
+      one place per class. Players grab their own and set themselves up in
+      parallel.
+    </Step>
+    <Step number={5} title="Keep the unopened classes sealed and separate" time="Don't spoil it">
+      Locked classes are one of Gloomhaven's real pleasures. Put them somewhere
+      you won't accidentally look at them while sorting.
+    </Step>
+  </StepList>
+
+  <h2>The Table Half of the Problem</h2>
+
+  <p>
+    Box organisation gets the game onto the table. What happens next is a
+    different problem — Gloomhaven sprawls, and a cluttered table slows play as
+    much as a cluttered box slows setup.
+  </p>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-clay/10 text-clay text-[11px] font-bold rounded-full">TABLE</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Give monster ability decks a home</h4>
+      </div>
+      <p class="text-sm text-bark/60">Several decks, each drawn from every round, all needing to be visible to everyone. Loose on the table they get knocked, mixed and mislaid. A holder that keeps each deck upright and readable removes a genuine recurring annoyance.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-clay/10 text-clay text-[11px] font-bold rounded-full">TABLE</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Keep damage and condition tokens central</h4>
+      </div>
+      <p class="text-sm text-bark/60">These get touched constantly. A shared tray in the middle of the table beats four players each hoarding a small pile in front of them.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-clay/10 text-clay text-[11px] font-bold rounded-full">TABLE</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Give every player their own zone</h4>
+      </div>
+      <p class="text-sm text-bark/60">Hand, discards, lost pile, attack modifier deck, items. Five distinct piles per player, and mixing up discards with lost cards is a mistake that changes outcomes.</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="The discard and lost piles matter more than they look">
+    Confusing them is the most common bookkeeping error in Gloomhaven, and it
+    directly affects when you exhaust. Physically separating them — different
+    spots, clearly spaced — is free and prevents a genuine class of mistake.
+  </InfoBox>
+
+  <h2>Cheap Habits That Save Real Time</h2>
+
+  <ul>
+    <li><strong>Pack away in setup order.</strong> If it goes back the way you take it out, the next session is faster automatically.</li>
+    <li><strong>Read the scenario before you build it.</strong> Two minutes of reading prevents ten minutes of rebuilding a room you laid out wrong.</li>
+    <li><strong>Parallelise.</strong> One person builds the map while others sort characters. Setup is easy to split and almost nobody splits it.</li>
+    <li><strong>Photograph the layout</strong> if you have to stop mid-scenario. Rebuilding from memory never goes well.</li>
+    <li><strong>Play two scenarios per sitting</strong> when you can. The second one costs almost no setup.</li>
+  </ul>
+
+  <h2>Is It Worth Buying an Insert?</h2>
+
+  <p>
+    For a campaign you intend to finish, yes — comfortably. Fifteen minutes saved
+    per session across dozens of sessions is many hours, and more importantly it
+    lowers the activation energy for suggesting a game night at all.
+  </p>
+
+  <p>
+    If you're not sure you'll finish, sort into cheap containers first and see
+    whether the campaign sticks. The organisation principles above matter far more
+    than what you store things in — a well-thought-out set of sandwich bags beats
+    a beautiful insert organised badly.
+  </p>
+
+  <p>
+    For realistic numbers on where an evening goes, see
+    <a href="/games/gloomhaven/how-long-does-gloomhaven-take/">how long Gloomhaven actually takes</a>.
+  </p>
+</Article>

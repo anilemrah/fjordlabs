@@ -1,0 +1,186 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import QuickFact from "../../../components/QuickFact.astro";
+---
+
+<Article
+  title="How to Play Everdell: Complete Rules for New Players"
+  description="The three actions, the four seasons, and the fifteen-card city limit that shapes everything."
+  game="everdell"
+  gameTitle="Everdell"
+  category="Rules"
+  product="everdell-open-signs"
+  publishDate="2026-08-09"
+>
+  <p>
+    Everdell looks intimidating on the table — there's a three-dimensional tree,
+    a board covered in locations, and a hand of cards with five different colours.
+    The actual rules are simpler than the components suggest. On your turn you do
+    exactly one of three things.
+  </p>
+
+  <KeyTakeaway answer="Place a worker, play a card into your city, or prepare for the next season. Build the highest-scoring fifteen-card city by the end of Autumn and you win." />
+
+  <div class="my-8 flex flex-wrap gap-3">
+    <QuickFact label="Players" value="1–4" icon="👥" />
+    <QuickFact label="Time" value="40–80 min" icon="⏱️" />
+    <QuickFact label="City limit" value="15 cards" icon="🏘️" />
+    <QuickFact label="Seasons" value="4" icon="🍂" />
+  </div>
+
+  <h2>The Four Resources</h2>
+
+  <p>
+    Everything in Everdell is bought with some combination of four resources, plus
+    cards themselves as a kind of fifth currency.
+  </p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-3">🪵 The materials</h4>
+      <ul class="text-sm text-bark/60 space-y-1">
+        <li>• <strong>Twigs</strong> — the common building material</li>
+        <li>• <strong>Resin</strong> — mid-tier, sticky and useful</li>
+        <li>• <strong>Pebbles</strong> — the scarcest and most valuable</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-3">🫐 The rest</h4>
+      <ul class="text-sm text-bark/60 space-y-1">
+        <li>• <strong>Berries</strong> — what critters eat</li>
+        <li>• <strong>Cards</strong> — your options, always in short supply</li>
+        <li>• <strong>Points</strong> — tokens gained from various effects</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Your Three Possible Actions</h2>
+
+  <StepList title="On your turn, do exactly one">
+    <Step number={1} title="Place a worker">
+      Put one of your workers on an open location — a forest space, a basic
+      location on the board, a Journey space, or another player's open Destination
+      card — and take what it offers. Most spaces hold only one worker.
+    </Step>
+    <Step number={2} title="Play a card into your city">
+      Pay its cost in resources and add it to your city. Your city holds a maximum
+      of <strong>fifteen cards</strong>, and that limit is the central constraint
+      of the whole game.
+    </Step>
+    <Step number={3} title="Prepare for the next season">
+      Retrieve every worker you've placed, advance to the next season, and take
+      that season's benefit. You choose when to do this — and it's the most
+      important decision in Everdell.
+    </Step>
+  </StepList>
+
+  <InfoBox type="rule" title="You play from your hand or the Meadow">
+    Eight cards sit face-up in the Meadow, shared by everyone. You may play a card
+    from your hand or straight out of the Meadow, which means a card you want can
+    be taken by the player before you.
+  </InfoBox>
+
+  <h2>Constructions and Critters</h2>
+
+  <p>
+    Every card is either a <strong>Construction</strong> (a building) or a
+    <strong>Critter</strong> (an animal). Many Constructions name a specific
+    Critter, and building that Construction lets you play that Critter later for
+    <strong>free</strong>, ignoring its cost entirely.
+  </p>
+
+  <p>
+    This is the core engine of Everdell. A Farm lets you play a Husband or Wife
+    for nothing; a Ruins lets you discard a Construction and get a card back.
+    Spotting these pairs in the Meadow is most of what strong play looks like.
+  </p>
+
+  <InfoBox type="tip" title="Occupied is not a bad thing">
+    When a Critter is played free via its Construction, the Construction is marked
+    as occupied and can't be used again for that purpose. That's fine — you've
+    already had the discount. It still scores and still counts toward your fifteen.
+  </InfoBox>
+
+  <h2>The Seasons</h2>
+
+  <p>
+    The game runs Winter → Spring → Summer → Autumn. You start in Winter with two
+    workers and gain more as you advance.
+  </p>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-sky-100 text-sky-700 text-[11px] font-bold rounded-full">WINTER</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Two workers, and not much else</h4>
+      </div>
+      <p class="text-sm text-bark/60">A short, tight season. You have very few actions, so use them to set up rather than to score.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">SPRING</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">An extra worker, and your green cards activate</h4>
+      </div>
+      <p class="text-sm text-bark/60">Preparing for Spring triggers every Production card already in your city — so the more green you built in Winter, the bigger this payout.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[11px] font-bold rounded-full">SUMMER</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Another worker, and cards from the Meadow</h4>
+      </div>
+      <p class="text-sm text-bark/60">Summer hands you extra cards, easing the hand-size squeeze that defines the early game.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-orange-100 text-orange-700 text-[11px] font-bold rounded-full">AUTUMN</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">The big season — and the last one</h4>
+      </div>
+      <p class="text-sm text-bark/60">You gain more workers and your Production cards fire again. When your workers run out in Autumn, you're finished for good.</p>
+    </div>
+  </div>
+
+  <p>
+    The full breakdown of when to advance is in
+    <a href="/games/everdell/everdell-seasons-explained/">seasons and workers explained</a>.
+  </p>
+
+  <h2>Events and the Journey</h2>
+
+  <p>
+    Two side objectives round out the scoring. <strong>Events</strong> are claimed
+    by placing a worker once your city meets a requirement — usually owning a
+    certain number of cards of particular colours. <strong>Journey</strong> spaces,
+    available in Autumn, let you discard cards from your hand to score points.
+  </p>
+
+  <InfoBox type="warning" title="Events are first-come, first-served">
+    Only one player can claim each event. If you're building toward one, watch
+    whether anyone else is collecting the same colours — arriving second means
+    those points simply don't exist for you.
+  </InfoBox>
+
+  <h2>Ending the Game and Scoring</h2>
+
+  <p>
+    A player is done when they've used all their workers in Autumn and choose not
+    to continue. Once everyone is finished, score:
+  </p>
+
+  <ul>
+    <li><strong>Card values</strong> — the number printed on each card in your city</li>
+    <li><strong>Point tokens</strong> — gained from card effects during play</li>
+    <li><strong>Events</strong> — basic and special events you claimed</li>
+    <li><strong>Journey</strong> — points from Journey spaces</li>
+    <li><strong>Prosperity cards</strong> — purple cards that score based on your finished city</li>
+  </ul>
+
+  <InfoBox type="tip" title="For your first game">
+    Don't try to optimise. Build a lot of green Production cards early, prepare
+    for Spring reasonably quickly, and see what your city produces. Everdell's
+    engine only becomes visible once you've watched it fire once.
+  </InfoBox>
+</Article>

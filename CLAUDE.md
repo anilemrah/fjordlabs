@@ -42,14 +42,28 @@ A static Astro site (www.fjord-labs.com) that serves as an SEO content hub for F
 src/pages/
 ├── index.astro              # Homepage
 ├── about.astro              # About page
+├── products/               # Product index + [slug] detail pages
 └── games/
     ├── catan/               # 10 articles + hub
     ├── wingspan/            # 8 articles + hub
+    ├── wingspan-pocket/     # 2 articles + hub
     ├── wyrmspan/            # 3 articles + hub
     ├── scythe/              # 3 articles + hub
+    ├── duel-of-meloch/      # 5 articles + hub (standalone Scythe spin-off)
     ├── terraforming-mars/   # 3 articles + hub
-    └── carcassonne/         # 5 articles + hub (no products, content only)
+    ├── carcassonne/         # 5 articles + hub
+    ├── flip-7/              # 6 articles + hub
+    ├── cascadia/            # 5 articles + hub
+    ├── everdell/            # 5 articles + hub
+    ├── agricola/            # 4 articles + hub
+    └── gloomhaven/          # 6 articles + hub (no products, content only)
 ```
+
+Adding a game means: entry in `src/data/games.ts`, placeholder SVG in
+`public/images/games/`, a hub `index.astro`, the articles, and three nav links in
+`Base.astro` (desktop dropdown, mobile menu, footer). The homepage games grid
+iterates `games.ts` automatically — so a `games.ts` entry without a hub page
+produces a broken homepage link.
 
 ### Game Images
 Placeholder SVGs in `public/images/games/`. Need to be replaced with real box art photos.
@@ -61,17 +75,38 @@ Placeholder SVGs in `public/images/games/`. Need to be replaced with real box ar
 - "Geek" / gaming-themed feel (hex grid backgrounds, quest log, loot shop language)
 - Articles must be visually engaging — use InfoBox, StepList, KeyTakeaway, tables, cards. Never walls of text.
 
-## Current State (40 pages live)
+## Current State (140 pages live, 54 products)
 
 ### Games with products + articles
-- **Catan** — 10 articles, 2 products (Resource Tokens, Score Tracker)
-- **Wingspan** — 8 articles, 4 products (Food Tokens, First Player Token, Round End Tracker, Player Tray)
-- **Wyrmspan** — 3 articles, 1 product (Resource Token Set)
-- **Scythe** — 3 articles, 1 product (Resource Tokens)
-- **Terraforming Mars** — 3 articles, 1 product (Player Board)
+- **Catan** — 10 articles, 9 products
+- **Wingspan** — 8 articles, 9 products
+- **Wingspan Pocket** — 2 articles, 1 product
+- **Wyrmspan** — 3 articles, 1 product
+- **Scythe** — 3 articles, 2 products. Hub cross-links to Duel of Meloch.
+- **Duel of Meloch** — 5 articles, 1 product (Insert). Standalone Stonemaier
+  spin-off (July 2026), so it gets its own hub rather than living under Scythe —
+  same precedent as Wingspan Pocket. Facts about this game post-date most model
+  training data: source them from `products.ts` and the existing articles, don't
+  invent mechanics.
+- **Terraforming Mars** — 3 articles, 2 products
+- **Carcassonne** — 5 articles, 1 product
+- **Flip 7** — 6 articles, 1 product (Organizer Insert)
+- **Cascadia** — 5 articles, 2 products (Game Tray, Pinecone Tokens)
+- **Everdell** — 5 articles, 2 products (Open Signs, Forest Upgrade Kit)
+- **Agricola** — 4 articles, 3 products (Resource Bundle, Rice & Reed, Pumpkins)
 
 ### Games with articles only (no products)
-- **Carcassonne** — 5 articles
+- **Gloomhaven** — 6 beginner-facing articles. Deliberately scoped to newcomer
+  questions (Gloomhaven vs Jaws of the Lion, how the system works, time
+  commitment, solo play, box organisation) — we do NOT compete on strategy or
+  build guides, where BGG/Reddit/wikis own the results and thin content would
+  hurt credibility with a discerning audience. The hub surfaces universal
+  organiser products instead of game-specific ones.
+
+### Product/content gap check
+Every `game` slug used in `products.ts` should have a matching hub, or those
+products have no landing page. Products under `game: "other"` are universal by
+design and live only on the products pages.
 
 ## What's Next
 - [ ] More articles — target the most-searched board game questions for each game

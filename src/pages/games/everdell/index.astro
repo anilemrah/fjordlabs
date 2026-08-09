@@ -6,51 +6,61 @@ import ArticleCard from "../../../components/ArticleCard.astro";
 import { getProductsByGame } from "../../../data/products";
 import { getGame } from "../../../data/games";
 
-const game = getGame("wyrmspan")!;
-const wyrmspanProducts = getProductsByGame("wyrmspan");
+const game = getGame("everdell")!;
+const everdellProducts = getProductsByGame("everdell");
 
 const articles = {
   rules: [
     {
-      title: "Wyrmspan vs Wingspan: Key Rule Differences Explained",
-      description: "Coming from Wingspan? Here's everything that works differently in Wyrmspan.",
-      href: "/games/wyrmspan/wyrmspan-vs-wingspan-rules/",
+      title: "How to Play Everdell: Complete Rules for New Players",
+      description: "The three actions, the four seasons, and the fifteen-card city limit that shapes everything.",
+      href: "/games/everdell/how-to-play-everdell/",
+    },
+    {
+      title: "Everdell Card Types Explained: All Five Colours",
+      description: "Travelers, Production, Destination, Governance and Prosperity — what each colour is actually for.",
+      href: "/games/everdell/everdell-card-types-explained/",
+    },
+    {
+      title: "Everdell Seasons and Workers: How the Game Actually Progresses",
+      description: "Why preparing for the next season is the most important decision you make each round.",
+      href: "/games/everdell/everdell-seasons-explained/",
     },
   ],
   strategy: [
     {
-      title: "Wyrmspan Cave Strategy: How to Build an Efficient Dragon Engine",
-      description: "Maximize your cave layout and chain dragon abilities for big combos.",
-      href: "/games/wyrmspan/cave-strategy-guide/",
+      title: "Everdell Strategy for Beginners: Building a City That Scores",
+      description: "Fifteen slots, and most new players waste six of them. Here's how to spend them well.",
+      href: "/games/everdell/everdell-beginner-strategy/",
     },
   ],
   guides: [
     {
-      title: "Is Wyrmspan Worth It? An Honest Review for Wingspan Fans",
-      description: "If you love Wingspan, should you buy Wyrmspan? We break down the differences.",
-      href: "/games/wyrmspan/is-wyrmspan-worth-it/",
+      title: "Is Everdell Worth It? An Honest Review",
+      description: "Gorgeous production, a giant cardboard tree, and a real game underneath. Is it for you?",
+      href: "/games/everdell/is-everdell-worth-it/",
     },
   ],
 };
 ---
 
 <Base
-  title="Wyrmspan — Rules, Strategy & Accessories | Fjord Labs"
-  description="Everything you need for Wyrmspan: rules clarifications, dragon-engine strategies, and premium 3D-printed resource tokens."
+  title="Everdell — Rules, Card Types, Strategy & Accessories | Fjord Labs"
+  description="Everything you need for Everdell: complete rules, all five card types explained, season progression, beginner strategy, and 3D-printed upgrades."
 >
   <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
     <div class="max-w-4xl mx-auto">
       <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
         <a href="/" class="hover:text-clay transition-colors">Home</a>
         <span>/</span>
-        <span class="text-bark/60">Wyrmspan</span>
+        <span class="text-bark/60">Everdell</span>
       </nav>
 
       <div class="flex flex-col sm:flex-row gap-6 items-start">
         <GameBoxImage game={game} />
         <div>
           <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
-            Wyrmspan
+            Everdell
           </h1>
           <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
             {game.heroDescription}
@@ -69,7 +79,7 @@ const articles = {
   <section class="py-14 px-6">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl font-heading font-bold text-bark mb-2">Rules Clarifications</h2>
-      <p class="text-bark/40 mb-8">Wyrmspan rules that differ from Wingspan and common confusion points.</p>
+      <p class="text-bark/40 mb-8">Everdell teaches easily but has a lot of small rules. These are the ones people ask about.</p>
       <div class="grid md:grid-cols-2 gap-6">
         {articles.rules.map((a) => (
           <ArticleCard title={a.title} description={a.description} href={a.href} category="Rules" />
@@ -81,7 +91,7 @@ const articles = {
   <section class="py-14 px-6 bg-sand/30">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl font-heading font-bold text-bark mb-2">Strategy</h2>
-      <p class="text-bark/40 mb-8">Master the dragon caves.</p>
+      <p class="text-bark/40 mb-8">Making fifteen card slots count.</p>
       <div class="grid md:grid-cols-2 gap-6">
         {articles.strategy.map((a) => (
           <ArticleCard title={a.title} description={a.description} href={a.href} category="Strategy" />
@@ -93,7 +103,7 @@ const articles = {
   <section class="py-14 px-6">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl font-heading font-bold text-bark mb-2">Guides & Reviews</h2>
-      <p class="text-bark/40 mb-8">Is Wyrmspan for you? Buying advice and honest takes.</p>
+      <p class="text-bark/40 mb-8">Buying advice and honest takes.</p>
       <div class="grid md:grid-cols-2 gap-6">
         {articles.guides.map((a) => (
           <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
@@ -102,13 +112,13 @@ const articles = {
     </div>
   </section>
 
-  {wyrmspanProducts.length > 0 && (
+  {everdellProducts.length > 0 && (
     <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Wyrmspan Accessories</h2>
-        <p class="text-bark/40 mb-8">Premium 3D-printed resource tokens for your dragon adventures.</p>
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Everdell Accessories</h2>
+        <p class="text-bark/40 mb-8">Upgrades for a game that already looks this good on the table.</p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {wyrmspanProducts.map((product) => <ProductCard product={product} />)}
+          {everdellProducts.map((product) => <ProductCard product={product} />)}
         </div>
       </div>
     </section>

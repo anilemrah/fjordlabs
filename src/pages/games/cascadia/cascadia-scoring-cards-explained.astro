@@ -1,0 +1,180 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Cascadia Scoring Cards Explained: All Five Animals"
+  description="Bear pairs, elk lines, salmon runs, hawk sight lines and fox neighbours — and which card sets are hardest."
+  game="cascadia"
+  gameTitle="Cascadia"
+  category="Rules"
+  publishDate="2026-08-09"
+>
+  <p>
+    Cascadia draws one scoring card per animal at setup, and that combination is
+    the game. The same five animals reward completely different shapes depending
+    on which cards came out, which is why the box stays interesting for dozens of
+    plays. Here's what each animal is fundamentally about.
+  </p>
+
+  <KeyTakeaway answer="Each animal has a fixed theme — bears want groups, elk want lines, salmon want runs, hawks want isolation, foxes want variety. The card variant only changes the specific sizes and point values." />
+
+  <InfoBox type="rule" title="Read the actual cards before you draft">
+    Point values differ between variants, sometimes dramatically. The themes below
+    hold for every version of each animal, but always check the card in front of
+    you for the exact numbers — spending your first two turns studying them is
+    never wasted.
+  </InfoBox>
+
+  <h2>🐻 Bear — Groups</h2>
+
+  <p>
+    Bears score for forming <strong>groups of a specific size</strong>, and most
+    variants want <strong>pairs</strong>: exactly two bears touching each other,
+    with no third bear attached.
+  </p>
+
+  <p>
+    The trap is obvious once you've been burned by it — adding a third bear to a
+    scoring pair can destroy the pair entirely rather than improve it. Bears are
+    the animal where you most need to stop placing.
+  </p>
+
+  <ul>
+    <li><strong>Plan for exact sizes.</strong> Leave deliberate gaps so pairs can't accidentally merge.</li>
+    <li><strong>Most variants cap out.</strong> There's usually a maximum number of scoring groups, plus a bonus for reaching it.</li>
+    <li><strong>Bears are low-volume, high-value.</strong> A handful of correct groups outscores a dozen sloppy ones.</li>
+  </ul>
+
+  <h2>🦌 Elk — Lines and Formations</h2>
+
+  <p>
+    Elk want to be arranged in <strong>shapes</strong> — usually straight lines of
+    increasing length, with longer lines worth disproportionately more. Some
+    variants reward other formations instead of pure lines.
+  </p>
+
+  <p>
+    Elk are the most spatially demanding animal in the game. A line of four is
+    worth far more than two lines of two, so elk placements have to be planned
+    several turns out, and a single tile taken by an opponent can ruin the plan.
+  </p>
+
+  <InfoBox type="warning" title="Don't start an elk line you can't finish">
+    Long lines need a straight run of tiles you don't yet own. If the display
+    isn't cooperating by the time you're two elk in, take the points for the
+    shorter line and move on rather than holding out for a fourth.
+  </InfoBox>
+
+  <h2>🐟 Salmon — Runs</h2>
+
+  <p>
+    Salmon score for <strong>runs</strong>: chains of adjacent salmon, longer is
+    better. The defining restriction is that a salmon in a run may not have too
+    many salmon neighbours — the chain has to stay a chain, not become a blob.
+  </p>
+
+  <p>
+    In practice that means salmon need room to snake across your landscape. If
+    you clump them, the run breaks and the whole chain can score nothing.
+  </p>
+
+  <h2>🦅 Hawk — Isolation</h2>
+
+  <p>
+    Hawks are the opposite of every other animal: they want to be
+    <strong>alone</strong>. A hawk generally scores only if it has no other hawk
+    adjacent to it. Some variants add line-of-sight scoring, where two isolated
+    hawks looking at each other across a straight line of tiles earn extra.
+  </p>
+
+  <p>
+    Hawks are the friendliest animal for beginners because they need no
+    long-term shape — just space. They're also the easiest to over-collect: past
+    a certain point you run out of non-adjacent places to put them.
+  </p>
+
+  <h2>🦊 Fox — Variety</h2>
+
+  <p>
+    Foxes score based on the <strong>different animals adjacent to them</strong>.
+    A fox surrounded by a bear, an elk and a salmon is worth far more than one
+    surrounded by nothing.
+  </p>
+
+  <p>
+    Foxes are the great reconcilers of Cascadia. They reward the messy middle of
+    your landscape where several species meet, which means they pair beautifully
+    with an otherwise scattered board. Place them last, into whatever variety you
+    happened to create.
+  </p>
+
+  <ComparisonTable title="Quick reference: what each animal wants">
+    <table>
+      <thead>
+        <tr>
+          <th>Animal</th>
+          <th>Wants</th>
+          <th>Difficulty to plan</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🐻 Bear</td>
+          <td>Groups of an exact size, usually pairs</td>
+          <td>Medium — knowing when to stop</td>
+        </tr>
+        <tr>
+          <td>🦌 Elk</td>
+          <td>Lines and formations, longer is better</td>
+          <td><strong>Hardest</strong> — needs turns of setup</td>
+        </tr>
+        <tr>
+          <td>🐟 Salmon</td>
+          <td>Chains that don't clump</td>
+          <td>Hard — needs open space</td>
+        </tr>
+        <tr>
+          <td>🦅 Hawk</td>
+          <td>No adjacent hawks</td>
+          <td><strong>Easiest</strong> — just spread out</td>
+        </tr>
+        <tr>
+          <td>🦊 Fox</td>
+          <td>Varied animal neighbours</td>
+          <td>Easy — place late, opportunistically</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <h2>Which Card Sets Are Hardest?</h2>
+
+  <p>
+    The difficulty of a game comes from how many animals demand
+    <em>long-term spatial commitment</em> at once. If the elk and salmon cards
+    both want long formations, you're in for a tight, punishing game where
+    picking one to abandon early is usually correct.
+  </p>
+
+  <p>
+    Conversely, a setup where hawks and foxes carry big point values is a
+    forgiving, flowing game — both reward reacting to what you're given rather
+    than planning.
+  </p>
+
+  <InfoBox type="tip" title="How to choose what to chase">
+    You cannot maximise all five. Pick two animals to genuinely commit to — ideally
+    one that needs space (elk or salmon) and one that's opportunistic (fox or
+    hawk) — and treat the other three as bonus points. Trying to score everything
+    is the single most reliable way to lose at Cascadia.
+  </InfoBox>
+
+  <p>
+    For how the animals interact with the terrain half of the scoresheet, see
+    <a href="/games/cascadia/cascadia-beginner-strategy/">habitat corridors vs wildlife</a>.
+  </p>
+</Article>

@@ -1,0 +1,146 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import QuickFact from "../../../components/QuickFact.astro";
+---
+
+<Article
+  title="What Is Scythe: Duel of Meloch? The 2026 Release Explained"
+  description="Stonemaier's two-player duel between Scythe and Expeditions — how it works and what's in it."
+  game="duel-of-meloch"
+  gameTitle="Duel of Meloch"
+  category="Guide"
+  product="scythe-duel-of-meloch-insert"
+  publishDate="2026-08-09"
+>
+  <p>
+    Stonemaier Games released <strong>Scythe: Duel of Meloch</strong> in July 2026,
+    and it's an unusual thing: a standalone two-player game that puts Scythe on one
+    side of the table and Expeditions on the other. If you've been trying to work
+    out whether it's an expansion, a spin-off or a new game entirely, the answer is
+    closest to "all three".
+  </p>
+
+  <KeyTakeaway answer="A standalone ~45-minute duel where one player commands a Scythe faction and the other an Expeditions crew, racing to place four stars on a shared Triumph Track. It also contains a brand-new Scythe faction and the eighth player mat." />
+
+  <div class="my-8 flex flex-wrap gap-3">
+    <QuickFact label="Players" value="2" icon="👥" />
+    <QuickFact label="Time" value="~45 min" icon="⏱️" />
+    <QuickFact label="Released" value="July 2026" icon="📅" />
+    <QuickFact label="Standalone" value="Yes" icon="📦" />
+  </div>
+
+  <h2>Two Games, One Table</h2>
+
+  <p>
+    The central idea is asymmetry taken further than Scythe has gone before. It's
+    not two factions facing off — it's two <em>games</em> facing off.
+  </p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-2">⚙️ The Scythe side</h4>
+      <p class="text-sm text-bark/60">One player commands a Scythe faction with Scythe rules and components — mechs, workers, the familiar action-mat economy. Any faction works, including the new one in the box.</p>
+    </div>
+    <div class="p-5 bg-white rounded-xl border border-bark/10">
+      <h4 class="font-heading font-semibold text-sm text-bark mb-2">🧭 The Expeditions side</h4>
+      <p class="text-sm text-bark/60">The other player leads an Expeditions crew, playing by that game's logic instead. Same world, same era, entirely different toolkit.</p>
+    </div>
+  </div>
+
+  <p>
+    Both sides are chasing the same objective, which is what makes the asymmetry
+    work rather than just feel lopsided.
+  </p>
+
+  <h2>How a Game Plays Out</h2>
+
+  <StepList title="The shape of a duel">
+    <Step number={1} title="A compact map">
+      Play happens on a small double-sided board with just ten locations and two
+      lakes. After Scythe's sprawling map, the tightness is the point — there's
+      nowhere to hide and no long build-up before you're in contact.
+    </Step>
+    <Step number={2} title="Race the Triumph Track">
+      Both players are placing stars on a single shared Triumph Track. The first
+      to place <strong>four stars</strong> wins.
+    </Step>
+    <Step number={3} title="Every star helps your opponent">
+      Whenever you place a star, your opponent draws a <strong>Meloch card</strong>
+      and picks a reward from it. Pulling ahead actively arms the player behind
+      you.
+    </Step>
+    <Step number={4} title="Finish in about 45 minutes">
+      The short track and the catch-up pressure keep games tight and quick — a
+      fraction of a full game of Scythe.
+    </Step>
+  </StepList>
+
+  <InfoBox type="rule" title="The Meloch cards are the design's clever bit">
+    A four-star race could easily snowball, where the first player to score gets
+    the resources to score again. Handing your opponent a reward every time you
+    advance is a rubber band built into the win condition itself, and it's why
+    finishes stay close.
+  </InfoBox>
+
+  <h2>What Else Is in the Box</h2>
+
+  <p>
+    For existing Scythe owners, this is arguably the headline. Duel of Meloch
+    contains:
+  </p>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-purple-100 text-purple-700 text-[11px] font-bold rounded-full">NEW FACTION</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Constantinople</h4>
+      </div>
+      <p class="text-sm text-bark/60">The first brand-new Scythe faction in years. It plays in light gray — distinct from Polania's white — and does something no other faction does: it uses <strong>stars as a resource</strong>.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-purple-100 text-purple-700 text-[11px] font-bold rounded-full">NEW MAT</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Adventurous — the eighth player mat</h4>
+      </div>
+      <p class="text-sm text-bark/60">The last remaining configuration of top and bottom actions not found on the other seven mats. For a game where the faction/mat pairing matters more than the faction alone, an eighth mat meaningfully widens the combination space.</p>
+    </div>
+  </div>
+
+  <InfoBox type="tip" title="It works in both directions">
+    All your existing Scythe factions, player mats, encounter cards and factory
+    cards work inside Duel of Meloch — and Constantinople plus the Adventurous mat
+    drop straight into your normal 1–7 player games of Scythe. If you already own
+    Scythe, this box effectively doubles as a faction expansion. There's a
+    <a href="/games/duel-of-meloch/constantinople-faction-guide/">full guide to Constantinople here</a>.
+  </InfoBox>
+
+  <h2>Who Is It For?</h2>
+
+  <p>
+    Three groups, in rough order of how obvious the buy is:
+  </p>
+
+  <ul>
+    <li><strong>Scythe owners who mostly play two-player.</strong> Scythe at two is fine but never quite what it wants to be. A purpose-built duel at 45 minutes solves a real problem, and you get a faction and a mat out of it.</li>
+    <li><strong>Couples and pairs who want a weeknight game.</strong> The whole appeal is that it fits in an evening rather than consuming one.</li>
+    <li><strong>People new to the universe.</strong> It's standalone, so you can start here — though you'll be learning two asymmetric systems at once, which is a steeper first lesson than a normal game.</li>
+  </ul>
+
+  <p>
+    For how it feels next to the original, see
+    <a href="/games/duel-of-meloch/duel-of-meloch-vs-scythe/">Duel of Meloch vs Scythe</a>.
+    For the buying decision, see
+    <a href="/games/duel-of-meloch/is-duel-of-meloch-worth-it/">is it worth it</a>.
+  </p>
+
+  <InfoBox type="warning" title="It's new — treat rankings with caution">
+    Duel of Meloch has only been out since July 2026. Constantinople's real
+    strength in regular Scythe, and the Adventurous mat's place in the mat
+    hierarchy, will take the community months of play to settle. Anyone
+    confidently tier-listing either right now is guessing.
+  </InfoBox>
+</Article>

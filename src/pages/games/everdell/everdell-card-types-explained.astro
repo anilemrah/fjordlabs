@@ -1,0 +1,174 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Everdell Card Types Explained: All Five Colours"
+  description="Travelers, Production, Destination, Governance and Prosperity — what each colour is actually for."
+  game="everdell"
+  gameTitle="Everdell"
+  category="Rules"
+  product="everdell-open-signs"
+  publishDate="2026-08-09"
+>
+  <p>
+    Everdell's cards come in five colours, and the colour tells you
+    <em>when the card does its thing</em>. Once that clicks, reading a new card
+    takes a second rather than a minute — and building a balanced city stops being
+    guesswork.
+  </p>
+
+  <KeyTakeaway answer="Tan acts once when played, green acts every season, red is a location others can visit, blue acts when triggered by other cards, and purple only scores at the end." />
+
+  <ComparisonTable title="The five colours at a glance">
+    <table>
+      <thead>
+        <tr>
+          <th>Colour</th>
+          <th>Type</th>
+          <th>When it acts</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🟤 Tan</td>
+          <td>Traveler</td>
+          <td>Immediately, once, when played</td>
+        </tr>
+        <tr>
+          <td>🟢 Green</td>
+          <td>Production</td>
+          <td>When played, and every time you prepare for a season</td>
+        </tr>
+        <tr>
+          <td>🔴 Red</td>
+          <td>Destination</td>
+          <td>When a worker is placed on it</td>
+        </tr>
+        <tr>
+          <td>🔵 Blue</td>
+          <td>Governance</td>
+          <td>Whenever its trigger condition happens</td>
+        </tr>
+        <tr>
+          <td>🟣 Purple</td>
+          <td>Prosperity</td>
+          <td>Only at the very end, as scoring</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <h2>🟤 Travelers (Tan)</h2>
+
+  <p>
+    Tan cards fire once, the moment you play them, and then sit in your city doing
+    nothing but taking up one of your fifteen slots.
+  </p>
+
+  <p>
+    That sounds bad, and for weak Travelers it is. But the strong ones give you a
+    large one-off burst exactly when you need it — a pile of resources, a fistful
+    of cards — and in a game this tight, tempo has real value. Judge a Traveler by
+    whether its immediate effect is worth a permanent slot.
+  </p>
+
+  <h2>🟢 Production (Green)</h2>
+
+  <p>
+    Green cards produce resources when you play them, and again every time you
+    prepare for a new season. They are the engine of Everdell.
+  </p>
+
+  <p>
+    The timing is what matters: a green card played in Winter fires on entering
+    Spring, Summer <em>and</em> Autumn — three payouts. The identical card played
+    in Autumn fires once and never again.
+  </p>
+
+  <InfoBox type="rule" title="Green cards are worth more the earlier you play them">
+    This single fact drives Everdell's opening. Winter and early Spring should be
+    spent building production, even when the cards themselves score few points.
+    Points bought in Autumn come from resources your engine generated.
+  </InfoBox>
+
+  <h2>🔴 Destinations (Red)</h2>
+
+  <p>
+    Red cards create a worker space inside your own city. You can place a worker
+    there to get its benefit — and depending on the card,
+    <strong>other players may be able to visit it too</strong>.
+  </p>
+
+  <p>
+    Red cards are effectively extra actions, which is enormous in a game where
+    you only have a handful of workers. The catch is that a shared Destination
+    can be occupied by an opponent before you get to it, and open Destinations
+    are easy to lose track of across four cities.
+  </p>
+
+  <InfoBox type="warning" title="Check whether a Destination is open or closed">
+    Some red cards are yours alone; others are open to the whole table. Getting
+    this wrong is one of the most common Everdell rules errors, and it usually
+    isn't spotted until someone's worker is already sitting there.
+  </InfoBox>
+
+  <h2>🔵 Governance (Blue)</h2>
+
+  <p>
+    Blue cards do nothing on their own. Each one waits for a condition — you play
+    a Construction, you play a Critter, you gain a particular resource — and then
+    quietly gives you something.
+  </p>
+
+  <p>
+    Blue is the colour beginners underrate most. A blue card that discounts every
+    future Construction, in a city where you're going to play eight more
+    Constructions, is worth more than almost anything else you could put in that
+    slot. Blue cards get better the earlier they arrive and the more cards you
+    play after them.
+  </p>
+
+  <h2>🟣 Prosperity (Purple)</h2>
+
+  <p>
+    Purple cards do absolutely nothing during play. At the end of the game each
+    one scores based on what your finished city contains — how many of a certain
+    colour you built, how many Critters, and so on.
+  </p>
+
+  <p>
+    They're expensive, they're pure points, and they belong in Autumn. Playing a
+    purple card early costs you an engine slot for a whole game and gains you
+    nothing until the final count.
+  </p>
+
+  <InfoBox type="tip" title="The natural shape of a good city">
+    Green and blue early, red in the middle to buy extra actions, tan
+    opportunistically when the burst is worth the slot, purple last. If your
+    city is following roughly that arc, you're playing Everdell well.
+  </InfoBox>
+
+  <h2>Constructions vs Critters</h2>
+
+  <p>
+    Colour is only half the picture. Every card is also either a
+    <strong>Construction</strong> or a <strong>Critter</strong>, and many
+    Constructions let you play a specific named Critter for free.
+  </p>
+
+  <p>
+    Those pairs are where Everdell's value is concentrated. Playing a Farm and
+    then a free Husband is two cards for the price of one — and in a game where
+    resources are the binding constraint, "free" is the strongest word on any
+    card.
+  </p>
+
+  <p>
+    How to spend your fifteen slots across all this is covered in
+    <a href="/games/everdell/everdell-beginner-strategy/">building a city that scores</a>.
+  </p>
+</Article>

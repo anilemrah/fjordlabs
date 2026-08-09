@@ -1,0 +1,171 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+import QuickFact from "../../../components/QuickFact.astro";
+---
+
+<Article
+  title="Flip 7 Strategy: When to Hit and When to Stay"
+  description="The card counts are wildly uneven — here's how that changes every decision you make."
+  game="flip-7"
+  gameTitle="Flip 7"
+  category="Strategy"
+  publishDate="2026-08-09"
+>
+  <p>
+    Flip 7 feels like a coin flip, and for the first few plays it is. Then you
+    notice something: the deck is deliberately lopsided, and once you can see the
+    shape of it, "hit or stay" stops being a guess.
+  </p>
+
+  <KeyTakeaway answer="Your bust risk depends on which numbers you hold, not how many. A row of low cards is almost unbustable and should chase the bonus. A row of high cards should bank early." />
+
+  <h2>The Deck Is Not Uniform</h2>
+
+  <p>
+    Every number card appears as many times as its value. One 1. Two 2s. Ten 10s.
+    Twelve 12s. That single design decision drives the entire game.
+  </p>
+
+  <p>
+    It means the card that scores you the most is also the card most likely to
+    kill you later. Holding a 12 leaves eleven more 12s in the deck hunting you.
+    Holding a 1 leaves none.
+  </p>
+
+  <div class="my-8 flex flex-wrap gap-3">
+    <QuickFact label="Copies of 12" value="12" icon="💀" />
+    <QuickFact label="Copies of 1" value="1" icon="🛡️" />
+    <QuickFact label="Number cards total" value="79" icon="🃏" />
+  </div>
+
+  <h2>What Your Row Is Actually Worth</h2>
+
+  <p>
+    Here's the same row size at three different heights, with the chance that the
+    next number card busts you. "Live duplicates" means copies of your numbers
+    still unseen in the deck.
+  </p>
+
+  <ComparisonTable title="Bust risk on the next number card">
+    <table>
+      <thead>
+        <tr>
+          <th>Your row</th>
+          <th>Points</th>
+          <th>Live duplicates</th>
+          <th>Bust risk</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1, 2, 3</td>
+          <td>6</td>
+          <td>3</td>
+          <td><strong class="text-emerald-700">~4%</strong></td>
+        </tr>
+        <tr>
+          <td>5, 6, 7</td>
+          <td>18</td>
+          <td>15</td>
+          <td><strong class="text-amber-700">~20%</strong></td>
+        </tr>
+        <tr>
+          <td>10, 11, 12</td>
+          <td>33</td>
+          <td>30</td>
+          <td><strong class="text-red-700">~39%</strong></td>
+        </tr>
+        <tr>
+          <td>8, 9, 10, 11, 12</td>
+          <td>50</td>
+          <td>45</td>
+          <td><strong class="text-red-700">~61%</strong></td>
+        </tr>
+        <tr>
+          <td>0, 1, 2, 3, 4</td>
+          <td>10</td>
+          <td>6</td>
+          <td><strong class="text-emerald-700">~8%</strong></td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <InfoBox type="rule" title="Read the numbers, not the count">
+    Two players both showing five cards can be in completely different positions:
+    one at 8% risk, the other at 61%. Card count tells you nothing on its own.
+  </InfoBox>
+
+  <h2>The Two Game Plans</h2>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-emerald-50 rounded-xl border border-emerald-200">
+      <h4 class="font-heading font-semibold text-sm text-emerald-800 mb-3">🛡️ Low row → chase the bonus</h4>
+      <ul class="text-sm text-emerald-700/70 space-y-2">
+        <li>• Duplicates barely exist, so keep hitting</li>
+        <li>• The row is worth little without the +15</li>
+        <li>• A 0–6 Flip 7 scores 21 + 15 = <strong>36</strong></li>
+        <li>• You're the player who should take Flip Three volunteers</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-red-50 rounded-xl border border-red-200">
+      <h4 class="font-heading font-semibold text-sm text-red-800 mb-3">💰 High row → bank early</h4>
+      <ul class="text-sm text-red-700/70 space-y-2">
+        <li>• Three or four high cards is already a good round</li>
+        <li>• Every extra card is a coin flip for ~10 points</li>
+        <li>• Risking 40 banked points to win 11 is a bad trade</li>
+        <li>• Stay, and let the greedy players hand you the round</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>
+    The mistake most new players make is treating Flip 7 as one game. It's two.
+    The cards you're dealt in the first three flips decide which one you're
+    playing, and pushing a high row toward the bonus is how good rounds turn into
+    zeroes.
+  </p>
+
+  <h2>Modifiers Change the Maths</h2>
+
+  <p>
+    A +10 or a ×2 raises what you stand to lose without raising your bust risk at
+    all. If you're holding a ×2 on a decent row, your stay threshold should drop
+    sharply — you now have far more to protect.
+  </p>
+
+  <InfoBox type="warning" title="A bust takes the modifiers too">
+    Busting discards everything in front of you, including that +10 you were so
+    pleased about. Modifiers are a reason to stop, not a reason to push.
+  </InfoBox>
+
+  <h2>Playing the Table, Not the Cards</h2>
+
+  <p>
+    Because the game ends at 200 and only cumulative totals matter, correct play
+    changes with the score:
+  </p>
+
+  <ul>
+    <li><strong>You're comfortably ahead:</strong> stay early and often. Small banked rounds run out the clock while others bust.</li>
+    <li><strong>Someone is close to 200:</strong> safe play is now losing play. Push for a Flip 7, because a 25-point round doesn't matter any more.</li>
+    <li><strong>You're holding a Freeze:</strong> the target is whoever is deepest into a low row, not whoever has the most points. They're the one about to score 36.</li>
+    <li><strong>You're holding a Flip Three:</strong> use it on a deep high row. Against an empty row it's a gift.</li>
+  </ul>
+
+  <InfoBox type="tip" title="The single best habit to build">
+    Before you say "hit", name the numbers that would bust you and roughly how
+    many are left. It takes two seconds, it's the entire skill of the game, and
+    it turns Flip 7 from a luck game into a game you can be genuinely good at.
+  </InfoBox>
+
+  <p>
+    Percentages above count only number cards. In practice roughly one card in
+    six is a modifier or action card that can't bust you, so real-world risk per
+    card dealt is a little lower than the table shows — but the relative picture
+    is exactly right.
+  </p>
+</Article>

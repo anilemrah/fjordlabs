@@ -1,0 +1,172 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="Agricola Feeding Rules: How to Never Take a Begging Card"
+  description="Two food per family member, every harvest. Here's how to plan for it instead of panicking."
+  game="agricola"
+  gameTitle="Agricola"
+  category="Rules"
+  product="rice-reed-tokens"
+  publishDate="2026-08-09"
+>
+  <p>
+    Every Agricola player remembers their first begging card. You've built a
+    lovely farm, you've grown your family to four, the harvest arrives, and you
+    discover you have three food and need eight. That's −15 points and a game
+    that's effectively over.
+  </p>
+
+  <KeyTakeaway answer="Each harvest costs 2 food per adult and 1 per newborn. Work out your bill for the next harvest before you grow your family, not after — and build a cooking improvement early." />
+
+  <h2>The Bill</h2>
+
+  <p>
+    At every harvest's feeding phase you pay:
+  </p>
+
+  <ul>
+    <li><strong>2 food</strong> for each adult family member</li>
+    <li><strong>1 food</strong> for each family member born since the previous harvest</li>
+  </ul>
+
+  <p>
+    Miss any of it and you take one begging card per food short, each worth
+    <strong>−3 points</strong> at the end. There is no way to discard them.
+  </p>
+
+  <ComparisonTable title="What each harvest costs you">
+    <table>
+      <thead>
+        <tr>
+          <th>Family size</th>
+          <th>Food per harvest</th>
+          <th>Across 6 harvests</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>2 (starting)</td>
+          <td>4</td>
+          <td>24</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>6</td>
+          <td>36</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>8</td>
+          <td>48</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>10</td>
+          <td>60</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <InfoBox type="warning" title="Harvests are not evenly spaced">
+    The gaps between harvests shrink as the game goes on. Late in the game you can
+    face two harvests within a few rounds of each other, which is exactly when your
+    family is largest and your bill highest. Check the round track — the harvest
+    rounds are marked, and knowing when the next one lands is free information
+    most beginners never look at.
+  </InfoBox>
+
+  <h2>Raw Goods Are Not Food</h2>
+
+  <p>
+    This is the rule that ruins first games. Grain, vegetables, sheep, boar and
+    cattle are all worth points at the end, but none of them feed anybody until
+    you can <strong>convert</strong> them.
+  </p>
+
+  <p>
+    Conversion needs an improvement — a Fireplace, a Cooking Hearth, or something
+    similar. Without one, your only food sources are the handful of board actions
+    that give food directly, and those are contested by everyone.
+  </p>
+
+  <InfoBox type="rule" title="Build a cooking improvement early">
+    A Fireplace in the first few rounds is one of the strongest opening moves in
+    the game. It turns your animals and vegetables from decorative into edible and
+    removes the food problem for the rest of the game. Cooking Hearths convert at
+    better rates if you can get one.
+  </InfoBox>
+
+  <h2>Where Food Actually Comes From</h2>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">BEST</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Grain, baked</h4>
+      </div>
+      <p class="text-sm text-bark/60">Sow a field, harvest grain over several turns, bake it into food with an oven or hearth. Slow to set up, but it feeds you passively for the whole game — it's the closest thing Agricola has to an engine.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">GOOD</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Animals, cooked</h4>
+      </div>
+      <p class="text-sm text-bark/60">Sheep and boar breed on their own if you keep two of a type with space to grow. Eating the surplus while keeping the breeding pair is efficient — but every animal eaten is points lost at the end, so it's a genuine trade.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-amber-100 text-amber-700 text-[11px] font-bold rounded-full">EMERGENCY</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Day labourer and direct food spaces</h4>
+      </div>
+      <p class="text-sm text-bark/60">Reliable, always available, and a waste of a precious action. Using these once is fine. Building your whole food plan around them means you'll never develop your farm.</p>
+    </div>
+  </div>
+
+  <h2>The Rule That Prevents Every Disaster</h2>
+
+  <p>
+    Before you take the "grow your family" action, do this arithmetic:
+  </p>
+
+  <blockquote>
+    How many harvests are left? What will my family size be? Can I actually
+    generate that much food between now and then?
+  </blockquote>
+
+  <p>
+    Growing to four people two rounds before a harvest, with no cooking
+    improvement and no grain in the ground, is how good positions collapse. The
+    extra actions are worth a lot — but not −9 points.
+  </p>
+
+  <InfoBox type="tip" title="Grow early or don't grow at all">
+    A fifth family member added in round 12 gives you two or three extra actions
+    and costs you 2 food at every remaining harvest. Family growth is powerful
+    precisely because it compounds, and late growth doesn't compound. If you've
+    missed the window, spend those actions on points instead.
+  </InfoBox>
+
+  <h2>When a Begging Card Is Correct</h2>
+
+  <p>
+    Rarely, but it happens. If taking one begging card lets you complete a
+    pasture, fill your last farmyard space and secure several categories, −3 can
+    genuinely be the cheaper option.
+  </p>
+
+  <p>
+    The key is that it must be a decision, made in advance, with the maths done.
+    Nobody has ever accidentally stumbled into a good begging card.
+  </p>
+
+  <p>
+    For how the harvest fits into the round structure, see
+    <a href="/games/agricola/how-to-play-agricola/">the complete rules</a>.
+  </p>
+</Article>

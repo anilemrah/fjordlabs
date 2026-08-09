@@ -80,7 +80,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
             </button>
             <div class="absolute top-full left-0 pt-2 hidden group-hover:block">
-              <div class="bg-white rounded-xl border border-bark/10 shadow-xl p-2 min-w-[200px]">
+              <div class="bg-white rounded-xl border border-bark/10 shadow-xl p-2 min-w-[200px] max-h-[70vh] overflow-y-auto">
                 <a href="/games/catan/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
                   <span class="text-base">🏗️</span><span class="text-bark/70">Catan</span>
                 </a>
@@ -96,11 +96,29 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
                 <a href="/games/scythe/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
                   <span class="text-base">⚙️</span><span class="text-bark/70">Scythe</span>
                 </a>
+                <a href="/games/duel-of-meloch/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🗡️</span><span class="text-bark/70">Duel of Meloch</span><span class="ml-auto px-1.5 py-0.5 bg-clay/10 text-clay text-[10px] font-bold rounded">NEW</span>
+                </a>
                 <a href="/games/terraforming-mars/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
                   <span class="text-base">🪐</span><span class="text-bark/70">Terraforming Mars</span>
                 </a>
                 <a href="/games/carcassonne/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
                   <span class="text-base">🏰</span><span class="text-bark/70">Carcassonne</span>
+                </a>
+                <a href="/games/flip-7/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🃏</span><span class="text-bark/70">Flip 7</span>
+                </a>
+                <a href="/games/cascadia/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🦌</span><span class="text-bark/70">Cascadia</span>
+                </a>
+                <a href="/games/everdell/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🌳</span><span class="text-bark/70">Everdell</span>
+                </a>
+                <a href="/games/agricola/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">🚜</span><span class="text-bark/70">Agricola</span>
+                </a>
+                <a href="/games/gloomhaven/" class="flex items-center gap-2.5 px-3 py-2 rounded-lg hover:bg-sand transition-colors">
+                  <span class="text-base">⚔️</span><span class="text-bark/70">Gloomhaven</span>
                 </a>
               </div>
             </div>
@@ -157,8 +175,14 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
           <a href="/games/wingspan-pocket/" class="text-bark/70 py-1 flex items-center gap-2"><span>🐤</span> Wingspan Pocket</a>
           <a href="/games/wyrmspan/" class="text-bark/70 py-1 flex items-center gap-2"><span>🐉</span> Wyrmspan</a>
           <a href="/games/scythe/" class="text-bark/70 py-1 flex items-center gap-2"><span>⚙️</span> Scythe</a>
+          <a href="/games/duel-of-meloch/" class="text-bark/70 py-1 flex items-center gap-2"><span>🗡️</span> Duel of Meloch</a>
           <a href="/games/terraforming-mars/" class="text-bark/70 py-1 flex items-center gap-2"><span>🪐</span> Terraforming Mars</a>
           <a href="/games/carcassonne/" class="text-bark/70 py-1 flex items-center gap-2"><span>🏰</span> Carcassonne</a>
+          <a href="/games/flip-7/" class="text-bark/70 py-1 flex items-center gap-2"><span>🃏</span> Flip 7</a>
+          <a href="/games/cascadia/" class="text-bark/70 py-1 flex items-center gap-2"><span>🦌</span> Cascadia</a>
+          <a href="/games/everdell/" class="text-bark/70 py-1 flex items-center gap-2"><span>🌳</span> Everdell</a>
+          <a href="/games/agricola/" class="text-bark/70 py-1 flex items-center gap-2"><span>🚜</span> Agricola</a>
+          <a href="/games/gloomhaven/" class="text-bark/70 py-1 flex items-center gap-2"><span>⚔️</span> Gloomhaven</a>
           <div class="border-t border-bark/5 mt-1 pt-2"></div>
           <a href="/products/" class="text-bark/70 py-1">Products</a>
           <a href="/products/#new-releases" class="text-clay font-semibold py-1"
@@ -203,8 +227,14 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
               <li><a href="/games/wingspan/" class="hover:text-clay transition-colors">Wingspan</a></li>
               <li><a href="/games/wyrmspan/" class="hover:text-clay transition-colors">Wyrmspan</a></li>
               <li><a href="/games/scythe/" class="hover:text-clay transition-colors">Scythe</a></li>
+              <li><a href="/games/duel-of-meloch/" class="hover:text-clay transition-colors">Duel of Meloch</a></li>
               <li><a href="/games/terraforming-mars/" class="hover:text-clay transition-colors">Terraforming Mars</a></li>
               <li><a href="/games/carcassonne/" class="hover:text-clay transition-colors">Carcassonne</a></li>
+              <li><a href="/games/flip-7/" class="hover:text-clay transition-colors">Flip 7</a></li>
+              <li><a href="/games/cascadia/" class="hover:text-clay transition-colors">Cascadia</a></li>
+              <li><a href="/games/everdell/" class="hover:text-clay transition-colors">Everdell</a></li>
+              <li><a href="/games/agricola/" class="hover:text-clay transition-colors">Agricola</a></li>
+              <li><a href="/games/gloomhaven/" class="hover:text-clay transition-colors">Gloomhaven</a></li>
             </ul>
           </div>
           <div>
@@ -222,8 +252,12 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
             </ul>
           </div>
         </div>
-        <div class="border-t border-bark/5 pt-6 text-center text-xs text-bark/30">
+        <div class="border-t border-bark/5 pt-6 text-center text-xs text-bark/30 space-y-2">
           <p>&copy; 2025 Fjord Labs. Rolled a nat 20 on craftsmanship in Sweden. 🎲</p>
+          <p>
+            Not affiliated with any game publisher. Game names and box art belong to their
+            respective owners — <a href="/credits/" class="hover:text-clay transition-colors underline decoration-bark/20">image credits</a>.
+          </p>
         </div>
       </div>
     </footer>

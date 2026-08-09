@@ -1,0 +1,192 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import QuickFact from "../../../components/QuickFact.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+---
+
+<Article
+  title="How to Play Flip 7: Complete Rules in 5 Minutes"
+  description="Every rule in the box, explained in the order you actually need them at the table."
+  game="flip-7"
+  gameTitle="Flip 7"
+  category="Rules"
+  product="flip-7-organizer"
+  publishDate="2026-08-09"
+>
+  <p>
+    Flip 7 is a push-your-luck card game where you keep asking for cards until
+    you either bank your points or lose them all. It teaches in about two
+    minutes, which is exactly why it exploded — but the action cards trip up
+    almost every new group. Here's the whole game, in order.
+  </p>
+
+  <KeyTakeaway answer="Collect number cards without ever flipping a duplicate. Bank your points by staying, or bust and score zero. Seven different numbers earns a 15-point bonus. First to 200 wins." />
+
+  <div class="my-8 flex flex-wrap gap-3">
+    <QuickFact label="Players" value="3–18" icon="👥" />
+    <QuickFact label="Time" value="~20 min" icon="⏱️" />
+    <QuickFact label="Ages" value="8+" icon="🎯" />
+    <QuickFact label="Target score" value="200" icon="🏆" />
+  </div>
+
+  <h2>What's in the Box</h2>
+
+  <p>
+    Ninety-four cards, and that's it. Knowing the breakdown matters more than
+    you'd think, because it drives every decision you make later.
+  </p>
+
+  <ComparisonTable title="Flip 7 card breakdown">
+    <table>
+      <thead>
+        <tr>
+          <th>Card type</th>
+          <th>Count</th>
+          <th>What it is</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Number cards</strong></td>
+          <td>79</td>
+          <td>0 through 12 — each number appears as many times as its value</td>
+        </tr>
+        <tr>
+          <td><strong>Modifier cards</strong></td>
+          <td>6</td>
+          <td>+2, +4, +6, +8, +10 and ×2</td>
+        </tr>
+        <tr>
+          <td><strong>Action cards</strong></td>
+          <td>9</td>
+          <td>Three each of Freeze, Flip Three and Second Chance</td>
+        </tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <InfoBox type="rule" title="The number distribution is the whole game">
+    There are twelve 12s, eleven 11s, ten 10s… down to a single 1 and a single 0.
+    High cards score more, but they're also the ones most likely to show up again
+    and bust you. Every strategic decision in Flip 7 comes back to this.
+  </InfoBox>
+
+  <h2>Setting Up</h2>
+
+  <p>
+    Shuffle all 94 cards into one deck. Pick a dealer. Grab paper for scores —
+    you'll be tracking cumulative totals across several rounds. That's the entire
+    setup, which is a large part of the appeal.
+  </p>
+
+  <h2>Playing a Round</h2>
+
+  <StepList title="The turn sequence">
+    <Step number={1} title="The dealer offers a card">
+      Starting to the dealer's left, the dealer goes around the table dealing one
+      card at a time to each player who is still in the round.
+    </Step>
+    <Step number={2} title="You choose: Hit or Stay">
+      Say <strong>Hit</strong> and take the card. Say <strong>Stay</strong> and
+      you're out of the round — but you keep every point in front of you.
+    </Step>
+    <Step number={3} title="Duplicate numbers bust you">
+      If a card you flip matches a number card you already have, you bust. All
+      your cards for the round are discarded and you score <strong>zero</strong>.
+      Modifier and action cards can never bust you.
+    </Step>
+    <Step number={4} title="Seven unique numbers ends the round">
+      Get seven different number cards in front of you and you've hit
+      <strong>Flip 7</strong>. You score a 15-point bonus and the round ends
+      immediately for everyone.
+    </Step>
+    <Step number={5} title="Score and reshuffle">
+      Everyone still in adds up their round score. Discard all cards, the deal
+      passes left, and a new round begins.
+    </Step>
+  </StepList>
+
+  <p>
+    A round ends when every player has either stayed, busted, or someone hits
+    Flip 7. Players who busted score nothing; players who stayed bank what they
+    had.
+  </p>
+
+  <h2>Scoring a Round</h2>
+
+  <p>
+    Add the face values of your number cards, apply any modifiers you collected,
+    and add 15 if you hit Flip 7. So a player holding a 12, a 9, a 4 and a +8 scores
+    12 + 9 + 4 + 8 = <strong>33</strong>.
+  </p>
+
+  <InfoBox type="warning" title="The ×2 trap">
+    The ×2 card doubles the total of your <em>number cards only</em> — it does
+    not double your + modifiers, and it does not double the 15-point Flip 7
+    bonus. Almost every new group gets this wrong on the first play.
+    We break the whole thing down in
+    <a href="/games/flip-7/flip-7-scoring-explained/">Flip 7 scoring explained</a>.
+  </InfoBox>
+
+  <h2>The Three Action Cards</h2>
+
+  <p>
+    These are the only genuinely fiddly part of the game, and they're what makes
+    it more than a dice roll.
+  </p>
+
+  <div class="my-6 space-y-3">
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-sky-100 text-sky-700 text-[11px] font-bold rounded-full">FREEZE</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Force someone to stop</h4>
+      </div>
+      <p class="text-sm text-bark/60">Give it to any player still in the round — including yourself. That player immediately stays and banks whatever they have. Brutal when someone is sitting on six unique numbers.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-rose-100 text-rose-700 text-[11px] font-bold rounded-full">FLIP THREE</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Force three more cards</h4>
+      </div>
+      <p class="text-sm text-bark/60">The target immediately flips three cards, one at a time. If they bust partway through, it stops there. If they hit Flip 7, the round ends.</p>
+    </div>
+    <div class="p-4 bg-white rounded-xl border border-bark/10">
+      <div class="flex items-center gap-2 mb-1">
+        <span class="px-2 py-0.5 bg-emerald-100 text-emerald-700 text-[11px] font-bold rounded-full">SECOND CHANCE</span>
+        <h4 class="font-heading font-semibold text-sm text-bark">Survive one bust</h4>
+      </div>
+      <p class="text-sm text-bark/60">Keep it in front of you. The first time you'd bust, discard the duplicate and the Second Chance instead, and carry on. You can only ever hold one.</p>
+    </div>
+  </div>
+
+  <InfoBox type="rule" title="Action cards don't count toward Flip 7">
+    Only <strong>number</strong> cards count toward the seven you need. Modifiers
+    and action cards sit in your row but never get you closer to the bonus.
+  </InfoBox>
+
+  <p>
+    The targeting rules and the awkward cases — what happens if you're dealt a
+    second Second Chance, or an action card when nobody else is left — are
+    covered in
+    <a href="/games/flip-7/flip-7-action-cards-explained/">the action card guide</a>.
+  </p>
+
+  <h2>Winning</h2>
+
+  <p>
+    Keep playing rounds until at least one player reaches <strong>200 points</strong>.
+    Finish the round you're in — you don't stop mid-round — and the highest total
+    at that point wins.
+  </p>
+
+  <InfoBox type="tip" title="Teaching it to a new table">
+    Don't explain the action cards up front. Deal the first round and explain
+    each one the moment it appears. People understand Freeze instantly when it's
+    being used on them, and you'll have the whole table playing inside three
+    minutes.
+  </InfoBox>
+</Article>

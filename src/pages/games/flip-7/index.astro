@@ -6,51 +6,66 @@ import ArticleCard from "../../../components/ArticleCard.astro";
 import { getProductsByGame } from "../../../data/products";
 import { getGame } from "../../../data/games";
 
-const game = getGame("wyrmspan")!;
-const wyrmspanProducts = getProductsByGame("wyrmspan");
+const game = getGame("flip-7")!;
+const flip7Products = getProductsByGame("flip-7");
 
 const articles = {
   rules: [
     {
-      title: "Wyrmspan vs Wingspan: Key Rule Differences Explained",
-      description: "Coming from Wingspan? Here's everything that works differently in Wyrmspan.",
-      href: "/games/wyrmspan/wyrmspan-vs-wingspan-rules/",
+      title: "How to Play Flip 7: Complete Rules in 5 Minutes",
+      description: "Every rule in the box, explained in the order you actually need them at the table.",
+      href: "/games/flip-7/how-to-play-flip-7/",
+    },
+    {
+      title: "Flip 7 Scoring Explained: The +15 Bonus, Modifiers and ×2",
+      description: "How round scores are calculated, and the mistake almost every new group makes with ×2.",
+      href: "/games/flip-7/flip-7-scoring-explained/",
+    },
+    {
+      title: "Flip 7 Action Cards: Freeze, Flip Three and Second Chance",
+      description: "What each action card does, who you can target, and the edge cases that cause arguments.",
+      href: "/games/flip-7/flip-7-action-cards-explained/",
+    },
+    {
+      title: "Flip 7 Rules Questions: 12 Answers for Common Disputes",
+      description: "The duplicate-card questions, the two Second Chances problem, and what happens when the deck runs out.",
+      href: "/games/flip-7/flip-7-rules-questions/",
     },
   ],
   strategy: [
     {
-      title: "Wyrmspan Cave Strategy: How to Build an Efficient Dragon Engine",
-      description: "Maximize your cave layout and chain dragon abilities for big combos.",
-      href: "/games/wyrmspan/cave-strategy-guide/",
+      title: "Flip 7 Strategy: When to Hit and When to Stay",
+      description: "The card counts are wildly uneven — here's how that changes every decision you make.",
+      href: "/games/flip-7/flip-7-strategy-when-to-stay/",
     },
   ],
   guides: [
     {
-      title: "Is Wyrmspan Worth It? An Honest Review for Wingspan Fans",
-      description: "If you love Wingspan, should you buy Wyrmspan? We break down the differences.",
-      href: "/games/wyrmspan/is-wyrmspan-worth-it/",
+      title: "Is Flip 7 Worth It? An Honest Review",
+      description: "A pocket-sized card game that won a Mensa Select award. Here's who it's actually for.",
+      href: "/games/flip-7/is-flip-7-worth-it/",
     },
   ],
 };
 ---
 
 <Base
-  title="Wyrmspan — Rules, Strategy & Accessories | Fjord Labs"
-  description="Everything you need for Wyrmspan: rules clarifications, dragon-engine strategies, and premium 3D-printed resource tokens."
+  title="Flip 7 — Rules, Scoring, Strategy & Accessories | Fjord Labs"
+  description="Everything you need for Flip 7: complete rules, scoring explained, action card edge cases, push-your-luck strategy, and a 3D-printed organizer insert."
 >
   <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
     <div class="max-w-4xl mx-auto">
       <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
         <a href="/" class="hover:text-clay transition-colors">Home</a>
         <span>/</span>
-        <span class="text-bark/60">Wyrmspan</span>
+        <span class="text-bark/60">Flip 7</span>
       </nav>
 
       <div class="flex flex-col sm:flex-row gap-6 items-start">
         <GameBoxImage game={game} />
         <div>
           <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
-            Wyrmspan
+            Flip 7
           </h1>
           <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
             {game.heroDescription}
@@ -68,8 +83,8 @@ const articles = {
 
   <section class="py-14 px-6">
     <div class="max-w-6xl mx-auto">
-      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Rules Clarifications</h2>
-      <p class="text-bark/40 mb-8">Wyrmspan rules that differ from Wingspan and common confusion points.</p>
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Rules & Scoring</h2>
+      <p class="text-bark/40 mb-8">Flip 7 teaches in two minutes, then generates arguments for an hour. These settle them.</p>
       <div class="grid md:grid-cols-2 gap-6">
         {articles.rules.map((a) => (
           <ArticleCard title={a.title} description={a.description} href={a.href} category="Rules" />
@@ -81,7 +96,7 @@ const articles = {
   <section class="py-14 px-6 bg-sand/30">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl font-heading font-bold text-bark mb-2">Strategy</h2>
-      <p class="text-bark/40 mb-8">Master the dragon caves.</p>
+      <p class="text-bark/40 mb-8">Push-your-luck looks like pure luck. It isn't.</p>
       <div class="grid md:grid-cols-2 gap-6">
         {articles.strategy.map((a) => (
           <ArticleCard title={a.title} description={a.description} href={a.href} category="Strategy" />
@@ -93,7 +108,7 @@ const articles = {
   <section class="py-14 px-6">
     <div class="max-w-6xl mx-auto">
       <h2 class="text-2xl font-heading font-bold text-bark mb-2">Guides & Reviews</h2>
-      <p class="text-bark/40 mb-8">Is Wyrmspan for you? Buying advice and honest takes.</p>
+      <p class="text-bark/40 mb-8">Should it be in your bag? Honest buying advice.</p>
       <div class="grid md:grid-cols-2 gap-6">
         {articles.guides.map((a) => (
           <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
@@ -102,13 +117,13 @@ const articles = {
     </div>
   </section>
 
-  {wyrmspanProducts.length > 0 && (
+  {flip7Products.length > 0 && (
     <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
       <div class="max-w-6xl mx-auto">
-        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Wyrmspan Accessories</h2>
-        <p class="text-bark/40 mb-8">Premium 3D-printed resource tokens for your dragon adventures.</p>
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Flip 7 Accessories</h2>
+        <p class="text-bark/40 mb-8">The box is mostly air. Here's what fixes that.</p>
         <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-          {wyrmspanProducts.map((product) => <ProductCard product={product} />)}
+          {flip7Products.map((product) => <ProductCard product={product} />)}
         </div>
       </div>
     </section>

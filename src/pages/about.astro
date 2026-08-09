@@ -1,49 +1,236 @@
 ---
 import Base from "../layouts/Base.astro";
+import { products } from "../data/products";
+import { games } from "../data/games";
+
+const showcase = products.filter((p) => p.featured).slice(0, 6);
+const productCount = products.length;
+const gameCount = games.length;
+
+const guideCount = Object.keys(import.meta.glob("./games/**/*.astro")).filter(
+  (path) => !path.endsWith("/index.astro"),
+).length;
+
+const process = [
+  {
+    icon: "🎲",
+    title: "It starts at our table",
+    body: "We play the game — a lot. The idea only becomes a product when something in the box keeps annoying us. Cardboard chits that feel flat after the fiftieth game. Cubes that slide the moment someone knocks the table.",
+  },
+  {
+    icon: "✏️",
+    title: "We design it ourselves",
+    body: "Every model is drawn from scratch to fit the specific game — the exact insert footprint, the exact token dimensions, the colours the game already uses. Nothing is a generic shape with a new label on it.",
+  },
+  {
+    icon: "🖨️",
+    title: "We print it in Sweden",
+    body: "Made to order in our own workshop, not warehoused in bulk. That means we can revise a design the week we find a better version of it, rather than sitting on a pallet of the old one.",
+  },
+  {
+    icon: "📦",
+    title: "We ship it worldwide",
+    body: "Sent from Sweden through our Etsy shop, wherever your table is.",
+  },
+];
 ---
 
 <Base
-  title="About Fjord Labs | Board Game Accessories from Sweden"
-  description="Fjord Labs is a small creative workshop in Sweden, designing and 3D-printing premium board game accessories."
+  title="About Fjord Labs | Board Game Component Design Studio in Sweden"
+  description="Fjord Labs is a small Swedish design studio making 3D-printed board game component upgrades — resource tokens, inserts, organisers and trackers. Every design starts at our own game table."
 >
-  <section class="py-16 md:py-20 px-6">
-    <div class="max-w-3xl mx-auto">
-      <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-8">
-        About Fjord Labs
-      </h1>
+  <!-- Hero -->
+  <section class="py-16 md:py-24 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-5xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-8">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">About</span>
+      </nav>
 
-      <div class="prose-article">
-        <p>
-          Fjord Labs is a small creative workshop near a Swedish lake, surrounded
-          by forest. We design and 3D-print board game accessories — resource
-          tokens, score trackers, organizers, and component upgrades — for the
-          games we love to play.
-        </p>
+      <div class="grid md:grid-cols-2 gap-12 items-center">
+        <div>
+          <span class="inline-flex items-center gap-2 px-3 py-1 bg-clay/10 text-clay text-xs font-bold rounded-full uppercase tracking-wide mb-5">
+            <span>🇸🇪</span><span>Designed &amp; printed in Sweden</span>
+          </span>
+          <h1 class="text-4xl md:text-5xl font-heading font-bold text-bark mb-6 leading-tight">
+            A small design studio for board game components
+          </h1>
+          <p class="text-lg text-bark/60 leading-relaxed mb-6">
+            Fjord Labs is a workshop near a Swedish lake, surrounded by forest, where we design
+            and 3D-print upgrades for the games we actually play — resource tokens, inserts,
+            organisers and trackers that replace the flat cardboard in the box.
+          </p>
+          <p class="text-lg text-bark/60 leading-relaxed">
+            Every product here exists because something in a game annoyed us first.
+          </p>
+        </div>
 
-        <p>
-          Every product starts at our own game table. We play a game, notice
-          what's clumsy about the stock components, and design something better.
-          The Catan resource tokens exist because cardboard chits feel flat after
-          your 50th game. The score tracker exists because we kept losing count
-          mid-match. Everything we make solves a problem we've actually had.
-        </p>
-
-        <p>
-          We also write the guides and articles on this site — rules
-          clarifications, strategy tips, setup shortcuts — because we've spent
-          hours in the same debates and searches that brought you here. If a page
-          helps you settle an argument or improve your game, it did its job.
-        </p>
-
-        <h2>Where to Find Us</h2>
-
-        <ul>
-          <li>
-            <a href="https://fjordlabs.etsy.com" target="_blank">Etsy Shop</a>
-             — full product range, worldwide shipping
-          </li>
-        </ul>
+        <div class="grid grid-cols-3 gap-3">
+          {showcase.map((p, i) => (
+            <a
+              href={`/products/${p.slug}/`}
+              class={`block rounded-xl overflow-hidden border border-bark/10 hover:border-clay/30 transition-colors ${i === 0 ? "col-span-2 row-span-2" : ""}`}
+            >
+              <img
+                src={p.image}
+                alt={p.title}
+                loading="lazy"
+                class="w-full h-full object-cover aspect-square"
+              />
+            </a>
+          ))}
+        </div>
       </div>
     </div>
   </section>
+
+  <!-- Stats -->
+  <section class="py-12 px-6 border-b border-bark/5">
+    <div class="max-w-5xl mx-auto grid grid-cols-3 gap-6 text-center">
+      <div>
+        <div class="text-3xl md:text-4xl font-heading font-bold text-clay">{productCount}</div>
+        <div class="text-sm text-bark/40 mt-1">designs in the shop</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-heading font-bold text-clay">{gameCount}</div>
+        <div class="text-sm text-bark/40 mt-1">games covered</div>
+      </div>
+      <div>
+        <div class="text-3xl md:text-4xl font-heading font-bold text-clay">{guideCount}</div>
+        <div class="text-sm text-bark/40 mt-1">free guides written</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How we work -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-3">How a product happens</h2>
+      <p class="text-bark/40 mb-10 max-w-2xl">
+        We're not a factory picking up licences. The whole thing runs on us being irritated by our
+        own board games.
+      </p>
+
+      <div class="grid sm:grid-cols-2 gap-5">
+        {process.map((s) => (
+          <div class="p-6 bg-white rounded-2xl border border-bark/5">
+            <div class="text-2xl mb-3">{s.icon}</div>
+            <h3 class="font-heading font-bold text-bark mb-2">{s.title}</h3>
+            <p class="text-bark/60 leading-relaxed text-[15px]">{s.body}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Why the guides -->
+  <section class="py-16 px-6 bg-sand/30 border-y border-bark/5">
+    <div class="max-w-3xl mx-auto text-center">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-5">
+        Why we write {guideCount} guides we don't charge for
+      </h2>
+      <p class="text-lg text-bark/60 leading-relaxed mb-5">
+        Because we've had the same arguments you have. Whether a farmer scores in Carcassonne. What
+        the ×2 card actually multiplies in Flip 7. Whether to start with Gloomhaven or Jaws of the
+        Lion. We spent the evenings searching for those answers and mostly found forum threads from
+        2014.
+      </p>
+      <p class="text-lg text-bark/60 leading-relaxed mb-8">
+        So we write them properly, for the games we make things for. If a page settles an argument
+        at your table, it did its job — whether or not you ever buy a token from us.
+      </p>
+      <a
+        href="/games/catan/"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-white border border-bark/10 rounded-lg hover:border-clay/30 transition-colors font-semibold text-sm text-bark"
+      >
+        <span>📖</span><span>Browse the guides</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- What we make -->
+  <section class="py-16 px-6">
+    <div class="max-w-5xl mx-auto">
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-10">What we make</h2>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-5">
+        <div class="p-5 bg-white rounded-2xl border border-bark/5">
+          <div class="text-2xl mb-2">🪵</div>
+          <h3 class="font-heading font-semibold text-bark mb-1.5">Resource tokens</h3>
+          <p class="text-sm text-bark/50">Sculpted wood, brick, grain and ore you can recognise by feel instead of squinting at a chit.</p>
+        </div>
+        <div class="p-5 bg-white rounded-2xl border border-bark/5">
+          <div class="text-2xl mb-2">🗄️</div>
+          <h3 class="font-heading font-semibold text-bark mb-1.5">Inserts &amp; organisers</h3>
+          <p class="text-sm text-bark/50">Lidded, stackable trays that turn a fifteen-minute setup into a two-minute one.</p>
+        </div>
+        <div class="p-5 bg-white rounded-2xl border border-bark/5">
+          <div class="text-2xl mb-2">📊</div>
+          <h3 class="font-heading font-semibold text-bark mb-1.5">Trackers &amp; boards</h3>
+          <p class="text-sm text-bark/50">Dual-layer player boards and score trackers that hold their state when the table gets bumped.</p>
+        </div>
+        <div class="p-5 bg-white rounded-2xl border border-bark/5">
+          <div class="text-2xl mb-2">📥</div>
+          <h3 class="font-heading font-semibold text-bark mb-1.5">STL files</h3>
+          <p class="text-sm text-bark/50">Print our designs yourself, if you have a printer and would rather make it than buy it.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="py-16 px-6 bg-sand/50 border-t border-bark/5">
+    <div class="max-w-3xl mx-auto text-center">
+      <img src="/images/fjordlabsicon.png" alt="" class="w-14 h-14 rounded-full mx-auto mb-5" />
+      <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-4">
+        Come and see the workshop output
+      </h2>
+      <p class="text-bark/50 mb-8 max-w-xl mx-auto">
+        {productCount} designs across {gameCount} games, made to order in Sweden and shipped worldwide.
+      </p>
+      <div class="flex flex-wrap gap-3 justify-center">
+        <a
+          href="/products/"
+          class="px-5 py-3 bg-clay text-white rounded-lg hover:bg-clay-dark transition-colors font-semibold text-sm"
+        >
+          Browse all products
+        </a>
+        <a
+          href="https://fjordlabs.etsy.com"
+          target="_blank"
+          rel="noopener"
+          class="px-5 py-3 bg-white border border-bark/10 rounded-lg hover:border-clay/30 transition-colors font-semibold text-sm text-bark"
+        >
+          Visit our Etsy shop
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      name: "Fjord Labs",
+      legalName: "Fjord Labs AB",
+      url: "https://www.fjord-labs.com",
+      logo: "https://www.fjord-labs.com/images/fjordlabsicon.png",
+      description:
+        "Fjord Labs is a small Swedish design studio making 3D-printed board game component upgrades — resource tokens, inserts, organisers and trackers — alongside free rules and strategy guides for the games it supports.",
+      address: {
+        "@type": "PostalAddress",
+        addressCountry: "SE",
+      },
+      areaServed: "Worldwide",
+      knowsAbout: [
+        "Board game accessories",
+        "3D printing",
+        "Board game component design",
+        "Board game inserts and organisers",
+        "Board game rules and strategy",
+      ],
+      sameAs: ["https://fjordlabs.etsy.com"],
+    })}
+  />
 </Base>

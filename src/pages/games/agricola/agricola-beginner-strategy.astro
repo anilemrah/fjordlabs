@@ -1,0 +1,144 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="Agricola Strategy for Beginners: Your First Five Rounds"
+  description="Family growth is the engine. Everything else is decoration until you understand why."
+  game="agricola"
+  gameTitle="Agricola"
+  category="Strategy"
+  product="pumpkin-tokens"
+  publishDate="2026-08-09"
+>
+  <p>
+    Agricola gives you two family members and fourteen rounds. That's twenty-eight
+    actions if you never grow — and you cannot build a competitive farm in
+    twenty-eight actions. Understanding that number is the beginning of playing
+    well.
+  </p>
+
+  <KeyTakeaway answer="Grow your family as early as you can afford to feed it. Every extra family member is two or three extra actions per remaining round, and actions are the only genuinely scarce resource in the game." />
+
+  <h2>Why Family Growth Beats Everything</h2>
+
+  <p>
+    Grow to three people in round 4 and you gain one extra action in every one of
+    the remaining ten rounds. That's ten actions — more than a third of what you
+    started the game with — from a single placement.
+  </p>
+
+  <p>
+    Do it in round 11 and you gain three. Same action, a fraction of the value.
+    This is why experienced players seem obsessed with rooms and babies while
+    beginners are still carefully collecting wood.
+  </p>
+
+  <InfoBox type="rule" title="A room comes first">
+    You cannot grow your family without an empty room to put them in. That means
+    building a room, which means wood and reed. Plan two or three rounds ahead:
+    gather the materials, build the room, then grow.
+  </InfoBox>
+
+  <h2>A Sane Opening Plan</h2>
+
+  <StepList title="Roughly what your first five rounds should achieve">
+    <Step number={1} title="Take the materials for a room" time="Rounds 1–2">
+      Wood and reed. Reed is the bottleneck almost every game — there's rarely
+      much of it and everyone needs it. Take it when you see it, even slightly
+      early.
+    </Step>
+    <Step number={2} title="Build a Fireplace" time="Rounds 2–3">
+      Cheap, and it solves your food problem permanently by making animals and
+      vegetables edible. Skipping this is the most common way beginners lose.
+    </Step>
+    <Step number={3} title="Build a room" time="Rounds 3–4">
+      Wood, reed, and one action. Now you have somewhere for a new family member
+      to live.
+    </Step>
+    <Step number={4} title="Grow your family" time="Rounds 4–5">
+      Three family members from here on. Every subsequent round you get 50% more
+      done than a player still on two.
+    </Step>
+    <Step number={5} title="Plough and sow" time="Round 5 onwards">
+      With a third worker you can finally afford to invest in a field without
+      falling behind on food and materials.
+    </Step>
+  </StepList>
+
+  <InfoBox type="warning" title="Check the harvest track first">
+    If a harvest lands right after you'd grow, your food bill jumps immediately.
+    Either get the grain in the ground first or delay a round —
+    <a href="/games/agricola/agricola-feeding-your-family/">the feeding maths</a>
+    is not optional reading.
+  </InfoBox>
+
+  <h2>Score Breadth, Not Depth</h2>
+
+  <p>
+    Agricola's scoring punishes gaps. Having none of a category scores you
+    negative points, which means a farm with a little of everything reliably beats
+    a farm with a magnificent herd of cattle and nothing else.
+  </p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-emerald-50 rounded-xl border border-emerald-200">
+      <h4 class="font-heading font-semibold text-sm text-emerald-800 mb-3">✅ Late-game checklist</h4>
+      <ul class="text-sm text-emerald-700/70 space-y-2">
+        <li>• At least one sheep, one boar, one cattle</li>
+        <li>• At least one grain and one vegetable</li>
+        <li>• Fields ploughed, pastures fenced</li>
+        <li>• Every farmyard space used</li>
+        <li>• No begging cards</li>
+      </ul>
+    </div>
+    <div class="p-5 bg-red-50 rounded-xl border border-red-200">
+      <h4 class="font-heading font-semibold text-sm text-red-800 mb-3">❌ Common point leaks</h4>
+      <ul class="text-sm text-red-700/70 space-y-2">
+        <li>• Empty farmyard spaces at −1 each</li>
+        <li>• Zero vegetables because you never got round to it</li>
+        <li>• A wooden house you never renovated</li>
+        <li>• Eating your last breeding pair</li>
+        <li>• Begging cards at −3 each</li>
+      </ul>
+    </div>
+  </div>
+
+  <h2>Watch the Player to Your Left</h2>
+
+  <p>
+    Agricola is far more interactive than it looks. There's one of each action
+    space, and the person placing right after you takes whatever you left behind.
+  </p>
+
+  <ul>
+    <li><strong>Take contested spaces first.</strong> Reed, the family growth space and the accumulating animal spaces go early. Uncontested actions can wait.</li>
+    <li><strong>Watch what people need.</strong> If an opponent is one reed short of a room, taking the reed is often worth more than what you'd have done otherwise.</li>
+    <li><strong>Accumulation spaces reward patience.</strong> Wood piles up if nobody takes it — but so does everyone else's interest in it.</li>
+  </ul>
+
+  <InfoBox type="tip" title="Turn order matters more than you think">
+    Being first player lets you take the one space you absolutely need. If the
+    family growth space or the reed is critical this round, taking the start
+    player action the round before is frequently the correct play.
+  </InfoBox>
+
+  <h2>The Last Three Rounds</h2>
+
+  <p>
+    Stop developing and start converting. In the final rounds your job is to fill
+    empty farmyard spaces, fence any unfenced pasture, plug scoring categories
+    where you have zero, and make absolutely certain you can pay the final
+    harvest.
+  </p>
+
+  <p>
+    A beginner spends round 13 collecting wood for a plan that will never
+    complete. An experienced player spends it buying a single vegetable to turn a
+    −1 into a +1.
+  </p>
+</Article>

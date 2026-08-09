@@ -1,0 +1,160 @@
+---
+import Base from "../../../layouts/Base.astro";
+import GameBoxImage from "../../../components/GameBoxImage.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { getProductsByGame } from "../../../data/products";
+import { getGame } from "../../../data/games";
+
+const game = getGame("duel-of-meloch")!;
+const melochProducts = getProductsByGame("duel-of-meloch");
+
+const articles = {
+  start: [
+    {
+      title: "What Is Scythe: Duel of Meloch? The 2026 Release Explained",
+      description: "Stonemaier's two-player duel between Scythe and Expeditions — how it works and what's in it.",
+      href: "/games/duel-of-meloch/what-is-duel-of-meloch/",
+    },
+    {
+      title: "Duel of Meloch vs Scythe: How the Duel Actually Differs",
+      description: "Same universe, same components, a completely different length of evening.",
+      href: "/games/duel-of-meloch/duel-of-meloch-vs-scythe/",
+    },
+  ],
+  strategy: [
+    {
+      title: "Constantinople and the Adventurous Mat: The New Scythe Faction",
+      description: "The first new faction in years, it uses stars as a resource — and it works in regular Scythe.",
+      href: "/games/duel-of-meloch/constantinople-faction-guide/",
+    },
+  ],
+  guides: [
+    {
+      title: "Duel of Meloch Setup and Teardown: Keeping a 45-Minute Game 45 Minutes",
+      description: "In a short game, the box is the bottleneck. How to get from shelf to first turn fast.",
+      href: "/games/duel-of-meloch/duel-of-meloch-setup-and-teardown/",
+    },
+    {
+      title: "Is Duel of Meloch Worth It? An Honest Look",
+      description: "A duel game, a new faction and an eighth mat in one box. Who should buy it?",
+      href: "/games/duel-of-meloch/is-duel-of-meloch-worth-it/",
+    },
+  ],
+};
+---
+
+<Base
+  title="Scythe: Duel of Meloch — Rules, Constantinople & Accessories | Fjord Labs"
+  description="Everything on Scythe: Duel of Meloch (2026): how the Scythe vs Expeditions duel works, the new Constantinople faction and Adventurous mat, setup guides, and a 3D-printed insert."
+>
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Duel of Meloch</span>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <GameBoxImage game={game} />
+        <div>
+          <div class="flex items-center gap-3 mb-3">
+            <span class="px-3 py-1 bg-clay/10 text-clay text-xs font-bold rounded-full uppercase tracking-wide">
+              New — July 2026
+            </span>
+          </div>
+          <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+            Scythe: Duel of Meloch
+          </h1>
+          <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
+            {game.heroDescription}
+          </p>
+
+          <div class="flex flex-wrap gap-6 text-sm text-bark/40">
+            <div><span class="font-semibold text-bark/60">Players:</span> {game.playerCount}</div>
+            <div><span class="font-semibold text-bark/60">Play Time:</span> {game.playTime}</div>
+            <div><span class="font-semibold text-bark/60">Complexity:</span> {game.complexity}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Start Here</h2>
+      <p class="text-bark/40 mb-8">What the box is, and how it relates to the Scythe you already own.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.start.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">The New Faction</h2>
+      <p class="text-bark/40 mb-8">Constantinople, the Adventurous mat, and what they mean for regular Scythe.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.strategy.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Strategy" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Guides & Reviews</h2>
+      <p class="text-bark/40 mb-8">Getting it to the table fast, and whether it belongs on your shelf.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.guides.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30 border-t border-bark/5">
+    <div class="max-w-4xl mx-auto text-center">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-3">Own the original Scythe?</h2>
+      <p class="text-bark/50 mb-6 max-w-2xl mx-auto">
+        Everything crosses over in both directions — and Constantinople plus the Adventurous mat
+        slot straight into your normal 1–7 player games.
+      </p>
+      <a
+        href="/games/scythe/"
+        class="inline-flex items-center gap-2 px-5 py-3 bg-clay text-white rounded-lg hover:bg-clay-dark transition-colors font-semibold text-sm"
+      >
+        <span>⚙️</span><span>Scythe rules, strategy &amp; accessories</span>
+      </a>
+    </div>
+  </section>
+
+  {melochProducts.length > 0 && (
+    <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Duel of Meloch Accessories</h2>
+        <p class="text-bark/40 mb-8">Lidded, stackable trays in the game's own palette — because a 45-minute game shouldn't need a 10-minute pack-down.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {melochProducts.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Scythe: Duel of Meloch — Rules, Constantinople & Accessories",
+      description:
+        "How the Scythe vs Expeditions duel works, the new Constantinople faction and Adventurous mat, setup guides, and a 3D-printed insert.",
+      url: "https://www.fjord-labs.com/games/duel-of-meloch/",
+      publisher: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
+    })}
+  />
+</Base>

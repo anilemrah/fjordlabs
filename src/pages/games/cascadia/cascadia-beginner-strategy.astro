@@ -1,0 +1,129 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="Cascadia Strategy for Beginners: Habitat Corridors vs Wildlife"
+  description="New players chase animals and lose. Here's how to balance both halves of the scoresheet."
+  game="cascadia"
+  gameTitle="Cascadia"
+  category="Strategy"
+  product="cascadia-game-tray"
+  publishDate="2026-08-09"
+>
+  <p>
+    Almost everyone loses their first few games of Cascadia the same way: they
+    play it as an animal game. The animals are the pretty part, the scoring cards
+    are on the table demanding attention, and the terrain underneath feels like
+    scenery. It isn't.
+  </p>
+
+  <KeyTakeaway answer="Choose your tile for the terrain, then find a home for the animal. Habitat corridors are quiet, reliable points that beginners give away for free." />
+
+  <h2>The Two Scoresheets</h2>
+
+  <p>
+    Your final score comes from wildlife patterns, habitat corridors and leftover
+    nature tokens. Wildlife is usually the larger number — but it's also the
+    number every player at the table is fighting over, and it's the one that can
+    collapse to nothing if your shapes don't come together.
+  </p>
+
+  <p>
+    Habitat corridors are different. For each of the five terrains you score your
+    largest connected group of that type, plus a bonus if it's the biggest at the
+    table. These points arrive steadily and can't be taken away.
+  </p>
+
+  <InfoBox type="rule" title="Corridors are about connection, not quantity">
+    Ten scattered forest tiles score you the same as one forest tile. Only your
+    single largest connected group counts, so a tile that <em>joins</em> two
+    existing groups is worth several tiles that start new ones.
+  </InfoBox>
+
+  <h2>A Better Turn Order in Your Head</h2>
+
+  <StepList title="How to actually evaluate a turn">
+    <Step number={1} title="Look at the terrain first">
+      Which of the four tiles extends or connects a corridor you already care
+      about? This narrows four options down to one or two immediately.
+    </Step>
+    <Step number={2} title="Check the paired animal">
+      Can you place it usefully? Not just legally — usefully, in a spot that
+      contributes to a pattern you're building.
+    </Step>
+    <Step number={3} title="Ask what it costs you">
+      Does this tile block a line you were planning? A tile that helps one animal
+      and wrecks another is often worse than the boring option.
+    </Step>
+    <Step number={4} title="Only then consider a nature token">
+      If the best available pairing is still poor, that's what the pinecones are
+      for. <a href="/games/cascadia/cascadia-nature-tokens-guide/">Spending them well</a> is a skill in itself.
+    </Step>
+  </StepList>
+
+  <h2>Commit to Two Animals</h2>
+
+  <p>
+    You have twenty turns and five animals. You cannot score all of them well, and
+    trying is the most common cause of a mediocre score.
+  </p>
+
+  <p>Pick two to genuinely build around, ideally one of each kind:</p>
+
+  <div class="my-6 grid sm:grid-cols-2 gap-4">
+    <div class="p-5 bg-emerald-50 rounded-xl border border-emerald-200">
+      <h4 class="font-heading font-semibold text-sm text-emerald-800 mb-3">🎯 One that needs planning</h4>
+      <p class="text-sm text-emerald-700/70">Elk or salmon. These need committed space and several turns of setup, so decide early and protect the room they need.</p>
+    </div>
+    <div class="p-5 bg-sky-50 rounded-xl border border-sky-200">
+      <h4 class="font-heading font-semibold text-sm text-sky-800 mb-3">⚡ One that's opportunistic</h4>
+      <p class="text-sm text-sky-700/70">Fox or hawk. These reward reacting to whatever the display gives you, so they fill the turns where your main plan isn't being served.</p>
+    </div>
+  </div>
+
+  <p>
+    Treat the remaining three as bonus points. If a bear pair falls into your lap,
+    take it — but don't restructure your landscape for it.
+  </p>
+
+  <h2>Five Habits That Improve Your Score Immediately</h2>
+
+  <ul>
+    <li><strong>Keep your landscape compact.</strong> Sprawl looks impressive and scores badly. Tight landscapes have more adjacencies, which helps corridors and foxes simultaneously.</li>
+    <li><strong>Leave deliberate gaps for bears.</strong> If you're scoring bear pairs, plan where the third bear <em>can't</em> go before you place the second.</li>
+    <li><strong>Don't hoard pinecones.</strong> Spend early, keep late. One point is a poor return on a token that could have completed a corridor on turn four.</li>
+    <li><strong>Watch the largest-corridor bonuses.</strong> They're worth fighting for and they're visible — you can see exactly how big everyone's forest is.</li>
+    <li><strong>Accept discarding an animal.</strong> Taking a great tile and binning the token is frequently the right play. Beginners take the bad tile to save the animal and lose points twice.</li>
+  </ul>
+
+  <InfoBox type="warning" title="The keystone trap">
+    Single-symbol keystone tiles pay a nature token, which makes them feel
+    valuable. But they're the most restrictive tiles in the game — only one animal
+    will ever fit. Take them when the animal is one you're collecting, not because
+    a free pinecone is a free pinecone.
+  </InfoBox>
+
+  <h2>Playing at Two vs Four</h2>
+
+  <p>
+    At two players, the largest-corridor bonuses are effectively a head-to-head
+    duel and you can see exactly what your opponent is building — play more
+    reactively, and contest whichever terrain they're clearly investing in.
+  </p>
+
+  <p>
+    At four, the display turns over fast and you'll rarely get the tile you were
+    hoping for. Plans need to be shorter and more flexible; committing to a
+    five-long elk line at four players is usually wishful thinking.
+  </p>
+
+  <InfoBox type="tip" title="If you remember one thing">
+    Terrain first, animal second. Every other habit on this page follows from
+    that one.
+  </InfoBox>
+</Article>

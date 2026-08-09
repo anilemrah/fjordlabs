@@ -1,0 +1,157 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+---
+
+<Article
+  title="How Gloomhaven Works: A Beginner's Guide to the Core Loop"
+  description="Two cards a turn, no dice, and a hand that runs out. The system explained without the rulebook."
+  game="gloomhaven"
+  gameTitle="Gloomhaven"
+  category="Rules"
+  publishDate="2026-08-09"
+>
+  <p>
+    Gloomhaven has a reputation for being impenetrable, and the rulebook doesn't
+    help. But the underlying system is elegant and it fits in one article. This
+    isn't a replacement for the rules — it's what you'd want explained before
+    deciding whether to buy in.
+  </p>
+
+  <KeyTakeaway answer="Each turn you secretly commit two ability cards from a limited hand. One sets your speed, and you use the top of one and the bottom of the other. Your hand never refreshes fully — when it runs out, you're done for the scenario." />
+
+  <h2>There Are No Dice</h2>
+
+  <p>
+    Combat is resolved with a personal <strong>attack modifier deck</strong>. You
+    declare an attack, flip the top card, and it adjusts your damage — a little
+    up, a little down, occasionally a critical or a complete miss.
+  </p>
+
+  <p>
+    The clever part is that this deck is yours and it changes. As the campaign
+    progresses you remove bad cards and add good ones, so your character
+    physically becomes more reliable over time. It's the same tension as dice,
+    but it improves with the story.
+  </p>
+
+  <h2>The Card System Is the Whole Game</h2>
+
+  <p>
+    Every character has a hand of ability cards — a small hand, usually somewhere
+    between eight and a dozen depending on the class. Each card has a
+    <strong>top action</strong>, a <strong>bottom action</strong>, and an
+    <strong>initiative number</strong>.
+  </p>
+
+  <StepList title="What a round looks like">
+    <Step number={1} title="Everyone chooses two cards, in secret">
+      You pick two cards from your hand. Nobody may say exactly what they're
+      playing — you can discuss plans in general terms, but not name cards or
+      numbers.
+    </Step>
+    <Step number={2} title="Reveal and set the order">
+      Cards flip face up. You nominate one of your two for its initiative number,
+      and that determines when you act relative to everyone else, monsters
+      included.
+    </Step>
+    <Step number={3} title="Act on your turn">
+      Use the <strong>top action of one card</strong> and the
+      <strong>bottom action of the other</strong>. Never both halves of the same
+      card. This is the central puzzle: every card offers two things and you can
+      only ever take one from each.
+    </Step>
+    <Step number={4} title="Monsters act on their initiative">
+      Monsters follow a deck of behaviour cards — no AI to argue about, no
+      dungeon master. They move and attack according to fixed, published rules.
+    </Step>
+  </StepList>
+
+  <InfoBox type="rule" title="Two cards, four options, pick two halves">
+    If this is the only thing you take away, it's the right thing. Choosing which
+    half of which card to use is where Gloomhaven's tactical depth lives, and it's
+    why a hand of eleven cards produces far more decisions than eleven sounds like.
+  </InfoBox>
+
+  <h2>Your Hand Runs Out — That's the Timer</h2>
+
+  <p>
+    Cards you play go to your discard pile. To get them back you take a
+    <strong>rest</strong>, which returns your discards to your hand but forces you
+    to permanently <strong>lose</strong> one of them for the rest of the scenario.
+  </p>
+
+  <p>
+    So your hand shrinks over time no matter what you do. When you can no longer
+    play two cards, you become <strong>exhausted</strong> and you're out of the
+    scenario.
+  </p>
+
+  <InfoBox type="warning" title="Exhaustion is the real enemy, not damage">
+    New players focus on hit points. Experienced players count cards. You will
+    lose far more scenarios to running out of cards than to being killed, and
+    every "lost card" ability you use is time taken off your own clock.
+  </InfoBox>
+
+  <p>
+    Some powerful abilities require you to lose the card permanently to use them.
+    That trade — a big effect now against a shorter scenario — is the most
+    consistently interesting decision in the game.
+  </p>
+
+  <h2>Elements</h2>
+
+  <p>
+    Certain abilities generate an element — fire, ice, air, earth, light or dark.
+    A generated element sits in a "strong" state, fades to "waning" after a round,
+    and then disappears.
+  </p>
+
+  <p>
+    Other abilities can consume an element to become much stronger. This creates
+    small, satisfying combos both within a character and across the party: one
+    player generates fire, another spends it the following round. It's optional
+    depth — you can ignore elements entirely and still play fine — but it's where
+    parties start to feel like a team.
+  </p>
+
+  <h2>Between Scenarios</h2>
+
+  <p>
+    Gloomhaven is a campaign, and the layer around the combat is a real part of it:
+  </p>
+
+  <ul>
+    <li><strong>You level up</strong>, adding stronger cards to your available pool</li>
+    <li><strong>You buy items</strong> from the town's shop, which grows over time</li>
+    <li><strong>You improve your attack modifier deck</strong> as you progress</li>
+    <li><strong>Story events</strong> in the city and on the road present choices with consequences</li>
+    <li><strong>The map unlocks</strong> as scenarios branch and reveal new destinations</li>
+  </ul>
+
+  <InfoBox type="tip" title="Retirement is a feature, not an ending">
+    Each character has a personal quest. Completing it retires that character
+    permanently — and unlocks a new class for you to play. It feels wrong the
+    first time and it's genuinely one of the best things in the game. Retiring is
+    how the box opens up.
+  </InfoBox>
+
+  <h2>What It Feels Like to Play</h2>
+
+  <p>
+    A scenario is a tight tactical puzzle with a countdown built into your own
+    deck. You're managing damage, position, elements and — above all — how many
+    turns you have left before your hand gives out. Parties that plan together
+    win; parties that improvise run out of cards.
+  </p>
+
+  <p>
+    If that sounds appealing, the next question is which box to buy — see
+    <a href="/games/gloomhaven/gloomhaven-vs-jaws-of-the-lion/">Gloomhaven vs Jaws of the Lion</a>.
+    If you're worried about the time commitment, that's covered in
+    <a href="/games/gloomhaven/how-long-does-gloomhaven-take/">how long it actually takes</a>.
+  </p>
+</Article>

@@ -1,5 +1,6 @@
 ---
 import Base from "../../../layouts/Base.astro";
+import GameBoxImage from "../../../components/GameBoxImage.astro";
 import ProductCard from "../../../components/ProductCard.astro";
 import ArticleCard from "../../../components/ArticleCard.astro";
 import { getProductsByGame } from "../../../data/products";
@@ -41,7 +42,7 @@ const articles = {
       </nav>
 
       <div class="flex flex-col sm:flex-row gap-6 items-start">
-        <img src={game.image} alt={game.title} class="w-32 h-32 rounded-2xl object-cover border border-bark/10 shrink-0" />
+        <GameBoxImage game={game} />
         <div>
           <div class="inline-flex items-center gap-2 mb-3 px-3 py-1 rounded-full bg-clay/10 text-clay text-xs font-bold">
             ✨ New Release — July 2026
