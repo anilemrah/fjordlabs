@@ -17,38 +17,46 @@ const workshopPhotoAlt =
   "The forest and lake near the Fjord Labs workshop in Sweden";
 
 // Icons are the real app icons, copied from each app's own repo.
-// Board-game apps first — that's who's scanning this code. Leave `url` off
-// an app that isn't on the App Store yet and it renders as "Coming soon"
-// instead of a dead link.
+// Board-game apps first — that's who's scanning this code.
+//   url   — omit it and the card renders un-clickable instead of as a dead link
+//   badge — optional pill shown in place of the chevron ("Soon", "Web", …)
 const apps = [
   {
     name: "Game Night: Party Games",
-    tagline: "Party games for your table — no extra kit needed.",
+    tagline: "Party games for your table, a lot of games in one app!",
     icon: "/images/apps/game-night.png",
     url: "https://apps.apple.com/app/game-night-party-games/id6775038407",
   },
   {
     name: "Lone Meeple",
-    tagline: "Solo board-gaming companion — log plays, track campaigns, beat your own scores.",
+    tagline: "Solo board-gaming companion, log plays, track campaigns, beat your own scores.",
     icon: "/images/apps/lone-meeple.png",
+    badge: "Soon",
   },
   {
     name: "Glimt",
-    tagline: "A deck of conversation cards for two.",
+    tagline: "A deck of conversation cards for you and your partner.",
     icon: "/images/apps/glimt.png",
     url: "https://apps.apple.com/app/glimt-couples-questions/id6789508959",
   },
   {
     name: "Brewio",
-    tagline: "Coffee journal, brew timer and ratio calculator.",
+    tagline: "Coffee journal, brew timer and ratio calculator, we said we love coffee, right?",
     icon: "/images/apps/brewio.png",
     url: "https://apps.apple.com/app/brewio-coffee-journal-timer/id6762492301",
   },
   {
     name: "Just Pomodoro",
-    tagline: "A clean, focused Pomodoro timer.",
+    tagline: "A clean, focused Pomodoro timer, we like to work efficiently!",
     icon: "/images/apps/just-pomodoro.png",
     url: "https://apps.apple.com/app/just-pomodoro-stay-focused/id1517869765",
+  },
+  {
+    name: "ListCraft",
+    tagline: "Turns a product photo into a ready-to-paste marketplace listing, the tool we built for our own shop.",
+    icon: "/images/apps/listcraft.svg",
+    url: "https://listcraft.co",
+    badge: "Web",
   },
 ];
 ---
@@ -74,8 +82,8 @@ const apps = [
         Tack så mycket!
       </h1>
       <p class="text-lg text-bark/60 leading-relaxed">
-        Thank you for buying something we made. Every piece is designed and
-        3D-printed by us, one order at a time — yours included.
+        This is how we say thank you! Thank you for buying something we made. Every tray, every token is designed and
+        3D-printed and packaged by us!
       </p>
     </div>
   </section>
@@ -95,13 +103,12 @@ const apps = [
       <p class="text-bark/60 leading-relaxed mb-4">
         We work out of a small workshop in Sweden, near a lake and surrounded by
         forest. It's quiet, it's cold for a good part of the year, and it's a
-        very good place to sit and design little wooden-looking things for board
-        games.
+        very good place to sit and play board games, and design things to improve them!
+        We should mention a big amount of coffee as well of course!
       </p>
       <p class="text-bark/60 leading-relaxed">
         There's no factory and no warehouse. Everything starts at our own game
-        table — we play something, get annoyed by the cardboard chits or the
-        sliding cubes, and then design the fix.
+        table, and hopefully goes into your game table.
       </p>
     </div>
   </section>
@@ -113,8 +120,7 @@ const apps = [
         🛒 See everything else we make
       </h2>
       <p class="text-bark/60 leading-relaxed mb-6">
-        Resource tokens, inserts, organisers, trackers and printable STL files —
-        for Catan, Wingspan, Scythe, Everdell, Agricola and more.
+        Resource tokens, inserts, organisers, trackers and printable STL files, for Catan, Wingspan, Scythe, Everdell, Agricola and more.
       </p>
       <div class="flex flex-col gap-3">
         <a
@@ -143,7 +149,7 @@ const apps = [
       </h2>
       <p class="text-bark/60 leading-relaxed mb-6">
         We write rules explainers, strategy guides and setup shortcuts for the
-        games we make accessories for — free, no sign-up, no newsletter. If a
+        games we make accessories for. If a
         page settles an argument at your table, it did its job.
       </p>
       <a
@@ -162,8 +168,7 @@ const apps = [
         📱 We make apps too
       </h2>
       <p class="text-bark/60 leading-relaxed mb-6">
-        Board game accessories aren't the only thing we build. If any of these
-        look useful, they're a tap away.
+        Board game accessories aren't the only thing we build. If any of these apps look interesting to you, consider using them. And if you ever do that, let us know what do you think!
       </p>
       <div class="flex flex-col gap-3">
         {
@@ -193,7 +198,11 @@ const apps = [
                     {app.tagline}
                   </span>
                 </span>
-                {app.url ? (
+                {app.badge ? (
+                  <span class="shrink-0 px-2.5 py-1 bg-forest/10 text-forest text-[10px] font-bold rounded-full uppercase tracking-wider">
+                    {app.badge}
+                  </span>
+                ) : (
                   <svg
                     class="w-4 h-4 text-bark/30 shrink-0"
                     fill="none"
@@ -207,10 +216,6 @@ const apps = [
                       d="M9 5l7 7-7 7"
                     />
                   </svg>
-                ) : (
-                  <span class="shrink-0 px-2.5 py-1 bg-forest/10 text-forest text-[10px] font-bold rounded-full uppercase tracking-wider">
-                    Soon
-                  </span>
                 )}
               </Tag>
             );
@@ -225,9 +230,9 @@ const apps = [
     <div class="max-w-lg mx-auto text-center">
       <p class="text-bark/60 leading-relaxed mb-2">
         If something arrived damaged or isn't quite right, just message us on
-        Etsy — we'd much rather fix it than have you stuck with it.
+        Etsy, we will try to sort it out! If your package is lost or stuck in customs, let us know we will see what we can do!
       </p>
-      <p class="text-bark/40 text-sm">Thanks again. Enjoy the game. 🎲</p>
+      <p class="text-bark/40 text-sm">Thanks again. Enjoy your game night. 🎲 And remember us, share your photo. Seeing one of our design on your table will make us really happy!</p>
     </div>
   </section>
 </Base>
