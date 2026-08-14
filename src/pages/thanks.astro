@@ -16,23 +16,38 @@ const workshopPhoto = "/images/workshop-placeholder.svg";
 const workshopPhotoAlt =
   "The forest and lake near the Fjord Labs workshop in Sweden";
 
+// Icons are the real app icons, copied from each app's own repo.
+// Board-game apps first — that's who's scanning this code. Leave `url` off
+// an app that isn't on the App Store yet and it renders as "Coming soon"
+// instead of a dead link.
 const apps = [
   {
     name: "Game Night: Party Games",
     tagline: "Party games for your table — no extra kit needed.",
-    emoji: "🎲",
+    icon: "/images/apps/game-night.png",
     url: "https://apps.apple.com/app/game-night-party-games/id6775038407",
+  },
+  {
+    name: "Lone Meeple",
+    tagline: "Solo board-gaming companion — log plays, track campaigns, beat your own scores.",
+    icon: "/images/apps/lone-meeple.png",
+  },
+  {
+    name: "Glimt",
+    tagline: "A deck of conversation cards for two.",
+    icon: "/images/apps/glimt.png",
+    url: "https://apps.apple.com/app/glimt-couples-questions/id6789508959",
   },
   {
     name: "Brewio",
     tagline: "Coffee journal, brew timer and ratio calculator.",
-    emoji: "☕",
+    icon: "/images/apps/brewio.png",
     url: "https://apps.apple.com/app/brewio-coffee-journal-timer/id6762492301",
   },
   {
     name: "Just Pomodoro",
     tagline: "A clean, focused Pomodoro timer.",
-    emoji: "🍅",
+    icon: "/images/apps/just-pomodoro.png",
     url: "https://apps.apple.com/app/just-pomodoro-stay-focused/id1517869765",
   },
 ];
@@ -152,37 +167,54 @@ const apps = [
       </p>
       <div class="flex flex-col gap-3">
         {
-          apps.map((app) => (
-            <a
-              href={app.url}
-              target="_blank"
-              rel="noopener"
-              class="flex items-center gap-4 bg-white rounded-2xl border border-bark/10 p-4 hover:border-clay/30 transition-colors"
-            >
-              <span class="text-3xl shrink-0">{app.emoji}</span>
-              <span class="min-w-0 flex-1">
-                <span class="block font-heading font-bold text-bark">
-                  {app.name}
-                </span>
-                <span class="block text-sm text-bark/50 leading-snug">
-                  {app.tagline}
-                </span>
-              </span>
-              <svg
-                class="w-4 h-4 text-bark/30 shrink-0"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
+          apps.map((app) => {
+            const Tag = app.url ? "a" : "div";
+            const linkProps = app.url
+              ? { href: app.url, target: "_blank", rel: "noopener" }
+              : {};
+            return (
+              <Tag
+                {...linkProps}
+                class={`flex items-center gap-4 bg-white rounded-2xl border border-bark/10 p-4 transition-colors ${app.url ? "hover:border-clay/30" : ""}`}
               >
-                <path
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  stroke-width="2"
-                  d="M9 5l7 7-7 7"
+                <img
+                  src={app.icon}
+                  alt=""
+                  loading="lazy"
+                  width="56"
+                  height="56"
+                  class={`w-14 h-14 rounded-[22%] shrink-0 border border-bark/5 ${app.url ? "" : "opacity-60"}`}
                 />
-              </svg>
-            </a>
-          ))
+                <span class="min-w-0 flex-1">
+                  <span class="block font-heading font-bold text-bark">
+                    {app.name}
+                  </span>
+                  <span class="block text-sm text-bark/50 leading-snug">
+                    {app.tagline}
+                  </span>
+                </span>
+                {app.url ? (
+                  <svg
+                    class="w-4 h-4 text-bark/30 shrink-0"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      stroke-linecap="round"
+                      stroke-linejoin="round"
+                      stroke-width="2"
+                      d="M9 5l7 7-7 7"
+                    />
+                  </svg>
+                ) : (
+                  <span class="shrink-0 px-2.5 py-1 bg-forest/10 text-forest text-[10px] font-bold rounded-full uppercase tracking-wider">
+                    Soon
+                  </span>
+                )}
+              </Tag>
+            );
+          })
         }
       </div>
     </div>
