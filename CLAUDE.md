@@ -116,6 +116,16 @@ design and live only on the products pages.
 - [ ] Design polish — review on mobile, improve spacing, test all pages
 - [ ] Consider adding more Etsy products as they're created
 
+## `/thanks/` — QR code landing page
+**Never rename or move `src/pages/thanks.astro`.** Its URL is printed on
+physical QR codes shipped inside Etsy orders, so changing it silently breaks
+every insert already in customers' hands. The QR source images live in `qr/`
+(not served — outside `public/`).
+
+The page content is meant to be edited freely; that flexibility is the reason
+it exists. It's `noindex` and excluded from the sitemap via the `NOINDEX` list
+in `astro.config.mjs` — keep those two in sync.
+
 ## Notes
 - All hub pages show game images, article sections by category (Rules/Strategy/Guide), and product grids
 - Homepage Quest Log showcases 9 articles across all 6 games

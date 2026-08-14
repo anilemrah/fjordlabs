@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="800" height="600" viewBox="0 0 800 600">
+  <rect width="800" height="600" fill="#F2EDE4"/>
+  <text x="400" y="270" text-anchor="middle" font-family="system-ui" font-size="72">🌲</text>
+  <text x="400" y="330" text-anchor="middle" font-family="system-ui" font-weight="bold" font-size="22" fill="#1A1A1A">Your forest &amp; lake photo</text>
+  <text x="400" y="362" text-anchor="middle" font-family="system-ui" font-size="14" fill="#999">Drop the file in public/images/ and update</text>
+  <text x="400" y="384" text-anchor="middle" font-family="system-ui" font-size="14" fill="#999">workshopPhoto at the top of thanks.astro</text>
+</svg>

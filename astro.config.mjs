@@ -37,11 +37,18 @@ function lastmodFor(url) {
   return gitDate(`${base}.astro`) ?? gitDate(`${base}/index.astro`);
 }
 
+/**
+ * Pages served with `noindex` — legal boilerplate and the QR-linked landing
+ * page. Keep this in sync with the `noindex` prop on those pages, so we don't
+ * ask Google to crawl something we've told it to ignore.
+ */
+const NOINDEX = ["privacy", "/apps", "/thanks"];
+
 export default defineConfig({
   site: SITE,
   integrations: [
     sitemap({
-      filter: (page) => !page.includes("privacy") && !page.includes("/apps"),
+      filter: (page) => !NOINDEX.some((path) => page.includes(path)),
       serialize(item) {
         const lastmod = lastmodFor(item.url);
         if (lastmod) item.lastmod = lastmod;

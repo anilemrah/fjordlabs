@@ -1,0 +1,201 @@
+---
+// ─────────────────────────────────────────────────────────────
+// QR CODE LANDING PAGE — /thanks/
+//
+// This URL is printed on physical QR codes shipped inside orders.
+// NEVER change the file name or move this page: existing printed
+// inserts would stop working. The content below is safe to edit,
+// reorder, add to, or remove at any time — that's the whole point.
+// ─────────────────────────────────────────────────────────────
+
+import Base from "../layouts/Base.astro";
+
+// Swap this for a real photo of the lake/forest when you have one:
+// drop the file in public/images/ and point this at it.
+const workshopPhoto = "/images/workshop-placeholder.svg";
+const workshopPhotoAlt =
+  "The forest and lake near the Fjord Labs workshop in Sweden";
+
+const apps = [
+  {
+    name: "Game Night: Party Games",
+    tagline: "Party games for your table — no extra kit needed.",
+    emoji: "🎲",
+    url: "https://apps.apple.com/app/game-night-party-games/id6775038407",
+  },
+  {
+    name: "Brewio",
+    tagline: "Coffee journal, brew timer and ratio calculator.",
+    emoji: "☕",
+    url: "https://apps.apple.com/app/brewio-coffee-journal-timer/id6762492301",
+  },
+  {
+    name: "Just Pomodoro",
+    tagline: "A clean, focused Pomodoro timer.",
+    emoji: "🍅",
+    url: "https://apps.apple.com/app/just-pomodoro-stay-focused/id1517869765",
+  },
+];
+---
+
+<Base
+  title="Thanks for your order | Fjord Labs"
+  description="A little more about Fjord Labs — the workshop in Sweden, our designs, our free game guides, and the apps we make."
+  noindex={true}
+>
+  <!-- Hero -->
+  <section class="px-6 pt-12 pb-10 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-lg mx-auto text-center">
+      <img
+        src="/images/fjordlabsicon.png"
+        alt=""
+        class="w-16 h-16 rounded-2xl mx-auto mb-5"
+      />
+      <p class="inline-flex items-center gap-2 px-3 py-1.5 bg-white border border-bark/10 rounded-full text-xs font-bold text-bark/60 uppercase tracking-wider mb-5">
+        <img src="/images/sweden.png" alt="" class="w-4 h-4 rounded-sm" />
+        <span>Made in Sweden</span>
+      </p>
+      <h1 class="text-3xl sm:text-4xl font-heading font-bold text-bark mb-4 leading-tight">
+        Tack så mycket!
+      </h1>
+      <p class="text-lg text-bark/60 leading-relaxed">
+        Thank you for buying something we made. Every piece is designed and
+        3D-printed by us, one order at a time — yours included.
+      </p>
+    </div>
+  </section>
+
+  <!-- Where we are -->
+  <section class="px-6 py-12">
+    <div class="max-w-lg mx-auto">
+      <img
+        src={workshopPhoto}
+        alt={workshopPhotoAlt}
+        loading="lazy"
+        class="w-full aspect-[4/3] object-cover rounded-2xl border border-bark/10 mb-6 bg-sand"
+      />
+      <h2 class="text-xl font-heading font-bold text-bark mb-3">
+        🌲 Where your order was made
+      </h2>
+      <p class="text-bark/60 leading-relaxed mb-4">
+        We work out of a small workshop in Sweden, near a lake and surrounded by
+        forest. It's quiet, it's cold for a good part of the year, and it's a
+        very good place to sit and design little wooden-looking things for board
+        games.
+      </p>
+      <p class="text-bark/60 leading-relaxed">
+        There's no factory and no warehouse. Everything starts at our own game
+        table — we play something, get annoyed by the cardboard chits or the
+        sliding cubes, and then design the fix.
+      </p>
+    </div>
+  </section>
+
+  <!-- Designs -->
+  <section class="px-6 py-12 bg-sand/30 border-y border-bark/5">
+    <div class="max-w-lg mx-auto">
+      <h2 class="text-xl font-heading font-bold text-bark mb-3">
+        🛒 See everything else we make
+      </h2>
+      <p class="text-bark/60 leading-relaxed mb-6">
+        Resource tokens, inserts, organisers, trackers and printable STL files —
+        for Catan, Wingspan, Scythe, Everdell, Agricola and more.
+      </p>
+      <div class="flex flex-col gap-3">
+        <a
+          href="https://fjordlabs.etsy.com"
+          target="_blank"
+          rel="noopener"
+          class="flex items-center justify-center gap-2 px-5 py-4 bg-clay text-white rounded-xl hover:bg-clay-dark transition-colors font-semibold"
+        >
+          <span>Browse our Etsy shop</span>
+        </a>
+        <a
+          href="/products/"
+          class="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-bark/10 rounded-xl hover:border-clay/30 transition-colors font-semibold text-bark"
+        >
+          <span>See the full catalogue</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Guides -->
+  <section class="px-6 py-12">
+    <div class="max-w-lg mx-auto">
+      <h2 class="text-xl font-heading font-bold text-bark mb-3">
+        📖 Free guides for the games you play
+      </h2>
+      <p class="text-bark/60 leading-relaxed mb-6">
+        We write rules explainers, strategy guides and setup shortcuts for the
+        games we make accessories for — free, no sign-up, no newsletter. If a
+        page settles an argument at your table, it did its job.
+      </p>
+      <a
+        href="/games/catan/"
+        class="flex items-center justify-center gap-2 px-5 py-4 bg-white border border-bark/10 rounded-xl hover:border-clay/30 transition-colors font-semibold text-bark"
+      >
+        <span>Read the guides</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Apps -->
+  <section class="px-6 py-12 bg-sand/30 border-t border-bark/5">
+    <div class="max-w-lg mx-auto">
+      <h2 class="text-xl font-heading font-bold text-bark mb-3">
+        📱 We make apps too
+      </h2>
+      <p class="text-bark/60 leading-relaxed mb-6">
+        Board game accessories aren't the only thing we build. If any of these
+        look useful, they're a tap away.
+      </p>
+      <div class="flex flex-col gap-3">
+        {
+          apps.map((app) => (
+            <a
+              href={app.url}
+              target="_blank"
+              rel="noopener"
+              class="flex items-center gap-4 bg-white rounded-2xl border border-bark/10 p-4 hover:border-clay/30 transition-colors"
+            >
+              <span class="text-3xl shrink-0">{app.emoji}</span>
+              <span class="min-w-0 flex-1">
+                <span class="block font-heading font-bold text-bark">
+                  {app.name}
+                </span>
+                <span class="block text-sm text-bark/50 leading-snug">
+                  {app.tagline}
+                </span>
+              </span>
+              <svg
+                class="w-4 h-4 text-bark/30 shrink-0"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M9 5l7 7-7 7"
+                />
+              </svg>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- Sign-off -->
+  <section class="px-6 py-14">
+    <div class="max-w-lg mx-auto text-center">
+      <p class="text-bark/60 leading-relaxed mb-2">
+        If something arrived damaged or isn't quite right, just message us on
+        Etsy — we'd much rather fix it than have you stuck with it.
+      </p>
+      <p class="text-bark/40 text-sm">Thanks again. Enjoy the game. 🎲</p>
+    </div>
+  </section>
+</Base>
