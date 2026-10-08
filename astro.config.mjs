@@ -74,7 +74,9 @@ export default defineConfig({
         return item;
       },
     }),
-    tailwind(),
+    // Base styles come from src/styles/global.css (imported in Base.astro),
+    // which adds the body font/background and the .prose-article rules.
+    tailwind({ applyBaseStyles: false }),
   ],
   output: "static",
 });
