@@ -3,10 +3,14 @@ import Base from "../layouts/Base.astro";
 import ProductCard from "../components/ProductCard.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import NewReleases from "../components/NewReleases.astro";
+import AppCard from "../components/AppCard.astro";
 import { products } from "../data/products";
+import { apps } from "../data/apps";
 import { games } from "../data/games";
 
 const featuredProducts = products.filter((p) => p.featured);
+const tableApps = apps.filter((a) => a.group === "table");
+const otherApps = apps.filter((a) => a.group !== "table");
 const digitalProducts = products.filter((p) => p.digital);
 const heroSlugs = [
   "wingspan-pocket-insert",
@@ -350,6 +354,69 @@ const latestArticles = [
             />
           ))
         }
+      </div>
+    </div>
+  </section>
+
+  <!-- Apps -->
+  <section id="apps" class="py-16 px-6">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex justify-between items-end mb-10">
+        <div>
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
+            📱 Apps for the Table
+          </h2>
+          <p class="text-bark/40 mt-2">
+            We build apps too, starting with the ones we use on game night.
+          </p>
+        </div>
+        <a
+          href="/apps/"
+          class="hidden md:inline-flex items-center gap-1 text-sm text-clay font-medium hover:text-clay-dark transition-colors"
+        >
+          All our apps
+          <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </a>
+      </div>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        {tableApps.map((app) => <AppCard app={app} />)}
+        <a
+          href="/apps/"
+          class="group flex flex-col justify-between bg-sand rounded-3xl border border-bark/5 p-6 hover:shadow-xl hover:border-bark/10 transition-all duration-300 sm:col-span-2 lg:col-span-1"
+        >
+          <div>
+            <h3 class="font-heading font-bold text-bark text-lg mb-2 group-hover:text-clay transition-colors">
+              And {otherApps.length} more
+            </h3>
+            <p class="text-sm text-bark/60 leading-relaxed mb-6">
+              A coffee journal, a focus timer, conversation cards for couples,
+              and the listing tool we built for our own shop.
+            </p>
+          </div>
+          <div class="flex items-center justify-between gap-4">
+            <div class="flex -space-x-3">
+              {otherApps.map((app) => (
+                <img
+                  src={app.icon}
+                  alt={app.name}
+                  width="56"
+                  height="56"
+                  loading="lazy"
+                  class="w-14 h-14 rounded-[22%] border-2 border-sand shadow-sm"
+                />
+              ))}
+            </div>
+            <span class="text-sm text-clay font-semibold inline-flex items-center gap-1 shrink-0">
+              See all
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+              </svg>
+            </span>
+          </div>
+        </a>
       </div>
     </div>
   </section>

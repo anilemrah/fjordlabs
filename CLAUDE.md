@@ -27,6 +27,8 @@ A static Astro site (www.fjord-labs.com) that serves as an SEO content hub for F
 - `ArticleCard` — article preview card with category/game badges
 - `ProductCard` — product grid card for product listings
 - `ProductCallout` — blended product recommendation (embedded in articles via `product` prop)
+- `AppCard` — app card with screenshot peek (`wide` variant for a group with one app)
+- `AppCallout` — app recommendation at the end of an article (via the `app` prop on `Article`)
 - `InfoBox` — colored callout (tip=green, warning=amber, rule=blue, info=gray)
 - `KeyTakeaway` — hero answer box with gradient background
 - `StepList` + `Step` — numbered timeline with vertical connector
@@ -36,6 +38,7 @@ A static Astro site (www.fjord-labs.com) that serves as an SEO content hub for F
 ### Data
 - `src/data/products.ts` — 9 products with Etsy image URLs and links
 - `src/data/games.ts` — 6 games with metadata (slug, title, image, playerCount, playTime, complexity)
+- `src/data/apps.ts` — our apps (copy, features, pricing, FAQ, accent colour, App Store id, own domain)
 
 ### Pages Structure
 ```
@@ -57,6 +60,10 @@ src/pages/
     ├── everdell/            # 5 articles + hub
     ├── agricola/            # 4 articles + hub
     └── gloomhaven/          # 6 articles + hub (no products, content only)
+├── apps/
+│   ├── index.astro          # /apps/ showcase, grouped by appGroups
+│   └── [slug].astro         # one landing page per app in apps.ts
+└── <app>/                   # legacy: support/privacy pages registered in App Store Connect
 ```
 
 Adding a game means: entry in `src/data/games.ts`, placeholder SVG in
@@ -115,6 +122,28 @@ design and live only on the products pages.
 - [ ] Add more games without products (pure SEO content plays)
 - [ ] Design polish — review on mobile, improve spacing, test all pages
 - [ ] Consider adding more Etsy products as they're created
+
+## Apps section (`/apps/`)
+Every app gets a page at `/apps/<slug>/`, generated from `src/data/apps.ts`, including
+apps with their own domain (Brewio → brewio.app, ListCraft → listcraft.co): we
+explain the app here and link out, rather than copying their site. The nav, footer
+and homepage "Apps for the Table" section all read from `apps.ts`.
+
+Adding an app: entry in `apps.ts` (copy from the live App Store listing — don't
+invent features or prices), 192px icon in `public/images/apps/<slug>.png`, and
+screenshots in `public/images/apps/<slug>/N.webp`. Screenshots come from the
+public iTunes lookup API (`itunes.apple.com/lookup?id=<appStoreId>`), with the
+URL size swapped to `600x1300bb.webp`. To see every live app, look up developer
+id `1517869764` with `&entity=software`.
+
+**Never move the support/privacy pages under `/<app>/`** (e.g. `/glimt/support/`,
+`/gissa/privacy/`): those URLs are registered in App Store Connect. The folder
+roots (`/glimt/`, `/gissa/`…) redirect to the app page via `legacyPath` in
+`apps.ts` → `redirects` in `astro.config.mjs`.
+
+Recommend an app from an article with `app="<slug>"` on `<Article>`, only where it
+genuinely fits the topic (Lone Meeple on solo-play articles, Game Night on light
+party games).
 
 ## `/thanks/` — QR code landing page
 **Never rename or move `src/pages/thanks.astro`.** Its URL is printed on

@@ -1,0 +1,439 @@
+---
+import Base from "../../layouts/Base.astro";
+import AppCard from "../../components/AppCard.astro";
+import { apps, appStoreUrl, hostname } from "../../data/apps";
+import type { App } from "../../data/apps";
+
+export function getStaticPaths() {
+  return apps.map((app) => ({
+    params: { slug: app.slug },
+    props: { app },
+  }));
+}
+
+const { app } = Astro.props as { app: App };
+
+const SITE = "https://www.fjord-labs.com";
+const storeUrl = appStoreUrl(app);
+const websiteHost = app.website ? hostname(app.website) : undefined;
+const pageUrl = `${SITE}/apps/${app.slug}/`;
+const absolute = (path: string) => (path.startsWith("http") ? path : `${SITE}${path}`);
+const external = (url: string) =>
+  url.startsWith("http") ? { target: "_blank", rel: "noopener" } : {};
+
+// Same-group apps first, so a board gamer sees board game apps next.
+const moreApps = apps
+  .filter((a) => a.slug !== app.slug)
+  .sort((a, b) => Number(b.group === app.group) - Number(a.group === app.group))
+  .slice(0, 3);
+
+const heroShots = app.screenshots.slice(0, 3);
+const helpLinks = [
+  app.supportUrl && { label: "Support", href: app.supportUrl },
+  app.privacyUrl && { label: "Privacy policy", href: app.privacyUrl },
+  app.website && { label: websiteHost!, href: app.website },
+  storeUrl && { label: "App Store", href: storeUrl },
+].filter(Boolean) as { label: string; href: string }[];
+---
+
+<Base
+  title={`${app.fullName} | Fjord Labs`}
+  description={`${app.tagline} ${app.pricing.summary}. Made by Fjord Labs in Sweden.`}
+>
+  {app.appStoreId && <meta slot="head" name="apple-itunes-app" content={`app-id=${app.appStoreId}`} />}
+
+  <div style={`--accent: ${app.accent}`}>
+    <!-- Hero -->
+    <section class="hero relative px-6 pt-10 pb-16 md:pb-20 overflow-hidden">
+      <div class="max-w-6xl mx-auto">
+        <nav class="flex items-center gap-2 text-sm text-bark/40 mb-10">
+          <a href="/" class="hover:text-clay transition-colors">Home</a>
+          <span>/</span>
+          <a href="/apps/" class="hover:text-clay transition-colors">Apps</a>
+          <span>/</span>
+          <span class="text-bark/60">{app.name}</span>
+        </nav>
+
+        <div class="grid lg:grid-cols-[1.15fr_1fr] gap-12 lg:gap-16 items-center">
+          <div>
+            <div class="flex items-center gap-4 mb-6">
+              <img
+                src={app.icon}
+                alt={`${app.name} app icon`}
+                width="80"
+                height="80"
+                class="w-20 h-20 rounded-[22%] shadow-lg border border-bark/5"
+              />
+              <div class="flex flex-wrap gap-2">
+                <span class="accent-soft accent-text px-3 py-1 text-xs font-semibold rounded-full">
+                  {app.category}
+                </span>
+                {
+                  app.isNew && (
+                    <span class="px-3 py-1 bg-clay text-white text-xs font-bold rounded-full">
+                      ✨ NEW
+                    </span>
+                  )
+                }
+                {
+                  !storeUrl && (
+                    <span class="px-3 py-1 bg-forest/10 text-forest text-xs font-semibold rounded-full">
+                      Web app
+                    </span>
+                  )
+                }
+              </div>
+            </div>
+
+            <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark leading-tight mb-4">
+              {app.fullName}
+            </h1>
+            <p class="text-xl md:text-2xl font-heading font-medium accent-text mb-6">
+              {app.headline}
+            </p>
+            <div class="space-y-4 text-bark/60 leading-relaxed md:text-lg">
+              {app.intro.map((paragraph) => <p>{paragraph}</p>)}
+            </div>
+
+            <div class="flex flex-wrap items-center gap-3 mt-8">
+              {
+                storeUrl && (
+                  <a href={storeUrl} target="_blank" rel="noopener" class="hover:opacity-80 transition-opacity">
+                    <img
+                      src="/images/badges/app-store.svg"
+                      alt="Download on the App Store"
+                      width="150"
+                      height="50"
+                      class="h-[50px] w-auto"
+                    />
+                  </a>
+                )
+              }
+              {
+                app.website && (
+                  <a
+                    href={app.website}
+                    target="_blank"
+                    rel="noopener"
+                    class={
+                      storeUrl
+                        ? "inline-flex items-center gap-2 h-[50px] px-5 bg-white border border-bark/10 rounded-xl font-semibold text-bark hover:border-bark/30 transition-colors"
+                        : "inline-flex items-center gap-2 h-[50px] px-7 bg-bark text-cream rounded-xl font-semibold hover:bg-bark/80 transition-colors shadow-lg"
+                    }
+                  >
+                    {storeUrl ? `Visit ${websiteHost}` : `Try ${app.name} free`}
+                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                    </svg>
+                  </a>
+                )
+              }
+            </div>
+            <p class="text-sm text-bark/40 mt-3">
+              {app.pricing.summary} · {app.platform}{!storeUrl && websiteHost && ` · ${websiteHost}`}
+            </p>
+          </div>
+
+          {
+            heroShots.length >= 3 ? (
+              <div class="relative h-[540px] hidden lg:block" aria-hidden="true">
+                <img
+                  src={heroShots[1]}
+                  alt=""
+                  class="absolute w-56 rounded-[1.75rem] shadow-2xl left-[4%] top-12 rotate-[-7deg]"
+                />
+                <img
+                  src={heroShots[2]}
+                  alt=""
+                  class="absolute w-56 rounded-[1.75rem] shadow-2xl right-[4%] top-12 rotate-[7deg]"
+                />
+                <img
+                  src={heroShots[0]}
+                  alt=""
+                  class="absolute w-60 rounded-[1.75rem] shadow-2xl left-1/2 -translate-x-1/2 top-0 z-10"
+                />
+              </div>
+            ) : (
+              <div class="relative" aria-hidden="true">
+                <div class="bg-white rounded-3xl shadow-2xl border border-bark/5 p-6 md:p-8 lg:rotate-[1.5deg] max-w-md mx-auto">
+                  <div class="flex items-center justify-between mb-5">
+                    <span class="px-3 py-1 accent-soft accent-text text-xs font-bold rounded-full">Etsy</span>
+                    <span class="text-xs text-bark/30">Illustration</span>
+                  </div>
+                  <p class="text-xs font-semibold text-bark/40 uppercase tracking-wide mb-1">Title</p>
+                  <p class="font-heading font-bold text-bark leading-snug mb-5">
+                    Catan Resource Tokens, 3D-Printed Upgrade Set for Settlers of Catan
+                  </p>
+                  <p class="text-xs font-semibold text-bark/40 uppercase tracking-wide mb-2">Description</p>
+                  <div class="space-y-2 mb-5">
+                    <div class="h-2.5 bg-bark/10 rounded-full w-full"></div>
+                    <div class="h-2.5 bg-bark/10 rounded-full w-11/12"></div>
+                    <div class="h-2.5 bg-bark/10 rounded-full w-4/5"></div>
+                    <div class="h-2.5 bg-bark/10 rounded-full w-2/3"></div>
+                  </div>
+                  <p class="text-xs font-semibold text-bark/40 uppercase tracking-wide mb-2">Tags</p>
+                  <div class="flex flex-wrap gap-1.5">
+                    {["catan tokens", "board game upgrade", "3d printed", "catan accessories", "gamer gift"].map((tag) => (
+                      <span class="px-2.5 py-1 bg-sand text-bark/60 text-xs rounded-full">{tag}</span>
+                    ))}
+                  </div>
+                </div>
+              </div>
+            )
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Quick facts -->
+    <section class="px-6">
+      <div class="max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-3">
+        {
+          app.facts.map((fact) => (
+            <div class="bg-white rounded-2xl border border-bark/5 px-4 py-4 text-center">
+              <p class="text-[11px] font-semibold text-bark/40 uppercase tracking-wider mb-1">{fact.label}</p>
+              <p class="font-heading font-bold text-bark">{fact.value}</p>
+            </div>
+          ))
+        }
+      </div>
+    </section>
+
+    <!-- Screenshots -->
+    {
+      app.screenshots.length > 0 && (
+        <section class="py-16">
+          <div class="max-w-6xl mx-auto px-6 mb-6">
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
+              Inside {app.name}
+            </h2>
+          </div>
+          <div class="overflow-x-auto snap-x snap-mandatory pb-4">
+            <div class="flex gap-4 md:gap-5 px-6 w-max min-w-full lg:justify-center">
+              {app.screenshots.map((src, i) => (
+                <img
+                  src={src}
+                  alt={`${app.name} screenshot ${i + 1}`}
+                  width="600"
+                  height="1299"
+                  loading="lazy"
+                  class="w-48 md:w-52 h-auto rounded-2xl shadow-lg border border-bark/5 snap-start shrink-0"
+                />
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- How it works (apps without screenshots) -->
+    {
+      app.steps && (
+        <section class="py-16 px-6">
+          <div class="max-w-6xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-8">
+              How it works
+            </h2>
+            <ol class="grid md:grid-cols-3 gap-5">
+              {app.steps.map((step, i) => (
+                <li class="bg-white rounded-2xl border border-bark/5 p-6">
+                  <span class="w-9 h-9 rounded-full bg-bark text-cream font-heading font-bold flex items-center justify-center mb-4">
+                    {i + 1}
+                  </span>
+                  <h3 class="font-heading font-bold text-bark text-lg mb-2">{step.title}</h3>
+                  <p class="text-sm text-bark/60 leading-relaxed">{step.text}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Features -->
+    <section class="py-16 px-6 bg-sand/50">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-8">
+          What it does
+        </h2>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {
+            app.features.map((feature) => (
+              <div class="bg-white rounded-2xl border border-bark/5 p-6">
+                <div class="accent-soft w-12 h-12 rounded-xl flex items-center justify-center text-2xl mb-4">
+                  {feature.icon}
+                </div>
+                <h3 class="font-heading font-bold text-bark text-lg mb-2">{feature.title}</h3>
+                <p class="text-sm text-bark/60 leading-relaxed">{feature.text}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- Its own website -->
+    {
+      app.website && (
+        <section class="py-16 px-6">
+          <div class="max-w-6xl mx-auto accent-soft rounded-3xl p-8 md:p-12 flex flex-col md:flex-row gap-8 md:items-center">
+            <div class="flex-1">
+              <p class="text-xs font-semibold accent-text uppercase tracking-wider mb-2">
+                {storeUrl ? "Its own home on the web" : "Where to find it"}
+              </p>
+              <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-3">
+                {websiteHost}
+              </h2>
+              <p class="text-bark/60 leading-relaxed max-w-2xl">{app.websitePitch}</p>
+            </div>
+            <a
+              href={app.website}
+              target="_blank"
+              rel="noopener"
+              class="shrink-0 inline-flex items-center justify-center gap-2 px-7 py-3.5 bg-bark text-cream rounded-xl font-semibold hover:bg-bark/80 transition-colors"
+            >
+              Visit {websiteHost}
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+              </svg>
+            </a>
+          </div>
+        </section>
+      )
+    }
+
+    <!-- Pricing -->
+    <section class={`py-16 px-6 ${app.website ? "pt-0" : ""}`}>
+      <div class="max-w-4xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-2 text-center">
+          Free vs. {app.pricing.paidName}
+        </h2>
+        <p class="text-bark/40 text-center mb-8">{app.pricing.summary}.</p>
+        <div class="grid md:grid-cols-2 gap-5">
+          <div class="bg-white rounded-2xl border border-bark/10 p-6 md:p-8">
+            <h3 class="font-heading font-bold text-bark text-xl mb-5">Free</h3>
+            <ul class="space-y-3">
+              {app.pricing.free.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-bark/70">
+                  <svg class="w-5 h-5 text-forest shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+          <div class="bg-white rounded-2xl border-2 accent-border p-6 md:p-8 relative">
+            <h3 class="font-heading font-bold text-bark text-xl mb-5">{app.pricing.paidName}</h3>
+            <ul class="space-y-3">
+              {app.pricing.paid.map((item) => (
+                <li class="flex items-start gap-3 text-sm text-bark/70">
+                  <svg class="w-5 h-5 accent-text shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
+                  </svg>
+                  {item}
+                </li>
+              ))}
+            </ul>
+          </div>
+        </div>
+        <p class="text-xs text-bark/40 text-center mt-4">
+          {storeUrl
+            ? "Current prices are shown in the app, in your local currency."
+            : `Current prices are shown on ${websiteHost}.`}
+        </p>
+      </div>
+    </section>
+
+    <!-- FAQ -->
+    <section class="py-16 px-6 bg-sand/50">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-8">
+          Questions people ask
+        </h2>
+        <div class="space-y-3">
+          {
+            app.faq.map((item) => (
+              <details class="group bg-white rounded-2xl border border-bark/5 px-6 py-4 open:shadow-sm">
+                <summary class="flex items-center justify-between gap-4 cursor-pointer list-none font-heading font-semibold text-bark">
+                  {item.q}
+                  <svg class="w-5 h-5 text-bark/30 shrink-0 group-open:rotate-180 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                  </svg>
+                </summary>
+                <p class="text-bark/60 leading-relaxed mt-3">{item.a}</p>
+              </details>
+            ))
+          }
+        </div>
+
+        <div class="mt-10 flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">
+          <span class="text-bark/40">Need help?</span>
+          {
+            helpLinks.map((link) => (
+              <a href={link.href} {...external(link.href)} class="text-clay hover:text-clay-dark font-medium transition-colors">
+                {link.label}
+              </a>
+            ))
+          }
+        </div>
+      </div>
+    </section>
+
+    <!-- More apps -->
+    <section class="py-16 px-6">
+      <div class="max-w-6xl mx-auto">
+        <div class="flex justify-between items-end mb-8">
+          <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
+            More from our workshop
+          </h2>
+          <a href="/apps/" class="hidden md:inline-flex items-center gap-1 text-sm text-clay font-medium hover:text-clay-dark transition-colors">
+            All apps
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+            </svg>
+          </a>
+        </div>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {moreApps.map((other) => <AppCard app={other} />)}
+        </div>
+      </div>
+    </section>
+  </div>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": storeUrl ? "MobileApplication" : "WebApplication",
+      name: app.fullName,
+      description: app.intro[0],
+      url: pageUrl,
+      image: absolute(app.icon),
+      ...(app.screenshots.length > 0 && { screenshot: app.screenshots.map(absolute) }),
+      applicationCategory: app.schemaCategory,
+      operatingSystem: storeUrl ? "iOS" : "Any (web browser)",
+      installUrl: storeUrl ?? app.website,
+      sameAs: [storeUrl, app.website].filter(Boolean),
+      offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+      publisher: { "@type": "Organization", name: "Fjord Labs AB", url: SITE },
+    })}
+  />
+</Base>
+
+<style>
+  .hero {
+    background:
+      radial-gradient(ellipse at 85% 10%, color-mix(in srgb, var(--accent) 22%, transparent), transparent 55%),
+      linear-gradient(180deg, color-mix(in srgb, var(--accent) 7%, transparent), transparent 85%);
+  }
+  .accent-soft {
+    background: color-mix(in srgb, var(--accent) 11%, white);
+  }
+  .accent-text {
+    color: color-mix(in srgb, var(--accent) 85%, black);
+  }
+  .accent-border {
+    border-color: color-mix(in srgb, var(--accent) 45%, white);
+  }
+</style>

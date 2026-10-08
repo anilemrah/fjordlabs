@@ -1,4 +1,6 @@
 ---
+import { apps } from "../data/apps";
+
 interface Props {
   title: string;
   description: string;
@@ -53,6 +55,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
       href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap"
       rel="stylesheet"
     />
+    <slot name="head" />
   </head>
   <body class="min-h-screen flex flex-col">
     <nav
@@ -133,6 +136,10 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
             >✨ New</a
           >
           <a
+            href="/apps/"
+            class="text-bark/60 hover:text-bark transition-colors">Apps</a
+          >
+          <a
             href="/about/"
             class="text-bark/60 hover:text-bark transition-colors">About</a
           >
@@ -188,6 +195,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
           <a href="/products/#new-releases" class="text-clay font-semibold py-1"
             >✨ New Releases</a
           >
+          <a href="/apps/" class="text-bark/70 py-1">Apps</a>
           <a href="/about/" class="text-bark/70 py-1">About</a>
           <a
             href="https://fjordlabs.etsy.com"
@@ -204,7 +212,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
 
     <footer class="bg-sand border-t border-bark/5 mt-auto">
       <div class="max-w-6xl mx-auto px-6 py-12">
-        <div class="grid md:grid-cols-3 gap-8 mb-8">
+        <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div>
             <div class="flex items-center gap-2 mb-3">
               <img
@@ -215,7 +223,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
               <span class="font-heading font-bold text-bark">Fjord Labs</span>
             </div>
             <p class="text-sm text-bark/50">
-              3D-printed board game upgrades, crafted in Sweden.
+              3D-printed board game upgrades and apps, crafted in Sweden.
             </p>
           </div>
           <div>
@@ -249,6 +257,16 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
                   class="hover:text-clay transition-colors">Etsy Store</a
                 >
               </li>
+            </ul>
+          </div>
+          <div>
+            <h4 class="font-heading font-semibold text-sm text-bark mb-3">
+              <a href="/apps/" class="hover:text-clay transition-colors">Apps</a>
+            </h4>
+            <ul class="space-y-1.5 text-sm text-bark/50">
+              {apps.map((app) => (
+                <li><a href={`/apps/${app.slug}/`} class="hover:text-clay transition-colors">{app.name}</a></li>
+              ))}
             </ul>
           </div>
         </div>

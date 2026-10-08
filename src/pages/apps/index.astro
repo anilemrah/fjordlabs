@@ -1,0 +1,165 @@
+---
+import Base from "../../layouts/Base.astro";
+import AppCard from "../../components/AppCard.astro";
+import { apps, appGroups } from "../../data/apps";
+import { products } from "../../data/products";
+
+const SUPPORT_EMAIL = "fjordlabs.app@gmail.com";
+const productPeek = products.filter((p) => p.featured).slice(0, 4);
+---
+
+<Base
+  title="Apps by Fjord Labs: Game Night, Lone Meeple, Glimt, Brewio & More"
+  description="iPhone and web apps made by Fjord Labs in Sweden: party games, a solo board game journal, couples questions, a coffee journal, a focus timer and a listing generator for sellers."
+>
+  <!-- Hero -->
+  <section class="relative py-16 md:py-24 px-6 overflow-hidden">
+    <div class="absolute inset-0 opacity-[0.03]" style="background-image: url(&quot;data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill-rule='evenodd'%3E%3Cg fill='%231a1a1a' fill-opacity='1'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9zM0 15l12.98-7.5V0h-2v6.35L0 12.69v2.3zm0 18.5L12.98 41v8h-2v-6.85L0 35.81v-2.3zM15 0v7.5L27.99 15H28v-2.31h-.01L17 6.35V0h-2zm0 49v-8l12.99-7.5H28v2.31h-.01L17 42.15V49h-2z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E&quot;);"></div>
+
+    <div class="max-w-3xl mx-auto relative text-center">
+      <nav class="flex items-center justify-center gap-2 text-sm text-bark/40 mb-8">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Apps</span>
+      </nav>
+
+      <div class="inline-flex items-center gap-2 mb-6 px-4 py-1.5 rounded-full bg-forest/5 text-forest text-xs font-semibold tracking-wide">
+        <img src="/images/sweden.png" alt="" class="w-4 h-4 rounded-sm" />
+        Designed and built in Sweden
+      </div>
+
+      <h1 class="text-4xl md:text-5xl font-heading font-bold text-bark mb-6 leading-tight">
+        We make <span class="text-clay">apps</span> too.
+      </h1>
+
+      <p class="text-lg md:text-xl text-bark/50 leading-relaxed mb-10">
+        When the 3D printers are busy, we build apps. They're small and focused,
+        made for the game table and for everyday life, and every one is free to
+        start.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-3 sm:gap-4">
+        {
+          apps.map((app) => (
+            <a
+              href={`/apps/${app.slug}/`}
+              class="group flex flex-col items-center gap-2 w-20"
+              title={app.fullName}
+            >
+              <img
+                src={app.icon}
+                alt=""
+                width="64"
+                height="64"
+                class="w-16 h-16 rounded-[22%] border border-bark/5 shadow-md group-hover:-translate-y-1 group-hover:shadow-lg transition-all"
+              />
+              <span class="text-xs font-medium text-bark/60 group-hover:text-clay transition-colors leading-tight">
+                {app.name}
+              </span>
+            </a>
+          ))
+        }
+      </div>
+    </div>
+  </section>
+
+  <!-- App groups -->
+  {
+    appGroups.map((group, i) => {
+      const groupApps = apps.filter((a) => a.group === group.id);
+      if (groupApps.length === 0) return null;
+      return (
+        <section class={`py-14 px-6 ${i % 2 === 0 ? "bg-sand/50" : ""}`}>
+          <div class="max-w-6xl mx-auto">
+            <div class="mb-8">
+              <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark">
+                {group.title}
+              </h2>
+              <p class="text-bark/40 mt-2">{group.blurb}</p>
+            </div>
+            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+              {groupApps.map((app) => (
+                <div class={groupApps.length === 1 ? "sm:col-span-2 lg:col-span-3" : "contents"}>
+                  <AppCard app={app} wide={groupApps.length === 1} />
+                </div>
+              ))}
+              {group.id === "table" && (
+                <a
+                  href="/products/"
+                  class="group flex flex-col bg-white rounded-3xl border border-bark/5 overflow-hidden hover:shadow-xl hover:border-bark/10 transition-all duration-300 sm:col-span-2 lg:col-span-1"
+                >
+                  <div class="grid grid-cols-4 lg:grid-cols-2 lg:grid-rows-2 h-52 shrink-0 overflow-hidden">
+                    {productPeek.map((product) => (
+                      <img
+                        src={product.image}
+                        alt=""
+                        loading="lazy"
+                        class="w-full h-full min-h-0 object-cover"
+                      />
+                    ))}
+                  </div>
+                  <div class="p-6 flex-1 flex flex-col">
+                    <h3 class="font-heading font-bold text-bark text-lg leading-tight mb-3 group-hover:text-clay transition-colors">
+                      Prefer something you can hold?
+                    </h3>
+                    <p class="text-sm text-bark/60 leading-relaxed flex-1">
+                      Our main craft is 3D-printed upgrades for Catan, Wingspan,
+                      Scythe and more, designed and printed in the same workshop.
+                    </p>
+                    <div class="mt-5 pt-4 border-t border-bark/5 flex justify-end text-xs">
+                      <span class="text-clay font-semibold inline-flex items-center gap-1">
+                        Browse the inventory
+                        <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+                        </svg>
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              )}
+            </div>
+          </div>
+        </section>
+      );
+    })
+  }
+
+  <!-- Contact -->
+  <section class="py-16 px-6">
+    <div class="max-w-2xl mx-auto text-center">
+      <div class="text-4xl mb-4">💬</div>
+      <h2 class="text-2xl font-heading font-bold text-bark mb-3">
+        Questions, bugs or ideas?
+      </h2>
+      <p class="text-bark/50 mb-6 leading-relaxed">
+        Every app page links to its own support page. You can also write to us
+        directly, and we'll get back to you.
+      </p>
+      <a
+        href={`mailto:${SUPPORT_EMAIL}`}
+        class="inline-flex items-center gap-2 px-6 py-3 bg-bark/5 text-bark font-semibold rounded-xl hover:bg-bark/10 transition-colors"
+      >
+        ✉️ {SUPPORT_EMAIL}
+      </a>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Apps by Fjord Labs",
+      url: "https://www.fjord-labs.com/apps/",
+      mainEntity: {
+        "@type": "ItemList",
+        itemListElement: apps.map((app, i) => ({
+          "@type": "ListItem",
+          position: i + 1,
+          url: `https://www.fjord-labs.com/apps/${app.slug}/`,
+          name: app.fullName,
+        })),
+      },
+    })}
+  />
+</Base>

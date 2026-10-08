@@ -1,0 +1,56 @@
+---
+import type { App } from "../data/apps";
+
+interface Props {
+  app: App;
+}
+
+const { app } = Astro.props;
+---
+
+<aside class="my-12 p-6 bg-sand rounded-2xl border border-bark/5">
+  <div class="flex flex-col sm:flex-row gap-6 items-start">
+    <a href={`/apps/${app.slug}/`} class="shrink-0">
+      <img
+        src={app.icon}
+        alt={app.name}
+        width="96"
+        height="96"
+        class="w-24 h-24 rounded-[22%] border border-bark/5"
+        loading="lazy"
+      />
+    </a>
+    <div class="flex-1">
+      <p class="text-xs font-semibold text-clay uppercase tracking-wide mb-1">
+        Our app for this
+      </p>
+      <a href={`/apps/${app.slug}/`}>
+        <h4
+          class="text-lg font-heading font-bold text-bark hover:text-clay transition-colors mb-2"
+        >
+          {app.fullName}
+        </h4>
+      </a>
+      <p class="text-sm text-bark/60 mb-4">{app.tagline} {app.pricing.summary}.</p>
+      <a
+        href={`/apps/${app.slug}/`}
+        class="inline-flex items-center gap-2 px-4 py-2 bg-clay text-white text-sm font-semibold rounded-lg hover:bg-clay-dark transition-colors"
+      >
+        See the App
+        <svg
+          class="w-3.5 h-3.5"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M9 5l7 7-7 7"
+          ></path>
+        </svg>
+      </a>
+    </div>
+  </div>
+</aside>
