@@ -7,19 +7,38 @@ import Step from "../../../components/Step.astro";
 ---
 
 <Article
-  title="How Does the Birdfeeder Work in Wingspan?"
-  description="The dice tower, rerolling, and when you can take food — the birdfeeder rules explained clearly."
+  title="Wingspan Birdfeeder Rules: When Can You Reroll the Dice?"
+  description="You may reroll all five dice when every die left in the birdfeeder shows the same face, and you must when it's empty. Plus each die face, and whether it resets between rounds."
   game="wingspan"
   gameTitle="Wingspan"
   category="Rules"
   publishDate="2025-05-06"
+  updatedDate="2026-10-08"
 >
   <p>
     The birdfeeder is Wingspan's most unique component — a dice tower that controls
     which food is available. Here's exactly how it works and when it resets.
   </p>
 
-  <KeyTakeaway answer="Roll 5 food dice into the birdfeeder at game start. When you take the 'gain food' action, choose dice from the feeder. If all remaining dice show the same face, reroll all of them before choosing." />
+  <KeyTakeaway answer="Roll 5 food dice into the birdfeeder at game start. When you gain food, take dice from the feeder. If every die left in the feeder shows the same face — even if only one die is left — you may reroll all five dice first. If the feeder is empty, you reroll all five." />
+
+  <h2>When Can You Reroll the Birdfeeder?</h2>
+
+  <p>
+    Whenever you're about to take food from the birdfeeder and
+    <strong>all the dice still in it show the same face</strong>, you may gather
+    all five dice — including the ones already taken out — and reroll them. That
+    includes the case where a single die is left. The reroll is optional, and you
+    can do it again between dice if you're gaining several food in one action and
+    the feeder ends up all-matching again. If the feeder is completely empty, you
+    always reroll all five.
+  </p>
+
+  <h3>Does the birdfeeder reset between rounds?</h3>
+  <p>
+    No. Nothing happens to the birdfeeder at the end of a round. The dice stay
+    exactly as they are until someone takes them or a reroll is triggered.
+  </p>
 
   <h2>How the Birdfeeder Works</h2>
 
@@ -33,7 +52,7 @@ import Step from "../../../components/Step.astro";
     </Step>
 
     <Step number={3} title="The Reroll Rule">
-      If at any point all remaining dice in the birdfeeder show the same face, you may (but don't have to) reroll all dice before taking food. This prevents one food type from dominating.
+      If at any point all remaining dice in the birdfeeder show the same face, you may (but don't have to) reroll all five dice before taking food. This prevents one food type from dominating.
     </Step>
 
     <Step number={4} title="Empty Feeder">
@@ -45,12 +64,12 @@ import Step from "../../../components/Step.astro";
 
   <div class="my-6 grid grid-cols-2 sm:grid-cols-5 gap-3">
     <div class="p-3 bg-red-50 rounded-xl border border-red-100 text-center">
-      <span class="text-2xl">🍎</span>
-      <p class="text-xs font-semibold text-red-800 mt-1">Berry</p>
+      <span class="text-2xl">🍒</span>
+      <p class="text-xs font-semibold text-red-800 mt-1">Fruit</p>
     </div>
     <div class="p-3 bg-amber-50 rounded-xl border border-amber-100 text-center">
       <span class="text-2xl">🌾</span>
-      <p class="text-xs font-semibold text-amber-800 mt-1">Wheat</p>
+      <p class="text-xs font-semibold text-amber-800 mt-1">Seed</p>
     </div>
     <div class="p-3 bg-pink-50 rounded-xl border border-pink-100 text-center">
       <span class="text-2xl">🐛</span>
@@ -67,7 +86,7 @@ import Step from "../../../components/Step.astro";
   </div>
 
   <p class="text-sm text-bark/50 text-center -mt-2 mb-6">
-    One face shows a wild symbol (🌾/🐛) — you choose which of the two foods to take.
+    One face shows both seed and invertebrate (🌾/🐛) — you choose which of the two to take.
   </p>
 
   <h2>Common Questions</h2>

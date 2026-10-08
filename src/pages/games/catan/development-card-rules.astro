@@ -5,19 +5,57 @@ import InfoBox from "../../../components/InfoBox.astro";
 ---
 
 <Article
-  title="Catan Development Card Rules: When Can You Play Them?"
-  description="Knight, Road Building, Year of Plenty, Monopoly, Victory Point — every dev card rule explained."
+  title="Catan Development Card Rules: One Per Turn? Before Rolling?"
+  description="You can play one development card per turn, before or after you roll, but never on the turn you bought it. Every Catan dev card timing rule, answered."
   game="catan"
   gameTitle="Catan"
   category="Rules"
   publishDate="2025-05-06"
+  updatedDate="2026-10-08"
 >
   <p>
     Development cards are Catan's wild cards — powerful, unpredictable, and
     surrounded by timing rules that cause arguments. Here's the complete breakdown.
   </p>
 
-  <KeyTakeaway answer="You can play one development card per turn, and you cannot play a card on the same turn you bought it. Exception: Victory Point cards are revealed only when winning — they're never 'played' during the game." />
+  <KeyTakeaway answer="You can play one development card per turn, at any point in your turn — including before you roll the dice. You can't play a card on the turn you bought it. Victory Point cards are the exception to both rules: they're never 'played', just revealed when they give you 10 points." />
+
+  <h2>Quick Answers</h2>
+
+  <h3>Can you play more than one development card per turn?</h3>
+  <p>
+    No. You can play only <strong>one</strong> development card per turn — one Knight
+    <em>or</em> one progress card (Road Building, Year of Plenty or Monopoly), not
+    both. Victory Point cards don't count toward that limit, because they're never
+    played; you reveal them when they bring you to 10 points.
+  </p>
+
+  <h3>Can you play a development card before rolling the dice?</h3>
+  <p>
+    Yes. You can play your one development card at any time during your turn,
+    <strong>including before you roll</strong>. This matters most with a Knight: play
+    it first to move the robber off your best hex, and that hex produces on the
+    roll that follows.
+  </p>
+
+  <h3>Can you play a development card on the same turn you buy it?</h3>
+  <p>
+    No. A card bought this turn has to wait until your next turn at the earliest.
+    The one exception is a Victory Point card: if the card you just bought takes you
+    to 10 points, you reveal it immediately and win.
+  </p>
+
+  <h3>Can you play a development card on someone else's turn?</h3>
+  <p>
+    No. Development cards are only played on your own turn. If the robber lands on
+    you during another player's turn, your Knight has to wait until you're up.
+  </p>
+
+  <h3>Can you build or trade after playing a development card?</h3>
+  <p>
+    Yes. Playing a card doesn't end anything — Road Building and Year of Plenty are
+    usually played precisely so you can build straight afterwards.
+  </p>
 
   <h2>All Development Cards</h2>
 
@@ -83,11 +121,11 @@ import InfoBox from "../../../components/InfoBox.astro";
   <div class="my-6 space-y-3">
     <div class="flex items-start gap-3 p-4 bg-emerald-50 rounded-xl border border-emerald-100">
       <span class="text-lg shrink-0">✅</span>
-      <p class="text-sm text-emerald-800"><strong>One card per turn.</strong> You may play one development card on your turn — either before or after rolling the dice.</p>
+      <p class="text-sm text-emerald-800"><strong>One card per turn.</strong> You may play one development card on your turn — before or after rolling the dice, and before or after building.</p>
     </div>
     <div class="flex items-start gap-3 p-4 bg-red-50 rounded-xl border border-red-100">
       <span class="text-lg shrink-0">🚫</span>
-      <p class="text-sm text-red-800"><strong>Not on the turn you bought it.</strong> A dev card cannot be played on the same turn it was purchased. You must wait until at least your next turn.</p>
+      <p class="text-sm text-red-800"><strong>Not on the turn you bought it.</strong> A dev card cannot be played on the same turn it was purchased. You must wait until at least your next turn — unless it's a Victory Point card that wins you the game.</p>
     </div>
     <div class="flex items-start gap-3 p-4 bg-amber-50 rounded-xl border border-amber-100">
       <span class="text-lg shrink-0">🃏</span>

@@ -7,13 +7,14 @@ import Step from "../../../components/Step.astro";
 ---
 
 <Article
-  title="What Happens When You Roll a 7 in Catan?"
-  description="The complete guide to the most dreaded dice roll in Catan — discarding, robber movement, and stealing."
+  title="Rolling a 7 in Catan: The 7-Card Rule, Robber & Stealing"
+  description="Roll a 7 and anyone holding more than 7 resource cards discards half, then the roller moves the robber and steals one card. The exact order, a discard table and the edge cases."
   game="catan"
   gameTitle="Catan"
   category="Rules"
   product="catan-robber-upgrade"
   publishDate="2025-05-06"
+  updatedDate="2026-10-08"
 >
   <p>
     You roll the dice and it's a 7. The table groans. But what exactly happens,
@@ -49,6 +50,15 @@ import Step from "../../../components/Step.astro";
     </Step>
   </StepList>
 
+  <h2>What Is the 7-Card Rule in Catan?</h2>
+
+  <p>
+    When a 7 is rolled, every player holding <strong>more than 7 resource cards</strong>
+    — so 8 or more — must return half of them to the bank, rounded down. Holding
+    exactly 7 is safe. The rule applies to everyone at the table, including the player
+    who rolled, and the discards happen before the robber moves.
+  </p>
+
   <h2>Discard Count Quick Reference</h2>
 
   <div class="my-6 overflow-hidden rounded-xl border border-bark/10">
@@ -74,6 +84,34 @@ import Step from "../../../components/Step.astro";
   <InfoBox type="tip" title="The 7-Card Rule of Thumb">
     Keep your hand at 7 cards or fewer whenever possible. If it's not your turn and you're sitting on 8+ cards, you're gambling that no one rolls a 7. Build or trade before your turn ends to stay under the limit.
   </InfoBox>
+
+  <h2>Edge Cases Players Ask About</h2>
+
+  <h3>Do development cards count toward the 7-card limit?</h3>
+  <p>
+    No. Only <strong>resource cards</strong> count. Development cards in your hand —
+    played or unplayed — are never discarded and never stolen by the robber.
+  </p>
+
+  <h3>Does the player who rolled the 7 have to discard?</h3>
+  <p>
+    Yes, if they're holding 8 or more resource cards. Rolling the 7 gives you the
+    robber, not immunity from it.
+  </p>
+
+  <h3>Can you put the robber on the desert?</h3>
+  <p>
+    Yes. The robber can move to any terrain hex or back to the desert — anywhere
+    except the hex it's already on. Putting it on the desert blocks nobody, which is
+    occasionally the diplomatic choice.
+  </p>
+
+  <h3>What if no one has a building next to the robber, or they have no cards?</h3>
+  <p>
+    Then you steal nothing. The robber still blocks that hex's production until it
+    moves again. If several players border the hex, you pick which one to steal from,
+    and the card you take from them is random.
+  </p>
 
   <h2>Strategic Tips for the 7</h2>
 
