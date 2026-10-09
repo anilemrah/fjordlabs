@@ -62,9 +62,19 @@ const appRedirects = Object.fromEntries(
     .map((app) => [app.legacyPath, `/apps/${app.slug}/`]),
 );
 
+/**
+ * Product pages whose Etsy listing is gone (delisted or sold out). Google may
+ * have them indexed, so they point somewhere useful instead of 404ing.
+ */
+const retiredProductRedirects = {
+  "/products/flip-7-organizer": "/games/flip-7/",
+  "/products/wingspan-deluxe-token-set": "/games/wingspan/",
+  "/products/crocheted-token-bag": "/products/",
+};
+
 export default defineConfig({
   site: SITE,
-  redirects: appRedirects,
+  redirects: { ...appRedirects, ...retiredProductRedirects },
   integrations: [
     sitemap({
       filter: (page) => !NOINDEX.some((path) => page.includes(path)),

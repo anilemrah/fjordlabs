@@ -118,7 +118,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "catan-blanket",
-    price: "77.56",
+    price: "67.01",
     longDescription:
       "A handmade crochet blanket inspired by the island of Catan, assembled from hexagon 'tiles' in the resource colors — a full island you can wrap yourself in. This is a finished, ready-to-ship item, not a pattern.\n\nBoard game merch is usually mugs and t-shirts; this is an heirloom. It takes hours of skilled yarn work, no two come out identical, and it reads instantly to any gamer who walks into the room while staying a genuinely beautiful throw to everyone else. For the Catan fan who has everything, this is the gift that actually surprises them — cozy on the couch between games and conversation-starting decor the rest of the time.",
     title: "Settlers of Catan Blanket",
@@ -264,7 +264,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "wingspan-pocket-insert",
-    price: "30.90",
+    price: "25.13",
     longDescription:
       "A 3D-printed insert designed specifically for Wingspan Pocket (2026) — Stonemaier's new compact edition, which ships with everything loose in the box. It adds an egg token tray and card holder shaped precisely to the pocket box dimensions.\n\nWingspan Pocket's whole promise is 'grab it and play anywhere' — but after one backpack trip, the stock box becomes a shaken snow globe of eggs and cards. This insert keeps the promise: components stay sorted in transit, setup drops to seconds, and the box still closes flush. It's designed for this box from scratch, not cut down from a big-box organizer. If you bought Pocket to travel with it, this is the missing half of the product.",
     title: "Wingspan Pocket Insert & Organizer",
@@ -287,6 +287,28 @@ const raw: RawProduct[] = [
     link: listing("4544996699", "wingspan-pocket-compatible-insert-3d"),
     description:
       "3D-printed insert for Wingspan Pocket (2026) with egg tray and card holder. Setup in seconds, tidy through every game — made for Stonemaier's brand-new compact edition.",
+  },
+  {
+    slug: "wingspan-pocket-insert-sleeved",
+    price: "14.89",
+    longDescription:
+      "A one-piece 3D-printed insert for Wingspan Pocket, made for players who sleeve their cards. It sits in the box base with two card wells sized for sleeved bird, automa and first-player cards, five recessed token slots, a small section that keeps the goal cards from getting lost, and an egg slot that holds all 60 eggs.\n\nMost inserts assume bare cards, and sleeves are exactly what makes a pocket-sized box overflow. This one was measured around sleeved cards (the sleeve sizes we used are listed on Etsy), so nothing gets left out of the box. If you sleeve your games, this is the Wingspan Pocket insert to get.",
+    title: "Wingspan Pocket Insert — Sleeved Cards Version",
+    game: "wingspan-pocket",
+    type: "Organizer",
+    category: "Wingspan",
+    isNew: true,
+    images: [
+      img("2963cf", "8616501566", "itgf"),
+      img("0b95fd", "8616435356", "hgaz"),
+      img("3f3cf0", "8664300239", "a49z"),
+      img("f0bcd3", "8664301281", "pa8h"),
+      img("c5c732", "8616470430", "5gz6"),
+      img("e212bc", "8664264613", "4otp"),
+    ],
+    link: listing("4587632102", "wingspan-pocket-compatible-insert"),
+    description:
+      "One-piece 3D-printed insert for Wingspan Pocket, sized so every card fits sleeved — two card wells, token slots, a goal-card slot and room for all 60 eggs.",
   },
   {
     slug: "wingspan-nectar-tokens",
@@ -345,27 +367,6 @@ const raw: RawProduct[] = [
     link: listing("4317546267", "player-tray-compatible-with-wingspan-3d"),
     description:
       "3D-printed player tray organizer for Wingspan. Keeps your food, eggs, and cards neatly separated during play.",
-  },
-  {
-    slug: "wingspan-deluxe-token-set",
-    price: "13.96",
-    longDescription:
-      "The complete Wingspan resource upgrade in one purchase: every food type plus nectar, 3D-printed and covering the base game, European, and Oceania expansions.\n\nIf you already know you want Wingspan's cardboard gone, buying the full set at once is the smart path — matched aesthetics across every food type, nectar included for when you add Oceania, and a lower total price than assembling the upgrades piecemeal. It's the set for the Wingspan household where the game hits the table weekly and the collection keeps growing. One box, and every component your birds touch is upgraded for good.",
-    title: "Wingspan Deluxe Resource Token Set",
-    game: "wingspan",
-    type: "Tokens",
-    category: "Wingspan",
-    images: [
-      img("ee69b4", "6733691045", "mavv"),
-      img("5eb504", "6685653502", "t5l1"),
-      img("667b2e", "6924412790", "4vbo"),
-      img("0258b3", "6685653404", "tixw"),
-      img("03a978", "6685653422", "kdia"),
-      img("2dabf6", "6733691051", "phkl"),
-    ],
-    link: listing("1861335439", "deluxe-food-token-set-compatible-with"),
-    description:
-      "The complete Wingspan resource upgrade in one box: every food type plus nectar, 3D-printed and ready for the birdfeeder.",
   },
 
   // ── Wyrmspan ───────────────────────────────────────────
@@ -458,6 +459,28 @@ const raw: RawProduct[] = [
     link: listing("4551054956", "insert-compatible-with-scythe-duel-of"),
     description:
       "3D-printed organizer for Scythe: Duel of Meloch with lidded, stackable trays in the game's own colors. Nothing spills, nothing mixes, setup takes seconds.",
+  },
+  {
+    slug: "duel-of-meloch-insert-lids",
+    price: "53.98",
+    longDescription:
+      "A complete 3D-printed insert for Duel of Meloch where every component group gets its own tray and every tray gets a lid. It's printed in black, desert tan, matte orange and brown, colours picked to sit with the game's own palette, and after a game or two the colours become a sorting system: you stop opening trays to find things.\n\nIt's a layered set rather than a single flat organizer. The main trays carry removable inner trays with their own dividers, there's a dedicated slot for the airship, and a card tray sized for sleeved cards. Everything drops back into the original box with the lid closing flat. If you want the most complete way to store and set up Meloch, this is our fullest version.",
+    title: "Duel of Meloch Insert with Lids — 4-Colour Nested Trays",
+    game: "duel-of-meloch",
+    type: "Organizer",
+    category: "Scythe",
+    isNew: true,
+    images: [
+      img("de86aa", "8421700023", "mt1f"),
+      img("5caa79", "8421596167", "4bh5"),
+      img("d9af6f", "8421596161", "kbfn"),
+      img("8d260c", "8421596151", "imt2"),
+      img("7a20dd", "8421596119", "tmap"),
+      img("eb5501", "8373722118", "7g9h"),
+    ],
+    link: listing("4554703370", "duel-of-meloch-insert-with-lids-4-color"),
+    description:
+      "A complete lidded insert for Duel of Meloch in four colours, with nested trays, an airship slot and a tray for sleeved cards. Drops back into the box with the lid closing flat.",
   },
 
   // ── Terraforming Mars ──────────────────────────────────
@@ -893,27 +916,6 @@ const raw: RawProduct[] = [
     description:
       "One tray for every game night: resource wells and a card rail in a single 3D-printed organizer that works across your whole shelf.",
   },
-  {
-    slug: "flip-7-organizer",
-    price: "18.15",
-    longDescription:
-      "An organizer insert for Flip 7 with a removable card holder — the hit push-your-luck card game, ready to deal in seconds.\n\nFlip 7 earns its spot on the table by being fast; digging cards out of a loose box isn't. This insert makes the game as quick to start as it is to play: lift the holder out, deal, and go. The insert fits the retail box exactly, keeps everything sorted in a bag or on a shelf, and turns the game into the perfect grab-and-go opener for any game night. Small upgrade, every-session payoff.",
-    title: "Flip 7 Organizer Insert",
-    game: "flip-7",
-    type: "Organizer",
-    category: "Organizers & Card Holders",
-    images: [
-      img("30be84", "7556800523", "kjoi"),
-      img("db3fca", "7556751439", "mrcu"),
-      img("0517ea", "7508809626", "clln"),
-      img("b43522", "7508809612", "cihv"),
-      img("f78a94", "7556751325", "jrdh"),
-      img("41a868", "7556751509", "3nzd"),
-    ],
-    link: listing("4424429377", "flip-7-organizer-insert-with-removable"),
-    description:
-      "An insert for Flip 7 with a removable card holder. Deal, play, and pack up in seconds.",
-  },
 
   {
     slug: "stackable-resource-tray",
@@ -935,10 +937,54 @@ const raw: RawProduct[] = [
       "Hexagonal 3D-printed trays that stack for storage and spread out for play. Modular organization for any token-heavy game.",
   },
 
+  {
+    slug: "vantage-token-trays",
+    price: "22.80",
+    longDescription:
+      "A set of three 3D-printed trays that replace the cardboard token boxes in Vantage. Each one has the same footprint and sits in the same spot in the box, so dice, tokens and tiles keep their own home and setup stays exactly as familiar as before.\n\nThe difference is the lid: it slides in on a rail instead of sitting loose on top, so you can turn a tray upside down and nothing moves. And where cardboard boxes wear out after a few dozen games, these are built to last a few hundred.",
+    title: "Vantage Token Tray Set (3 Trays with Sliding Lids)",
+    game: "other",
+    type: "Organizer",
+    category: "Organizers & Card Holders",
+    isNew: true,
+    images: [
+      img("9b1aea", "8385817148", "pj01"),
+      img("48bb88", "8385808172", "7272"),
+      img("e4ac1b", "8433681205", "qvbg"),
+      img("130c63", "8385808176", "no4v"),
+      img("503d69", "8385808200", "5i4h"),
+      img("232b8a", "8433681483", "6bd9"),
+    ],
+    link: listing("4556318829", "vantage-board-game-token-tray-set-of-3"),
+    description:
+      "Three 3D-printed trays that replace Vantage's cardboard token boxes — same footprint, same spot in the box, with lids that slide in on a rail.",
+  },
+  {
+    slug: "spots-insert",
+    price: "17.68",
+    longDescription:
+      "A 3-piece 3D-printed insert that gives every part of Spots its own place: a card box with a textured sliding lid, a finger hole and a front notch so you can push the whole deck up with one thumb; a wide, open dice tray that keeps the full set laid out flat; and a rounded scoop tray for the bone tokens.\n\nNo more digging through the box for dice and bones. Setup becomes lifting out three trays, and packing up is dropping them back in.",
+    title: "Spots Board Game Insert (3 Pieces)",
+    game: "other",
+    type: "Organizer",
+    category: "Organizers & Card Holders",
+    isNew: true,
+    images: [
+      img("649ca9", "8329217284", "q2vm"),
+      img("b56352", "8377086919", "93sk"),
+      img("e18bb8", "8377086915", "c6dw"),
+      img("41c9ce", "8377086913", "aw1u"),
+      img("ee4e46", "8329197972", "9s9g"),
+      img("d741d0", "8329197964", "isgy"),
+    ],
+    link: listing("4548487761", "spots-compatible-board-game-insert-3d"),
+    description:
+      "A 3-piece 3D-printed insert for Spots: a lidded card box, a dice tray and a bone tray, so setup is just lifting out three trays.",
+  },
   // ── Handmade & Crochet ─────────────────────────────────
   {
     slug: "dragon-egg-dice-bag",
-    price: "12.02",
+    price: "14.43",
     longDescription:
       "A handcrafted dragon egg dice bag with sculpted, scaled texture — a fantasy pouch that guards your dice hoard between sessions.\n\nEvery tabletop player eventually accumulates a dice hoard; very few have a worthy vault. Drawing your dice from a dragon's egg makes the pre-game ritual feel like part of the campaign, the textured craftsmanship stands out instantly at any table, and it's an unbeatable gift for the D&D player in your life — the kind of present that gets shown off at the next session. Handmade, sturdy, and roomy enough for the whole collection.",
     title: "Dragon Egg Dice Bag",
@@ -959,7 +1005,7 @@ const raw: RawProduct[] = [
   },
   {
     slug: "crocheted-token-trays",
-    price: "4.27",
+    price: "5.12",
     longDescription:
       "Soft handmade crocheted yarn bowls that hold board game tokens without scratches, clatter, or sliding.\n\nHard plastic trays do the job loudly; these do it gently. The soft yarn protects premium components (metal coins love them), silences the token noise that fills a game night, and flattens for storage between sessions. They bring a warm, handmade texture to the table that plastic never will — the board game equivalent of a knitted sweater — and they're made by hand in small batches, so no two sets are quite alike.",
     title: "Crocheted Token Trays",
@@ -977,27 +1023,6 @@ const raw: RawProduct[] = [
     link: listing("4331790703", "crocheted-token-trays-soft-yarn-bowls"),
     description:
       "Soft crocheted yarn bowls that hold your tokens without a single table scratch. Handmade coziness for game night.",
-  },
-  {
-    slug: "crocheted-token-bag",
-    price: "13.96",
-    longDescription:
-      "A handmade crocheted drawstring bag with sheep and wheat motifs, sized for board game tokens and blind draws.\n\nEvery game group needs a good draw bag — for Catan robber duty, random setup, or token draws — and this one has charm the velvet pouches can't match. The farmhouse motifs make it a natural companion to Catan and Agricola nights, the sturdy yarn work stands up to constant rummaging, and it doubles as the cutest possible way to store loose components. Handmade, practical, and the kind of small piece that gives your game collection personality.",
-    title: "Crocheted Token Bag — Sheep & Wheat",
-    game: "other",
-    type: "Bag",
-    category: "Handmade & Crochet",
-    images: [
-      img("43870e", "7049613685", "ffod"),
-      img("73981d", "7049613595", "d1vu"),
-      img("7ca6de", "7049613679", "2lyw"),
-      img("d3f097", "7049613597", "nqx3"),
-      img("56d119", "7049613599", "a8m2"),
-      img("76796b", "7049613601", "ns2q"),
-    ],
-    link: listing("4331784870", "crocheted-token-bag-sheep-wheat-motif"),
-    description:
-      "A handmade drawstring pouch with sheep and wheat motifs. Draw tokens blind in style — perfect for Catan robber duty.",
   },
 
   // ── Wargaming & Terrain ────────────────────────────────
@@ -1066,6 +1091,48 @@ const raw: RawProduct[] = [
       "A 3D-printed tamper holder for the Lelit Anita espresso machine. Keep your coffee station as organized as your game shelf.",
   },
 
+  {
+    slug: "meeple-wall-art",
+    price: "11.17",
+    longDescription:
+      "A 3D-printed meeple for the wall: a simple, minimalist way to show your love for tabletop games in a game room, office or anywhere at home. It hangs on a single nail and comes in a choice of sizes.\n\nThe meeple is the one shape every board gamer recognises, so it says 'board games' without a word. It's an easy gift for the gamer who already owns every expansion.",
+    title: "Meeple Wall Art",
+    game: "other",
+    type: "Decor",
+    category: "Home & Workshop",
+    images: [
+      img("982208", "8399400216", "t3go"),
+      img("8994f8", "8447282631", "jszj"),
+      img("3c9862", "8399400060", "7l68"),
+      img("1505aa", "8399400418", "9yhi"),
+      img("97b133", "8447282861", "2sfz"),
+      img("2076ab", "8447282945", "bzpl"),
+    ],
+    link: listing("4581208788", "meeple-board-game-wall-art-gamer-room"),
+    description:
+      "A minimalist 3D-printed meeple for the wall of your game room, office or home. Hangs on a single nail; choose your size.",
+  },
+  {
+    slug: "meeple-coffee-filter-holder",
+    price: "25.59",
+    longDescription:
+      "A 3D-printed coffee filter holder in the shape of a meeple. It keeps your paper filters upright, tidy and ready to grab next to the coffee maker. It stands 11 cm tall and holds up to 100 filters.\n\nIt's a small, useful piece for the coffee station that brings a bit of tabletop personality to your morning routine, and an easy gift for anyone who loves both board games and good coffee.",
+    title: "Meeple Coffee Filter Holder",
+    game: "other",
+    type: "Organizer",
+    category: "Home & Workshop",
+    images: [
+      img("d913c6", "8456588811", "g684"),
+      img("dc78b2", "8456588817", "gn4f"),
+      img("d81235", "8408703558", "t9iy"),
+      img("1382a1", "8408703808", "9vz1"),
+      img("3c2eaf", "8456588467", "grv7"),
+      img("aa8415", "8456588573", "p45x"),
+    ],
+    link: listing("4581199324", "meeple-coffee-filter-holder-board-game"),
+    description:
+      "A 3D-printed meeple that keeps paper coffee filters upright next to your coffee maker. 11 cm tall, holds up to 100 filters.",
+  },
   // ── STL Files (digital) ────────────────────────────────
   {
     slug: "catan-player-tray-stl",
@@ -1154,6 +1221,50 @@ const raw: RawProduct[] = [
     link: listing("4542689438", "player-board-compatible-with"),
     description:
       "Dual-color player board upgrade for Terraforming Mars as a print-ready STL. Download once, print for every player.",
+  },
+  {
+    slug: "meeple-wall-art-stl",
+    price: "6.98",
+    longDescription:
+      "The STL files for our meeple wall art in three sizes, as an instant digital download. It's designed with a hidden keyhole hanger, so it drops onto a single nail and sits flat with nothing visible from the front. Print it in any colour and finish you like. No physical item is shipped.\n\nPrint a single statement meeple or a row of all three sizes in your group's colours — one download covers every print.",
+    title: "Meeple Wall Art (STL File, 3 Sizes)",
+    game: "other",
+    type: "STL File",
+    category: "STL Files",
+    digital: true,
+    images: [
+      img("661131", "8399438212", "6hsm"),
+      img("8994f8", "8447282631", "jszj"),
+      img("3c9862", "8399400060", "7l68"),
+      img("1505aa", "8399400418", "9yhi"),
+      img("97b133", "8447282861", "2sfz"),
+      img("2076ab", "8447282945", "bzpl"),
+    ],
+    link: listing("4558192847", "meeple-wall-art-stl-file-3-sizes-board"),
+    description:
+      "Print-at-home STL files for our meeple wall art in three sizes, with a hidden keyhole hanger. Instant digital download.",
+  },
+  {
+    slug: "meeple-coffee-filter-holder-stl",
+    price: "10.47",
+    longDescription:
+      "The STL files for our meeple coffee filter holder, as an instant digital download. You get a ZIP of print-ready files (the holder prints in two parts) to print at home in any colour you like. No physical item is shipped.\n\nOne download, as many prints as you want: one for your coffee corner, one for a friend, one in every colour. It's an easy, satisfying print for any standard FDM printer.",
+    title: "Meeple Coffee Filter Holder (STL File)",
+    game: "other",
+    type: "STL File",
+    category: "STL Files",
+    digital: true,
+    images: [
+      img("d95155", "8456622699", "2l0m"),
+      img("dc78b2", "8456588817", "gn4f"),
+      img("d81235", "8408703558", "t9iy"),
+      img("1382a1", "8408703808", "9vz1"),
+      img("3c2eaf", "8456588467", "grv7"),
+      img("aa8415", "8456588573", "p45x"),
+    ],
+    link: listing("4559484707", "meeple-coffee-filter-holder-3d-print"),
+    description:
+      "Print-at-home STL files for our meeple coffee filter holder. Instant digital download — no physical item is shipped.",
   },
 ];
 

@@ -40,6 +40,10 @@ A static Astro site (www.fjord-labs.com) that serves as an SEO content hub for F
 - `src/data/games.ts` — 6 games with metadata (slug, title, image, playerCount, playTime, complexity)
 - `src/data/apps.ts` — our apps (copy, features, pricing, FAQ, accent colour, App Store id, own domain)
 
+When an Etsy listing goes away (delisted or sold out), remove it from `products.ts` and add its
+`/products/<slug>` to `retiredProductRedirects` in `astro.config.mjs` so the indexed page lands
+somewhere useful. Also drop any `product="<slug>"` props that pointed at it.
+
 ### Pages Structure
 ```
 src/pages/
@@ -82,22 +86,22 @@ Placeholder SVGs in `public/images/games/`. Need to be replaced with real box ar
 - "Geek" / gaming-themed feel (hex grid backgrounds, quest log, loot shop language)
 - Articles must be visually engaging — use InfoBox, StepList, KeyTakeaway, tables, cards. Never walls of text.
 
-## Current State (140 pages live, 54 products)
+## Current State (152 pages live, 59 products — synced with Etsy 2026-10-09)
 
 ### Games with products + articles
 - **Catan** — 10 articles, 9 products
-- **Wingspan** — 8 articles, 9 products
-- **Wingspan Pocket** — 2 articles, 1 product
+- **Wingspan** — 8 articles, 8 products
+- **Wingspan Pocket** — 2 articles, 2 products (Insert, Sleeved Cards Insert)
 - **Wyrmspan** — 3 articles, 1 product
 - **Scythe** — 3 articles, 2 products. Hub cross-links to Duel of Meloch.
-- **Duel of Meloch** — 5 articles, 1 product (Insert). Standalone Stonemaier
+- **Duel of Meloch** — 5 articles, 2 products (Insert, 4-Colour Insert with Lids). Standalone Stonemaier
   spin-off (July 2026), so it gets its own hub rather than living under Scythe —
   same precedent as Wingspan Pocket. Facts about this game post-date most model
   training data: source them from `products.ts` and the existing articles, don't
   invent mechanics.
 - **Terraforming Mars** — 3 articles, 2 products
 - **Carcassonne** — 5 articles, 1 product
-- **Flip 7** — 6 articles, 1 product (Organizer Insert)
+- **Flip 7** — 6 articles, no products (the organizer insert was delisted on Etsy in Oct 2026; its product page redirects to the hub)
 - **Cascadia** — 5 articles, 2 products (Game Tray, Pinecone Tokens)
 - **Everdell** — 5 articles, 2 products (Open Signs, Forest Upgrade Kit)
 - **Agricola** — 4 articles, 3 products (Resource Bundle, Rice & Reed, Pumpkins)
