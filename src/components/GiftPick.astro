@@ -1,0 +1,53 @@
+---
+// A product card for gift guides. Price and photo come from products.ts, so
+// they follow the Etsy sync; a retired slug simply renders nothing.
+import { getProduct, DISCOUNT_PERCENT } from "../data/products";
+
+interface Props {
+  slug: string;
+  /** Why it makes a good gift, in a sentence or two. */
+  note: string;
+  /** Optional small label above the title ("For the 3D-printing friend"). */
+  label?: string;
+}
+
+const { slug, note, label } = Astro.props;
+const product = getProduct(slug);
+const original = product?.price
+  ? (parseFloat(product.price) / (1 - DISCOUNT_PERCENT / 100)).toFixed(2)
+  : undefined;
+---
+
+{
+  product && (
+    <div class="gift-pick my-6 flex gap-5 items-start p-4 sm:p-5 bg-white rounded-2xl border border-bark/10">
+      <a href={`/products/${product.slug}/`} class="shrink-0">
+        <img
+          src={product.image}
+          alt={product.title}
+          class="w-24 h-24 sm:w-32 sm:h-32 object-cover rounded-xl"
+          loading="lazy"
+        />
+      </a>
+      <div class="min-w-0 flex-1">
+        {label && <p class="text-xs font-semibold text-clay uppercase tracking-wide mb-1">{label}</p>}
+        <a href={`/products/${product.slug}/`} class="block font-heading font-bold text-bark text-lg leading-snug hover:text-clay transition-colors">
+          {product.title}
+        </a>
+        <p class="text-bark/60 text-base mt-1 mb-3">{note}</p>
+        <div class="flex flex-wrap items-center gap-3">
+          {product.price && (
+            <span class="font-heading font-bold text-bark">
+              ${product.price}
+              {DISCOUNT_PERCENT > 0 && <span class="ml-1.5 text-sm font-normal text-bark/40 line-through">${original}</span>}
+            </span>
+          )}
+          {product.digital && <span class="px-2 py-0.5 bg-forest/10 text-forest text-xs font-semibold rounded-full">Instant download</span>}
+          <a href={`/products/${product.slug}/`} class="ml-auto text-sm font-semibold text-clay hover:text-clay-dark transition-colors">
+            See it up close →
+          </a>
+        </div>
+      </div>
+    </div>
+  )
+}

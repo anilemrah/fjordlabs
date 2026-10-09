@@ -1,0 +1,156 @@
+---
+// Seasonal gift guide. Picks are grouped into budget bands from the live
+// prices in products.ts, so a price change on Etsy (synced into products.ts)
+// moves a pick to the right band by itself.
+import Base from "../../layouts/Base.astro";
+import KeyTakeaway from "../../components/KeyTakeaway.astro";
+import InfoBox from "../../components/InfoBox.astro";
+import GiftPick from "../../components/GiftPick.astro";
+import { getProduct } from "../../data/products";
+
+const title = "Gifts for Board Gamers (2026): Upgrades They'll Actually Use";
+const description =
+  "Gift ideas for board gamers by budget: 3D-printed upgrades for Catan, Wingspan and more, handmade dice bags, meeple decor, and STL files for friends with a 3D printer.";
+const publishDate = "2026-10-09";
+
+const picks = [
+  { slug: "card-holder", note: "A tiered card stand that works with any game. Great for younger players and anyone who drops their hand of cards." },
+  { slug: "universal-player-tray", note: "Resource wells and a card rail in one tray that works across their whole shelf. Easy to buy one per player." },
+  { slug: "wingspan-puffin-token", note: "A 3D-printed puffin first-player marker for the Wingspan fan. Small, cheap and exactly their taste." },
+  { slug: "catan-trophies", note: "Longest Road and Largest Army trophies, plus a Snail Award for the slowest player. They'll get passed around every Catan night." },
+  { slug: "everdell-open-signs", note: "Six little open signs for Everdell's businesses. A small upgrade with real table presence." },
+  { slug: "cascadia-pinecone-tokens", note: "Pinecone nature tokens to replace Cascadia's cardboard discs." },
+  { slug: "meeple-wall-art", note: "A minimalist meeple for the wall of their game room or office. It says 'board games' without a word." },
+  { slug: "dragon-egg-dice-bag", note: "A handmade crocheted dragon-egg pouch for dice. Every role-playing table needs a hoard worth guarding." },
+  { slug: "wingspan-food-tokens", note: "3D-printed food tokens for Wingspan, the part of the game they handle on almost every turn." },
+  { slug: "catan-robber-upgrade", note: "A thief figure carrying stolen sheep and wood, to replace Catan's plain grey robber." },
+  { slug: "spots-insert", note: "A 3-piece insert for Spots: a lidded card box, a dice tray and a bone tray. Setup becomes lifting out three trays." },
+  { slug: "vantage-token-trays", note: "Three trays with sliding lids that replace Vantage's cardboard token boxes and last far longer." },
+  { slug: "wingspan-pocket-insert", note: "An insert for Stonemaier's compact Wingspan Pocket, which ships with everything loose in the box." },
+  { slug: "catan-resource-tokens", note: "Little wood logs, bricks, sheep, wheat and ore to replace Catan's resource cards. Our most popular upgrade." },
+  { slug: "meeple-coffee-filter-holder", note: "A meeple that holds up to 100 paper coffee filters. For the gamer whose shelf holds a grinder as well as board games." },
+  { slug: "agricola-resource-tokens", note: "A full set of 3D-printed resources for Agricola and other farming games." },
+  { slug: "duel-of-meloch-insert-lids", note: "Our most complete insert: lidded, nested trays in four colours for Stonemaier's Duel of Meloch." },
+  { slug: "catan-blanket", note: "A handmade crocheted hexagon throw inspired by the island of Catan. The big gift for a true fan." },
+];
+
+const priced = picks
+  .map((p) => ({ ...p, price: parseFloat(getProduct(p.slug)?.price ?? "NaN") }))
+  .filter((p) => !Number.isNaN(p.price))
+  .sort((a, b) => a.price - b.price);
+
+const bands = [
+  { id: "under-10", heading: "Under $10: stocking stuffers", intro: "Small, cheap and still used every game night.", items: priced.filter((p) => p.price < 10) },
+  { id: "10-to-30", heading: "$10 to $30: the sweet spot", intro: "Upgrades for a game they already love, and a few things for their home.", items: priced.filter((p) => p.price >= 10 && p.price < 30) },
+  { id: "30-and-up", heading: "$30 and up: the big gift", intro: "For the person whose favourite game deserves the full treatment.", items: priced.filter((p) => p.price >= 30) },
+].filter((b) => b.items.length > 0);
+---
+
+<Base title={`${title} | Fjord Labs`} description={description} type="article">
+  <article class="max-w-3xl mx-auto px-6 py-12">
+    <nav class="flex items-center gap-2 text-sm text-bark/40 mb-8">
+      <a href="/" class="hover:text-clay transition-colors">Home</a>
+      <span>/</span>
+      <span class="text-bark/60">Gift Guide</span>
+    </nav>
+
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 bg-clay/10 text-clay text-xs font-semibold rounded-full uppercase tracking-wide">Gift Guide</span>
+        <span class="px-3 py-1 bg-forest/10 text-forest text-xs font-semibold rounded-full">🎁 Holidays 2026</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-4 leading-tight">{title}</h1>
+      <p class="text-lg text-bark/50">{description}</p>
+      <time class="text-sm text-bark/30 mt-3 block">{publishDate}</time>
+    </header>
+
+    <div class="prose-article">
+      <p>
+        Buying for a board gamer is tricky: they already own the games they love,
+        and guessing a new one is risky. The gifts that land are the ones that make
+        their favourite games better to play. Here's our list, by budget and by the
+        kind of gamer you're buying for.
+      </p>
+
+      <KeyTakeaway answer="The safest gift for a board gamer is an upgrade for a game they already own and love, like 3D-printed tokens or an insert. Check their shelf first, then pick by budget: trophies, first-player tokens and card holders under $10, token sets and inserts from $10 to $30, and handmade or complete sets above that." />
+
+      <InfoBox type="tip" title="Before you buy: check their shelf">
+        A quick look at their games (or their BoardGameGeek collection, if they keep
+        one) tells you which upgrades fit. An upgrade for a game they play every week
+        beats a new game they might never get to the table.
+      </InfoBox>
+
+      {
+        bands.map((band) => (
+          <section id={band.id}>
+            <h2>{band.heading}</h2>
+            <p>{band.intro}</p>
+            {band.items.map((p) => (
+              <GiftPick slug={p.slug} note={p.note} />
+            ))}
+          </section>
+        ))
+      }
+
+      <h2>Gifts by type of gamer</h2>
+
+      <h3>The Catan or Wingspan fan</h3>
+      <p>
+        These two have their own guides, with every upgrade we make for them and
+        which one suits whom: <a href="/games/catan/catan-gift-ideas/">Catan gift ideas</a>
+        and <a href="/games/wingspan/wingspan-gift-ideas/">Wingspan gift ideas</a>.
+      </p>
+
+      <h3>The friend with a 3D printer</h3>
+      <p>
+        Give them the files instead. STL files are instant downloads, so there's no
+        shipping to wait for, and they can print as many as they like.
+      </p>
+      <GiftPick slug="meeple-wall-art-stl" note="Meeple wall art in three sizes with a hidden keyhole hanger, ready to print in any colour." />
+      <GiftPick slug="catan-player-tray-stl" note="Our Catan player tray as print files: one download, a tray for every player." />
+      <GiftPick slug="wingspan-goal-tracker-stl" note="The Wingspan round-end goal tracker, as print files." />
+      <p>
+        See <a href="/products/">all our products</a> for the rest of the STL files.
+      </p>
+
+      <h3>The solo gamer</h3>
+      <p>
+        If they mostly play alone, <a href="/apps/lone-meeple/">Lone Meeple</a>, our
+        iPhone app for solo board gamers, logs every play in seconds and tracks win
+        rates by difficulty and opponent. Pair it with an upgrade for their favourite solo game.
+      </p>
+
+      <h3>The one who hosts game night</h3>
+      <p>
+        For the holiday party, <a href="/apps/game-night/">Game Night</a> is our
+        iPhone app with charades, trivia and more party games in one place, plus
+        custom AI packs about you and your friends.
+      </p>
+
+      <InfoBox type="warning" title="Order a little earlier than usual">
+        Our physical pieces are made to order in our workshop in Sweden and shipped
+        from there. Check the delivery estimate on each Etsy listing before you order,
+        and give yourself a few extra days in December. STL files arrive instantly.
+      </InfoBox>
+    </div>
+
+    <div class="mt-16 pt-8 border-t border-bark/10">
+      <a href="/products/" class="inline-flex items-center gap-2 text-clay hover:text-clay-dark transition-colors font-medium">
+        Browse all our board game upgrades →
+      </a>
+    </div>
+  </article>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      author: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
+      publisher: { "@type": "Organization", name: "Fjord Labs" },
+      datePublished: publishDate,
+    })}
+  />
+</Base>

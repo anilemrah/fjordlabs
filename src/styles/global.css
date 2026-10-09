@@ -57,6 +57,15 @@
     @apply rounded-xl my-8;
   }
 
+  /* Product cards inside articles keep their own look. */
+  .prose-article .gift-pick a {
+    @apply no-underline;
+  }
+
+  .prose-article .gift-pick img {
+    @apply my-0;
+  }
+
   .prose-article table {
     @apply w-full my-8 text-base;
   }
