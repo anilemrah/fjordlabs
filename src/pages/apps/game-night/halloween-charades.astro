@@ -1,0 +1,270 @@
+---
+// Seasonal content page for Game Night. The prompts are our own list, written
+// for this page — not the app's Halloween pack, which is a PRO deck.
+import Base from "../../../layouts/Base.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import CharadesWords from "../../../components/CharadesWords.astro";
+import CharadesSigns from "../../../components/CharadesSigns.astro";
+import AppCallout from "../../../components/AppCallout.astro";
+import { getApp, appStoreUrl } from "../../../data/apps";
+
+const app = getApp("game-night")!;
+const storeUrl = appStoreUrl(app);
+
+const lists = [
+  {
+    id: "easy",
+    short: "Easy (kids)",
+    icon: "⭐",
+    heading: "Easy Halloween charades for kids",
+    intro: "One clear thing to act out, and nothing too scary. Good for ages 5 and up.",
+    words: [
+      "Ghost", "Witch", "Pumpkin", "Bat", "Spider", "Skeleton", "Black cat", "Mummy",
+      "Vampire", "Zombie", "Monster", "Broomstick", "Candy", "Owl", "Spider web",
+      "Scarecrow", "Cauldron", "Werewolf", "Full moon", "Superhero costume",
+    ],
+  },
+  {
+    id: "characters",
+    short: "Characters",
+    icon: "🧛",
+    heading: "Halloween characters",
+    intro: "Classic monsters and famous faces from spooky stories and films.",
+    words: [
+      "Dracula", "Frankenstein's monster", "The Headless Horseman", "Jack Skellington",
+      "The Grim Reaper", "Casper the Friendly Ghost", "Wednesday Addams", "Beetlejuice",
+      "The Wicked Witch of the West", "Medusa", "The Invisible Man", "A mad scientist",
+    ],
+  },
+  {
+    id: "traditions",
+    short: "Traditions",
+    icon: "🎃",
+    heading: "Halloween actions and traditions",
+    intro: "Things everyone does in October, so they're quick to recognise.",
+    words: [
+      "Trick-or-treating", "Carving a pumpkin", "Bobbing for apples", "Putting on a costume",
+      "Telling ghost stories", "Walking through a haunted house", "Handing out candy",
+      "Sorting your candy", "Hiding from a ghost", "Wrapping someone up as a mummy",
+      "Stirring a cauldron", "Flying on a broomstick", "Howling at the moon",
+      "Jumping at a jump scare", "Hanging fake cobwebs", "Eating too much candy",
+    ],
+  },
+  {
+    id: "food",
+    short: "Food & treats",
+    icon: "🍬",
+    heading: "Halloween food and treats",
+    intro: "Act out making it, eating it, or regretting it.",
+    words: [
+      "Candy corn", "Caramel apple", "Pumpkin pie", "Roasted pumpkin seeds",
+      "Pumpkin spice latte", "Gummy worms", "Popcorn ball", "Lollipop",
+    ],
+  },
+  {
+    id: "movies",
+    short: "Movies",
+    icon: "🎬",
+    heading: "Halloween movies",
+    intro: "Start with the movie sign, then act out the title word by word.",
+    words: [
+      "Hocus Pocus", "Ghostbusters", "The Addams Family", "Beetlejuice", "Casper",
+      "Coraline", "Halloweentown", "Corpse Bride", "Hotel Transylvania",
+      "It's the Great Pumpkin, Charlie Brown", "Frankenweenie", "Goosebumps",
+      "Monster House", "Scream", "Halloween", "The Shining",
+    ],
+  },
+  {
+    id: "songs",
+    short: "Songs",
+    icon: "🎶",
+    heading: "Halloween songs",
+    intro: "No humming allowed. The dance moves are fair game.",
+    words: [
+      "Monster Mash", "Thriller", "Somebody's Watching Me", "Time Warp",
+      "This Is Halloween", "Bad Moon Rising", "I Put a Spell on You",
+      "Werewolves of London", "Spooky", "Witchy Woman",
+    ],
+  },
+  {
+    id: "hard",
+    short: "Hard (adults)",
+    icon: "🔥",
+    heading: "Hard Halloween charades for adults",
+    intro: "Whole scenes rather than single things. Expect wild guesses.",
+    words: [
+      "Running out of candy", "A costume malfunction", "A pumpkin carving gone wrong",
+      "Being chased by a zombie", "Getting lost in a corn maze",
+      "Opening the door to a scary trick-or-treater", "Pretending not to be home",
+      "A vampire at the dentist", "A ghost who can't scare anyone",
+      "A zombie at a job interview", "A witch whose broom won't start",
+      "A mummy coming unwrapped", "Watching a horror movie through your fingers",
+      "The last one standing in a horror movie",
+    ],
+  },
+];
+
+const total = lists.reduce((n, l) => n + l.words.length, 0);
+const title = `${total} Halloween Charades Ideas for Kids & Adults (2026)`;
+const description = `${total} Halloween charades ideas sorted by difficulty: easy words for kids, Halloween movies and songs, and hard scenes for adults. Plus how to play and the hand signs everyone uses.`;
+const publishDate = "2026-10-09";
+
+const faq = [
+  {
+    q: "What are good Halloween charades for kids?",
+    a: "Single things they can act out with their whole body: a ghost, a witch on a broomstick, a bat, a mummy, a black cat or trick-or-treating. Keep the scary characters for older kids, and let little ones act in their costumes.",
+  },
+  {
+    q: "How do you play Halloween charades?",
+    a: "Split into two teams, write Halloween words on slips of paper and put them in a bowl or a pumpkin bucket. One player draws a slip and acts it out without speaking while their team guesses before the timer runs out. Each correct guess is a point, and teams take turns.",
+  },
+  {
+    q: "What are funny Halloween charades for adults?",
+    a: "Scenes work better than single words: running out of candy, a zombie at a job interview, a costume malfunction or watching a horror movie through your fingers. The harder they are to act, the funnier the guesses get.",
+  },
+];
+---
+
+<Base title={`${title} | Fjord Labs`} description={description} type="article">
+  <article class="max-w-3xl mx-auto px-6 py-12">
+    <nav class="flex items-center gap-2 text-sm text-bark/40 mb-8 print:hidden">
+      <a href="/" class="hover:text-clay transition-colors">Home</a>
+      <span>/</span>
+      <a href="/apps/game-night/" class="hover:text-clay transition-colors">Game Night</a>
+      <span>/</span>
+      <span class="text-bark/60">Halloween Charades</span>
+    </nav>
+
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 bg-clay/10 text-clay text-xs font-semibold rounded-full uppercase tracking-wide">Party Games</span>
+        <span class="px-3 py-1 bg-forest/10 text-forest text-xs font-semibold rounded-full">🎃 Halloween</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-4 leading-tight">{title}</h1>
+      <p class="text-lg text-bark/50">{description}</p>
+      <div class="flex flex-wrap items-center gap-4 mt-4 print:hidden">
+        <time class="text-sm text-bark/30">{publishDate}</time>
+        <button
+          type="button"
+          onclick="window.print()"
+          class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-clay border border-clay/30 rounded-lg hover:bg-clay/5 transition-colors"
+        >
+          🖨️ Print the list
+        </button>
+      </div>
+    </header>
+
+    <div class="prose-article">
+      <p>
+        Charades is the easiest game to add to a Halloween party: no board, no
+        setup, and acting out a mummy in full costume is half the fun. Below are
+        {total} Halloween charades ideas sorted from easy to hard, so you can pick
+        the right ones for a kids' party or a grown-up one, along with how to play
+        and the hand signs everyone uses.
+      </p>
+
+      <KeyTakeaway answer="The best Halloween charades ideas are things everyone can picture straight away: a ghost, a witch on a broomstick, a mummy, carving a pumpkin, trick-or-treating, Hocus Pocus or Thriller. Give kids single words and adults whole scenes, like running out of candy." />
+    </div>
+
+    <CharadesWords lists={lists} />
+
+    <div class="prose-article">
+      <h2>How to play Halloween charades</h2>
+
+      <StepList>
+        <Step number={1} title="Make two teams">
+          Mix ages on each team, so every team has someone who knows the horror
+          movies and someone small enough to make a convincing bat.
+        </Step>
+        <Step number={2} title="Fill a pumpkin bucket with slips">
+          Write ideas from the lists above on slips of paper, fold them and drop
+          them in a trick-or-treat bucket or a cauldron. Keep the easy ones in a
+          separate pile for the youngest players.
+        </Step>
+        <Step number={3} title="Act it out, silently" time="60 seconds">
+          One player draws a slip and acts it out for their own team. No talking,
+          no mouthing words, and if you're dressed as the answer, that's just luck.
+        </Step>
+        <Step number={4} title="Score and swap">
+          A correct guess before the time runs out earns a point. Teams take turns
+          until the slips run out, and the team with the most points wins.
+        </Step>
+      </StepList>
+
+      <CharadesSigns />
+
+      <InfoBox type="tip" title="Tips for a Halloween party">
+        For a kids' party, use the easy list and let everyone act in their
+        costumes. For grown-ups, mix the movies with the hard scenes. Dimming the
+        lights helps the mood, but keep enough light to see the actor.
+      </InfoBox>
+
+      <h2>Skip the paper slips: play it on a phone</h2>
+      <p>
+        If you'd rather not cut up slips at all, our iPhone app
+        <a href="/apps/game-night/">Game Night</a> has charades built in. Hold the
+        phone to your forehead, your team acts out the word on screen, and you tilt
+        down when you guess it or up to pass. Rounds are 30, 60 or 90 seconds,
+        and the app keeps score for each team.
+      </p>
+      <p>
+        In October a Halloween pack of 80 cards sits on the home screen, and with
+        AI packs you can make a deck about your own friends and their in-jokes.
+        Game Night is a free download with free decks; the Halloween pack and the
+        AI packs come with Game Night PRO.
+        {storeUrl && (
+          <>
+            {" "}<a href={storeUrl} target="_blank" rel="noopener">Get it on the App Store</a>.
+          </>
+        )}
+      </p>
+
+      <h2>Halloween charades questions</h2>
+      {
+        faq.map((item) => (
+          <>
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </>
+        ))
+      }
+    </div>
+
+    <div class="print:hidden">
+      <AppCallout app={app} />
+    </div>
+
+    <p class="text-sm text-bark/50 print:hidden">
+      Planning ahead for December? Here are our
+      <a href="/apps/game-night/christmas-charades/" class="text-clay hover:text-clay-dark">Christmas charades ideas</a>.
+    </p>
+  </article>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      author: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
+      publisher: { "@type": "Organization", name: "Fjord Labs" },
+      datePublished: publishDate,
+    })}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    })}
+  />
+</Base>

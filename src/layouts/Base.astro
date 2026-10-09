@@ -60,7 +60,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
   </head>
   <body class="min-h-screen flex flex-col">
     <nav
-      class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-bark/5"
+      class="sticky top-0 z-50 bg-cream/90 backdrop-blur-md border-b border-bark/5 print:hidden"
     >
       <div
         class="max-w-6xl mx-auto px-6 h-16 flex justify-between items-center"
@@ -216,7 +216,7 @@ const pageUrl = canonical || new URL(Astro.url.pathname, siteUrl).toString();
       <slot />
     </main>
 
-    <footer class="bg-sand border-t border-bark/5 mt-auto">
+    <footer class="bg-sand border-t border-bark/5 mt-auto print:hidden">
       <div class="max-w-6xl mx-auto px-6 py-12">
         <div class="grid sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div>

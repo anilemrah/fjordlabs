@@ -345,6 +345,26 @@ const helpLinks = [
       </div>
     </section>
 
+    {
+      app.guides && (
+        <section class="py-16 px-6">
+          <div class="max-w-3xl mx-auto">
+            <h2 class="text-2xl md:text-3xl font-heading font-bold text-bark mb-8">
+              Ideas for your next game night
+            </h2>
+            <div class="grid gap-4">
+              {app.guides.map((g) => (
+                <a href={g.href} class="block p-6 bg-white rounded-2xl border border-bark/5 hover:border-clay/30 transition-colors">
+                  <h3 class="font-heading font-bold text-bark mb-1">{g.title} →</h3>
+                  <p class="text-sm text-bark/60">{g.blurb}</p>
+                </a>
+              ))}
+            </div>
+          </div>
+        </section>
+      )
+    }
+
     <!-- FAQ -->
     <section class="py-16 px-6 bg-sand/50">
       <div class="max-w-3xl mx-auto">

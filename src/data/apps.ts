@@ -36,6 +36,8 @@ export interface App {
   };
   facts: { label: string; value: string }[];
   faq: { q: string; a: string }[];
+  /** Our own articles built around the app (e.g. seasonal word lists), shown on its page. */
+  guides?: { title: string; href: string; blurb: string }[];
   isNew?: boolean;
   /** Old top-level folder (e.g. /gissa/) that may be set as the App Store marketing URL. */
   legacyPath?: string;
@@ -133,6 +135,18 @@ export const apps: App[] = [
       { label: "Games", value: "7 in one app" },
       { label: "Languages", value: "6" },
       { label: "Age rating", value: "9+" },
+    ],
+    guides: [
+      {
+        title: "Halloween charades ideas",
+        href: "/apps/game-night/halloween-charades/",
+        blurb: "Nearly 100 words and scenes for kids' parties and grown-up ones, with the classic hand signs.",
+      },
+      {
+        title: "Christmas charades ideas",
+        href: "/apps/game-night/christmas-charades/",
+        blurb: "Over 100 words and scenes for kids, families and adults, with the classic hand signs.",
+      },
     ],
     faq: [
       {

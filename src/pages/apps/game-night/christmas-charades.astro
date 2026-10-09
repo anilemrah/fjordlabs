@@ -1,0 +1,278 @@
+---
+// Seasonal content page for Game Night. The prompts are our own list, written
+// for this page — not the app's Christmas pack, which is a PRO deck.
+import Base from "../../../layouts/Base.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import InfoBox from "../../../components/InfoBox.astro";
+import StepList from "../../../components/StepList.astro";
+import Step from "../../../components/Step.astro";
+import CharadesWords from "../../../components/CharadesWords.astro";
+import CharadesSigns from "../../../components/CharadesSigns.astro";
+import AppCallout from "../../../components/AppCallout.astro";
+import { getApp, appStoreUrl } from "../../../data/apps";
+
+const app = getApp("game-night")!;
+const storeUrl = appStoreUrl(app);
+
+const lists = [
+  {
+    id: "easy",
+    short: "Easy (kids)",
+    icon: "⭐",
+    heading: "Easy Christmas charades for kids",
+    intro: "One clear thing to act out. Good for ages 5 and up.",
+    words: [
+      "Santa Claus", "Reindeer", "Snowman", "Christmas tree", "Elf", "Present",
+      "Candy cane", "Snowball", "Stocking", "Star", "Bell", "Gingerbread man",
+      "Sledding", "Penguin", "Cookies", "Hot chocolate", "Mittens", "Angel",
+      "Sleigh", "Polar bear",
+    ],
+  },
+  {
+    id: "characters",
+    short: "Characters",
+    icon: "🎅",
+    heading: "Christmas characters",
+    intro: "From stories, films and the North Pole.",
+    words: [
+      "Rudolph", "Frosty the Snowman", "The Grinch", "Mrs. Claus", "Ebenezer Scrooge",
+      "The Nutcracker", "Jack Frost", "Buddy the Elf", "Kevin from Home Alone",
+      "A toy soldier", "Tiny Tim", "A carol singer",
+    ],
+  },
+  {
+    id: "traditions",
+    short: "Traditions",
+    icon: "🎁",
+    heading: "Christmas actions and traditions",
+    intro: "Things everyone has done in December, so they're easy to recognise and fun to act.",
+    words: [
+      "Wrapping a present", "Decorating the tree", "Building a snowman", "Hanging a stocking",
+      "Writing a letter to Santa", "Kissing under the mistletoe", "Singing carols",
+      "Baking cookies", "Ice skating", "Opening presents", "Snowball fight",
+      "Lighting candles", "Pulling a cracker", "Putting the star on top",
+      "Shaking a present to guess what's inside", "Leaving milk and cookies for Santa",
+      "Making snow angels", "Opening an advent calendar door",
+    ],
+  },
+  {
+    id: "food",
+    short: "Food & drink",
+    icon: "🍪",
+    heading: "Christmas food and drink",
+    intro: "Act out cooking it, eating it, or what happens after.",
+    words: [
+      "Roast turkey", "Eggnog", "Mince pie", "Christmas pudding", "Gingerbread house",
+      "Mulled wine", "Yule log", "Brussels sprouts", "Christmas ham", "Candy canes",
+    ],
+  },
+  {
+    id: "movies",
+    short: "Movies",
+    icon: "🎬",
+    heading: "Christmas movies",
+    intro: "Start with the movie sign, then act out the title word by word.",
+    words: [
+      "Home Alone", "Elf", "The Polar Express", "Love Actually", "Die Hard",
+      "How the Grinch Stole Christmas", "A Christmas Carol",
+      "The Nightmare Before Christmas", "Miracle on 34th Street",
+      "It's a Wonderful Life", "Frozen", "The Holiday", "Jingle All the Way",
+      "The Santa Clause", "Arthur Christmas", "Klaus",
+    ],
+  },
+  {
+    id: "songs",
+    short: "Songs",
+    icon: "🎶",
+    heading: "Christmas songs",
+    intro: "No humming allowed, which is exactly what makes these hard.",
+    words: [
+      "Jingle Bells", "Silent Night", "Last Christmas", "All I Want for Christmas Is You",
+      "Let It Snow", "Rudolph the Red-Nosed Reindeer", "Feliz Navidad", "White Christmas",
+      "Deck the Halls", "Santa Claus Is Coming to Town", "Rockin' Around the Christmas Tree",
+      "Winter Wonderland", "Jingle Bell Rock", "We Wish You a Merry Christmas",
+      "The Little Drummer Boy",
+    ],
+  },
+  {
+    id: "hard",
+    short: "Hard (adults)",
+    icon: "🔥",
+    heading: "Hard Christmas charades for adults",
+    intro: "Whole scenes rather than single things. Expect wild guesses.",
+    words: [
+      "Untangling the Christmas lights", "Assembling a toy at midnight", "Regifting a present",
+      "Burning the Christmas dinner", "Hiding presents from the kids",
+      "Last-minute shopping on Christmas Eve", "Pretending to love a gift",
+      "Falling asleep after Christmas dinner", "The dog stealing the turkey",
+      "Arguing over a board game", "Office Christmas party", "Ugly Christmas sweater contest",
+      "The Christmas tree falling over", "Queueing to return gifts", "Carving the turkey",
+    ],
+  },
+];
+
+const total = lists.reduce((n, l) => n + l.words.length, 0);
+const title = `${total} Christmas Charades Ideas for Kids & Adults (2026)`;
+const description = `${total} Christmas charades ideas sorted by difficulty: easy words for kids, Christmas movies and songs, and hard scenes for adults. Plus how to play and the hand signs everyone uses.`;
+const publishDate = "2026-10-09";
+
+const faq = [
+  {
+    q: "What are good Christmas charades for kids?",
+    a: "Single things they can see or do: Santa, a reindeer, a snowman, a candy cane, sledding or opening presents. Young children do best with words they can act out with their whole body, and with an adult on their team to help.",
+  },
+  {
+    q: "How do you play charades at Christmas?",
+    a: "Split into two teams, write Christmas words on slips of paper and put them in a hat. One player draws a slip and acts it out without speaking while their team guesses before the timer runs out. Each correct guess is a point, and teams take turns.",
+  },
+  {
+    q: "How many people do you need for charades?",
+    a: "Four is a comfortable minimum, two teams of two, but charades works with any number. With a big family group, make two large teams or play everyone against the actor.",
+  },
+];
+---
+
+<Base title={`${title} | Fjord Labs`} description={description} type="article">
+  <article class="max-w-3xl mx-auto px-6 py-12">
+    <nav class="flex items-center gap-2 text-sm text-bark/40 mb-8 print:hidden">
+      <a href="/" class="hover:text-clay transition-colors">Home</a>
+      <span>/</span>
+      <a href="/apps/game-night/" class="hover:text-clay transition-colors">Game Night</a>
+      <span>/</span>
+      <span class="text-bark/60">Christmas Charades</span>
+    </nav>
+
+    <header class="mb-10">
+      <div class="flex items-center gap-3 mb-4">
+        <span class="px-3 py-1 bg-clay/10 text-clay text-xs font-semibold rounded-full uppercase tracking-wide">Party Games</span>
+        <span class="px-3 py-1 bg-forest/10 text-forest text-xs font-semibold rounded-full">🎄 Christmas</span>
+      </div>
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-4 leading-tight">{title}</h1>
+      <p class="text-lg text-bark/50">{description}</p>
+      <div class="flex flex-wrap items-center gap-4 mt-4 print:hidden">
+        <time class="text-sm text-bark/30">{publishDate}</time>
+        <button
+          type="button"
+          onclick="window.print()"
+          class="inline-flex items-center gap-2 px-3 py-1.5 text-sm font-medium text-clay border border-clay/30 rounded-lg hover:bg-clay/5 transition-colors"
+        >
+          🖨️ Print the list
+        </button>
+      </div>
+    </header>
+
+    <div class="prose-article">
+      <p>
+        Charades is the one party game that works for the whole family at once:
+        no board, no rules to read, and grandparents can play with five-year-olds.
+        Below are {total} Christmas charades ideas sorted from easy to hard, so you
+        can pick the right ones for your group, along with how to play and the
+        hand signs everyone uses.
+      </p>
+
+      <KeyTakeaway answer="The best Christmas charades ideas are things everyone can picture straight away: Santa Claus, a reindeer, building a snowman, wrapping a present, Home Alone or Jingle Bells. Give kids single words and adults whole scenes, like untangling the Christmas lights." />
+    </div>
+
+    <CharadesWords lists={lists} />
+
+    <div class="prose-article">
+      <h2>How to play Christmas charades</h2>
+
+      <StepList>
+        <Step number={1} title="Make two teams">
+          Mix ages on each team, so every team has someone who can act out the
+          movie titles and someone young enough to get away with being a penguin.
+        </Step>
+        <Step number={2} title="Fill a hat with slips">
+          Write ideas from the lists above on slips of paper, fold them and drop
+          them in a bowl or a Santa hat. Keep the easy ones in a separate pile for
+          the youngest players.
+        </Step>
+        <Step number={3} title="Act it out, silently" time="60 seconds">
+          One player draws a slip and acts it out for their own team. No talking,
+          no mouthing words, and most families ban pointing at things in the room.
+        </Step>
+        <Step number={4} title="Score and swap">
+          A correct guess before the time runs out earns a point. Teams take turns
+          until the slips run out, and the team with the most points wins.
+        </Step>
+      </StepList>
+
+      <CharadesSigns />
+
+      <InfoBox type="tip" title="Tips for a family game">
+        Let the youngest players act the easy words and whisper help if they get
+        stuck. For a big group, play in pairs: two people acting one word
+        together is twice as funny. And keep a timer running, because a round
+        with no clock can go on forever.
+      </InfoBox>
+
+      <h2>Skip the paper slips: play it on a phone</h2>
+      <p>
+        If you'd rather not cut up slips at all, our iPhone app
+        <a href="/apps/game-night/">Game Night</a> has charades built in. Hold the
+        phone to your forehead, your team acts out the word on screen, and you tilt
+        down when you guess it or up to pass. Rounds are 30, 60 or 90 seconds,
+        and the app keeps score for each team.
+      </p>
+      <p>
+        In December a Christmas pack of 70 cards sits on the home screen, and with
+        AI packs you can make a deck about your own family and its in-jokes.
+        Game Night is a free download with free decks; the Christmas pack and the
+        AI packs come with Game Night PRO.
+        {storeUrl && (
+          <>
+            {" "}<a href={storeUrl} target="_blank" rel="noopener">Get it on the App Store</a>.
+          </>
+        )}
+      </p>
+
+      <h2>Christmas charades questions</h2>
+      {
+        faq.map((item) => (
+          <>
+            <h3>{item.q}</h3>
+            <p>{item.a}</p>
+          </>
+        ))
+      }
+    </div>
+
+    <div class="print:hidden">
+      <AppCallout app={app} />
+    </div>
+
+    <p class="text-sm text-bark/50 print:hidden">
+      Buying presents for a board gamer this year? See our
+      <a href="/gifts/" class="text-clay hover:text-clay-dark">gift guide for board gamers</a>.
+      Hosting in October too? Here are our
+      <a href="/apps/game-night/halloween-charades/" class="text-clay hover:text-clay-dark">Halloween charades ideas</a>.
+    </p>
+  </article>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "Article",
+      headline: title,
+      description,
+      author: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
+      publisher: { "@type": "Organization", name: "Fjord Labs" },
+      datePublished: publishDate,
+    })}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      mainEntity: faq.map((item) => ({
+        "@type": "Question",
+        name: item.q,
+        acceptedAnswer: { "@type": "Answer", text: item.a },
+      })),
+    })}
+  />
+</Base>
+

@@ -1,0 +1,41 @@
+---
+import ComparisonTable from "./ComparisonTable.astro";
+
+const signs = [
+  ["Movie", "Crank an old film camera next to your head"],
+  ["Song", "Open your mouth and move a hand as if singing"],
+  ["Book", "Hold your palms together, then open them like a book"],
+  ["TV show", "Draw a rectangle in the air"],
+  ["Number of words", "Hold up that many fingers"],
+  ["Which word you're on", "Hold up fingers again: one for the first word, two for the second"],
+  ["Number of syllables", "Lay that many fingers on your forearm"],
+  ["Sounds like", "Cup a hand behind your ear"],
+  ["Short word (a, the, of)", "Hold your thumb and finger close together"],
+  ["The whole thing", "Sweep both arms in a big circle"],
+];
+---
+
+<h2>Charades hand signs</h2>
+<p>
+  These are the classic signals. Agree on them before the first round so
+  nobody can claim they didn't know.
+</p>
+
+<ComparisonTable>
+  <table class="w-full text-sm">
+    <thead>
+      <tr>
+        <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">To show…</th>
+        <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Do this</th>
+      </tr>
+    </thead>
+    <tbody>
+      {signs.map(([what, how]) => (
+        <tr class="border-t border-bark/5">
+          <td class="p-3 font-semibold">{what}</td>
+          <td class="p-3">{how}</td>
+        </tr>
+      ))}
+    </tbody>
+  </table>
+</ComparisonTable>

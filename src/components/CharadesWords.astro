@@ -1,0 +1,45 @@
+---
+// Word lists for the charades pages under /apps/game-night/: a jump nav, then
+// one section per list. Place it between two .prose-article blocks — the nav
+// sits outside prose so its links aren't underlined.
+interface Props {
+  lists: {
+    id: string;
+    short: string;
+    icon: string;
+    heading: string;
+    intro: string;
+    words: string[];
+  }[];
+}
+
+const { lists } = Astro.props;
+---
+
+<nav class="mb-4 flex flex-wrap gap-2 print:hidden" aria-label="Jump to a list">
+  {lists.map((l) => (
+    <a href={`#${l.id}`} class="px-3 py-1.5 bg-sand rounded-full text-sm text-bark/70 hover:text-clay transition-colors">
+      {l.icon} {l.short}
+    </a>
+  ))}
+</nav>
+
+<div class="prose-article">
+  {
+    lists.map((l) => (
+      <section id={l.id} class="scroll-mt-20 print:break-inside-avoid-page">
+        <h2>
+          {l.icon} {l.heading} <span class="font-normal text-bark/35 text-[0.8em]">({l.words.length})</span>
+        </h2>
+        <p>{l.intro}</p>
+        <div class="grid grid-cols-2 sm:grid-cols-3 print:grid-cols-3 gap-2 mt-4 mb-10">
+          {l.words.map((w) => (
+            <span class="px-3 py-2.5 bg-white border border-bark/10 print:border-dashed print:border-bark/50 rounded-lg text-[0.9rem] leading-snug text-bark/85 break-inside-avoid">
+              {w}
+            </span>
+          ))}
+        </div>
+      </section>
+    ))
+  }
+</div>

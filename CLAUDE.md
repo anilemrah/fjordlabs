@@ -86,7 +86,7 @@ Placeholder SVGs in `public/images/games/`. Need to be replaced with real box ar
 - "Geek" / gaming-themed feel (hex grid backgrounds, quest log, loot shop language)
 - Articles must be visually engaging — use InfoBox, StepList, KeyTakeaway, tables, cards. Never walls of text.
 
-## Current State (152 pages live, 59 products — synced with Etsy 2026-10-09)
+## Current State (156 pages live, 59 products — synced with Etsy 2026-10-09)
 
 ### Games with products + articles
 - **Catan** — 10 articles, 9 products
@@ -148,6 +148,13 @@ roots (`/glimt/`, `/gissa/`…) redirect to the app page via `legacyPath` in
 Recommend an app from an article with `app="<slug>"` on `<Article>`, only where it
 genuinely fits the topic (Lone Meeple on solo-play articles, Game Night on light
 party games).
+
+App content pages (seasonal word lists and the like, built to rank on their own
+and lead to the app) live under the app: `src/pages/apps/<slug>/<page>.astro`,
+e.g. `/apps/game-night/christmas-charades/` and `halloween-charades/` (shared
+`CharadesWords` + `CharadesSigns` components). List each one in the app's `guides`
+in `apps.ts` so the app page links to it. Write the content ourselves: never
+copy an app's PRO deck onto the web.
 
 ## `/thanks/` — QR code landing page
 **Never rename or move `src/pages/thanks.astro`.** Its URL is printed on
