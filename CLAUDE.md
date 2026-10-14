@@ -21,7 +21,11 @@ A static Astro site (www.fjord-labs.com) that serves as an SEO content hub for F
 
 ### Layouts
 - `src/layouts/Base.astro` — main layout with nav, footer, SEO meta tags, OG/Twitter cards
-- `src/layouts/Article.astro` — article pages with breadcrumbs, JSON-LD, auto product callouts
+- `src/layouts/Article.astro` — article pages with breadcrumbs, JSON-LD, auto product callouts,
+  and a "More {game} articles" list built by reading the sibling page files. It parses the
+  `<Article ...>` tag, so keep `title`/`category` as plain string props and the closing `>`
+  on its own line, or the article silently drops out of every list. The share image is the
+  `product` photo, or `public/images/og-default.jpg` when there is none.
 
 ### Components
 - `ArticleCard` — article preview card with category/game badges
@@ -120,7 +124,10 @@ products have no landing page. Products under `game: "other"` are universal by
 design and live only on the products pages.
 
 ## What's Next
-- [ ] More articles — target the most-searched board game questions for each game
+- [ ] More articles — target the most-searched board game questions for each game.
+      Search Console (Oct 2026): yes/no rules pages get big impressions but ~0.1% CTR,
+      because Google answers them on the results page. Tier lists, "X vs Y" and "worth it"
+      pages get the clicks (3–5%), so favour those.
 - [ ] Replace SVG placeholder game images with real box art photos
 - [ ] DNS setup — point one.com domain to GitHub Pages (CNAME + A records)
 - [ ] Add more games without products (pure SEO content plays)

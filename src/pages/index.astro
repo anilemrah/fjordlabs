@@ -443,4 +443,29 @@ const latestArticles = [
       </a>
     </div>
   </section>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [
+        {
+          "@type": "WebSite",
+          "@id": "https://www.fjord-labs.com/#website",
+          name: "Fjord Labs",
+          url: "https://www.fjord-labs.com/",
+          publisher: { "@id": "https://www.fjord-labs.com/#organization" },
+        },
+        {
+          "@type": "Organization",
+          "@id": "https://www.fjord-labs.com/#organization",
+          name: "Fjord Labs",
+          legalName: "Fjord Labs AB",
+          url: "https://www.fjord-labs.com",
+          logo: "https://www.fjord-labs.com/images/fjordlabsicon.png",
+          sameAs: ["https://fjordlabs.etsy.com"],
+        },
+      ],
+    })}
+  />
 </Base>
