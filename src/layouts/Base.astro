@@ -233,6 +233,24 @@ const ogImageUrl = new URL(ogImage, siteUrl).toString();
             <p class="text-sm text-bark/50">
               3D-printed board game upgrades and apps, crafted in Sweden.
             </p>
+            <div class="flex items-center gap-3 mt-4">
+              {[
+                { name: "Etsy", href: "https://fjordlabs.etsy.com", icon: "etsy" },
+                { name: "Instagram", href: "https://www.instagram.com/fjord.labs", icon: "instagram" },
+                { name: "Facebook", href: "https://www.facebook.com/fjordlabs", icon: "facebook" },
+              ].map((s) => (
+                <a
+                  href={s.href}
+                  target="_blank"
+                  rel="noopener"
+                  aria-label={`Fjord Labs on ${s.name}`}
+                  title={s.name}
+                  class="opacity-80 hover:opacity-100 transition-opacity"
+                >
+                  <img src={`/images/social/${s.icon}.png`} alt="" width="28" height="28" class="w-7 h-7" />
+                </a>
+              ))}
+            </div>
           </div>
           <div>
             <h4 class="font-heading font-semibold text-sm text-bark mb-3">
