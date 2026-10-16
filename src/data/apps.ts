@@ -495,12 +495,12 @@ export const apps: App[] = [
   // ── For makers and sellers ────────────────────────────
   {
     slug: "listcraft",
-    name: "ListCraft",
-    fullName: "ListCraft: Marketplace Listing Generator",
+    name: "Listcraft",
+    fullName: "Listcraft: Marketplace Listing Generator",
     tagline: "Turns a product photo into a ready-to-paste marketplace listing.",
     headline: "From product photo to finished listing.",
     intro: [
-      "ListCraft writes marketplace listings from a photo. Upload up to three pictures of what you're selling, pick the marketplace, and get a title, description and tags written for that marketplace.",
+      "Listcraft writes marketplace listings from a photo. Upload up to three pictures of what you're selling, pick the marketplace, and get a title, description and tags written for that marketplace.",
       "We built it for our own Etsy shop of board game upgrades, then opened it up to other sellers. It lives at listcraft.co and runs in any browser.",
     ],
     group: "makers",
@@ -511,7 +511,7 @@ export const apps: App[] = [
     platform: "Web, any browser",
     website: "https://listcraft.co",
     websitePitch:
-      "ListCraft runs on its own site. Sign up there to get 5 free listings, with no card needed, and try it on something you're selling right now.",
+      "Listcraft runs on its own site. Sign up there to get 5 free listings, with no card needed, and try it on something you're selling right now.",
     supportUrl: "https://listcraft.co/contact",
     privacyUrl: "https://listcraft.co/privacy",
     screenshots: [],
@@ -565,7 +565,7 @@ export const apps: App[] = [
       },
       {
         q: "Who's behind it?",
-        a: "We are. ListCraft started as the tool we built for our own Etsy shop, and it's run by Fjord Labs in Sweden.",
+        a: "We are. Listcraft started as the tool we built for our own Etsy shop, and it's run by Fjord Labs in Sweden.",
       },
     ],
   },
