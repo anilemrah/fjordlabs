@@ -1,0 +1,137 @@
+---
+import Base from "../../layouts/Base.astro";
+
+// Registered as the privacy policy URL of the Meta app "GiveawayApp" (App ID 445937964421895).
+// Keep the URL stable, and the page unlinked and noindex.
+const lastUpdated = "October 16, 2026";
+---
+
+<Base
+  title="Privacy Policy | GiveawayApp"
+  description="How GiveawayApp, a giveaway picker by Fjord Labs AB, handles creators' accounts and the comments people leave on giveaway posts."
+  noindex={true}
+>
+  <section class="py-16 md:py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-2">Privacy Policy</h1>
+      <p class="text-sm text-bark/50">GiveawayApp</p>
+      <p class="text-sm text-bark/40 mb-8">Last updated: {lastUpdated}</p>
+
+      <div class="prose-article">
+        <p>
+          GiveawayApp (a working name) is a tool for picking giveaway winners. A creator runs a
+          giveaway on their own post. GiveawayApp collects the entries, applies the creator's rules,
+          draws the winners and makes a reveal video and a public proof page. It's made by
+          Fjord Labs AB in Sweden, which is responsible for the data described here.
+        </p>
+        <p>
+          This page covers two groups of people: <strong>creators</strong>, who use GiveawayApp to
+          run a giveaway, and <strong>entrants</strong>, who commented on a giveaway post.
+        </p>
+
+        <h2>If you run a giveaway</h2>
+        <ul>
+          <li>
+            <strong>Your account:</strong> your email address and the identifier from the sign-in
+            method you choose.
+          </li>
+          <li>
+            <strong>Your Instagram connection:</strong> when you click Connect Instagram, you log in
+            on Instagram's own page and allow GiveawayApp to read your profile basics (username,
+            account type, your posts) and the comments on your posts. We never see your password.
+            Instagram gives us an access token, which we keep on our server and use only to import
+            the comments of the posts you choose.
+          </li>
+          <li>
+            <strong>Your giveaways:</strong> what you enter, such as the title, prize, deadline,
+            rules, logo and colours.
+          </li>
+          <li>
+            <strong>Payments:</strong> if you buy credits, Stripe handles the payment. We never see
+            your card number; we keep a record of what you bought.
+          </li>
+        </ul>
+        <p>
+          GiveawayApp only reads. It never posts, replies, likes, hides or deletes anything on your
+          account. It doesn't read your direct messages, your followers or who liked your posts.
+        </p>
+
+        <h2>If you commented on a giveaway</h2>
+        <p>
+          When a creator imports their giveaway post, we receive each comment's
+          <strong>username, text and time</strong>, including replies. Nothing else from your
+          profile. We use it only to run that giveaway: to check the creator's entry rules (for
+          example, tagging friends), to count one entry per person and to draw the winners.
+        </p>
+        <p>
+          So that anyone can check the draw was fair, the giveaway's proof page lists the entries
+          for <strong>90 days</strong>. After that, we keep only the winners, the number of entries
+          and a fingerprint (hash) of the list, which can't be turned back into names.
+        </p>
+        <p>
+          The creator runs the giveaway and is responsible for it: the rules, the prize and
+          contacting the winners. GiveawayApp is the tool they use.
+        </p>
+
+        <h2>What we never do</h2>
+        <p>
+          We don't sell data, show ads or use anyone's data for anything other than running
+          giveaways. We don't use it to train AI models.
+        </p>
+
+        <h2>Services we use</h2>
+        <ul>
+          <li><strong>Meta (Instagram):</strong> the official Instagram API, to import comments.</li>
+          <li><strong>Supabase:</strong> our database and sign-in.</li>
+          <li><strong>Our web host:</strong> serves the pages, with standard server logs such as IP addresses.</li>
+          <li><strong>Stripe:</strong> payments.</li>
+        </ul>
+        <p>
+          Some of these companies are based in the US. They process data only to provide their
+          service to us, under the safeguards the GDPR requires, such as the EU Standard
+          Contractual Clauses.
+        </p>
+
+        <h2>How long we keep it</h2>
+        <ul>
+          <li>Full entry lists: 90 days after the draw, then only winners, counts and the hash.</li>
+          <li>Instagram access token: until you disconnect, delete your account, or the token expires (after 60 days).</li>
+          <li>Your account and giveaways: until you delete them.</li>
+          <li>Payment records: 7 years, as Swedish bookkeeping law requires.</li>
+        </ul>
+
+        <h2 id="delete">How to delete your data</h2>
+        <p><strong>Creators:</strong></p>
+        <ul>
+          <li>
+            To stop our access to Instagram: in Instagram, go to Settings → Apps and websites and
+            remove GiveawayApp. The access token stops working straight away.
+          </li>
+          <li>
+            To delete what we hold: delete the giveaway or your account in GiveawayApp, or email us.
+            We delete your giveaways, the imported comments and your token within 30 days, except
+            the payment records the law requires us to keep.
+          </li>
+        </ul>
+        <p>
+          <strong>Entrants:</strong> email us your username and a link to the giveaway post. We'll
+          remove your comment from that giveaway's stored entries and proof page within 30 days.
+        </p>
+
+        <h2>Your rights</h2>
+        <p>
+          Under the GDPR you can ask what data we hold about you, and ask us to correct, delete or
+          export it, or object to how we use it. Write to
+          <a href="mailto:fjordlabs.app@gmail.com">fjordlabs.app@gmail.com</a>. You can also
+          complain to the Swedish Authority for Privacy Protection (IMY).
+        </p>
+
+        <h2>Changes</h2>
+        <p>
+          When this policy changes, we update the date at the top. For important changes, we tell
+          creators by email first.
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
