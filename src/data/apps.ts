@@ -496,7 +496,7 @@ export const apps: App[] = [
   {
     slug: "listcraft",
     name: "Listcraft",
-    fullName: "Listcraft: Marketplace Listing Generator",
+    fullName: "Listcraft.co: AI Listing Generator for Etsy, eBay & Vinted",
     tagline: "Turns a product photo into a ready-to-paste marketplace listing.",
     headline: "From product photo to finished listing.",
     intro: [
