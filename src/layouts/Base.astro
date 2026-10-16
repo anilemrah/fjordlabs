@@ -302,9 +302,82 @@ const ogImageUrl = new URL(ogImage, siteUrl).toString();
             Not affiliated with any game publisher. Game names and box art belong to their
             respective owners — <a href="/credits/" class="hover:text-clay transition-colors underline decoration-bark/20">image credits</a>.
           </p>
+          <p>
+            <a href="/privacy/" class="hover:text-clay transition-colors underline decoration-bark/20">Privacy &amp; cookies</a>
+            ·
+            <a href="/privacy/#cookies" data-cookie-settings class="hover:text-clay transition-colors underline decoration-bark/20">Cookie settings</a>
+          </p>
         </div>
       </div>
     </footer>
+
+    <div
+      id="consent"
+      hidden
+      class="fixed inset-x-0 bottom-0 z-50 bg-bark text-cream/80 px-6 py-4 print:hidden"
+    >
+      <div class="max-w-5xl mx-auto flex flex-wrap items-center justify-center gap-4">
+        <p class="text-sm max-w-xl">
+          We use Google Analytics to see which guides people find useful. Nothing is collected
+          unless you agree. <a href="/privacy/" class="text-clay hover:underline">Privacy &amp; cookies</a>
+        </p>
+        <div class="flex gap-2 shrink-0">
+          <button type="button" id="consent-decline" class="px-4 py-2 rounded-lg text-sm font-semibold border border-cream/30 text-cream hover:border-cream/60 transition-colors">Decline</button>
+          <button type="button" id="consent-accept" class="px-4 py-2 rounded-lg text-sm font-semibold bg-clay text-white hover:bg-clay-dark transition-colors">Accept</button>
+        </div>
+      </div>
+    </div>
+
+    <script is:inline define:vars={{ GA_ID: "G-J817LRFS55" }}>
+      (function () {
+        var KEY = "fjordlabs-consent";
+        var banner = document.getElementById("consent");
+
+        function loadAnalytics() {
+          if (window.gtag) return;
+          var s = document.createElement("script");
+          s.async = true;
+          s.src = "https://www.googletagmanager.com/gtag/js?id=" + GA_ID;
+          document.head.appendChild(s);
+          window.dataLayer = window.dataLayer || [];
+          window.gtag = function () { window.dataLayer.push(arguments); };
+          window.gtag("js", new Date());
+          window.gtag("config", GA_ID);
+        }
+
+        function clearAnalyticsCookies() {
+          var host = location.hostname;
+          document.cookie.split(";").forEach(function (c) {
+            var name = c.split("=")[0].trim();
+            if (name.indexOf("_ga") !== 0) return;
+            [host, "." + host, "." + host.replace(/^www\./, "")].forEach(function (d) {
+              document.cookie = name + "=; Max-Age=0; path=/; domain=" + d;
+            });
+            document.cookie = name + "=; Max-Age=0; path=/";
+          });
+        }
+
+        function decide(value) {
+          try { localStorage.setItem(KEY, value); } catch (e) {}
+          banner.hidden = true;
+          if (value === "granted") return loadAnalytics();
+          clearAnalyticsCookies();
+          // Withdrawn after accepting: reload so the running tag stops too
+          if (window.gtag) location.reload();
+        }
+
+        document.getElementById("consent-accept").addEventListener("click", function () { decide("granted"); });
+        document.getElementById("consent-decline").addEventListener("click", function () { decide("denied"); });
+        document.querySelectorAll("[data-cookie-settings]").forEach(function (link) {
+          link.addEventListener("click", function (e) { e.preventDefault(); banner.hidden = false; });
+        });
+
+        var stored = null;
+        try { stored = localStorage.getItem(KEY); } catch (e) {}
+        if (stored === "granted") loadAnalytics();
+        else if (stored !== "denied") banner.hidden = false;
+      })();
+    </script>
 
     <script>
       document

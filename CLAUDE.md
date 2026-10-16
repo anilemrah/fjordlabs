@@ -174,6 +174,10 @@ it exists. It's `noindex` and excluded from the sitemap via the `NOINDEX` list
 in `astro.config.mjs` — keep those two in sync.
 
 ## Notes
+- Google Analytics (property "fjord-labs.com", `G-J817LRFS55`) only loads after the visitor
+  clicks Accept in the cookie banner in `Base.astro`. "Cookie settings" links (any element
+  with `data-cookie-settings`) reopen it, and `/privacy/` explains it. Keep any new tracking
+  behind that same consent check.
 - All hub pages show game images, article sections by category (Rules/Strategy/Guide), and product grids
 - Homepage Quest Log showcases 9 articles across all 6 games
 - Every page is individually indexed in the sitemap

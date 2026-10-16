@@ -1,0 +1,61 @@
+---
+import Base from "../layouts/Base.astro";
+
+const lastUpdated = "October 16, 2026";
+---
+
+<Base
+  title="Privacy & Cookies | Fjord Labs"
+  description="What the fjord-labs.com website collects, the Google Analytics cookies it uses with your consent, and how to change your choice."
+  noindex={true}
+>
+  <section class="py-16 md:py-20 px-6">
+    <div class="max-w-3xl mx-auto">
+      <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-2">Privacy &amp; cookies</h1>
+      <p class="text-sm text-bark/40 mb-8">Last updated: {lastUpdated}</p>
+
+      <div class="prose-article">
+        <p>
+          This page covers the fjord-labs.com website, run by Fjord Labs AB in Sweden. Our
+          apps have their own privacy policies, linked from each app's page.
+        </p>
+
+        <h2>What we collect</h2>
+        <p>
+          Nothing that identifies you. There are no accounts, forms or newsletters on this
+          site. Purchases happen on Etsy, under
+          <a href="https://www.etsy.com/legal/privacy/" target="_blank" rel="noopener">Etsy's privacy policy</a>.
+        </p>
+
+        <h2 id="cookies">Cookies and analytics</h2>
+        <p>
+          If you click <strong>Accept</strong> in the cookie banner, we use Google Analytics to
+          see which guides people read, where visitors come from, and which links they follow,
+          such as the links to our Etsy shop. It sets <code>_ga</code> cookies and is not linked
+          to your name or email. If you click <strong>Decline</strong>, or don't choose,
+          Google Analytics never loads and no cookies are set.
+        </p>
+        <p>
+          Your choice is remembered in your browser's local storage. You can change it at any
+          time with <a href="#cookies" data-cookie-settings>Cookie settings</a>, also at the
+          bottom of every page.
+        </p>
+
+        <h2>Other services the pages load</h2>
+        <ul>
+          <li><strong>GitHub Pages</strong> hosts the site and keeps standard server logs, such as IP addresses.</li>
+          <li><strong>Google Fonts</strong> serves the fonts the pages use.</li>
+          <li><strong>Etsy</strong> serves the product photos.</li>
+        </ul>
+
+        <h2>Your rights</h2>
+        <p>
+          Under the GDPR you can ask what data we hold about you, and ask us to correct or
+          delete it. Write to
+          <a href="mailto:fjordlabs.app@gmail.com">fjordlabs.app@gmail.com</a>. You can also
+          complain to the Swedish Authority for Privacy Protection (IMY).
+        </p>
+      </div>
+    </div>
+  </section>
+</Base>
