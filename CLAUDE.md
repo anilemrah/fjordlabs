@@ -90,10 +90,10 @@ Placeholder SVGs in `public/images/games/`. Need to be replaced with real box ar
 - "Geek" / gaming-themed feel (hex grid backgrounds, quest log, loot shop language)
 - Articles must be visually engaging — use InfoBox, StepList, KeyTakeaway, tables, cards. Never walls of text.
 
-## Current State (156 pages live, 59 products — synced with Etsy 2026-10-09)
+## Current State (160 pages live, 60 products — synced with Etsy 2026-10-09, plus the Cities & Knights commodity tokens added 2026-10-20)
 
 ### Games with products + articles
-- **Catan** — 10 articles, 9 products
+- **Catan** — 10 articles, 10 products (incl. Cities & Knights commodity tokens)
 - **Wingspan** — 8 articles, 8 products
 - **Wingspan Pocket** — 2 articles, 2 products (Insert, Sleeved Cards Insert)
 - **Wyrmspan** — 3 articles, 1 product

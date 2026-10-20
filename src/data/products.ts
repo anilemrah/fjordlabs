@@ -52,6 +52,31 @@ const raw: RawProduct[] = [
       "3D-printed replacement resource tokens for Settlers of Catan. Tactile, colorful, and built for thousands of trades.",
   },
   {
+    slug: "catan-cities-knights-commodity-tokens",
+    price: "11.17",
+    longDescription:
+      "A set of 36 3D-printed commodity tokens compatible with Catan: Cities & Knights: 12 paper, 12 cloth and 12 coin, the same count as the commodity cards in the expansion. Paper is a stack of sheets tied with cord, cloth is a rolled bolt of fabric, and the coin has a castle on its face, so each one is easy to tell apart at a glance.\n\nIn Cities & Knights, cities on forest, pasture and mountain hexes produce a commodity as well as a resource, and commodities pay for your city improvements. Tokens are easier to stack, count and trade than a fan of cards. The Base Game + Expansion option has 18 of each (54 tokens), for the 5–6 player extension. Pair them with our Catan resource tokens and the whole table is upgraded.",
+    title: "Catan Cities & Knights Commodity Tokens",
+    newTagline: "For the Cities & Knights expansion",
+    newLinkHref: "/games/catan/best-expansions-ranked/",
+    newLinkLabel: "Catan expansions ranked",
+    game: "catan",
+    type: "Tokens",
+    category: "Catan",
+    isNew: true,
+    images: [
+      img("8d9f40", "8754391687", "ej4i"),
+      img("7fe5bc", "8706572608", "clvx"),
+      img("29464f", "8706573476", "elu9"),
+      img("1ec825", "8706573344", "2w5z"),
+      img("ddabd8", "8706573288", "koti"),
+      img("499dbb", "8706573590", "sjle"),
+    ],
+    link: listing("4598873059", "catan-cities-and-knights-commodity"),
+    description:
+      "3D-printed paper, cloth and coin tokens for Catan: Cities & Knights, replacing the commodity cards. 12 of each, the same count as the box.",
+  },
+  {
     slug: "catan-score-tracker",
     price: "12.56",
     longDescription:
@@ -968,7 +993,6 @@ const raw: RawProduct[] = [
     game: "other",
     type: "Organizer",
     category: "Organizers & Card Holders",
-    isNew: true,
     images: [
       img("649ca9", "8329217284", "q2vm"),
       img("b56352", "8377086919", "93sk"),
