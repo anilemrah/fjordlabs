@@ -7,11 +7,33 @@ import KeyTakeaway from "../../components/KeyTakeaway.astro";
 import InfoBox from "../../components/InfoBox.astro";
 import GiftPick from "../../components/GiftPick.astro";
 import { getProduct } from "../../data/products";
+import GiftFaq from "../../components/GiftFaq.astro";
+import ChristmasDelivery from "../../components/ChristmasDelivery.astro";
 
-const title = "Gifts for Board Gamers (2026): Upgrades They'll Actually Use";
+// Seasonal title: change it back to "Gifts for Board Gamers (2026): ..." in January.
+const title = "Christmas Gifts for Board Gamers (2026): Upgrades They'll Actually Use";
 const description =
-  "Gift ideas for board gamers by budget: 3D-printed upgrades for Catan, Wingspan and more, handmade dice bags, meeple decor, and STL files for friends with a 3D printer.";
+  "Christmas gift ideas for board gamers by budget: stocking stuffers under $10, 3D-printed upgrades for Catan, Wingspan and more, handmade dice bags and STL files.";
 const publishDate = "2026-10-09";
+
+const faqs = [
+  {
+    q: "What do you get a board gamer for Christmas?",
+    a: "An upgrade for a game they already own and play often, like 3D-printed tokens or an insert. It's safer than a new game, which they may already have or never get to the table. Look at their shelf first, then pick by budget.",
+  },
+  {
+    q: "What are good stocking stuffers for board gamers?",
+    a: "Small pieces they'll use every game: Catan's Longest Road and Largest Army trophies, a Wingspan puffin first-player token or a card holder. The under-$10 list above has every one, sorted by price.",
+  },
+  {
+    q: "What's a good Secret Santa gift for a board gamer?",
+    a: "Something that works whatever they play. A tiered card holder or a universal player tray fits almost any game, so you don't need to know their shelf. If you do know their favourite game, a token set for it lands better.",
+  },
+  {
+    q: "Will it arrive before Christmas?",
+    a: "Physical pieces are posted from Sweden within 3–5 business days. In mid-November, Etsy estimated 7–13 days to delivery in Europe and the UK and 9–15 days to the US, so order early in December at the latest, and earlier for the US. STL files download instantly.",
+  },
+];
 
 const picks = [
   { slug: "card-holder", note: "A tiered card stand that works with any game. Great for younger players and anyone who drops their hand of cards." },
@@ -129,11 +151,9 @@ const bands = [
         for every age.
       </p>
 
-      <InfoBox type="warning" title="Order a little earlier than usual">
-        Our physical pieces are made to order in our workshop in Sweden and shipped
-        from there. Check the delivery estimate on each Etsy listing before you order,
-        and give yourself a few extra days in December. STL files arrive instantly.
-      </InfoBox>
+      <ChristmasDelivery />
+
+      <GiftFaq heading="Christmas gift questions" faqs={faqs} />
     </div>
 
     <div class="mt-16 pt-8 border-t border-bark/10">

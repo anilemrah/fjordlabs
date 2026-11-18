@@ -1,0 +1,35 @@
+---
+// Questions people ask when buying a gift, answered on the page and marked up as
+// FAQPage so the answers can show in search.
+interface Props {
+  heading: string;
+  faqs: { q: string; a: string }[];
+}
+
+const { heading, faqs } = Astro.props;
+---
+
+<h2>{heading}</h2>
+
+<div class="space-y-5 my-6">
+  {faqs.map((f) => (
+    <div>
+      <h3 class="font-heading font-semibold text-bark text-lg mb-1">{f.q}</h3>
+      <p class="text-bark/70">{f.a}</p>
+    </div>
+  ))}
+</div>
+
+<script
+  type="application/ld+json"
+  is:inline
+  set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    mainEntity: faqs.map((f) => ({
+      "@type": "Question",
+      name: f.q,
+      acceptedAnswer: { "@type": "Answer", text: f.a },
+    })),
+  })}
+/>
