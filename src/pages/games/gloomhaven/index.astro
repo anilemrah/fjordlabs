@@ -134,4 +134,19 @@ const articles = {
       </div>
     </section>
   )}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Gloomhaven — Where to Start, Rules & Setup Guides",
+      description: "Beginner guides for the Gloomhaven family: Gloomhaven vs Jaws of the Lion, how the card system works, how long scenarios really take, solo play, and taming the box.",
+      url: "https://www.fjord-labs.com/games/gloomhaven/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
 </Base>

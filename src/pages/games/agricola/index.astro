@@ -118,4 +118,19 @@ const articles = {
       </div>
     </section>
   )}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Agricola — Rules, Feeding, Strategy & Accessories",
+      description: "Everything you need for Agricola: complete rules, the feeding phase explained, beginner strategy for your first five rounds, and 3D-printed resource tokens.",
+      url: "https://www.fjord-labs.com/games/agricola/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
 </Base>

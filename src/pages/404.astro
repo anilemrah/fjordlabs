@@ -1,0 +1,49 @@
+---
+import Base from "../layouts/Base.astro";
+import { games } from "../data/games";
+---
+
+<Base
+  title="Page not found | Fjord Labs"
+  description="That page doesn't exist any more. Browse the board game guides, the 3D-printed upgrades or the gift guide instead."
+  noindex={true}
+>
+  <section class="max-w-3xl mx-auto px-6 py-20">
+    <p class="text-sm font-semibold text-clay uppercase tracking-wide mb-3">404 · Lost in the fog</p>
+    <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-4 leading-tight">
+      This page rolled a 7 and got stolen.
+    </h1>
+    <p class="text-lg text-bark/60 mb-10">
+      The link may be old, or the product may have sold out. Here's where to go instead.
+    </p>
+
+    <div class="grid sm:grid-cols-3 gap-4 mb-12">
+      <a href="/" class="block p-5 bg-white rounded-2xl border border-bark/10 hover:border-clay transition-colors">
+        <span class="block font-heading font-bold text-bark">Home</span>
+        <span class="block text-sm text-bark/50 mt-1">Start from the top</span>
+      </a>
+      <a href="/products/" class="block p-5 bg-white rounded-2xl border border-bark/10 hover:border-clay transition-colors">
+        <span class="block font-heading font-bold text-bark">Upgrades</span>
+        <span class="block text-sm text-bark/50 mt-1">Every 3D-printed piece</span>
+      </a>
+      <a href="/gifts/" class="block p-5 bg-white rounded-2xl border border-bark/10 hover:border-clay transition-colors">
+        <span class="block font-heading font-bold text-bark">Gift guide</span>
+        <span class="block text-sm text-bark/50 mt-1">For the gamer in your life</span>
+      </a>
+    </div>
+
+    <h2 class="text-xl font-heading font-bold text-bark mb-4">Guides by game</h2>
+    <ul class="flex flex-wrap gap-2">
+      {games.map((g) => (
+        <li>
+          <a
+            href={`/games/${g.slug}/`}
+            class="inline-block px-4 py-2 rounded-full border border-bark/10 bg-white text-bark/80 hover:border-clay hover:text-clay transition-colors"
+          >
+            {g.title}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</Base>

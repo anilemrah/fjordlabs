@@ -20,6 +20,25 @@ const originalPrice = product.price
   ? (parseFloat(product.price) / (1 - DISCOUNT_PERCENT / 100)).toFixed(2)
   : undefined;
 
+// Mirrors the Etsy shop policy: physical items can be returned within 14 days (the
+// buyer pays return postage), digital downloads can't. Shipping costs vary by item
+// and country on Etsy, so they're left out rather than guessed.
+const RETURN_COUNTRIES = ["SE", "US", "GB", "DE"];
+const returnPolicy = product.digital
+  ? {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: RETURN_COUNTRIES,
+      returnPolicyCategory: "https://schema.org/MerchantReturnNotPermitted",
+    }
+  : {
+      "@type": "MerchantReturnPolicy",
+      applicableCountry: RETURN_COUNTRIES,
+      returnPolicyCategory: "https://schema.org/MerchantReturnFiniteReturnWindow",
+      merchantReturnDays: 14,
+      returnMethod: "https://schema.org/ReturnByMail",
+      returnFees: "https://schema.org/ReturnFeesCustomerResponsibility",
+    };
+
 const bullets = product.digital
   ? [
       "Instant download after purchase — no shipping, no waiting",
@@ -30,7 +49,8 @@ const bullets = product.digital
   : [
       "Designed and 3D-printed in Sweden by board game nerds",
       "Quality-checked before every shipment",
-      "Ships worldwide from our studio",
+      "Ships worldwide from Sweden within 3–5 business days",
+      "Returns accepted within 14 days of delivery",
       "Purchase happens securely through Etsy",
     ];
 ---
@@ -276,13 +296,25 @@ const bullets = product.digital
           priceCurrency: "USD",
           availability: "https://schema.org/InStock",
           url: product.link,
-          priceValidUntil: "2026-12-31",
+          hasMerchantReturnPolicy: returnPolicy,
           seller: {
             "@type": "Organization",
             name: "Fjord Labs",
           },
         },
       }),
+    })}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fjord-labs.com/" },
+        { "@type": "ListItem", position: 2, name: "Products", item: "https://www.fjord-labs.com/products/" },
+        { "@type": "ListItem", position: 3, name: product.title, item: `https://www.fjord-labs.com/products/${product.slug}/` },
+      ],
     })}
   />
 </Base>

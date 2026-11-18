@@ -50,7 +50,7 @@ const articles = {
 ---
 
 <Base
-  title="Flip 7 — Rules, Scoring, Strategy & Accessories | Fjord Labs"
+  title="Flip 7 — Rules, Scoring & Strategy | Fjord Labs"
   description="Everything you need for Flip 7: complete rules, scoring explained, action card edge cases, and push-your-luck strategy."
 >
   <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
@@ -128,4 +128,19 @@ const articles = {
       </div>
     </section>
   )}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Flip 7 — Rules, Scoring & Strategy",
+      description: "Everything you need for Flip 7: complete rules, scoring explained, action card edge cases, and push-your-luck strategy.",
+      url: "https://www.fjord-labs.com/games/flip-7/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
 </Base>

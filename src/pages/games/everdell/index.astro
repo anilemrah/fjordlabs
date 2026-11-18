@@ -123,4 +123,19 @@ const articles = {
       </div>
     </section>
   )}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Everdell — Rules, Card Types, Strategy & Accessories",
+      description: "Everything you need for Everdell: complete rules, all five card types explained, season progression, beginner strategy, and 3D-printed upgrades.",
+      url: "https://www.fjord-labs.com/games/everdell/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
 </Base>

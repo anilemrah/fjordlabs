@@ -113,4 +113,19 @@ const articles = {
       </div>
     </section>
   )}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Wyrmspan — Rules, Strategy & Accessories",
+      description: "Everything you need for Wyrmspan: rules clarifications, dragon-engine strategies, and premium 3D-printed resource tokens.",
+      url: "https://www.fjord-labs.com/games/wyrmspan/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
 </Base>

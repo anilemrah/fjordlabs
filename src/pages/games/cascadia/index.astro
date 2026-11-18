@@ -123,4 +123,19 @@ const articles = {
       </div>
     </section>
   )}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Cascadia — Rules, Scoring, Strategy & Accessories",
+      description: "Everything you need for Cascadia: complete rules, all five wildlife scoring cards explained, nature token strategy, and 3D-printed upgrades.",
+      url: "https://www.fjord-labs.com/games/cascadia/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
 </Base>

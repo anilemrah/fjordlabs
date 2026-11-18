@@ -123,4 +123,19 @@ const articles = {
       </div>
     </section>
   )}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Carcassonne — Rules, Strategy & Guides",
+      description: "Everything you need for Carcassonne: farmer scoring explained, city sharing rules, winning strategies, and expansion buying guides.",
+      url: "https://www.fjord-labs.com/games/carcassonne/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
 </Base>

@@ -144,4 +144,19 @@ const articles = {
       </div>
     </section>
   )}
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Wingspan — Rules, Strategy & Accessories",
+      description: "Everything you need for Wingspan: rules clarifications, engine-building strategies, expansion guides, and premium 3D-printed food tokens.",
+      url: "https://www.fjord-labs.com/games/wingspan/",
+      publisher: {
+        "@type": "Organization",
+        name: "Fjord Labs",
+        url: "https://www.fjord-labs.com",
+      },
+    })}
+  />
 </Base>
