@@ -98,7 +98,7 @@ const lists = [
     id: "hard",
     short: "Hard (adults)",
     icon: "🔥",
-    heading: "Hard Christmas charades for adults",
+    heading: "Hard (and funny) Christmas charades for adults",
     intro: "Whole scenes rather than single things. Expect wild guesses.",
     words: [
       "Untangling the Christmas lights", "Assembling a toy at midnight", "Regifting a present",
@@ -115,6 +115,7 @@ const total = lists.reduce((n, l) => n + l.words.length, 0);
 const title = `${total} Christmas Charades Ideas for Kids & Adults (2026)`;
 const description = `${total} Christmas charades ideas sorted by difficulty: easy words for kids, Christmas movies and songs, and hard scenes for adults. Plus how to play and the hand signs everyone uses.`;
 const publishDate = "2026-10-09";
+const updatedDate = "2026-11-10";
 
 const faq = [
   {
@@ -124,6 +125,14 @@ const faq = [
   {
     q: "How do you play charades at Christmas?",
     a: "Split into two teams, write Christmas words on slips of paper and put them in a hat. One player draws a slip and acts it out without speaking while their team guesses before the timer runs out. Each correct guess is a point, and teams take turns.",
+  },
+  {
+    q: "What are funny Christmas charades for adults?",
+    a: "Whole scenes are funnier than single words: untangling the Christmas lights, pretending to love a gift, the dog stealing the turkey or falling asleep after Christmas dinner. Give the actor something awkward to mime and the wrong guesses do the rest.",
+  },
+  {
+    q: "Can you use these words for a Heads Up-style game?",
+    a: "Yes. In the forehead version, one player holds a card or a phone to their forehead without looking, and their team acts out the word until they guess it. The easy list and the movies work best, because they're quick to recognise. Game Night plays charades this way on an iPhone.",
   },
   {
     q: "How many people do you need for charades?",
@@ -150,7 +159,7 @@ const faq = [
       <h1 class="text-3xl md:text-4xl font-heading font-bold text-bark mb-4 leading-tight">{title}</h1>
       <p class="text-lg text-bark/50">{description}</p>
       <div class="flex flex-wrap items-center gap-4 mt-4 print:hidden">
-        <time class="text-sm text-bark/30">{publishDate}</time>
+        <time datetime={updatedDate} class="text-sm text-bark/30">Updated {updatedDate}</time>
         <button
           type="button"
           onclick="window.print()"
@@ -210,8 +219,8 @@ const faq = [
       <h2>Skip the paper slips: play it on a phone</h2>
       <p>
         If you'd rather not cut up slips at all, our iPhone app
-        <a href="/apps/game-night/">Game Night</a> has charades built in. Hold the
-        phone to your forehead, your team acts out the word on screen, and you tilt
+        <a href="/apps/game-night/">Game Night</a> has charades built in, played
+        Heads Up-style. Hold the phone to your forehead, your team acts out the word on screen, and you tilt
         down when you guess it or up to pass. Rounds are 30, 60 or 90 seconds,
         and the app keeps score for each team.
       </p>
@@ -260,6 +269,7 @@ const faq = [
       author: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
       publisher: { "@type": "Organization", name: "Fjord Labs" },
       datePublished: publishDate,
+      dateModified: updatedDate,
     })}
   />
   <script
@@ -272,6 +282,19 @@ const faq = [
         name: item.q,
         acceptedAnswer: { "@type": "Answer", text: item.a },
       })),
+    })}
+  />
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fjord-labs.com/" },
+        { "@type": "ListItem", position: 2, name: "Apps", item: "https://www.fjord-labs.com/apps/" },
+        { "@type": "ListItem", position: 3, name: "Game Night", item: "https://www.fjord-labs.com/apps/game-night/" },
+        { "@type": "ListItem", position: 4, name: "Christmas Charades", item: "https://www.fjord-labs.com/apps/game-night/christmas-charades/" },
+      ],
     })}
   />
 </Base>
