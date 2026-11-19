@@ -1,0 +1,527 @@
+---
+// The Catan upgrade guide: a drawing of a fully upgraded four-player table, the
+// parts list it refers to, and kits that combine several listings into one
+// total. Prices come from products.ts, so they follow the Etsy sync, and a
+// retired product drops out of the drawing's list, the parts and the kits.
+import Base from "../../../layouts/Base.astro";
+import GiftFaq from "../../../components/GiftFaq.astro";
+import ChristmasDelivery from "../../../components/ChristmasDelivery.astro";
+import { getProduct, DISCOUNT_PERCENT } from "../../../data/products";
+import tableMarkers from "../../../data/catan-table-markers.json";
+
+const title = "Catan Upgrades: Every Piece Worth Replacing (2026 Guide)";
+const description =
+  "A piece-by-piece guide to upgrading Catan: a robber figure, 3D-printed resource tokens, Longest Road and Largest Army trophies, player trays and a score tracker. Pick a kit or build your own and see the total.";
+const url = "https://www.fjord-labs.com/games/catan/catan-upgrades/";
+
+type PartDef = {
+  slug: string;
+  n?: number; // the number on the drawing
+  replaces: string;
+  note: string;
+  perPlayer?: boolean;
+  read?: { href: string; label: string };
+};
+
+const BASE_PARTS: PartDef[] = [
+  {
+    n: 1,
+    slug: "catan-resource-tokens",
+    replaces: "Replaces the resource cards",
+    note: "Sculpted wood, brick, sheep, wheat and ore. You handle resources on every turn, so this is the upgrade you feel most, and new players learn faster when a sheep looks like a sheep.",
+  },
+  {
+    n: 2,
+    slug: "catan-robber-upgrade",
+    replaces: "Replaces the grey pawn",
+    note: "A cloaked thief carrying a stolen sheep and a bundle of wood, ready to play with no painting. Rolling a 7 is the most dramatic moment in Catan, and now it looks like one.",
+    read: { href: "/games/catan/what-happens-when-you-roll-7/", label: "What happens when you roll a 7" },
+  },
+  {
+    n: 3,
+    slug: "catan-trophies",
+    replaces: "Replaces the Longest Road and Largest Army cards",
+    note: "Two trophies that change hands mid-game when the titles are stolen, plus a Snail Award for the slowest builder. Every steal becomes something the whole table sees.",
+    read: { href: "/games/catan/longest-road-rules/", label: "How Longest Road works" },
+  },
+  {
+    n: 4,
+    slug: "catan-score-tracker",
+    replaces: "Replaces counting points in your head",
+    note: "Every settlement, city and special card goes on the board the moment it scores, so nobody recounts at the end. Works for 4- and 6-player games.",
+    read: { href: "/games/catan/how-many-points-to-win/", label: "How many points you need to win" },
+  },
+  {
+    n: 5,
+    slug: "catan-player-tray",
+    replaces: "Replaces the sprawl in front of each player",
+    note: "Slots for resource cards, development cards and building pieces, so roads stop hiding under cards and packing up takes half the time. One per player.",
+    perPlayer: true,
+    read: { href: "/games/catan/fast-setup-guide/", label: "Setting up Catan faster" },
+  },
+  {
+    n: 6,
+    slug: "catan-trophy",
+    replaces: "New: a trophy for the last winner",
+    note: "It lives on the winner's shelf until the next game night. The simplest way to turn a casual Catan group into a rivalry.",
+  },
+];
+
+const EXPANSION_PARTS: PartDef[] = [
+  {
+    n: 7,
+    slug: "catan-cities-knights-commodity-tokens",
+    replaces: "Cities & Knights only. Replaces the commodity cards",
+    note: "36 tokens: 12 paper, 12 cloth and 12 coin, the same count as the box. There's a 5–6 player option with 18 of each.",
+    read: { href: "/games/catan/best-expansions-ranked/", label: "Catan expansions ranked" },
+  },
+];
+
+const PRINT_PARTS: PartDef[] = [
+  {
+    slug: "catan-player-tray-stl",
+    replaces: "The player tray, as a file",
+    note: "Print one tray for every seat, in each player's colour. Instant download, no shipping.",
+  },
+  {
+    slug: "catan-score-tracker-stl",
+    replaces: "The score tracker, as a file",
+    note: "Print the tracker for 4- or 6-player games. Instant download, no shipping.",
+  },
+];
+
+const withProduct = (defs: PartDef[]) =>
+  defs.flatMap((d) => {
+    const product = getProduct(d.slug);
+    return product?.price ? [{ ...d, product, price: parseFloat(product.price) }] : [];
+  });
+
+const baseParts = withProduct(BASE_PARTS);
+const expansionParts = withProduct(EXPANSION_PARTS);
+const printParts = withProduct(PRINT_PARTS);
+const allParts = [...baseParts, ...expansionParts, ...printParts];
+const bySlug = Object.fromEntries(allParts.map((p) => [p.slug, p]));
+
+const fmt = (n: number) => `$${n.toFixed(2)}`;
+const beforeSale = (n: number) => n / (1 - DISCOUNT_PERCENT / 100);
+
+const FULL: [string, number][] = [
+  ["catan-resource-tokens", 1],
+  ["catan-robber-upgrade", 1],
+  ["catan-trophies", 1],
+  ["catan-score-tracker", 1],
+  ["catan-player-tray", 4],
+];
+
+const KITS = [
+  {
+    id: "weeknight",
+    name: "Weeknight",
+    why: "The two moments everyone watches: a 7, and a stolen Longest Road.",
+    items: [["catan-robber-upgrade", 1], ["catan-trophies", 1]] as [string, number][],
+  },
+  {
+    id: "full",
+    name: "Full table",
+    why: "Everything you touch or watch in a four-player game.",
+    items: FULL,
+  },
+  {
+    id: "island",
+    name: "Whole island",
+    why: "The full table, plus a trophy that lives with whoever won last.",
+    items: [...FULL, ["catan-trophy", 1]] as [string, number][],
+  },
+  {
+    id: "print",
+    name: "Print at home",
+    why: "For 3D printer owners: the tray and tracker files, printed as often as you like.",
+    items: [["catan-player-tray-stl", 1], ["catan-score-tracker-stl", 1]] as [string, number][],
+  },
+].map((k) => {
+  const items = k.items.filter(([slug]) => bySlug[slug]);
+  const total = items.reduce((sum, [slug, qty]) => sum + bySlug[slug].price * qty, 0);
+  return { ...k, items, total };
+});
+
+// The page opens with the full-table kit picked, so the total is never empty.
+const DEFAULT_KIT = "full";
+const defaultQty = Object.fromEntries((KITS.find((k) => k.id === DEFAULT_KIT)?.items ?? []).map(([s, q]) => [s, q]));
+
+/* ── The render ────────────────────────────────────── */
+
+// Rendered in Blender from our own print files (fjordlabs-design/renders/catan-table/scene.py),
+// which also writes each upgrade's position in the image, 0–1 from the top left.
+const MARKER_NUMBERS: Record<string, number> = Object.fromEntries(
+  [...BASE_PARTS, ...EXPANSION_PARTS].filter((d) => d.n).map((d) => [d.slug, d.n as number]),
+);
+const markers = Object.entries(tableMarkers as Record<string, { x: number; y: number }>)
+  .filter(([slug]) => bySlug[slug] && MARKER_NUMBERS[slug])
+  .map(([slug, p]) => ({ slug, n: MARKER_NUMBERS[slug], x: p.x * 100, y: p.y * 100 }))
+  .sort((a, b) => a.n - b.n);
+
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Article",
+      headline: title,
+      description,
+      datePublished: "2026-11-19",
+      dateModified: "2026-11-19",
+      mainEntityOfPage: url,
+      author: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
+      publisher: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com" },
+      image: bySlug["catan-robber-upgrade"]?.product.image,
+    },
+    {
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fjord-labs.com/" },
+        { "@type": "ListItem", position: 2, name: "Catan", item: "https://www.fjord-labs.com/games/catan/" },
+        { "@type": "ListItem", position: 3, name: "Catan upgrades", item: url },
+      ],
+    },
+    {
+      "@type": "ItemList",
+      name: "Catan upgrades",
+      itemListElement: allParts.map((p, i) => ({
+        "@type": "ListItem",
+        position: i + 1,
+        name: p.product.title,
+        url: `https://www.fjord-labs.com/products/${p.slug}/`,
+      })),
+    },
+  ],
+};
+
+const faqs = [
+  {
+    q: "What are the best Catan upgrades?",
+    a: "The pieces you watch or touch every game. The robber figure, because rolling a 7 is the most dramatic moment in Catan. Resource tokens, because you handle resources on every turn. And the Longest Road and Largest Army trophies, because they change hands. Of the rest, a score tracker is the most practical.",
+  },
+  {
+    q: "Do the resource tokens replace the resource cards?",
+    a: "Yes. You trade and spend sculpted wood, brick, sheep, wheat and ore instead of cards. They don't wear out the way cards and sleeves do, and new players find them easier to follow.",
+  },
+  {
+    q: "Do these work for 5–6 players?",
+    a: "The score tracker works for both 4- and 6-player games, the player trays are one per seat, and the Cities & Knights commodity tokens have a 5–6 player option. For the other pieces, check the options on the Etsy listing.",
+  },
+  {
+    q: "Who makes these Catan upgrades?",
+    a: "We do. Fjord Labs designs and 3D-prints every piece in our workshop in Sweden, and everything is sold through our Etsy shop.",
+  },
+];
+---
+
+<Base title={title} description={description} canonical={url} ogImage={bySlug["catan-robber-upgrade"]?.product.image} type="article">
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+
+  <article class="catan-upgrades bg-cream">
+    <!-- ── Header ──────────────────────────────────────── -->
+    <header class="max-w-6xl mx-auto px-6 pt-10 md:pt-14">
+      <nav class="text-sm text-bark/50" aria-label="Breadcrumb">
+        <a href="/" class="hover:text-clay">Home</a>
+        <span class="mx-1.5">/</span>
+        <a href="/games/catan/" class="hover:text-clay">Catan</a>
+        <span class="mx-1.5">/</span>
+        <span class="text-bark/70">Upgrades</span>
+      </nav>
+
+      <div class="mt-6 grid gap-10 lg:grid-cols-[1fr_360px] lg:items-end">
+        <div>
+          <p class="font-heading text-sm font-semibold uppercase tracking-[0.14em] text-clay">The Catan upgrade guide</p>
+          <h1 class="mt-3 font-heading text-[clamp(2.2rem,5vw,3.6rem)] font-bold leading-[1.04] tracking-[-0.03em] text-bark">
+            Every piece of Catan<br class="hidden sm:block" /> worth replacing
+          </h1>
+          <p class="mt-5 max-w-2xl text-lg leading-relaxed text-bark/70">
+            Catan still comes with a grey pawn for a robber and paper cards for resources. These
+            are the pieces we make to replace them, drawn where they sit in a four-player game,
+            with what each one replaces and what it costs. Pick a kit or build your own, and the
+            total adds up as you go.
+          </p>
+        </div>
+
+        <aside class="border-t-2 border-bark pt-4 lg:border-l-2 lg:border-t-0 lg:pl-6 lg:pt-0">
+          <p class="font-heading text-xs font-semibold uppercase tracking-[0.14em] text-bark/50">If you only buy…</p>
+          <dl class="mt-3 space-y-3 text-[15px] leading-snug">
+            <div class="flex gap-3"><dt class="w-16 shrink-0 font-heading font-bold text-bark">One</dt><dd class="text-bark/70">The <a href="#part-catan-robber-upgrade" class="font-medium text-bark underline decoration-clay/50 underline-offset-[3px] hover:text-clay">robber</a>. Every 7 becomes an event.</dd></div>
+            <div class="flex gap-3"><dt class="w-16 shrink-0 font-heading font-bold text-bark">Two</dt><dd class="text-bark/70">Add the <a href="#part-catan-trophies" class="font-medium text-bark underline decoration-clay/50 underline-offset-[3px] hover:text-clay">trophies</a>, so steals change hands in public.</dd></div>
+            <div class="flex gap-3"><dt class="w-16 shrink-0 font-heading font-bold text-bark">More</dt><dd class="text-bark/70"><a href="#part-catan-resource-tokens" class="font-medium text-bark underline decoration-clay/50 underline-offset-[3px] hover:text-clay">Resource tokens</a>: the upgrade you feel every turn.</dd></div>
+          </dl>
+        </aside>
+      </div>
+    </header>
+
+    <!-- ── Fig. 1: the table ───────────────────────────── -->
+    <section class="max-w-6xl mx-auto px-6 mt-10" aria-labelledby="fig-caption">
+      <figure class="border border-bark/15 bg-[#3B2416]">
+        <div class="relative aspect-[16/9]">
+          <picture>
+            <source type="image/webp" srcset="/images/catan-upgrades/table-1200.webp 1200w, /images/catan-upgrades/table-2400.webp 2400w" sizes="(min-width: 1152px) 1104px, 100vw" />
+            <img
+              src="/images/catan-upgrades/table-1200.jpg"
+              alt="A four-player game of Catan on a wooden table, with the Fjord Labs robber figure, resource tokens, player trays, trophies, score tracker and Ruler of Catan trophy in place"
+              width="2400"
+              height="1350"
+              class="absolute inset-0 h-full w-full object-cover"
+              fetchpriority="high"
+            />
+          </picture>
+          {markers.map((m) => (
+            <a
+              href={`#part-${m.slug}`}
+              class="fig-marker absolute flex h-6 w-6 -translate-x-1/2 -translate-y-1/2 items-center justify-center rounded-full border-2 border-white/90 bg-bark font-heading text-[11px] font-bold text-cream shadow-[0_2px_8px_rgba(0,0,0,0.35)] sm:h-8 sm:w-8 sm:text-sm"
+              style={`left: ${m.x.toFixed(2)}%; top: ${m.y.toFixed(2)}%`}
+              aria-label={`${m.n}: ${bySlug[m.slug].product.title}`}
+            >
+              {m.n}
+              <span class={`fig-label pointer-events-none absolute hidden whitespace-nowrap rounded-md bg-bark px-2.5 py-1 text-xs font-semibold text-cream sm:block ${m.y > 75 ? "bottom-full mb-2" : "top-full mt-2"} ${m.x > 70 ? "right-0" : m.x < 30 ? "left-0" : "left-1/2 -translate-x-1/2"}`}>
+                {bySlug[m.slug].product.title}
+              </span>
+            </a>
+          ))}
+        </div>
+        <figcaption id="fig-caption" class="border-t border-bark/15 bg-[#F4EFE6] px-5 py-3 text-sm text-bark/60">
+          <span class="font-heading font-semibold text-bark">Fig. 1</span> A four-player game with every upgrade on
+          the table, rendered from the same 3D files we print from. The numbers match the parts list below.
+        </figcaption>
+      </figure>
+    </section>
+
+    <!-- ── Kits ────────────────────────────────────────── -->
+    <section class="max-w-6xl mx-auto px-6 mt-16" aria-labelledby="kits-heading">
+      <div class="flex flex-wrap items-end justify-between gap-4 border-b-2 border-bark pb-3">
+        <h2 id="kits-heading" class="font-heading text-2xl font-bold tracking-[-0.02em] text-bark">Start from a kit</h2>
+        <p class="text-sm text-bark/60">A kit ticks its pieces in the parts list. Change anything afterwards.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4">
+        {KITS.map((k) => (
+          <div class="kit flex flex-col border-b border-bark/15 py-5 sm:px-4 lg:border-b-0 lg:border-r lg:px-5 lg:first:pl-0 lg:last:border-r-0 lg:last:pr-0" data-kit-card={k.id}>
+            <h3 class="font-heading text-lg font-bold text-bark">{k.name}</h3>
+            <p class="mt-1 text-[15px] leading-snug text-bark/65">{k.why}</p>
+            <ul class="mt-3 space-y-1 text-sm text-bark/75">
+              {k.items.map(([slug, qty]) => (
+                <li>{qty > 1 ? `${qty} × ` : ""}{bySlug[slug].product.title.replace(/^Catan /, "").replace(/ STL File$/, " (STL)")}</li>
+              ))}
+            </ul>
+            <div class="mt-auto pt-4">
+              <p class="font-heading text-xl font-bold tabular-nums text-bark">
+                {fmt(k.total)}
+                {DISCOUNT_PERCENT > 0 && <span class="ml-1.5 text-sm font-normal text-bark/40 line-through">{fmt(beforeSale(k.total))}</span>}
+              </p>
+              <button
+                type="button"
+                class="kit-btn mt-3 w-full rounded-lg border border-bark px-4 py-2.5 text-sm font-semibold text-bark transition-colors hover:bg-bark hover:text-cream"
+                data-kit={k.id}
+                data-items={JSON.stringify(k.items)}
+                aria-pressed={k.id === DEFAULT_KIT ? "true" : "false"}
+              >
+                Use this kit
+              </button>
+            </div>
+          </div>
+        ))}
+      </div>
+    </section>
+
+    <!-- ── Parts list + your kit ──────────────────────── -->
+    <section class="max-w-6xl mx-auto px-6 mt-16 pb-6" aria-labelledby="parts-heading">
+      <div class="grid gap-10 lg:grid-cols-[1fr_320px] lg:items-start">
+        <div>
+          <div class="flex flex-wrap items-end justify-between gap-4 border-b-2 border-bark pb-3">
+            <h2 id="parts-heading" class="font-heading text-2xl font-bold tracking-[-0.02em] text-bark">The parts list</h2>
+            <p class="text-sm text-bark/60">Prices include the current {DISCOUNT_PERCENT}% Etsy sale.</p>
+          </div>
+
+          {[
+            { heading: null, parts: baseParts },
+            { heading: "If they play Cities & Knights", parts: expansionParts },
+            { heading: "If they own a 3D printer", parts: printParts },
+          ].filter((g) => g.parts.length).map((group) => (
+            <div>
+              {group.heading && <h3 class="mt-10 font-heading text-sm font-semibold uppercase tracking-[0.14em] text-bark/50">{group.heading}</h3>}
+              <ol class="list-none p-0">
+                {group.parts.map((p) => (
+                  <li id={`part-${p.slug}`} class="part grid grid-cols-[auto_1fr] gap-x-4 gap-y-3 border-b border-bark/15 py-6 sm:grid-cols-[2rem_112px_1fr_auto] sm:gap-x-5">
+                    <span class="part-n font-heading text-sm font-bold text-bark/40 sm:pt-1">{p.n ?? "–"}</span>
+                    <a href={`/products/${p.slug}/`} class="row-span-2 shrink-0 sm:row-span-1">
+                      <img src={p.product.image} alt={p.product.title} class="h-24 w-24 rounded-md border border-bark/10 object-cover sm:h-28 sm:w-28" loading="lazy" />
+                    </a>
+                    <div class="col-start-2 min-w-0 sm:col-start-auto">
+                      <p class="text-xs font-semibold uppercase tracking-[0.08em] text-clay">{p.replaces}</p>
+                      <h3 class="mt-1 font-heading text-lg font-bold leading-snug text-bark">
+                        <a href={`/products/${p.slug}/`} class="hover:text-clay">{p.product.title}</a>
+                      </h3>
+                      <p class="mt-1.5 text-[15px] leading-relaxed text-bark/70">{p.note}</p>
+                      {p.read && (
+                        <p class="mt-2 text-sm"><a href={p.read.href} class="text-forest underline underline-offset-[3px] hover:text-clay">{p.read.label}</a></p>
+                      )}
+                    </div>
+                    <div class="col-span-2 flex items-center justify-between gap-4 sm:col-span-1 sm:block sm:text-right">
+                      <p class="font-heading text-lg font-bold tabular-nums text-bark">
+                        {fmt(p.price)}{p.perPlayer && <span class="text-sm font-normal text-bark/50"> each</span>}
+                      </p>
+                      <div class="flex items-center gap-2 sm:mt-3 sm:justify-end">
+                        {p.perPlayer && (
+                          <select data-qty={p.slug} aria-label={`How many ${p.product.title}s`} class="rounded-md border border-bark/25 bg-white py-1.5 pl-2 pr-7 text-sm">
+                            {[1, 2, 3, 4, 5, 6].map((n) => <option value={n} selected={n === (defaultQty[p.slug] ?? 4)}>{n}</option>)}
+                          </select>
+                        )}
+                        <label class="pick inline-flex cursor-pointer select-none items-center gap-2 rounded-lg border border-bark/30 px-3 py-1.5 text-sm font-semibold text-bark">
+                          <input
+                            type="checkbox"
+                            class="h-4 w-4 accent-[#1A1A1A]"
+                            data-part={p.slug}
+                            data-price={p.price}
+                            data-name={p.product.title}
+                            data-link={p.product.link}
+                            checked={p.slug in defaultQty}
+                          />
+                          <span class="pick-off">Add</span><span class="pick-on">Added</span>
+                        </label>
+                      </div>
+                    </div>
+                  </li>
+                ))}
+              </ol>
+            </div>
+          ))}
+
+          <div class="mt-10">
+            <ChristmasDelivery />
+          </div>
+        </div>
+
+        <!-- Your kit -->
+        <aside id="your-kit" data-discount={DISCOUNT_PERCENT} class="border-2 border-bark bg-white p-5 lg:sticky lg:top-24" aria-labelledby="your-kit-heading">
+          <h2 id="your-kit-heading" class="font-heading text-lg font-bold text-bark">Your kit</h2>
+          <ul data-kit-list class="mt-3 space-y-2.5 text-sm"></ul>
+          <p data-kit-empty class="mt-3 hidden text-sm leading-relaxed text-bark/60">
+            Nothing picked yet. Start from a kit, or tick pieces in the parts list.
+          </p>
+          <div class="mt-4 border-t border-bark/15 pt-4">
+            <div class="flex items-baseline justify-between">
+              <span class="text-sm text-bark/60" data-kit-count></span>
+              <span class="font-heading text-2xl font-bold tabular-nums text-bark" data-kit-total></span>
+            </div>
+            {DISCOUNT_PERCENT > 0 && <p class="mt-1 text-right text-xs text-bark/45" data-kit-before></p>}
+          </div>
+          <p class="mt-4 text-xs leading-relaxed text-bark/55">
+            Each piece is its own listing in our Etsy shop, and the links above open them. Add each
+            one to your cart and check out once. Prices are approximate in USD; Etsy shows your currency and shipping at checkout.
+          </p>
+        </aside>
+      </div>
+    </section>
+
+    <!-- mobile: the running total, always in reach -->
+    <a href="#your-kit" data-kit-bar class="fixed inset-x-0 bottom-0 z-30 flex items-center justify-between gap-4 border-t-2 border-bark bg-cream px-5 py-3 lg:hidden">
+      <span class="text-sm font-semibold text-bark">Your kit <span class="font-normal text-bark/60" data-kit-count></span></span>
+      <span class="font-heading text-lg font-bold tabular-nums text-bark" data-kit-total></span>
+    </a>
+
+    <section class="max-w-3xl mx-auto px-6 pb-24 pt-6">
+      <GiftFaq heading="Questions about upgrading Catan" faqs={faqs} />
+      <p class="text-bark/70">
+        Buying for someone else? Our <a href="/games/catan/catan-gift-ideas/" class="text-forest underline underline-offset-[3px] hover:text-clay">Catan gift ideas</a>
+        sort these by budget and by who you're buying for.
+      </p>
+    </section>
+  </article>
+</Base>
+
+<style>
+  .fig-marker { transition: background-color 0.15s; }
+  .fig-marker:hover, .fig-marker:focus-visible { background: #c47b30; }
+  .fig-label { opacity: 0; transition: opacity 0.15s; }
+  .fig-marker:hover .fig-label, .fig-marker:focus-visible .fig-label { opacity: 1; }
+  .part { scroll-margin-top: 6rem; transition: background-color 0.3s; }
+  .part:target { background: rgba(196, 123, 48, 0.08); }
+  .part:target .part-n { color: #c47b30; }
+  .pick:has(input:checked) { background: #1a1a1a; border-color: #1a1a1a; color: #faf8f2; }
+  .pick-on, .pick:has(input:checked) .pick-off { display: none; }
+  .pick:has(input:checked) .pick-on { display: inline; }
+  :global([data-kit-list] a)::after { content: " ↗"; color: rgba(26, 26, 26, 0.4); }
+  .kit-btn[aria-pressed="true"] { background: #1a1a1a; color: #faf8f2; }
+  @media (max-width: 1023px) {
+    .catan-upgrades { padding-bottom: 3.5rem; }
+  }
+</style>
+
+<script>
+  const discount = Number(document.getElementById("your-kit")?.dataset.discount ?? "0");
+  const boxes = [...document.querySelectorAll<HTMLInputElement>("input[data-part]")];
+  const qtyOf = (slug: string) => {
+    const sel = document.querySelector<HTMLSelectElement>(`select[data-qty="${slug}"]`);
+    return sel ? Number(sel.value) : 1;
+  };
+  const money = (n: number) => `$${n.toFixed(2)}`;
+
+  function render() {
+    const picked = boxes.filter((b) => b.checked).map((b) => ({
+      slug: b.dataset.part!,
+      name: b.dataset.name!,
+      link: b.dataset.link!,
+      price: Number(b.dataset.price),
+      qty: qtyOf(b.dataset.part!),
+    }));
+    const total = picked.reduce((s, p) => s + p.price * p.qty, 0);
+    const count = picked.reduce((s, p) => s + p.qty, 0);
+
+    const list = document.querySelector<HTMLUListElement>("[data-kit-list]")!;
+    list.replaceChildren(
+      ...picked.map((p) => {
+        const li = document.createElement("li");
+        li.className = "flex items-baseline justify-between gap-3";
+        const a = document.createElement("a");
+        a.href = p.link;
+        a.target = "_blank";
+        a.rel = "noopener";
+        a.className = "min-w-0 text-bark underline decoration-bark/25 underline-offset-[3px] hover:text-clay";
+        a.textContent = `${p.qty > 1 ? `${p.qty} × ` : ""}${p.name}`;
+        const span = document.createElement("span");
+        span.className = "shrink-0 tabular-nums text-bark/70";
+        span.textContent = money(p.price * p.qty);
+        li.append(a, span);
+        return li;
+      }),
+    );
+    document.querySelector("[data-kit-empty]")!.classList.toggle("hidden", picked.length > 0);
+    document.querySelectorAll("[data-kit-total]").forEach((el) => (el.textContent = money(total)));
+    document.querySelectorAll("[data-kit-count]").forEach(
+      (el) => (el.textContent = count ? `${count} piece${count === 1 ? "" : "s"}` : "empty"),
+    );
+    const before = document.querySelector("[data-kit-before]");
+    if (before && discount > 0) before.textContent = total ? `${money(total / (1 - discount / 100))} before the sale` : "";
+  }
+
+  document.querySelectorAll<HTMLButtonElement>("button[data-kit]").forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const items: [string, number][] = JSON.parse(btn.dataset.items ?? "[]");
+      const wanted = new Map(items);
+      boxes.forEach((b) => (b.checked = wanted.has(b.dataset.part!)));
+      for (const [slug, qty] of items) {
+        const sel = document.querySelector<HTMLSelectElement>(`select[data-qty="${slug}"]`);
+        if (sel) sel.value = String(qty);
+      }
+      document.querySelectorAll("button[data-kit]").forEach((b) => b.setAttribute("aria-pressed", String(b === btn)));
+      render();
+      document.getElementById("your-kit")?.scrollIntoView({ behavior: "smooth", block: "nearest" });
+    });
+  });
+
+  const clearKit = () => document.querySelectorAll("button[data-kit]").forEach((b) => b.setAttribute("aria-pressed", "false"));
+  boxes.forEach((b) => b.addEventListener("change", () => { clearKit(); render(); }));
+  document.querySelectorAll<HTMLSelectElement>("select[data-qty]").forEach((s) =>
+    s.addEventListener("change", () => {
+      const box = boxes.find((b) => b.dataset.part === s.dataset.qty);
+      if (box) box.checked = true;
+      clearKit();
+      render();
+    }),
+  );
+
+  render();
+</script>

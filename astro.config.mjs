@@ -70,6 +70,7 @@ const retiredProductRedirects = {
   "/products/flip-7-organizer": "/games/flip-7/",
   "/products/wingspan-deluxe-token-set": "/games/wingspan/",
   "/products/crocheted-token-bag": "/products/",
+  "/products/catan-blanket": "/games/catan/catan-gift-ideas/",
 };
 
 export default defineConfig({

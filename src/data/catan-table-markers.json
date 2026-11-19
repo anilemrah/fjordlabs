@@ -1,0 +1,26 @@
+{
+  "catan-robber-upgrade": {
+    "x": 0.4825,
+    "y": 0.4999
+  },
+  "catan-player-tray": {
+    "x": 0.6212,
+    "y": 0.9447
+  },
+  "catan-resource-tokens": {
+    "x": 0.1537,
+    "y": 0.7988
+  },
+  "catan-trophies": {
+    "x": 0.8942,
+    "y": 0.7304
+  },
+  "catan-score-tracker": {
+    "x": 0.828,
+    "y": 0.262
+  },
+  "catan-trophy": {
+    "x": 0.2547,
+    "y": 0.0711
+  }
+}

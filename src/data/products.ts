@@ -141,25 +141,6 @@ const raw: RawProduct[] = [
     description:
       "A detailed thief figure carrying stolen sheep and wood — the robber your Catan board deserves. Rolling a 7 never looked this good.",
   },
-  {
-    slug: "catan-blanket",
-    price: "67.01",
-    longDescription:
-      "A handmade crochet blanket inspired by the island of Catan, assembled from hexagon 'tiles' in the resource colors — a full island you can wrap yourself in. This is a finished, ready-to-ship item, not a pattern.\n\nBoard game merch is usually mugs and t-shirts; this is an heirloom. It takes hours of skilled yarn work, no two come out identical, and it reads instantly to any gamer who walks into the room while staying a genuinely beautiful throw to everyone else. For the Catan fan who has everything, this is the gift that actually surprises them — cozy on the couch between games and conversation-starting decor the rest of the time.",
-    title: "Settlers of Catan Blanket",
-    game: "catan",
-    type: "Decor",
-    category: "Catan",
-    images: [
-      img("6b3d6b", "7114136725", "dgbu"),
-      img("27e8dd", "7066187026", "29j8"),
-      img("3669dd", "7114136555", "6v4k"),
-      img("a68f7c", "7066186752", "kphp"),
-    ],
-    link: listing("4341779231", "settlers-of-catan-blanket-finished-item"),
-    description:
-      "A handmade crochet hexagon throw inspired by the island of Catan. Cozy gamer decor — and the ultimate gift for the Catan fan in your life.",
-  },
 
   {
     slug: "catan-trophy",
