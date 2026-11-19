@@ -1,0 +1,124 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+import GiftPick from "../../../components/GiftPick.astro";
+import GiftFaq from "../../../components/GiftFaq.astro";
+import ChristmasDelivery from "../../../components/ChristmasDelivery.astro";
+
+const faqs = [
+  {
+    q: "What do you get an Everdell fan for Christmas?",
+    a: "The Deluxe Forest Upgrade Kit. It gives the twigs, resin, pebbles and berries their own trays and adds open signs for the city, so the table stays as tidy as the Ever Tree in the middle of it.",
+  },
+  {
+    q: "What's a good small gift for an Everdell player?",
+    a: "A set of open signs. Six little storefront signs show which buildings are open for visiting workers, which clears up the most common mid-game confusion, and they fit in a stocking.",
+  },
+  {
+    q: "Is Everdell a good gift for someone new to board games?",
+    a: "It's a better second game than a first one. It's medium weight, takes 40–80 minutes, and the seasons take a game to click. For a complete beginner, a lighter game such as Cascadia is a gentler start.",
+  },
+  {
+    q: "Will an Everdell gift from Fjord Labs arrive before Christmas?",
+    a: "Physical pieces are posted from Sweden within 3–5 business days. In mid-November, Etsy estimated 7–13 days to delivery in Europe and the UK and 9–15 days to the US, so order early in December at the latest, and earlier for the US.",
+  },
+];
+---
+
+<Article
+  title="Everdell Gift Ideas: 6 Christmas Gifts for Everdell Fans (2026)"
+  description="Christmas gifts for someone who loves Everdell: a forest upgrade kit with resource trays and open signs, a small gift for a stocking, cosy table extras, and where to start with the game."
+  game="everdell"
+  gameTitle="Everdell"
+  category="Guide"
+  publishDate="2026-11-19"
+>
+  <p>
+    Everdell is one of the best-looking games on any shelf, so its fans don't need it
+    to look better. What they'd welcome is a table as tidy as the box: resources that
+    stay put and a city whose open buildings everyone can read. Here are six gifts,
+    from a stocking stuffer to the game itself.
+  </p>
+
+  <KeyTakeaway answer="The best gift for an Everdell fan is the Deluxe Forest Upgrade Kit: trays for twigs, resin, pebbles and berries plus open signs, in one bundle. Open signs alone make the small gift, crocheted bowls and a card holder make a cosier table, and for someone new to it, Everdell plays one to four with a solo mode." />
+
+  <h2>The upgrade for a tidier valley</h2>
+  <p>
+    The Ever Tree stands in the middle of the table, and the resources spread out
+    around it: twigs, resin, pebbles and berries pile up in front of every player as
+    the seasons pass.
+  </p>
+
+  <GiftPick
+    slug="everdell-forest-kit"
+    label="Our top pick"
+    note="Resource trays for twigs, resin, pebbles and berries, plus open signs, in one kit. Every resource gets a home that matches the forest look instead of fighting it."
+  />
+
+  <h2>A small gift: open signs</h2>
+
+  <GiftPick
+    slug="everdell-open-signs"
+    label="Best small gift"
+    note="Six little storefront signs that show which buildings in a city are open for visiting workers. Open and occupied spots cause more mid-game confusion than any rule, and the signs make them readable from every seat."
+  />
+
+  <h2>For a cosier table</h2>
+
+  <GiftPick
+    slug="crocheted-token-trays"
+    note="Soft, handmade yarn bowls for the resources. No clatter, no scratches, and they suit a valley full of woodland critters."
+  />
+  <GiftPick
+    slug="card-holder"
+    note="A tiered stand for a hand of up to eight cards, so nothing hides at the back and nothing gets flashed to the next player."
+  />
+
+  <h2>If they don't own Everdell yet, or want more</h2>
+  <p>
+    Everdell plays one to four in 40 to 80 minutes and has a solo mode. Its seasons,
+    where each player decides when to call their workers home, are something few
+    worker placement games do. Our <a href="/games/everdell/is-everdell-worth-it/">honest
+    review of Everdell</a> covers who it's for, price included, and
+    <a href="/games/everdell/how-to-play-everdell/">how to play Everdell</a> gets a new
+    player started.
+  </p>
+  <p>
+    For someone who has played the base game plenty, Everdell has several expansions,
+    including Pearlbrook, Spirecrest and Bellfaire, and each adds a new part of the valley.
+  </p>
+
+  <h2>Which Everdell gift fits?</h2>
+
+  <ComparisonTable>
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">If they…</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Give them</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">Play Everdell regularly</td><td class="p-3 font-semibold">The Deluxe Forest Upgrade Kit</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Need a small or stocking gift</td><td class="p-3 font-semibold">Open signs</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Like a cosy, quiet table</td><td class="p-3 font-semibold">Crocheted token trays</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Juggle a full hand of cards</td><td class="p-3 font-semibold">A card holder</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Don't own it yet</td><td class="p-3 font-semibold">Everdell</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Have played it to death</td><td class="p-3 font-semibold">An expansion</td></tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <ChristmasDelivery />
+
+  <GiftFaq heading="Everdell Christmas gift questions" faqs={faqs} />
+
+  <p>
+    Shopping for more than one gamer? Our
+    <a href="/gifts/">gift guide for board gamers</a> covers other games, handmade
+    pieces and gifts for every budget, and our
+    <a href="/games/cascadia/cascadia-gift-ideas/">Cascadia gift ideas</a> suit the
+    same kind of player.
+  </p>
+</Article>

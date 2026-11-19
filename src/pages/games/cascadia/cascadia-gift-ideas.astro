@@ -1,0 +1,122 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+import GiftPick from "../../../components/GiftPick.astro";
+import GiftFaq from "../../../components/GiftFaq.astro";
+import ChristmasDelivery from "../../../components/ChristmasDelivery.astro";
+
+const faqs = [
+  {
+    q: "What do you get a Cascadia fan for Christmas?",
+    a: "Something that makes the game they already love quicker to play. A game tray gives the hundred wildlife tokens, the habitat tiles and the nature tokens fixed homes, so setup and market refills take seconds instead of minutes.",
+  },
+  {
+    q: "What's a good stocking stuffer for a Cascadia player?",
+    a: "Pinecone nature tokens. They're inexpensive, small enough for a stocking, and they replace the plain cardboard discs with something that looks like the Pacific Northwest.",
+  },
+  {
+    q: "Is Cascadia a good Christmas gift for a family?",
+    a: "Yes. It won the Spiel des Jahres in 2022, takes about five minutes to teach, plays one to four in 30–45 minutes, and nobody gets attacked or knocked out. It has a proper solo mode too.",
+  },
+  {
+    q: "Will a Cascadia gift from Fjord Labs arrive before Christmas?",
+    a: "Physical pieces are posted from Sweden within 3–5 business days. In mid-November, Etsy estimated 7–13 days to delivery in Europe and the UK and 9–15 days to the US, so order early in December at the latest, and earlier for the US.",
+  },
+];
+---
+
+<Article
+  title="Cascadia Gift Ideas: 5 Christmas Gifts for Cascadia Fans (2026)"
+  description="Christmas gifts for someone who loves Cascadia: a tray that tames a hundred wildlife tokens, pinecone nature tokens for a stocking, and the game itself for anyone new to it."
+  game="cascadia"
+  gameTitle="Cascadia"
+  category="Guide"
+  publishDate="2026-11-19"
+>
+  <p>
+    Cascadia is quick to play and slow to set up, which is exactly where a good gift
+    helps. A tray turns the token sorting into one lift out of the box, and a handful
+    of sculpted pinecones makes the game's rarest resource feel rare. Here are five
+    gifts, from a stocking stuffer to the game itself.
+  </p>
+
+  <KeyTakeaway answer="The best gift for a Cascadia fan is a game tray: the wildlife tokens, tiles and nature tokens get fixed homes, so setup and refills take seconds. Pinecone nature tokens are the stocking stuffer, and for someone new to it, Cascadia itself is one of the best family games you can give." />
+
+  <h2>The upgrade that speeds up every game</h2>
+  <p>
+    Our <a href="/games/cascadia/is-cascadia-worth-it/">honest review of Cascadia</a> counts
+    a hundred wildlife tokens, eighty-odd tiles and a bag, plus ten minutes of sorting
+    either side of the advertised play time. The insert in the box doesn't help much.
+  </p>
+
+  <GiftPick
+    slug="cascadia-game-tray"
+    label="Our top pick"
+    note="Fixed homes for the habitat tiles, wildlife tokens and nature tokens. The market refills in one motion between turns, and setup and pack-up take a fraction of the time, which matters in a 40-minute game."
+  />
+
+  <h2>A stocking stuffer</h2>
+
+  <GiftPick
+    slug="cascadia-pinecone-tokens"
+    label="Best small gift"
+    note="Sculpted pinecones that replace the cardboard nature-token discs. Nature tokens are the most valuable thing you can hold in Cascadia, and a tiny pinecone feels like it."
+  />
+  <p>
+    How to spend them well is in our
+    <a href="/games/cascadia/cascadia-nature-tokens-guide/">guide to Cascadia's nature tokens</a>.
+  </p>
+
+  <GiftPick
+    slug="crocheted-token-trays"
+    note="Soft, handmade yarn bowls for the pinecone supply. They're quiet, they don't scratch the table, and they suit a game about the outdoors better than plastic does."
+  />
+
+  <h2>If they don't own Cascadia yet</h2>
+  <p>
+    Cascadia won the Spiel des Jahres in 2022 and plays one to four in 30 to 45 minutes.
+    It takes five minutes to teach, nobody gets attacked, and the solo mode is a real
+    one, which makes it a safe gift for families, couples and solo players alike.
+    <a href="/games/cascadia/how-to-play-cascadia/">How to play Cascadia</a> gets them
+    started on Christmas Day. Add the tray and the pinecones, and their first game
+    starts upgraded.
+  </p>
+
+  <h2>For the game room</h2>
+
+  <GiftPick
+    slug="meeple-wall-art"
+    note="A minimalist meeple for the wall that hangs on a single nail. An easy gift for the Cascadia fan who already owns everything for it."
+  />
+
+  <h2>Which Cascadia gift fits?</h2>
+
+  <ComparisonTable>
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">If they…</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Give them</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">Play Cascadia often</td><td class="p-3 font-semibold">The game tray</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Need a small or stocking gift</td><td class="p-3 font-semibold">Pinecone tokens</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Like a cosy, quiet table</td><td class="p-3 font-semibold">Crocheted token trays</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Don't own it yet</td><td class="p-3 font-semibold">Cascadia, plus the tray</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Already have everything</td><td class="p-3 font-semibold">Meeple wall art</td></tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <ChristmasDelivery />
+
+  <GiftFaq heading="Cascadia Christmas gift questions" faqs={faqs} />
+
+  <p>
+    Shopping for more than one gamer? Our
+    <a href="/gifts/">gift guide for board gamers</a> covers other games, handmade
+    pieces and gifts for every budget.
+  </p>
+</Article>

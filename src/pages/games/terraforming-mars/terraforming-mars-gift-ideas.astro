@@ -1,0 +1,127 @@
+---
+import Article from "../../../layouts/Article.astro";
+import KeyTakeaway from "../../../components/KeyTakeaway.astro";
+import ComparisonTable from "../../../components/ComparisonTable.astro";
+import GiftPick from "../../../components/GiftPick.astro";
+import GiftFaq from "../../../components/GiftFaq.astro";
+import ChristmasDelivery from "../../../components/ChristmasDelivery.astro";
+
+const faqs = [
+  {
+    q: "What do you get a Terraforming Mars fan for Christmas?",
+    a: "A dual-layer player board. The recessed tracks hold every resource and production cube in place, so one bumped table can't wipe out two hours of engine building. It's one board per player, so a group that plays together will want more than one.",
+  },
+  {
+    q: "What's a good last-minute gift for a Terraforming Mars player?",
+    a: "If they own a 3D printer, the player board as an STL file. It's an instant download, so there's no shipping to wait for, and they can print one for every player. Otherwise, the Prelude expansion.",
+  },
+  {
+    q: "Which Terraforming Mars expansion should I buy as a gift?",
+    a: "Prelude first. It gives every player a head start and fixes the slow opening generations. Colonies is the next one, and base game plus Prelude plus Colonies is the sweet spot for most groups.",
+  },
+  {
+    q: "Will a Terraforming Mars gift from Fjord Labs arrive before Christmas?",
+    a: "Physical pieces are posted from Sweden within 3–5 business days. In mid-November, Etsy estimated 7–13 days to delivery in Europe and the UK and 9–15 days to the US, so order early in December at the latest, and earlier for the US. STL files download instantly.",
+  },
+];
+---
+
+<Article
+  title="Terraforming Mars Gift Ideas: 6 Christmas Gifts for TM Fans (2026)"
+  description="Christmas gifts for someone who loves Terraforming Mars: a player board that stops cubes sliding, the STL for 3D printer owners, trays for the cubes, and which expansion to give first."
+  game="terraforming-mars"
+  gameTitle="Terraforming Mars"
+  category="Guide"
+  publishDate="2026-11-19"
+>
+  <p>
+    Terraforming Mars fans have usually heard the same story at least once: two hours
+    of engine building, one bumped table, and nobody remembers who had what. The best
+    gift fixes that for good. Here are six, from an instant download to the expansion
+    to give first.
+  </p>
+
+  <KeyTakeaway answer="The best gift for a Terraforming Mars fan is a dual-layer player board that holds every cube in place, so a bumped table can't wreck their economy. If they own a 3D printer, the STL lets them print one for every player, and Prelude is the expansion to give first." />
+
+  <h2>The upgrade every TM player wants</h2>
+  <p>
+    Each player tracks six resources and their production with loose cubes on a thin
+    cardboard board. It works until someone leans on the table in generation eight.
+  </p>
+
+  <GiftPick
+    slug="terraforming-mars-player-board"
+    label="Our top pick"
+    note="A dual-layer board with recessed tracks that hold every resource and production cube in place. Production stays set between generations, and an excited gesture no longer costs anyone their economy."
+  />
+  <p>
+    It's one board per player. For a group that always plays together, a few boards
+    make a better gift than one.
+  </p>
+
+  <h2>For the friend with a 3D printer</h2>
+
+  <GiftPick
+    slug="terraforming-mars-player-board-stl"
+    label="Instant download"
+    note="The same board as a print-ready file. They download it once and print a board for every player, which is the cheapest way to upgrade a five-player table. No shipping, so it's also the last-minute gift."
+  />
+
+  <h2>For the cubes and the cards</h2>
+
+  <GiftPick
+    slug="hexagon-token-trays"
+    note="Stackable hex bowls for the bronze, silver and gold cubes in the shared supply. They sit together beside the board and stack away afterwards."
+  />
+  <GiftPick
+    slug="card-holder"
+    note="With more than 200 project cards in the box, hands get big. A tiered stand keeps them upright and readable through a three-hour game."
+  />
+
+  <h2>If they want more Terraforming Mars</h2>
+  <p>
+    Our <a href="/games/terraforming-mars/best-expansions-ranked/">ranking of every
+    Terraforming Mars expansion</a> puts Prelude first: it gives every player a head
+    start and fixes the slow opening generations. Colonies comes next, and the base
+    game plus Prelude plus Colonies is the sweet spot for most groups. For someone
+    still learning, <a href="/games/terraforming-mars/best-beginner-corporations/">the
+    best beginner corporations</a> is a good companion to the box.
+  </p>
+
+  <h2>For the long game nights</h2>
+
+  <GiftPick
+    slug="meeple-coffee-filter-holder"
+    note="A game of Terraforming Mars runs two to three hours, so someone will be making coffee. This meeple keeps up to 100 paper filters upright next to the coffee maker."
+  />
+
+  <h2>Which Terraforming Mars gift fits?</h2>
+
+  <ComparisonTable>
+    <table class="w-full text-sm">
+      <thead>
+        <tr>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">If they…</th>
+          <th class="text-left p-3 bg-bark/[0.02] font-heading font-semibold text-bark/70">Give them</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="border-t border-bark/5"><td class="p-3">Play Terraforming Mars regularly</td><td class="p-3 font-semibold">Player boards</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Own a 3D printer</td><td class="p-3 font-semibold">The player board STL</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Need a small gift</td><td class="p-3 font-semibold">Hexagon token trays or a card holder</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Only have the base game</td><td class="p-3 font-semibold">Prelude</td></tr>
+        <tr class="border-t border-bark/5"><td class="p-3">Brew coffee for every game night</td><td class="p-3 font-semibold">The meeple coffee filter holder</td></tr>
+      </tbody>
+    </table>
+  </ComparisonTable>
+
+  <ChristmasDelivery />
+
+  <GiftFaq heading="Terraforming Mars Christmas gift questions" faqs={faqs} />
+
+  <p>
+    Shopping for more than one gamer? Our
+    <a href="/gifts/">gift guide for board gamers</a> covers other games, handmade
+    pieces and gifts for every budget.
+  </p>
+</Article>
