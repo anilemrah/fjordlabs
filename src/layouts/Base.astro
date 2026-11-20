@@ -384,6 +384,18 @@ const ogImageUrl = new URL(ogImage, siteUrl).toString();
           if (window.gtag) location.reload();
         }
 
+        // Clicks through to Etsy as their own event (etsy_click). In GA, break it down by Link URL
+        // (which listing) and Page path (which page sent them). gtag only exists after consent.
+        document.addEventListener("click", function (e) {
+          var a = e.target.closest && e.target.closest('a[href*="etsy.com"]');
+          if (!a || !window.gtag) return;
+          window.gtag("event", "etsy_click", {
+            link_url: a.href.split("?")[0],
+            link_text: (a.textContent || "").replace(/\s+/g, " ").trim().slice(0, 100),
+            transport_type: "beacon",
+          });
+        });
+
         document.getElementById("consent-accept").addEventListener("click", function () { decide("granted"); });
         document.getElementById("consent-decline").addEventListener("click", function () { decide("denied"); });
         document.querySelectorAll("[data-cookie-settings]").forEach(function (link) {
