@@ -55,7 +55,7 @@ src/pages/
 ├── about.astro              # About page
 ├── products/               # Product index + [slug] detail pages
 └── games/
-    ├── catan/               # 10 articles + hub
+    ├── catan/               # 10 articles + hub, upgrade guide, board generator (src/lib/catanBoard.ts)
     ├── wingspan/            # 8 articles + hub
     ├── wingspan-pocket/     # 2 articles + hub
     ├── wyrmspan/            # 3 articles + hub
@@ -66,7 +66,7 @@ src/pages/
     ├── flip-7/              # 6 articles + hub
     ├── cascadia/            # 5 articles + hub
     ├── everdell/            # 5 articles + hub
-    ├── forest-shuffle/      # 3 articles + hub
+    ├── forest-shuffle/      # 5 articles + hub (incl. vs Wingspan, vs Cascadia)
     ├── agricola/            # 4 articles + hub
     └── gloomhaven/          # 6 articles + hub (no products, content only)
 ├── apps/
@@ -110,7 +110,7 @@ Placeholder SVGs in `public/images/games/`. Need to be replaced with real box ar
 - **Cascadia** — 5 articles, 2 products (Game Tray, Pinecone Tokens)
 - **Everdell** — 5 articles, 2 products (Open Signs, Forest Upgrade Kit)
 - **Agricola** — 4 articles, 3 products (Resource Bundle, Rice & Reed, Pumpkins)
-- **Forest Shuffle** — 3 articles, 1 product (insert for the base game + Alpine, Woodland Edge and Exploration,
+- **Forest Shuffle** — 5 articles, 1 product (insert for the base game + Alpine, Woodland Edge and Exploration,
   sleeved). Its photos are hosted on the site (`public/images/products/forest-shuffle-insert/`, resized from
   Anil's originals with the metadata stripped), not on Etsy's CDN, so JSON-LD wraps image paths in `new URL()`.
 

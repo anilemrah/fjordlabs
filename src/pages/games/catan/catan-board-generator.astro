@@ -1,0 +1,539 @@
+---
+// Free Catan board generator, laid out like an app: a dark game table with the board,
+// a control panel, then a shelf of our Catan upgrades. The first board is rendered at
+// build time with the same code the browser uses (src/lib/catanBoard.ts). Boards live
+// in the URL hash, so a shared link reopens the same board without a database and
+// without creating new URLs for Google to crawl.
+import Base from "../../../layouts/Base.astro";
+import GiftFaq from "../../../components/GiftFaq.astro";
+import { generate, renderSvg, production, DEFAULT_OPTIONS, COLOURS } from "../../../lib/catanBoard";
+import { getProduct } from "../../../data/products";
+
+const title = "Catan Board Generator: Random & Balanced Maps";
+const description =
+  "Free Catan board generator: deal a random, balanced map in one tap. No 6s and 8s together, shuffled harbours, 3–4 or 5–6 players, and a link to share.";
+const ogImage = "/images/catan-board-generator/og.jpg";
+const url = "https://www.fjord-labs.com/games/catan/catan-board-generator/";
+
+const INITIAL_SEED = "fjord1";
+const initial = generate(DEFAULT_OPTIONS, INITIAL_SEED);
+const initialProduction = production(initial);
+const maxPips = Math.max(...Object.values(initialProduction));
+
+const resources = [
+  { key: "wood", label: "Wood", colour: COLOURS.forest.fill },
+  { key: "brick", label: "Brick", colour: COLOURS.hills.fill },
+  { key: "sheep", label: "Sheep", colour: COLOURS.pasture.fill },
+  { key: "wheat", label: "Wheat", colour: COLOURS.fields.fill },
+  { key: "ore", label: "Ore", colour: COLOURS.mountains.fill },
+] as const;
+
+const rules = [
+  { id: "redApart", label: "No 6 or 8 next to another 6 or 8" },
+  { id: "sameApart", label: "No two equal numbers touching" },
+  { id: "spreadTerrain", label: "No two hexes of the same terrain touching" },
+  { id: "fairReds", label: "Fair production across all five resources" },
+];
+
+// The shelf under the table. A retired product drops out by itself.
+const shelf = [
+  { slug: "catan-resource-tokens", name: "Resource tokens", note: "Logs, bricks, sheep, wheat and ore you can hold" },
+  { slug: "catan-robber-upgrade", name: "Robber figure", note: "A thief with a stolen sheep, for every 7" },
+  { slug: "catan-trophies", name: "Road & Army trophies", note: "Longest Road and Largest Army" },
+  { slug: "catan-trophy", name: "Ruler of Catan trophy", note: "For whoever wins game night" },
+  { slug: "catan-score-tracker", name: "Score tracker", note: "Everyone's points at a glance" },
+  { slug: "catan-player-tray", name: "Player tray", note: "Cards and pieces in one place" },
+].flatMap((s) => {
+  const p = getProduct(s.slug);
+  return p ? [{ ...s, href: `/products/${p.slug}/`, img: p.image.replace("il_1588xN", "il_570xN"), price: p.price }] : [];
+});
+
+const faqs = [
+  {
+    q: "How do you set up a balanced Catan board?",
+    a: "Keep the 6s and 8s apart, don't let the same number sit on two touching hexes, spread each terrain around the island, and check that no resource gets all the best numbers. This generator does all four for you, and shows how often each resource pays out.",
+  },
+  {
+    q: "Why shouldn't a 6 and an 8 be next to each other?",
+    a: "They're the most-rolled numbers on the board: each comes up on 5 of the 36 possible rolls of two dice. Side by side, they create one corner that produces far more than any other, and whoever settles there first gets a head start the rest of the table rarely catches.",
+  },
+  {
+    q: "How many hexes, numbers and harbours are in Catan?",
+    a: "The base game has 19 terrain hexes (4 forest, 4 pasture, 4 fields, 3 hills, 3 mountains and the desert), 18 number tokens and 9 harbours: 4 that trade any resource 3:1 and 5 that trade one resource 2:1. The 5–6 player extension adds 11 hexes and 2 harbours, for 30 hexes, 28 number tokens and 11 harbours.",
+  },
+  {
+    q: "Does it work for 5 and 6 players?",
+    a: "Yes. Switch to 5–6 players and it deals the larger island from the extension, with two deserts, 28 number tokens and 11 harbours.",
+  },
+  {
+    q: "Can I use it with Cities & Knights?",
+    a: "Yes. Cities & Knights is played on the same island as the base game, so any board from here works. Seafarers uses different boards with sea and gold fields, so it isn't covered.",
+  },
+  {
+    q: "How do I share a board with my group?",
+    a: "Tap Share. The link holds the board's code, so anyone who opens it sees exactly the same board, on any phone or computer. You can also print it and lay the hexes out from the paper.",
+  },
+];
+
+const icons = {
+  dice: `<svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><rect x="3.5" y="3.5" width="17" height="17" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="12" cy="12" r="1.3" fill="currentColor" stroke="none"/><circle cx="15.5" cy="8.5" r="1.3" fill="currentColor" stroke="none"/><circle cx="8.5" cy="15.5" r="1.3" fill="currentColor" stroke="none"/></svg>`,
+  share: `<svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 15V3M7.5 7.5 12 3l4.5 4.5"/><path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-7"/></svg>`,
+  target: `<svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="4"/><circle cx="12" cy="12" r="1" fill="currentColor"/></svg>`,
+  print: `<svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" aria-hidden="true"><path d="M7 9V3h10v6"/><rect x="3" y="9" width="18" height="8" rx="2"/><path d="M7 14h10v7H7z"/></svg>`,
+};
+---
+
+<Base title={`${title} | Fjord Labs`} description={description} canonical={url} ogImage={ogImage}>
+  <section class="cb-stage relative overflow-hidden text-cream">
+    <div class="relative mx-auto max-w-7xl px-4 pb-10 pt-6 sm:px-6 lg:pb-14">
+      <div class="flex flex-wrap items-end justify-between gap-4 no-print">
+        <div>
+          <nav class="mb-3 flex items-center gap-2 text-xs text-cream/50">
+            <a href="/" class="hover:text-cream transition-colors">Home</a>
+            <span>/</span>
+            <a href="/games/catan/" class="hover:text-cream transition-colors">Catan</a>
+            <span>/</span>
+            <span class="text-cream/70">Board Generator</span>
+          </nav>
+          <h1 class="font-heading text-3xl font-bold tracking-tight sm:text-4xl">Catan Board Generator</h1>
+          <p class="mt-1.5 max-w-xl text-sm text-cream/60 sm:text-base">
+            Random, balanced boards for 3–6 players. Deal, share the link, and set up the same island at your table.
+          </p>
+        </div>
+        <div class="flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-3.5 py-1.5 font-mono text-xs tracking-wider text-cream/70">
+          <span class="h-1.5 w-1.5 rounded-full bg-[#7BC47F]"></span>
+          BOARD <span id="seed" class="text-cream">{INITIAL_SEED.toUpperCase()}</span>
+          <span class="text-cream/30">·</span>
+          <span id="mode-label">3–4 PLAYERS</span>
+        </div>
+      </div>
+
+      <div class="mt-6 grid gap-6 lg:grid-cols-[minmax(0,1fr)_330px] lg:items-start">
+        <div class="relative">
+          <div id="board" class="cb-board mx-auto max-w-[760px]" set:html={renderSvg(initial)} />
+          <div class="mt-2 flex flex-wrap items-center justify-center gap-x-4 gap-y-1.5 text-[11px] text-cream/55 no-print">
+            <span class="inline-flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-full bg-[#FAF5EA]"></span>3:1 any resource</span>
+            {resources.map((r) => (
+              <span class="inline-flex items-center gap-1.5"><span class="h-2.5 w-2.5 rounded-full" style={`background:${r.colour}`}></span>2:1 {r.label.toLowerCase()}</span>
+            ))}
+          </div>
+        </div>
+
+        <aside class="no-print space-y-3">
+          <div class="cb-panel p-4">
+            <div class="grid grid-cols-2 rounded-xl bg-black/25 p-1 text-sm font-semibold" role="radiogroup" aria-label="Players">
+              <button type="button" data-mode="base" role="radio" aria-checked="true" class="mode-btn rounded-lg py-2 transition-colors">3–4 players</button>
+              <button type="button" data-mode="56" role="radio" aria-checked="false" class="mode-btn rounded-lg py-2 transition-colors">5–6 players</button>
+            </div>
+
+            <button type="button" id="deal" class="cb-deal mt-3 flex w-full items-center justify-center gap-3 rounded-xl py-4 font-heading text-lg font-bold text-white">
+              <span id="deal-icon" set:html={icons.dice} />
+              Deal a new board
+            </button>
+            <p class="mt-2 hidden text-center text-[11px] text-cream/40 lg:block">or press <kbd class="rounded border border-white/15 px-1.5 py-0.5 font-mono">Space</kbd></p>
+
+            <div class="mt-3 grid grid-cols-3 gap-2 text-[11px] font-semibold">
+              <button type="button" id="share" class="cb-icon-btn"><span set:html={icons.share} />Share</button>
+              <button type="button" id="spots-btn" aria-pressed="false" class="cb-icon-btn"><span set:html={icons.target} />Best spots</button>
+              <button type="button" id="print" class="cb-icon-btn"><span set:html={icons.print} />Print</button>
+            </div>
+            <p id="status" class="mt-2 min-h-[1rem] text-center text-xs text-[#9FD8A3]" aria-live="polite"></p>
+          </div>
+
+          <div class="cb-panel p-4">
+            <p class="text-xs font-semibold uppercase tracking-[0.14em] text-cream/50">Resource payout</p>
+            <div class="mt-3 space-y-2.5">
+              {resources.map((r) => (
+                <div class="grid grid-cols-[52px_1fr_28px] items-center gap-2 text-sm">
+                  <span class="text-cream/75">{r.label}</span>
+                  <span class="h-2 overflow-hidden rounded-full bg-white/10">
+                    <span data-bar={r.key} class="block h-full rounded-full transition-all duration-500" style={`width:${(initialProduction[r.key] / maxPips) * 100}%;background:${r.colour}`}></span>
+                  </span>
+                  <span data-pips={r.key} class="text-right font-mono text-xs tabular-nums text-cream/70">{initialProduction[r.key]}</span>
+                </div>
+              ))}
+            </div>
+            <p class="mt-3 text-[11px] leading-relaxed text-cream/40">Pips: how many of the 36 rolls of two dice pay each resource.</p>
+            <ol id="spots" class="mt-3 hidden space-y-1.5 border-t border-white/10 pt-3 text-xs text-cream/75"></ol>
+          </div>
+
+          <details class="cb-panel group p-4">
+            <summary class="flex cursor-pointer list-none items-center justify-between text-xs font-semibold uppercase tracking-[0.14em] text-cream/50">
+              <span>Fairness rules · <span id="rules-on">4</span> on</span>
+              <span class="transition-transform group-open:rotate-180">▾</span>
+            </summary>
+            <div class="mt-3 space-y-3">
+              {rules.map((r) => (
+                <label class="flex cursor-pointer items-start gap-3 text-sm text-cream/75">
+                  <input type="checkbox" data-rule={r.id} checked class="mt-0.5 h-4 w-4 shrink-0 accent-[#C47B30]" />
+                  <span>{r.label}</span>
+                </label>
+              ))}
+            </div>
+            <p id="relaxed" class="mt-3 hidden text-xs text-[#F0B37A]">This board couldn't meet every rule, so one was relaxed. Deal again for another.</p>
+          </details>
+        </aside>
+      </div>
+    </div>
+  </section>
+
+  <div id="mobile-bar" class="cb-mobile-bar lg:hidden no-print" aria-hidden="true">
+    <button type="button" id="deal-m" tabindex="-1" class="cb-deal flex flex-1 items-center justify-center gap-2 rounded-xl py-3 font-heading font-bold text-white">
+      <span set:html={icons.dice} />Deal a new board
+    </button>
+    <button type="button" id="share-m" tabindex="-1" class="cb-icon-btn !flex-row !px-4" aria-label="Share this board"><span set:html={icons.share} /></button>
+  </div>
+
+  <section class="bg-sand/60 px-4 py-12 sm:px-6 no-print">
+    <div class="mx-auto max-w-7xl">
+      <div class="flex flex-wrap items-end justify-between gap-3">
+        <div>
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-clay">From our workshop in Sweden</p>
+          <h2 class="mt-1 font-heading text-2xl font-bold text-bark sm:text-3xl">Now make the pieces match the board</h2>
+        </div>
+        <a href="/games/catan/catan-upgrades/" class="font-semibold text-forest hover:text-clay transition-colors">See every Catan upgrade →</a>
+      </div>
+      <div class="mt-6 grid grid-cols-2 gap-3 sm:grid-cols-3 lg:grid-cols-6">
+        {shelf.map((p) => (
+          <a href={p.href} class="group flex flex-col overflow-hidden rounded-xl border border-bark/10 bg-white hover:border-clay/40 hover:shadow-lg transition-all">
+            <div class="aspect-square overflow-hidden bg-sand">
+              <img src={p.img} alt={p.name} class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.05]" loading="lazy" />
+            </div>
+            <div class="flex flex-1 flex-col p-3">
+              <p class="font-heading text-sm font-bold leading-snug text-bark">{p.name}</p>
+              <p class="mt-0.5 text-xs leading-snug text-bark/50">{p.note}</p>
+              {p.price && <p class="mt-auto pt-2 text-sm font-semibold text-clay">${p.price}</p>}
+            </div>
+          </a>
+        ))}
+      </div>
+      <a href="/games/catan/catan-upgrades/" class="group mt-4 grid overflow-hidden rounded-2xl border border-bark/10 bg-bark text-cream hover:border-clay transition-colors sm:grid-cols-[1fr_1.4fr]">
+        <div class="p-6 sm:p-8">
+          <p class="text-xs font-semibold uppercase tracking-[0.14em] text-clay">The full table</p>
+          <p class="mt-1 font-heading text-2xl font-bold">Every piece of Catan worth replacing</p>
+          <p class="mt-2 text-sm text-cream/60">All the upgrades on one table, with kits and the total added up. A good Christmas gift for the Catan player you know.</p>
+          <p class="mt-4 font-semibold text-clay group-hover:text-cream transition-colors">Open the upgrade guide →</p>
+        </div>
+        <img src="/images/catan-upgrades/table-1200.webp" alt="A game of Catan with every Fjord Labs upgrade on the table" class="h-52 w-full object-cover sm:h-72" loading="lazy" />
+      </a>
+    </div>
+  </section>
+
+  <section class="px-6 py-14 no-print">
+    <div class="mx-auto max-w-3xl prose-article">
+      <h2>How to use the Catan board generator</h2>
+      <ol>
+        <li><strong>Pick your player count.</strong> 3–4 players deals the base game's 19 hexes; 5–6 players deals the 30-hex island from the extension.</li>
+        <li><strong>Tap Deal a new board</strong> (or press Space) until you like what you see. Every board follows the fairness rules below.</li>
+        <li><strong>Set it up at the table.</strong> Lay the hexes, number tokens and harbours out as shown, or print the board and work from the paper.</li>
+        <li><strong>Share it.</strong> The link holds the board's code, so your group can look at the island before game night, or replay a board you liked.</li>
+      </ol>
+      <p>
+        It works as a Catan map generator for The Settlers of Catan base game, the 5–6 player extension and
+        Cities & Knights, which uses the same island. It's free, runs in your browser, and needs no app or sign-up.
+      </p>
+
+      <h2>What makes a Catan board fair</h2>
+      <p>
+        Catan's printed starting layout is the same every game, and a fully random board can be lopsided: two
+        6s on neighbouring hexes, all the ore in one corner, or wheat that never gets a good number. The
+        generator deals a random board and checks it against four rules, re-dealing until every rule holds:
+      </p>
+      <ul>
+        <li><strong>Red numbers apart.</strong> No 6 or 8 touches another 6 or 8, so no single corner gets two of the best numbers.</li>
+        <li><strong>Equal numbers apart.</strong> Two 9s or two 4s never sit side by side.</li>
+        <li><strong>Terrain spread out.</strong> No two hexes of the same terrain touch, so every resource can be reached from more than one part of the island.</li>
+        <li><strong>Fair production.</strong> The 6s and 8s land on different resources, and of many valid deals it keeps the one where every resource pays out most evenly.</li>
+      </ul>
+      <p>
+        Switch any rule off for a wilder board. Harbours are shuffled every time and sit at evenly spaced points
+        around the coast, the way the printed frame places them.
+      </p>
+
+      <h2>Reading the board</h2>
+      <p>
+        The dots under each number count how many of the 36 possible rolls of two dice produce it: five for 6 and
+        8, one for 2 and 12. Add up the dots on the hexes around a corner and you have that corner's pips. Tap
+        <em>Best spots</em> to see the three richest corners, then read our
+        <a href="/games/catan/settlement-placement-strategy/">settlement placement guide</a> for why the richest
+        corner isn't always the best one. Setting up in a hurry? The
+        <a href="/games/catan/fast-setup-guide/">fast setup guide</a> has the rest.
+      </p>
+
+      <GiftFaq heading="Questions about Catan boards" faqs={faqs} />
+
+      <p class="text-sm text-bark/40">
+        Catan is a trademark of Catan GmbH. This free tool is made by Fjord Labs and isn't affiliated with or
+        endorsed by Catan GmbH or Catan Studio.
+      </p>
+    </div>
+  </section>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify([
+      {
+        "@context": "https://schema.org",
+        "@type": "WebApplication",
+        name: "Catan Board Generator",
+        url,
+        description,
+        applicationCategory: "GameApplication",
+        operatingSystem: "Any",
+        offers: { "@type": "Offer", price: "0", priceCurrency: "USD" },
+        image: `https://www.fjord-labs.com${ogImage}`,
+        browserRequirements: "Requires JavaScript to deal new boards",
+        featureList: [
+          "Random Catan boards for 3–4 and 5–6 players",
+          "No 6s and 8s next to each other",
+          "Shuffled harbours",
+          "Best starting spots",
+          "Shareable links and printing",
+        ],
+        publisher: { "@type": "Organization", name: "Fjord Labs", url: "https://www.fjord-labs.com/" },
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        itemListElement: [
+          { "@type": "ListItem", position: 1, name: "Home", item: "https://www.fjord-labs.com/" },
+          { "@type": "ListItem", position: 2, name: "Catan", item: "https://www.fjord-labs.com/games/catan/" },
+          { "@type": "ListItem", position: 3, name: "Board Generator", item: url },
+        ],
+      },
+    ])}
+  />
+</Base>
+
+<style is:global>
+  .cb-stage {
+    background:
+      radial-gradient(900px 520px at 38% 42%, rgb(52 96 78 / 0.55), transparent 70%),
+      radial-gradient(1400px 800px at 50% 0%, #1b3a30 0%, #11251f 55%, #0b1814 100%);
+  }
+  .cb-stage::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    opacity: 0.05;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='28' height='49' viewBox='0 0 28 49'%3E%3Cg fill='%23ffffff'%3E%3Cpath d='M13.99 9.25l13 7.5v15l-13 7.5L1 31.75v-15l12.99-7.5zM3 17.9v12.7l10.99 6.34 11-6.35V17.9l-11-6.34L3 17.9z'/%3E%3C/g%3E%3C/svg%3E");
+    pointer-events: none;
+  }
+  .cb-panel {
+    border-radius: 1rem;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.05);
+    backdrop-filter: blur(8px);
+  }
+  .cb-deal {
+    background: linear-gradient(180deg, #d68a3c, #b8691f);
+    box-shadow: 0 10px 24px -8px rgb(196 123 48 / 0.6), inset 0 1px 0 rgb(255 255 255 / 0.25);
+    transition: transform 0.15s ease, filter 0.15s ease;
+  }
+  .cb-deal:hover { filter: brightness(1.06); }
+  .cb-deal:active { transform: translateY(1px) scale(0.99); }
+  .cb-deal.rolling #deal-icon { animation: cb-roll 0.5s ease-out; }
+  .cb-icon-btn {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.35rem;
+    border-radius: 0.75rem;
+    border: 1px solid rgb(255 255 255 / 0.1);
+    background: rgb(255 255 255 / 0.06);
+    padding: 0.65rem 0.25rem;
+    color: rgb(250 250 248 / 0.8);
+    transition: background 0.15s ease, color 0.15s ease;
+  }
+  .cb-icon-btn:hover { background: rgb(255 255 255 / 0.12); color: #fff; }
+  .cb-icon-btn[aria-pressed="true"] { background: #faf5ea; color: #1a1a1a; border-color: #faf5ea; }
+  .cb-mobile-bar {
+    position: fixed;
+    left: 12px;
+    right: 12px;
+    bottom: calc(12px + env(safe-area-inset-bottom));
+    z-index: 40;
+    display: flex;
+    gap: 8px;
+    padding: 8px;
+    border-radius: 18px;
+    border: 1px solid rgb(255 255 255 / 0.12);
+    background: rgb(14 30 25 / 0.88);
+    backdrop-filter: blur(12px);
+    box-shadow: 0 12px 30px -10px rgb(0 0 0 / 0.5);
+    transform: translateY(160%);
+    transition: transform 0.25s ease;
+  }
+  .cb-mobile-bar.show { transform: none; }
+  .mode-btn[aria-checked="true"] { background: #faf5ea; color: #1a1a1a; box-shadow: 0 1px 2px rgb(0 0 0 / 0.2); }
+  .mode-btn[aria-checked="false"] { color: rgb(250 250 248 / 0.6); }
+
+  .cb-board svg { display: block; width: 100%; height: auto; max-height: max(420px, calc(100vh - 250px)); filter: drop-shadow(0 28px 36px rgb(0 0 0 / 0.45)); }
+  .catan-svg .tile, .catan-svg .tok { transform-box: fill-box; transform-origin: center; }
+  .catan-svg .tile { animation: cb-deal-in 0.5s cubic-bezier(0.2, 0.8, 0.2, 1) both; }
+  .catan-svg .tok { animation: cb-pop 0.35s ease-out both; }
+  .catan-svg .port { animation: cb-fade 0.6s ease-out 0.5s both; }
+  .catan-svg .spot-ring { transform-box: fill-box; transform-origin: center; animation: cb-pulse 1.6s ease-out infinite; }
+  @keyframes cb-deal-in { from { opacity: 0; transform: translateY(-1.2px) scale(0.7) rotate(-8deg); } to { opacity: 1; transform: none; } }
+  @keyframes cb-pop { from { opacity: 0; transform: scale(0.3); } 65% { opacity: 1; transform: scale(1.12); } to { transform: scale(1); } }
+  @keyframes cb-fade { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes cb-pulse { from { opacity: 0.9; transform: scale(0.8); } to { opacity: 0; transform: scale(1.8); } }
+  @keyframes cb-roll { from { transform: rotate(0); } to { transform: rotate(360deg); } }
+  @media (prefers-reduced-motion: reduce) {
+    .catan-svg *, .cb-deal.rolling #deal-icon { animation: none !important; }
+  }
+  @media print {
+    header, footer, nav, .no-print, #consent { display: none !important; }
+    .cb-stage { background: none !important; color: #1a1a1a; }
+    .cb-stage::before { display: none; }
+    .cb-board svg { filter: none; }
+    .catan-svg * { animation: none !important; }
+  }
+</style>
+
+<script>
+  import {
+    generate,
+    renderSvg,
+    renderSpots,
+    production,
+    bestSpots,
+    toHash,
+    fromHash,
+    randomSeed,
+    DEFAULT_OPTIONS,
+    RESOURCE_OF,
+    type Board,
+    type Options,
+  } from "../../../lib/catanBoard";
+
+  const $ = <T extends HTMLElement>(sel: string) => document.querySelector(sel) as T;
+  const fromUrl = fromHash(location.hash);
+  const state = {
+    seed: fromUrl?.seed ?? "fjord1",
+    options: { ...(fromUrl?.options ?? DEFAULT_OPTIONS) } as Options,
+    showSpots: false,
+    board: null as Board | null,
+  };
+
+  function drawSpots() {
+    const layer = document.getElementById("cb-spots");
+    const spots = state.showSpots && state.board ? bestSpots(state.board) : [];
+    if (layer) layer.innerHTML = renderSpots(spots);
+    const list = $("#spots");
+    list.classList.toggle("hidden", !state.showSpots);
+    list.innerHTML = spots
+      .map((s, i) => {
+        const parts = s.hexes
+          .filter((h) => h.terrain !== "desert")
+          .map((h) => `${RESOURCE_OF[h.terrain as keyof typeof RESOURCE_OF]} ${h.number}`)
+          .join(", ");
+        return `<li class="flex gap-2"><span class="inline-flex h-4 w-4 shrink-0 items-center justify-center rounded-full bg-cream text-[10px] font-bold text-bark">${i + 1}</span><span><b class="text-cream">${s.pips} pips</b> · ${parts}</span></li>`;
+      })
+      .join("");
+    $("#spots-btn").setAttribute("aria-pressed", String(state.showSpots));
+  }
+
+  function render(updateUrl: boolean) {
+    const board = generate(state.options, state.seed);
+    state.board = board;
+    const host = $("#board");
+    host.innerHTML = renderSvg(board);
+
+    $("#seed").textContent = state.seed.toUpperCase();
+    $("#mode-label").textContent = state.options.mode === "56" ? "5–6 PLAYERS" : "3–4 PLAYERS";
+    document.querySelectorAll<HTMLButtonElement>(".mode-btn").forEach((b) =>
+      b.setAttribute("aria-checked", String(b.dataset.mode === state.options.mode)),
+    );
+    let on = 0;
+    document.querySelectorAll<HTMLInputElement>("[data-rule]").forEach((c) => {
+      c.checked = Boolean(state.options[c.dataset.rule as keyof Options]);
+      if (c.checked) on++;
+    });
+    $("#rules-on").textContent = String(on);
+    $("#relaxed").classList.toggle("hidden", board.allRulesMet);
+
+    const prod = production(board);
+    const max = Math.max(...Object.values(prod), 1);
+    for (const [k, v] of Object.entries(prod)) {
+      $(`[data-bar="${k}"]`).style.width = `${(v / max) * 100}%`;
+      $(`[data-pips="${k}"]`).textContent = String(v);
+    }
+    drawSpots();
+    if (updateUrl) history.replaceState(null, "", toHash(state.seed, state.options));
+  }
+
+  function deal() {
+    state.seed = randomSeed();
+    const btn = $("#deal");
+    btn.classList.remove("rolling");
+    void btn.offsetWidth;
+    btn.classList.add("rolling");
+    render(true);
+  }
+
+  $("#deal").addEventListener("click", deal);
+  document.addEventListener("keydown", (e) => {
+    if (e.code !== "Space" || e.repeat) return;
+    const t = e.target as HTMLElement;
+    if (t.closest("input, textarea, select, button, a, summary")) return;
+    e.preventDefault();
+    deal();
+  });
+  document.querySelectorAll<HTMLButtonElement>(".mode-btn").forEach((b) =>
+    b.addEventListener("click", () => {
+      state.options.mode = b.dataset.mode as Options["mode"];
+      render(true);
+    }),
+  );
+  document.querySelectorAll<HTMLInputElement>("[data-rule]").forEach((c) =>
+    c.addEventListener("change", () => {
+      (state.options as unknown as Record<string, boolean>)[c.dataset.rule!] = c.checked;
+      render(true);
+    }),
+  );
+  $("#spots-btn").addEventListener("click", () => {
+    state.showSpots = !state.showSpots;
+    drawSpots();
+  });
+  $("#print").addEventListener("click", () => window.print());
+  async function share() {
+    const link = location.origin + location.pathname + toHash(state.seed, state.options);
+    const status = $("#status");
+    if (navigator.share && matchMedia("(pointer: coarse)").matches) {
+      try {
+        await navigator.share({ title: "Catan board", text: "Here's our Catan board for tonight:", url: link });
+        return;
+      } catch {
+        // Closed the share sheet, or sharing isn't allowed: fall back to copying.
+      }
+    }
+    try {
+      await navigator.clipboard.writeText(link);
+      status.textContent = "Link copied. Anyone who opens it sees this board.";
+    } catch {
+      status.textContent = link;
+    }
+  }
+  $("#share").addEventListener("click", share);
+  $("#share-m").addEventListener("click", share);
+  $("#deal-m").addEventListener("click", deal);
+
+  // Phones: keep Deal within thumb reach while the board is on screen but the panel's
+  // own Deal button isn't.
+  const bar = $("#mobile-bar");
+  const seen = { board: false, deal: true };
+  const update = () => {
+    const show = seen.board && !seen.deal;
+    bar.classList.toggle("show", show);
+    bar.setAttribute("aria-hidden", String(!show));
+    bar.querySelectorAll("button").forEach((b) => (b.tabIndex = show ? 0 : -1));
+  };
+  new IntersectionObserver(([e]) => ((seen.board = e.isIntersecting), update())).observe($("#board"));
+  new IntersectionObserver(([e]) => ((seen.deal = e.intersectionRatio > 0.95), update()), { threshold: [0, 0.95, 1] }).observe($("#deal"));
+
+  // A shared link opens straight on its board; otherwise keep the one built at deploy
+  // (identical, and its deal animation is already playing).
+  if (fromUrl) render(false);
+  else state.board = generate(state.options, state.seed);
+</script>
