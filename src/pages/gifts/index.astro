@@ -9,6 +9,7 @@ import GiftPick from "../../components/GiftPick.astro";
 import { getProduct } from "../../data/products";
 import GiftFaq from "../../components/GiftFaq.astro";
 import ChristmasDelivery from "../../components/ChristmasDelivery.astro";
+import { giftGuides } from "../../data/giftGuides";
 
 // Seasonal title: change it back to "Gifts for Board Gamers (2026): ..." in January.
 const title = "Christmas Gifts for Board Gamers (2026): Upgrades They'll Actually Use";
@@ -84,6 +85,32 @@ const bands = [
       <p class="text-lg text-bark/50">{description}</p>
       <time class="text-sm text-bark/30 mt-3 block">{publishDate}</time>
     </header>
+
+    <section class="mb-12" aria-labelledby="by-game">
+      <h2 id="by-game" class="font-heading text-xl font-bold text-bark mb-1">Know their favourite game?</h2>
+      <p class="text-bark/50 mb-4">Start with its own gift guide: every upgrade we make for it, and who each one suits.</p>
+      <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+        <a href="/games/catan/catan-upgrades/" class="group flex flex-col overflow-hidden rounded-xl border border-clay/30 bg-white hover:border-clay transition-colors">
+          <div class="aspect-square overflow-hidden bg-bark">
+            <img src="/images/catan-upgrades/table-1200.webp" alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" loading="lazy" />
+          </div>
+          <p class="px-3 py-2.5 font-heading text-sm font-bold leading-snug text-bark">
+            Catan upgrades <span class="block font-normal text-bark/50">The whole table →</span>
+          </p>
+        </a>
+        {giftGuides.map((g) => (
+          <a href={g.href} class="group flex flex-col overflow-hidden rounded-xl border border-bark/10 bg-white hover:border-clay/40 transition-colors">
+            <div class="aspect-square overflow-hidden">
+              <img src={g.img} alt="" class="h-full w-full object-cover transition-transform duration-300 group-hover:scale-[1.04]" loading="lazy" />
+            </div>
+            <p class="px-3 py-2.5 font-heading text-sm font-bold leading-snug text-bark">
+              {g.name} <span class="block font-normal text-bark/50">Gift ideas →</span>
+            </p>
+          </a>
+        ))}
+      </div>
+      <p class="mt-4 text-sm text-bark/50">Not sure what they play? Read on: the gifts below are sorted by budget.</p>
+    </section>
 
     <div class="prose-article">
       <p>

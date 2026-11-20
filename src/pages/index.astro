@@ -4,7 +4,8 @@ import ProductCard from "../components/ProductCard.astro";
 import ArticleCard from "../components/ArticleCard.astro";
 import NewReleases from "../components/NewReleases.astro";
 import AppCard from "../components/AppCard.astro";
-import { products, getProduct } from "../data/products";
+import { products } from "../data/products";
+import { giftGuides } from "../data/giftGuides";
 import { apps } from "../data/apps";
 import { games } from "../data/games";
 
@@ -91,21 +92,6 @@ const latestArticles = [
 // Holiday strip: only in builds made in November or December, so the first build
 // in January drops it without anyone having to remember.
 const isHolidaySeason = new Date().getMonth() >= 10;
-
-// One card per game gift guide, each with a photo from that game's own listings
-// (Etsy's 570px size, so the homepage stays light). A delisted product drops its card.
-const giftGuides = [
-  { name: "Catan", href: "/games/catan/catan-gift-ideas/", slug: "catan-robber-upgrade", photo: 6 },
-  { name: "Wingspan", href: "/games/wingspan/wingspan-gift-ideas/", slug: "wingspan-food-tokens", photo: 2 },
-  { name: "Scythe", href: "/games/scythe/scythe-gift-ideas/", slug: "scythe-resource-tokens", photo: 1 },
-  { name: "Agricola", href: "/games/agricola/agricola-gift-ideas/", slug: "agricola-resource-tokens", photo: 1 },
-  { name: "Cascadia", href: "/games/cascadia/cascadia-gift-ideas/", slug: "cascadia-pinecone-tokens", photo: 1 },
-  { name: "Everdell", href: "/games/everdell/everdell-gift-ideas/", slug: "everdell-open-signs", photo: 1 },
-  { name: "Terraforming Mars", href: "/games/terraforming-mars/terraforming-mars-gift-ideas/", slug: "terraforming-mars-player-board", photo: 1 },
-].flatMap((g) => {
-  const url = getProduct(g.slug)?.images[g.photo - 1];
-  return url ? [{ ...g, img: url.replace("il_1588xN", "il_570xN") }] : [];
-});
 ---
 
 <Base
