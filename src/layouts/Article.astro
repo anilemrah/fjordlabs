@@ -34,7 +34,7 @@ const relatedProduct = product ? getProduct(product) : undefined;
 const relatedApp = app ? getApp(app) : undefined;
 
 const siteUrl = "https://www.fjord-labs.com";
-const image = relatedProduct?.image ?? `${siteUrl}/images/og-default.jpg`;
+const image = new URL(relatedProduct?.image ?? "/images/og-default.jpg", siteUrl).href;
 
 // Sibling articles are read from the page files themselves, so this list can't
 // drift from what's published. Without it an article links only to its hub,

@@ -672,6 +672,25 @@ const raw: RawProduct[] = [
       "Tiny 3D-printed pumpkins for harvest-themed games. Ten miniature vegetables that upgrade any farm board.",
   },
 
+  // ── Forest Shuffle ─────────────────────────────────────
+  {
+    slug: "forest-shuffle-insert",
+    price: "25.59",
+    longDescription:
+      "A 3D-printed insert and card organiser for Forest Shuffle that holds the base game and the Alpine, Woodland Edge and Exploration expansions, all sleeved, inside the original base game box with the lid closed. It's two trays: the bottom tray holds the tree cards and all animal and plant cards, and the top tray holds the winter cards, the caves, every Exploration deck and the rest.\n\nEvery card type has its own slot, sized for sleeved cards, with finger cutouts so you can lift a whole stack in one go, and embossed icons (tree, snowflake, cave, trophy, fox, question mark) so each deck goes back in the right place. Lift the trays out onto the table and setup takes seconds, and there's a spot for the scoring pencil too. Printed in forest green PLA. Insert only: the game, cards and sleeves are not included.",
+    title: "Forest Shuffle Insert — Base Game + 3 Expansions, Sleeved",
+    newTagline: "Base game + Alpine, Woodland Edge and Exploration in one box, sleeved",
+    newLinkHref: "/games/forest-shuffle/",
+    newLinkLabel: "Forest Shuffle guides",
+    game: "forest-shuffle",
+    type: "Organizer",
+    category: "Forest Shuffle",
+    isNew: true,
+    images: [1, 2, 3, 4, 5, 6, 7, 8].map((n) => `/images/products/forest-shuffle-insert/${n}.jpg`),
+    link: listing("4621793282", "forest-shuffle-insert-for-sleeved-cards"),
+    description:
+      "3D-printed insert for Forest Shuffle that fits the base game and all three expansions, sleeved, in the original box. Two trays, a slot for every card type.",
+  },
   // ── Resource Tokens ────────────────────────────────────
   {
     slug: "wood-tokens",
@@ -1292,6 +1311,7 @@ export const categories = [
   "Cascadia",
   "Everdell",
   "Agricola & Farming",
+  "Forest Shuffle",
   "Resource Tokens",
   "Organizers & Card Holders",
   "Handmade & Crochet",

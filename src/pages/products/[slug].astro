@@ -283,7 +283,7 @@ const bullets = product.digital
       "@type": "Product",
       name: product.title,
       description: product.longDescription ?? product.description,
-      image: product.images,
+      image: product.images.map((src) => new URL(src, "https://www.fjord-labs.com").href),
       brand: {
         "@type": "Brand",
         name: "Fjord Labs",

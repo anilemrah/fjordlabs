@@ -142,6 +142,18 @@ export const games: Game[] = [
     complexity: "Light-Medium",
   },
   {
+    slug: "forest-shuffle",
+    title: "Forest Shuffle",
+    image: "/images/games/forest-shuffle.jpg",
+    imageCredit: "Photo © Fjord Labs · Forest Shuffle © Lookout Games",
+    description: "Build a forest one tree at a time, then fill it with animals and plants.",
+    heroDescription:
+      "Forest Shuffle (Mischwald in German) is a card game designed by Kosch and published by Lookout Games in 2023. You plant trees, then play animals, plants and mushrooms on their four sides to build the richest forest, and the game ends the moment the third winter card comes out of the deck. It won the 2024 Deutscher Spiele Preis and was on the recommendation list for the 2024 Kennerspiel des Jahres. Three expansions shuffle into the base deck: Alpine, Woodland Edge and Exploration.",
+    playerCount: "2–5 (solo with Exploration)",
+    playTime: "about 60 minutes",
+    complexity: "Light-Medium",
+  },
+  {
     slug: "everdell",
     title: "Everdell",
     image: "/images/games/everdell.svg",

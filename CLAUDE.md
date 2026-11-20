@@ -66,6 +66,7 @@ src/pages/
     ├── flip-7/              # 6 articles + hub
     ├── cascadia/            # 5 articles + hub
     ├── everdell/            # 5 articles + hub
+    ├── forest-shuffle/      # 3 articles + hub
     ├── agricola/            # 4 articles + hub
     └── gloomhaven/          # 6 articles + hub (no products, content only)
 ├── apps/
@@ -90,7 +91,7 @@ Placeholder SVGs in `public/images/games/`. Need to be replaced with real box ar
 - "Geek" / gaming-themed feel (hex grid backgrounds, quest log, loot shop language)
 - Articles must be visually engaging — use InfoBox, StepList, KeyTakeaway, tables, cards. Never walls of text.
 
-## Current State (160 pages live, 59 products — synced with Etsy 2026-10-09, plus the Cities & Knights commodity tokens added 2026-10-20; the Catan blanket sold out for good on 2026-11-19)
+## Current State (160 pages live, 60 products — synced with Etsy 2026-10-09, plus the Cities & Knights commodity tokens added 2026-10-20 and the Forest Shuffle insert added 2026-11-20; the Catan blanket sold out for good on 2026-11-19)
 
 ### Games with products + articles
 - **Catan** — 10 articles, 9 products (incl. Cities & Knights commodity tokens). The handmade blanket sold out for good in Nov 2026 and redirects to the gift guide.
@@ -109,6 +110,9 @@ Placeholder SVGs in `public/images/games/`. Need to be replaced with real box ar
 - **Cascadia** — 5 articles, 2 products (Game Tray, Pinecone Tokens)
 - **Everdell** — 5 articles, 2 products (Open Signs, Forest Upgrade Kit)
 - **Agricola** — 4 articles, 3 products (Resource Bundle, Rice & Reed, Pumpkins)
+- **Forest Shuffle** — 3 articles, 1 product (insert for the base game + Alpine, Woodland Edge and Exploration,
+  sleeved). Its photos are hosted on the site (`public/images/products/forest-shuffle-insert/`, resized from
+  Anil's originals with the metadata stripped), not on Etsy's CDN, so JSON-LD wraps image paths in `new URL()`.
 
 ### Games with articles only (no products)
 - **Gloomhaven** — 6 beginner-facing articles. Deliberately scoped to newcomer

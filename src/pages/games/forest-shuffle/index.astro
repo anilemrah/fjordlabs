@@ -1,0 +1,114 @@
+---
+import Base from "../../../layouts/Base.astro";
+import GameBoxImage from "../../../components/GameBoxImage.astro";
+import ProductCard from "../../../components/ProductCard.astro";
+import ArticleCard from "../../../components/ArticleCard.astro";
+import { getProductsByGame } from "../../../data/products";
+import { getGame } from "../../../data/games";
+
+const game = getGame("forest-shuffle")!;
+const forestProducts = getProductsByGame("forest-shuffle");
+
+const articles = {
+  expansions: [
+    {
+      title: "Forest Shuffle Expansions: Alpine vs Woodland Edge vs Exploration",
+      description: "What each one adds, which to buy first, and whether you can mix them.",
+      href: "/games/forest-shuffle/forest-shuffle-expansions/",
+    },
+    {
+      title: "How to Store Forest Shuffle With All Three Expansions (Sleeved)",
+      description: "307 cards, one box: card counts, sleeve size and how to sort it all.",
+      href: "/games/forest-shuffle/forest-shuffle-storage/",
+    },
+  ],
+  guides: [
+    {
+      title: "Is Forest Shuffle Worth It? Who It's For, and Who Should Skip It",
+      description: "Two players, families, solo, Wingspan fans: an honest look before you buy.",
+      href: "/games/forest-shuffle/is-forest-shuffle-worth-it/",
+    },
+  ],
+};
+---
+
+<Base
+  title="Forest Shuffle: Expansions, Guides & Insert | Fjord Labs"
+  description="Forest Shuffle guides: what the Alpine, Woodland Edge and Exploration expansions add, how to store everything sleeved in one box, and whether the game is worth it."
+>
+  <section class="py-16 md:py-20 px-6 bg-sand/50 border-b border-bark/5">
+    <div class="max-w-4xl mx-auto">
+      <nav class="flex items-center gap-2 text-sm text-bark/40 mb-6">
+        <a href="/" class="hover:text-clay transition-colors">Home</a>
+        <span>/</span>
+        <span class="text-bark/60">Forest Shuffle</span>
+      </nav>
+
+      <div class="flex flex-col sm:flex-row gap-6 items-start">
+        <GameBoxImage game={game} />
+        <div>
+          <h1 class="text-3xl md:text-5xl font-heading font-bold text-bark mb-4 leading-tight">
+            Forest Shuffle
+          </h1>
+          <p class="text-lg text-bark/50 max-w-2xl leading-relaxed mb-6">
+            {game.heroDescription}
+          </p>
+
+          <div class="flex flex-wrap gap-6 text-sm text-bark/40">
+            <div><span class="font-semibold text-bark/60">Players:</span> {game.playerCount}</div>
+            <div><span class="font-semibold text-bark/60">Play Time:</span> {game.playTime}</div>
+            <div><span class="font-semibold text-bark/60">Complexity:</span> {game.complexity}</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Expansions & Storage</h2>
+      <p class="text-bark/40 mb-8">Three expansions, one box. What to buy and how to keep it all sorted.</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.expansions.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <section class="py-14 px-6 bg-sand/30">
+    <div class="max-w-6xl mx-auto">
+      <h2 class="text-2xl font-heading font-bold text-bark mb-2">Before You Buy</h2>
+      <p class="text-bark/40 mb-8">Is Forest Shuffle the right game for your table?</p>
+      <div class="grid md:grid-cols-2 gap-6">
+        {articles.guides.map((a) => (
+          <ArticleCard title={a.title} description={a.description} href={a.href} category="Guide" />
+        ))}
+      </div>
+    </div>
+  </section>
+
+  {forestProducts.length > 0 && (
+    <section class="py-14 px-6 bg-sand/50 border-t border-bark/5">
+      <div class="max-w-6xl mx-auto">
+        <h2 class="text-2xl font-heading font-bold text-bark mb-2">Forest Shuffle Accessories</h2>
+        <p class="text-bark/40 mb-8">Made for sleeved cards and all three expansions. 3D-printed in Sweden.</p>
+        <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+          {forestProducts.map((product) => <ProductCard product={product} />)}
+        </div>
+      </div>
+    </section>
+  )}
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "CollectionPage",
+      name: "Forest Shuffle: Expansions, Guides & Insert",
+      description:
+        "Guides to Forest Shuffle and its Alpine, Woodland Edge and Exploration expansions, plus a 3D-printed insert for the whole collection.",
+      url: "https://www.fjord-labs.com/games/forest-shuffle/",
+    })}
+  />
+</Base>
