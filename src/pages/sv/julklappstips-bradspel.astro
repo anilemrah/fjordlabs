@@ -1,0 +1,150 @@
+---
+// Swedish Christmas gift guide. Written for Swedish searches ("julklapp brädspel",
+// "julklappstips brädspel"), not a translation of /gifts/. Every card goes straight
+// to Etsy with the price in kronor. Seasonal: retitle or retire it in January.
+import Base from "../../layouts/Base.astro";
+import SvPick from "../../components/SvPick.astro";
+import GiftFaq from "../../components/GiftFaq.astro";
+
+const title = "Julklappstips till brädspelaren 2026: 3D-printade tillbehör från Sverige";
+const description =
+  "Julklappstips till den som älskar brädspel: tillbehör till Catan, Wingspan, Cascadia och fler, 3D-printade i vår verkstad i Sverige. Från ca 40 kr.";
+const url = "https://www.fjord-labs.com/sv/julklappstips-bradspel/";
+
+const bands = [
+  {
+    heading: "Under 100 kr: smått och gott",
+    intro: "Små saker som ändå kommer fram på varje spelkväll.",
+    picks: [
+      { slug: "card-holder", name: "Kortställ", note: "Ett kortställ i trappsteg som funkar till alla spel. Perfekt för barn och för alla som tappar korten." },
+      { slug: "universal-player-tray", name: "Spelarbricka till alla spel", note: "Fack för resurser och en list för kort i samma bricka. Funkar till nästan hela spelhyllan." },
+      { slug: "cascadia-pinecone-tokens", name: "Kottar till Cascadia", note: "Riktiga små kottar i stället för Cascadias naturmarkörer i kartong." },
+      { slug: "wingspan-puffin-token", name: "Lunnefågel till Wingspan", note: "En 3D-printad lunnefågel som startspelarmarkör. Liten, billig och precis i deras smak." },
+      { slug: "catan-trophies", name: "Troféer till Catan", note: "Troféer för Längsta vägen och Största armén, plus ett snigelpris till den som spelar långsammast." },
+      { slug: "everdell-open-signs", name: "Öppet-skyltar till Everdell", note: "Sex små skyltar till affärerna i Everdell. En liten uppgradering som syns på bordet." },
+    ],
+  },
+  {
+    heading: "100–250 kr: den perfekta mellanklappen",
+    intro: "Uppgraderingar till spelet de redan älskar, och några saker till hemmet.",
+    picks: [
+      { slug: "catan-robber-upgrade", name: "Tjuvfigur till Catan", note: "En tjuv i kåpa som bär på ett stulet får och ett knippe ved, i stället för den grå pjäsen." },
+      { slug: "wingspan-food-tokens", name: "Mat till Wingspan", note: "Maskar, frön, bär, fisk och gnagare i stället för matmarkörerna i kartong, det man rör vid nästan varje drag." },
+      { slug: "dragon-egg-dice-bag", name: "Tärningspåse: drakägg", note: "En handvirkad tärningspåse formad som ett drakägg. Varje rollspelsbord behöver en skatt att vakta." },
+      { slug: "meeple-wall-art", name: "Meeple-tavla", note: "En minimalistisk meeple för väggen i spelrummet eller på kontoret. Säger brädspel utan ett ord." },
+      { slug: "catan-resource-tokens", name: "Resurser till Catan", note: "Små vedträn, tegelstenar, får, vetekärvar och malm i stället för resurskorten. Vår mest sålda uppgradering." },
+      { slug: "meeple-coffee-filter-holder", name: "Meeple-hållare för kaffefilter", note: "En meeple som håller upp till 100 kaffefilter. För brädspelaren som också har en kaffekvarn på hyllan." },
+      { slug: "forest-shuffle-insert", name: "Insats till Forest Shuffle", note: "Två lådor som rymmer grundspelet och alla tre expansionerna, med sleevade kort, i originalkartongen." },
+    ],
+  },
+  {
+    heading: "Över 250 kr: den stora klappen",
+    intro: "Till den vars favoritspel förtjänar hela paketet.",
+    picks: [
+      { slug: "catan-trophy", name: "Ruler of Catan-pokal", note: "En glänsande guldpokal till den som vinner spelkvällen. Den går vidare till nästa vinnare." },
+      { slug: "agricola-resource-tokens", name: "Resurser till Agricola", note: "En komplett uppsättning 3D-printade resurser till Agricola och andra bondespel." },
+      { slug: "duel-of-meloch-insert-lids", name: "Insats med lock till Duel of Meloch", note: "Vår mest kompletta insats: lådor med lock i fyra färger till Stonemaiers Duel of Meloch." },
+    ],
+  },
+];
+
+const faqs = [
+  {
+    q: "Vad ger man en brädspelare i julklapp?",
+    a: "Ett tillbehör till ett spel de redan har och spelar ofta, till exempel 3D-printade resurser eller en insats som håller ordning i lådan. Det är säkrare än ett nytt spel, som de kanske redan äger eller aldrig hinner spela.",
+  },
+  {
+    q: "Hinner det fram före jul?",
+    a: "Vi skickar från vår verkstad i Sverige inom 3–5 arbetsdagar. När vi kollade den 18 november uppskattade Etsy 7–10 dagar från beställning till leverans inom Sverige. Posten har mycket att göra i december, så beställ gärna i god tid. På varje Etsy-annons ser du beräknat leveransdatum till din adress.",
+  },
+  {
+    q: "Kan jag betala i kronor?",
+    a: "Ja. Vi säljer via vår Etsy-butik, där priserna visas i kronor och du betalar i Etsys kassa. Etsy har också köpskydd om något skulle gå fel.",
+  },
+];
+---
+
+<Base title={`${title} | Fjord Labs`} description={description} canonical={url} type="article" lang="sv">
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <nav class="mb-8 flex items-center gap-2 text-sm text-bark/40">
+      <a href="/" class="hover:text-clay transition-colors">Hem</a>
+      <span>/</span>
+      <span class="text-bark/60">Julklappstips</span>
+    </nav>
+
+    <header class="mb-8">
+      <div class="mb-4 flex flex-wrap items-center gap-2">
+        <span class="rounded-full bg-forest/10 px-3 py-1 text-xs font-semibold text-forest">🎄 Julklappstips 2026</span>
+        <span class="inline-flex items-center gap-1.5 rounded-full bg-white border border-bark/10 px-3 py-1 text-xs font-semibold text-bark/60">
+          <img src="/images/sweden.png" alt="" class="h-3.5 w-3.5 rounded-sm" /> Gjort i Sverige
+        </span>
+      </div>
+      <h1 class="mb-4 font-heading text-3xl font-bold leading-tight text-bark md:text-4xl">Julklappstips till brädspelaren</h1>
+      <p class="text-lg text-bark/60">
+        Brädspelare har redan sina favoritspel. Det som brukar uppskattas mest är något som gör spelet de redan
+        älskar ännu roligare: resurser att hålla i, en figur med karaktär, en låda där allt får plats. Allt här är
+        designat och 3D-printat av oss i Sverige, och du köper det i vår Etsy-butik.
+      </p>
+    </header>
+
+    <div class="mb-10 rounded-2xl border border-forest/20 bg-forest/5 p-5">
+      <p class="font-heading font-bold text-forest">Tips: kika i spelhyllan först</p>
+      <p class="mt-1 text-bark/70">
+        Ett tillbehör till ett spel de spelar varje vecka slår ett nytt spel som kanske aldrig kommer upp på bordet.
+        Vet du inte vad de spelar? Catan, Wingspan och Cascadia finns i väldigt många hem.
+      </p>
+    </div>
+
+    {
+      bands.map((band) => (
+        <section class="mb-12">
+          <h2 class="font-heading text-2xl font-bold text-bark">{band.heading}</h2>
+          <p class="mb-5 mt-1 text-bark/60">{band.intro}</p>
+          <div class="space-y-4">
+            {band.picks.map((p) => (
+              <SvPick slug={p.slug} name={p.name} note={p.note} />
+            ))}
+          </div>
+        </section>
+      ))
+    }
+
+    <section class="mb-12 rounded-2xl border border-bark/10 bg-sand/60 p-6">
+      <h2 class="font-heading text-xl font-bold text-bark">Hinner det fram till jul?</h2>
+      <p class="mt-2 text-bark/70">
+        Allt skickas från vår verkstad i Sverige inom 3–5 arbetsdagar. När vi kollade den 18 november uppskattade
+        Etsy 7–10 dagar från beställning till leverans inom Sverige, så paketet behöver inte gå genom tullen och
+        kommer fram snabbare än från utlandet. Beställ gärna i god tid, posten har mycket att göra i december.
+      </p>
+    </section>
+
+    <a href="/sv/catan-tillbehor/" class="group mb-12 grid overflow-hidden rounded-2xl border border-bark/10 bg-white hover:border-clay/40 transition-colors sm:grid-cols-[200px_1fr]">
+      <img src="/images/catan-upgrades/table-1200.webp" alt="Catan med 3D-printade tillbehör på bordet" class="h-40 w-full object-cover sm:h-full" loading="lazy" />
+      <div class="p-5">
+        <p class="text-xs font-semibold uppercase tracking-[0.12em] text-clay">Spelar de Catan?</p>
+        <p class="mt-1 font-heading text-xl font-bold text-bark">Alla våra Catan-tillbehör på ett ställe</p>
+        <p class="mt-1 text-sm text-bark/60">Resurser, tjuvfigur, troféer, poängräknare och spelarbrickor →</p>
+      </div>
+    </a>
+
+    <div class="prose-article">
+      <GiftFaq heading="Vanliga frågor" faqs={faqs} />
+      <p class="text-sm text-bark/40">
+        Priserna är ungefärliga och kan ändras. Det slutliga priset ser du på Etsy. Fjord Labs är ett litet företag i
+        Sverige och har inget samarbete med spelens förlag.
+      </p>
+    </div>
+  </article>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Hem", item: "https://www.fjord-labs.com/" },
+        { "@type": "ListItem", position: 2, name: "Julklappstips", item: url },
+      ],
+    })}
+  />
+</Base>

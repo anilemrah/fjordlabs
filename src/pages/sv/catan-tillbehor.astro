@@ -1,0 +1,120 @@
+---
+// Swedish Catan accessories page, written for "catan tillbehör" and similar Swedish
+// searches. Not a translation of the English upgrade guide; every card goes straight to
+// Etsy with the price in kronor.
+import Base from "../../layouts/Base.astro";
+import SvPick from "../../components/SvPick.astro";
+import GiftFaq from "../../components/GiftFaq.astro";
+
+const title = "Catan-tillbehör: 3D-printade uppgraderingar från Sverige";
+const description =
+  "Tillbehör till Catan, 3D-printade i Sverige: resurser att hålla i, en tjuvfigur, troféer för Längsta vägen och Största armén, poängräknare och spelarbrickor. Köp på Etsy.";
+const url = "https://www.fjord-labs.com/sv/catan-tillbehor/";
+
+const picks = [
+  { slug: "catan-resource-tokens", name: "Resurser till Catan", note: "Små vedträn, tegelstenar, får, vetekärvar och malm i stället för resurskorten. Man märker skillnaden varje drag, och nya spelare lär sig snabbare när ett får faktiskt ser ut som ett får." },
+  { slug: "catan-robber-upgrade", name: "Tjuvfigur", note: "En tjuv i kåpa med ett stulet får och ett knippe ved, i stället för den grå pjäsen. En sjua är spelets mest dramatiska ögonblick, nu ser det ut så också." },
+  { slug: "catan-trophies", name: "Troféer: Längsta vägen och Största armén", note: "Två troféer som går runt bordet under kvällen, plus ett snigelpris till den som spelar långsammast." },
+  { slug: "catan-trophy", name: "Ruler of Catan-pokal", note: "En glänsande guldpokal till den som vinner. Ställ den hos vinnaren tills nästa spelkväll." },
+  { slug: "catan-score-tracker", name: "Poängräknare", note: "Alla ser ställningen direkt, och ingen behöver räkna om sina poäng mitt i spelet." },
+  { slug: "catan-player-tray", name: "Spelarbricka", note: "En bricka per spelare med plats för kort och pjäser, så att bordet håller sig fritt." },
+  { slug: "catan-cities-knights-commodity-tokens", name: "Råvarumarkörer till Cities & Knights", note: "36 markörer, papper, tyg och mynt, i stället för råvarukorten i expansionen Cities & Knights." },
+];
+
+const stl = [
+  { slug: "catan-player-tray-stl", name: "Spelarbricka som STL-fil", note: "Har du en 3D-skrivare? Ladda ner filen och skriv ut en bricka till varje spelare, i valfri färg." },
+  { slug: "catan-score-tracker-stl", name: "Poängräknare som STL-fil", note: "Samma poängräknare som fil, att skriva ut hemma." },
+];
+
+const faqs = [
+  {
+    q: "Vilken Catan-uppgradering ska man börja med?",
+    a: "Resurserna, eftersom man hanterar dem varje drag. Vill du hålla nere kostnaden är troféerna för Längsta vägen och Största armén det billigaste sättet att göra spelet mer festligt, och tjuvfiguren gör varje sjua till en händelse.",
+  },
+  {
+    q: "Kan man köpa tillbehören i Sverige?",
+    a: "Ja. Vi finns i Sverige och skickar härifrån, så leveransen inom Sverige går snabbt och utan tull. Du beställer i vår Etsy-butik och betalar i kronor.",
+  },
+  {
+    q: "Passar de som julklapp?",
+    a: "Ja, särskilt till någon som redan har Catan och spelar ofta. Fler idéer, även till andra spel, finns i våra julklappstips till brädspelaren.",
+  },
+];
+---
+
+<Base title={`${title} | Fjord Labs`} description={description} canonical={url} type="article" lang="sv">
+  <article class="mx-auto max-w-3xl px-6 py-12">
+    <nav class="mb-8 flex items-center gap-2 text-sm text-bark/40">
+      <a href="/" class="hover:text-clay transition-colors">Hem</a>
+      <span>/</span>
+      <span class="text-bark/60">Catan-tillbehör</span>
+    </nav>
+
+    <header class="mb-8">
+      <span class="mb-4 inline-flex items-center gap-1.5 rounded-full bg-white border border-bark/10 px-3 py-1 text-xs font-semibold text-bark/60">
+        <img src="/images/sweden.png" alt="" class="h-3.5 w-3.5 rounded-sm" /> 3D-printat i Sverige
+      </span>
+      <h1 class="mb-4 font-heading text-3xl font-bold leading-tight text-bark md:text-4xl">Catan-tillbehör från vår verkstad</h1>
+      <p class="text-lg text-bark/60">
+        Catan är spelet vi själva spelar mest, så det är dit de flesta av våra tillbehör har gått. Allt är designat och
+        3D-printat av oss i Sverige, och du köper det i vår Etsy-butik.
+      </p>
+    </header>
+
+    <figure class="mb-10 overflow-hidden rounded-2xl border border-bark/10">
+      <img src="/images/catan-upgrades/table-1200.webp" alt="Ett parti Catan med tjuvfigur, resurser, troféer, poängräknare och spelarbrickor" class="w-full" loading="lazy" />
+      <figcaption class="bg-white px-4 py-2.5 text-sm text-bark/50">Hela bordet uppgraderat med våra tillbehör.</figcaption>
+    </figure>
+
+    <section class="mb-12">
+      <h2 class="font-heading text-2xl font-bold text-bark">Uppgraderingarna</h2>
+      <p class="mb-5 mt-1 text-bark/60">Börja med det ni rör vid oftast, och bygg på efter hand.</p>
+      <div class="space-y-4">
+        {picks.map((p) => <SvPick slug={p.slug} name={p.name} note={p.note} />)}
+      </div>
+    </section>
+
+    <section class="mb-12">
+      <h2 class="font-heading text-2xl font-bold text-bark">Har du en egen 3D-skrivare?</h2>
+      <p class="mb-5 mt-1 text-bark/60">Köp filerna i stället och skriv ut så många du vill. Ingen frakt, du laddar ner direkt.</p>
+      <div class="space-y-4">
+        {stl.map((p) => <SvPick slug={p.slug} name={p.name} note={p.note} />)}
+      </div>
+    </section>
+
+    <a href="/games/catan/catan-board-generator/" class="group mb-6 flex items-center gap-4 rounded-2xl bg-[#11251f] p-5 text-cream hover:bg-[#163029] transition-colors">
+      <span class="text-3xl" aria-hidden="true">🎲</span>
+      <span class="flex-1">
+        <span class="block text-xs font-semibold uppercase tracking-[0.12em] text-[#E09A55]">Gratis verktyg</span>
+        <span class="block font-heading text-lg font-bold">Slumpa fram en rättvis Catan-karta</span>
+        <span class="block text-sm text-cream/60">För 3–4 eller 5–6 spelare, utan 6:or och 8:or bredvid varandra. Sidan är på engelska.</span>
+      </span>
+      <span class="font-semibold text-[#E09A55]">→</span>
+    </a>
+
+    <a href="/sv/julklappstips-bradspel/" class="mb-12 block rounded-2xl border border-forest/20 bg-forest/5 p-5 hover:border-forest/40 transition-colors">
+      <span class="block font-heading font-bold text-forest">🎄 Letar du julklappar?</span>
+      <span class="block text-bark/70">Julklappstips till brädspelaren, till Catan och många andra spel →</span>
+    </a>
+
+    <div class="prose-article">
+      <GiftFaq heading="Vanliga frågor" faqs={faqs} />
+      <p class="text-sm text-bark/40">
+        Priserna är ungefärliga och kan ändras. Det slutliga priset ser du på Etsy. Catan är ett varumärke som tillhör
+        Catan GmbH. Fjord Labs har inget samarbete med Catan GmbH.
+      </p>
+    </div>
+  </article>
+
+  <script
+    type="application/ld+json"
+    set:html={JSON.stringify({
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      itemListElement: [
+        { "@type": "ListItem", position: 1, name: "Hem", item: "https://www.fjord-labs.com/" },
+        { "@type": "ListItem", position: 2, name: "Catan-tillbehör", item: url },
+      ],
+    })}
+  />
+</Base>

@@ -167,6 +167,14 @@ e.g. `/apps/game-night/christmas-charades/` and `halloween-charades/` (shared
 in `apps.ts` so the app page links to it. Write the content ourselves: never
 copy an app's PRO deck onto the web.
 
+## Swedish pages (`/sv/`)
+A few pages written in Swedish for Swedish searches ("julklapp brädspel", "catan tillbehör"). They're
+not translations of English pages, so they have no hreflang pairs. They pass `lang="sv"` to `Base` (sets
+`<html lang>` and `og:locale`); the nav and footer stay English. Product cards use `SvPick`: a Swedish
+name and note, the price in kronor from `priceSek()` (USD × `SEK_PER_USD`), and a button straight to Etsy.
+Linked from the footer ("På svenska"), `/gifts/` and the Catan hub. Facts about the Swedish Catan
+edition's wording (rövaren/rånaren, ull/får) weren't verified, so the copy describes pieces plainly.
+
 ## `/thanks/` — QR code landing page
 **Never rename or move `src/pages/thanks.astro`.** Its URL is printed on
 physical QR codes shipped inside Etsy orders, so changing it silently breaks

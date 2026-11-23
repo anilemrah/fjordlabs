@@ -1301,6 +1301,14 @@ export const products: Product[] = raw.map((p) => ({
 // strikethrough prices disappear site-wide automatically.
 export const DISCOUNT_PERCENT = 10;
 
+/** The rate used to turn Etsy's SEK prices into the USD `price` above (Anil's figure). */
+export const SEK_PER_USD = 9.67;
+
+/** A product's price in kronor, as Swedish buyers see it on Etsy (rounded). */
+export function priceSek(p: Product) {
+  return p.price ? Math.round(parseFloat(p.price) * SEK_PER_USD) : undefined;
+}
+
 export const categories = [
   "Catan",
   "Wingspan",
