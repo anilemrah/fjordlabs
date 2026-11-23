@@ -172,7 +172,8 @@ A few pages written in Swedish for Swedish searches ("julklapp brädspel", "cata
 not translations of English pages, so they have no hreflang pairs. They pass `lang="sv"` to `Base` (sets
 `<html lang>` and `og:locale`); the nav and footer stay English. Product cards use `SvPick`: a Swedish
 name and note, the price in kronor from `priceSek()` (USD × `SEK_PER_USD`), and a button straight to Etsy.
-Linked from the footer ("På svenska"), `/gifts/` and the Catan hub. Facts about the Swedish Catan
+**Not linked from the English site on purpose**: Anil wants the site to look global, so the
+Swedish pages are found only through the sitemap and Google. They link to each other and to English pages. Facts about the Swedish Catan
 edition's wording (rövaren/rånaren, ull/får) weren't verified, so the copy describes pieces plainly.
 
 ## `/thanks/` — QR code landing page
